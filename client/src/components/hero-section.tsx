@@ -6,7 +6,7 @@ export default function HeroSection() {
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+          src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
           alt="MMA training at Kaizen gym" 
           className="w-full h-full object-cover"
         />
@@ -52,7 +52,7 @@ export default function HeroSection() {
           <div className="text-sm text-gray-300">Reseñas</div>
         </div>
         <div className="bg-kaizen-dark/80 backdrop-blur-md px-6 py-4 rounded-lg border border-gray-700">
-          <div className="text-2xl font-bold text-kaizen-gold">5</div>
+          <div className="text-2xl font-bold text-kaizen-gold">4</div>
           <div className="text-sm text-gray-300">Disciplinas</div>
         </div>
       </div>

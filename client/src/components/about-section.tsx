@@ -13,7 +13,7 @@ export default function AboutSection() {
               En Kaizen creemos en la <strong className="text-kaizen-gold">mejora continua</strong>. Cada día es una oportunidad para ser mejor que ayer, tanto dentro como fuera del tatami.
             </p>
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Nuestro gimnasio en Burgos ofrece entrenamiento de nivel mundial en MMA, kickboxing, Brazilian Jiu-Jitsu, karate y boxeo. Desde principiantes hasta luchadores profesionales, todos encuentran su lugar en nuestra familia.
+              Nuestro gimnasio en Burgos ofrece entrenamiento de nivel mundial en MMA, kickboxing, Brazilian Jiu-Jitsu y boxeo. Desde principiantes hasta luchadores profesionales, todos encuentran su lugar en nuestra familia.
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
@@ -28,7 +28,7 @@ export default function AboutSection() {
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+              src="https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
               alt="Brazilian Jiu Jitsu training at Kaizen Burgos" 
               className="rounded-xl shadow-2xl"
             />

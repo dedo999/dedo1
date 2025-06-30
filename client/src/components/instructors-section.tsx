@@ -8,7 +8,7 @@ export default function InstructorsSection() {
       description: "Experto en MMA y Brazilian Jiu-Jitsu con más de 15 años de experiencia en competición y enseñanza.",
       specialties: ["MMA", "BJJ"],
       icon: Shield,
-      instagram: "https://instagram.com/antonioalonsoantonioalonso"
+      instagram: "https://www.instagram.com/kaizen_burgos?igsh=YW9qcnNtN3ZkdWJw"
     },
     {
       name: "Carlos Martínez",

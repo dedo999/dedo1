@@ -99,8 +99,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-white mb-1">Instagram</h4>
-                  <a href="https://instagram.com/antonioalonsoantonioalonso" target="_blank" rel="noopener noreferrer" className="text-kaizen-gold hover:text-yellow-400 transition-colors">
-                    @antonioalonsoantonioalonso
+                  <a href="https://www.instagram.com/kaizen_burgos?igsh=YW9qcnNtN3ZkdWJw" target="_blank" rel="noopener noreferrer" className="text-kaizen-gold hover:text-yellow-400 transition-colors">
+                    @kaizen_burgos
                   </a>
                 </div>
               </div>
@@ -185,7 +185,6 @@ export default function ContactSection() {
                     <SelectItem value="kickboxing">Kickboxing</SelectItem>
                     <SelectItem value="bjj">Brazilian Jiu-Jitsu</SelectItem>
                     <SelectItem value="boxeo">Boxeo</SelectItem>
-                    <SelectItem value="karate">Karate</SelectItem>
                     <SelectItem value="infantiles">Clases Infantiles</SelectItem>
                     <SelectItem value="no-seguro">No estoy seguro/a</SelectItem>
                   </SelectContent>

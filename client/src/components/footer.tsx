@@ -27,11 +27,11 @@ export default function Footer() {
               <div className="ml-2 text-lg font-medium text-kaizen-gold">BURGOS</div>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Gimnasio de artes marciales en Burgos especializado en MMA, kickboxing, Brazilian Jiu-Jitsu, karate y boxeo. Filosofía de mejora continua.
+              Gimnasio de artes marciales en Burgos especializado en MMA, kickboxing, Brazilian Jiu-Jitsu y boxeo. Filosofía de mejora continua.
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/antonioalonsoantonioalonso" 
+                href="https://www.instagram.com/kaizen_burgos?igsh=YW9qcnNtN3ZkdWJw" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-kaizen-gold hover:text-yellow-400 transition-colors"

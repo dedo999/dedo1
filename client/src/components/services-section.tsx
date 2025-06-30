@@ -4,37 +4,31 @@ export default function ServicesSection() {
       title: "MMA",
       description: "Artes marciales mixtas combinando striking, grappling y lucha en el suelo. El deporte de combate más completo.",
       tags: ["Principiantes", "Avanzado", "Competición"],
-      image: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
     },
     {
       title: "Kickboxing",
       description: "Combina boxeo con patadas. Excelente para fitness, defensa personal y técnica de striking.",
       tags: ["Fitness", "Técnica", "Cardio"],
-      image: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      image: "https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
     },
     {
       title: "Brazilian Jiu-Jitsu",
       description: "Arte suave que enfatiza la técnica sobre la fuerza. Ideal para autodefensa y desarrollo mental.",
       tags: ["Gi", "No-Gi", "Self-Defense"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      image: "https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
     },
     {
       title: "Boxeo",
       description: "El arte noble de golpear. Desarrolla coordinación, velocidad y potencia en el tren superior.",
       tags: ["Técnica", "Sparring", "Fitness"],
-      image: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
-    },
-    {
-      title: "Karate",
-      description: "Arte marcial tradicional que desarrolla disciplina, respeto y técnicas de golpeo lineales.",
-      tags: ["Katas", "Kumite", "Tradicional"],
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
     },
     {
       title: "Clases Infantiles",
-      description: "Programas especiales para niños que desarrollan disciplina, respeto y confianza.",
+      description: "Programas especiales para niños que desarrollan disciplina, respeto y confianza a través de artes marciales.",
       tags: ["6-12 años", "Diversión", "Valores"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
     }
   ];
 
