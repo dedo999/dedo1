@@ -103,6 +103,7 @@ This is a full-stack web application for Kaizen Burgos, a martial arts gymnasium
 ```
 Changelog:
 - June 30, 2025. Initial setup
+- June 30, 2025. Updated with realistic martial arts images and removed karate classes per user requirements. Updated Instagram links to @kaizen_burgos
 ```
 
 ## User Preferences

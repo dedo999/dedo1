@@ -16,7 +16,7 @@ export default function ScheduleSection() {
     },
     {
       time: "19:00-20:00",
-      classes: ["BJJ No-Gi", "Karate", "BJJ Avanzado", "MMA", "BJJ Open", ""]
+      classes: ["BJJ No-Gi", "MMA", "BJJ Avanzado", "MMA", "BJJ Open", ""]
     },
     {
       time: "20:00-21:00",
@@ -34,7 +34,7 @@ export default function ScheduleSection() {
     if (className.includes("BJJ") || className.includes("Grappling") || className.includes("Open")) {
       return "bg-kaizen-gold/20 text-kaizen-gold";
     }
-    if (className.includes("MMA") || className.includes("Kickboxing") || className.includes("Boxeo") || className.includes("Karate") || className.includes("Sparring")) {
+    if (className.includes("MMA") || className.includes("Kickboxing") || className.includes("Boxeo") || className.includes("Sparring")) {
       return "bg-kaizen-red/20 text-kaizen-red";
     }
     return "";
