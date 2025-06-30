@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(0, 84.2%, 60.2%);
+  --primary-foreground: hsl(60, 9.1%, 97.8%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Kaizen brand colors */
+  --kaizen-red: hsl(0, 84%, 55%);
+  --kaizen-gold: hsl(45, 93%, 58%);
+  --kaizen-dark: hsl(0, 0%, 6%);
+  --kaizen-darker: hsl(0, 0%, 4%);
+  --kaizen-gray: hsl(215, 16%, 47%);
+  --kaizen-light-gray: hsl(215, 20%, 65%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(0, 0%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 6%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(0, 84%, 55%);
+  --primary-foreground: hsl(60, 9.1%, 97.8%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-kaizen-darker text-white;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-kaizen-red {
+    color: var(--kaizen-red);
+  }
+  
+  .text-kaizen-gold {
+    color: var(--kaizen-gold);
+  }
+  
+  .bg-kaizen-red {
+    background-color: var(--kaizen-red);
+  }
+  
+  .bg-kaizen-gold {
+    background-color: var(--kaizen-gold);
+  }
+  
+  .bg-kaizen-dark {
+    background-color: var(--kaizen-dark);
+  }
+  
+  .bg-kaizen-darker {
+    background-color: var(--kaizen-darker);
+  }
+  
+  .border-kaizen-red {
+    border-color: var(--kaizen-red);
+  }
+  
+  .border-kaizen-gold {
+    border-color: var(--kaizen-gold);
+  }
+
+  .hover\:bg-kaizen-red:hover {
+    background-color: var(--kaizen-red);
+  }
+
+  .hover\:text-kaizen-red:hover {
+    color: var(--kaizen-red);
+  }
+
+  .hover\:text-kaizen-gold:hover {
+    color: var(--kaizen-gold);
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s infinite;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
