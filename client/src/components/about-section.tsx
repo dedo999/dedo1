@@ -28,7 +28,7 @@ export default function AboutSection() {
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
               alt="Brazilian Jiu Jitsu training at Kaizen Burgos" 
               className="rounded-xl shadow-2xl"
             />
