@@ -5,14 +5,13 @@ export default function ServicesSection() {
       description: "Artes marciales mixtas combinando striking, grappling y lucha en el suelo. El deporte de combate más completo.",
       tags: ["Principiantes", "Avanzado", "Competición"],
       svgIcon: (
-        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
-          <rect width="200" height="150" fill="#1a1a1a"/>
-          <circle cx="70" cy="60" r="15" fill="#dc2626" opacity="0.8"/>
-          <circle cx="130" cy="60" r="15" fill="#dc2626" opacity="0.8"/>
-          <rect x="60" y="70" width="20" height="40" fill="#dc2626" opacity="0.6"/>
-          <rect x="120" y="70" width="20" height="40" fill="#dc2626" opacity="0.6"/>
-          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">MMA</text>
-        </svg>
+        <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
+          <img 
+            src="/mma-image.jpg" 
+            alt="MMA training at Kaizen Burgos"
+            className="w-full h-full object-cover"
+          />
+        </div>
       )
     },
     {
@@ -20,14 +19,13 @@ export default function ServicesSection() {
       description: "Combina boxeo con patadas. Excelente para fitness, defensa personal y técnica de striking.",
       tags: ["Fitness", "Técnica", "Cardio"],
       svgIcon: (
-        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
-          <rect width="200" height="150" fill="#1a1a1a"/>
-          <circle cx="60" cy="50" r="12" fill="#dc2626" opacity="0.8"/>
-          <rect x="55" y="62" width="10" height="30" fill="#dc2626" opacity="0.6"/>
-          <path d="M 75 75 Q 90 60 105 75" stroke="#eab308" strokeWidth="3" fill="none"/>
-          <circle cx="120" cy="80" r="8" fill="#eab308" opacity="0.8"/>
-          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">KICKBOXING</text>
-        </svg>
+        <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
+          <img 
+            src="/kickboxing-image.webp" 
+            alt="Kickboxing training at Kaizen Burgos"
+            className="w-full h-full object-cover"
+          />
+        </div>
       )
     },
     {
