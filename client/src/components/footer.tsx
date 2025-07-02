@@ -23,8 +23,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="text-3xl font-bold text-kaizen-red">KAIZEN</div>
-              <div className="ml-2 text-lg font-medium text-kaizen-gold">BURGOS</div>
+              <img 
+                src="/kaizen-logo.jpg" 
+                alt="Kaizen Burgos Logo"
+                className="h-12 w-auto mr-3 rounded"
+              />
+              <div>
+                <div className="text-3xl font-bold text-kaizen-red">KAIZEN</div>
+                <div className="text-lg font-medium text-kaizen-gold">BURGOS</div>
+              </div>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
               Gimnasio de artes marciales en Burgos especializado en MMA, kickboxing, Brazilian Jiu-Jitsu y boxeo. Filosofía de mejora continua.

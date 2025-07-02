@@ -37,7 +37,8 @@ export default function ServicesSection() {
           <img 
             src="/bjj-image-new.webp" 
             alt="Brazilian Jiu-Jitsu training at Kaizen Burgos"
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+            style={{ objectPosition: 'center 20%' }}
           />
         </div>
       )
