@@ -29,7 +29,7 @@ export default function AboutSection() {
           <div className="relative">
             <div className="w-full rounded-xl shadow-2xl overflow-hidden bg-black" style={{aspectRatio: '4/3'}}>
               <img 
-                src="/campeones-image.jpg" 
+                src="/champions-image.jpg" 
                 alt="Campeones de Kaizen Burgos - Jiu-Jitsu"
                 className="w-full h-full object-cover"
               />
