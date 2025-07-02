@@ -3,19 +3,6 @@ import { Check, Star } from "lucide-react";
 export default function PricingSection() {
   const pricingPlans = [
     {
-      name: "Clase Individual",
-      price: "15",
-      period: "por clase",
-      description: "Perfecta para probar nuestras disciplinas",
-      features: [
-        "Acceso a una clase",
-        "Todos los niveles",
-        "Todas las disciplinas disponibles",
-        "Equipo incluido para principiantes"
-      ],
-      highlighted: false
-    },
-    {
       name: "2 Disciplinas",
       price: "45",
       period: "por mes",
@@ -74,7 +61,7 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <div 
               key={index}

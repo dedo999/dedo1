@@ -19,16 +19,16 @@ export default function ScheduleSection() {
       classes: ["Kickboxing", "BJJ Gi", "MMA", "Boxeo", "Kickboxing", ""]
     },
     {
-      time: "19:00-20:00",
-      classes: ["BJJ No-Gi", "MMA", "BJJ Avanzado", "MMA", "BJJ Open", ""]
+      time: "19:00-20:30",
+      classes: ["BJJ No-Gi", "MMA", "BJJ", "MMA", "BJJ Open", ""]
     },
     {
-      time: "20:00-21:00",
+      time: "20:30-21:45",
       classes: ["MMA Principiantes", "Kickboxing", "Boxeo", "BJJ Competición", "MMA Avanzado", ""]
     },
     {
-      time: "21:00-22:30",
-      classes: ["Sparring", "Open Mat", "Grappling", "Libre", "Sparring", ""]
+      time: "21:45-22:30",
+      classes: ["Sparring", "Open Mat", "", "Libre", "Sparring", ""]
     }
   ];
 
