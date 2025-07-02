@@ -47,14 +47,13 @@ export default function ServicesSection() {
       description: "El arte noble de golpear. Desarrolla coordinación, velocidad y potencia en el tren superior.",
       tags: ["Técnica", "Sparring", "Fitness"],
       svgIcon: (
-        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
-          <rect width="200" height="150" fill="#1a1a1a"/>
-          <circle cx="60" cy="60" r="10" fill="#dc2626" opacity="0.8"/>
-          <rect x="55" y="70" width="10" height="25" fill="#dc2626" opacity="0.6"/>
-          <circle cx="40" cy="80" r="8" fill="#eab308" opacity="0.8"/>
-          <circle cx="80" cy="75" r="8" fill="#eab308" opacity="0.8"/>
-          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">BOXEO</text>
-        </svg>
+        <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
+          <img 
+            src="/boxeo-image.webp" 
+            alt="Boxeo training at Kaizen Burgos"
+            className="w-full h-full object-cover"
+          />
+        </div>
       )
     },
     {
