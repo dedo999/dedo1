@@ -9,6 +9,7 @@ export default function Navigation() {
     { href: "#servicios", label: "Servicios" },
     { href: "#instructores", label: "Instructores" },
     { href: "#horarios", label: "Horarios" },
+    { href: "#precios", label: "Precios" },
     { href: "#testimonios", label: "Testimonios" },
   ];
 

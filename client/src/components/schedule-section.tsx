@@ -3,6 +3,10 @@ import { Phone } from "lucide-react";
 export default function ScheduleSection() {
   const schedule = [
     {
+      time: "09:00-11:00",
+      classes: ["", "MMA Mañana", "", "MMA Mañana", "", ""]
+    },
+    {
       time: "10:00-11:00",
       classes: ["", "", "", "", "", "BJJ Principiantes"]
     },
