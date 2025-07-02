@@ -116,7 +116,7 @@ export default function ContactSection() {
                     <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Martes y Jueves:</span> 19:00-21:30</p>
                     <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Viernes:</span> 19:00-20:30</p>
                     <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Sábado:</span> 11:00-13:00</p>
-                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Miércoles:</span> Consultar horarios</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Miércoles:</span> 18:00-21:45</p>
                     <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Domingo:</span> Cerrado</p>
                   </div>
                 </div>

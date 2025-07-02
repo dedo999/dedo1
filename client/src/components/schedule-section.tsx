@@ -3,12 +3,16 @@ import { Phone } from "lucide-react";
 export default function ScheduleSection() {
   const schedule = [
     {
+      time: "09:00-11:00",
+      classes: ["", "MMA Mañana", "", "MMA Mañana", "", ""]
+    },
+    {
       time: "11:00-13:00",
       classes: ["", "", "", "", "", "Open Mat"]
     },
     {
       time: "18:00-19:00",
-      classes: ["Kaizen Kids", "", "", "", "", ""]
+      classes: ["Kaizen Kids", "", "MMA", "", "", ""]
     },
     {
       time: "19:00-20:00",
@@ -16,7 +20,7 @@ export default function ScheduleSection() {
     },
     {
       time: "19:00-20:30",
-      classes: ["Brazilian Jiu Jitsu", "", "", "", "MMA", ""]
+      classes: ["Brazilian Jiu Jitsu", "", "Brazilian Jiu Jitsu", "", "MMA", ""]
     },
     {
       time: "20:00-21:30",
@@ -24,7 +28,7 @@ export default function ScheduleSection() {
     },
     {
       time: "20:30-21:45",
-      classes: ["MMA", "", "", "", "", ""]
+      classes: ["MMA", "", "Boxeo", "", "", ""]
     }
   ];
 
