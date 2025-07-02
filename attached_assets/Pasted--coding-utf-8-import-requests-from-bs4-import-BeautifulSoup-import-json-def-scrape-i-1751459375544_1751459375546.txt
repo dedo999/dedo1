@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+import requests
+from bs4 import BeautifulSoup
+import json
+
+def scrape_info():
+    urls = [
+        "https://info-gimnasios.com.es/burgos/gimnasio-kaizen-sports-fight-academy-en-burgos/",
+        "https://baloncestoxerezcd.es/kaizen-sports-fight-academy/",
+        "https://infogimnasios.es/gimnasio-kaizen-sports-fight-academy-burgos/"
+    ]
+    info = {"name": "Kaizen – Sports Fight Academy", "address": "", "phone": "", 
+            "hours": {}, "website": "https://www.instagram.com/kaizen_burgos", 
+            "services": [], "reviews": [], "highlights": []}
+    for url in urls:
+        r = requests.get(url)
+        soup = BeautifulSoup(r.text, "html.parser")
+        # Dirección
+        if not info["address"]:
+            addr = soup.find(text=lambda t: "C." in t and "Burgos" in t)
+            if addr: info["address"] = addr.strip()
+        # Teléfono
+        if not info["phone"]:
+            phone = soup.find(text=lambda t: t and "662" in t)
+            if phone: info["phone"] = phone.strip()
+        # Horarios
+        hrs = soup.find_all(text=lambda t: "Lunes" in t or "Sábado" in t)
+        for line in hrs:
+            parts = line.strip().split(":")
+            if parts:
+                day = parts[0]
+                times = parts[1] if len(parts)>1 else ""
+                info["hours"][day] = times
+        # Valoración y reseñas
+        if soup.find(text=lambda t: "5.0" in t):
+            info["highlights"].append("Calificación promedio 5.0⭐")
+        # Actividades
+        services = ["artes marciales","karate","jiu-jitsu","kick boxing","boxeo","MMA","funcional"]
+        for s in services:
+            if s in soup.text.lower() and s not in info["services"]:
+                info["services"].append(s.title())
+    return info
+
+def generate_website_content(info):
+    html = f"""
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Kaizen Sports Fight Academy – Burgos. {', '.join(info['services'])}">
+      <title>{info['name']}</title>
+      <style>body{{font-family:sans-serif;max-width:800px;margin:auto;padding:20px;}}header,footer{{text-align:center;}}</style>
+    </head>
+    <body>
+      <header><h1>{info['name']}</h1></header>
+      <p><strong>Dirección:</strong> {info['address']}</p>
+      <p><strong>Teléfono / WhatsApp:</strong> {info['phone']}</p>
+      <p><strong>Sigue nuestras redes:</strong> <a href="{info['website']}" target="_blank">@kaizen_burgos</a></p>
+      <h2>Horarios</h2><ul>
+    """
+    for d, t in info["hours"].items():
+        html += f"<li><strong>{d}:</strong> {t}</li>"
+    html += "</ul><h2>Actividades</h2><ul>"
+    for s in info["services"]:
+        html += f"<li>{s}</li>"
+    html += f"</ul><h2>Lo que dicen de nosotros</h2><p>{'. '.join(info['highlights'])}</p>"
+    html += """
+      <footer>
+        <p>&copy; 2025 Kaizen Sports Fight Academy, Burgos</p>
+      </footer>
+    </body></html>
+    """
+    return html
+
+def main():
+    info = scrape_info()
+    website_html = generate_website_content(info)
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(website_html)
+    print("Website generated: index.html")
+
+if __name__ == "__main__":
+    main()
