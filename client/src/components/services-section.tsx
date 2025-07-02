@@ -35,13 +35,13 @@ export default function ServicesSection() {
       description: "Arte suave que enfatiza la técnica sobre la fuerza. Ideal para autodefensa y desarrollo mental.",
       tags: ["Gi", "No-Gi", "Self-Defense"],
       svgIcon: (
-        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
-          <rect width="200" height="150" fill="#1a1a1a"/>
-          <ellipse cx="80" cy="70" rx="25" ry="15" fill="#dc2626" opacity="0.6"/>
-          <ellipse cx="120" cy="80" rx="20" ry="12" fill="#dc2626" opacity="0.8"/>
-          <path d="M 70 60 Q 100 50 130 65" stroke="#eab308" strokeWidth="2" fill="none"/>
-          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">BJJ</text>
-        </svg>
+        <div className="w-full h-48 rounded-lg bg-white flex items-center justify-center overflow-hidden">
+          <img 
+            src="/bjj-image.webp" 
+            alt="Brazilian Jiu-Jitsu training at Kaizen Burgos"
+            className="w-full h-full object-contain"
+          />
+        </div>
       )
     },
     {
