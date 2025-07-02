@@ -4,31 +4,75 @@ export default function ServicesSection() {
       title: "MMA",
       description: "Artes marciales mixtas combinando striking, grappling y lucha en el suelo. El deporte de combate más completo.",
       tags: ["Principiantes", "Avanzado", "Competición"],
-      image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      svgIcon: (
+        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
+          <rect width="200" height="150" fill="#1a1a1a"/>
+          <circle cx="70" cy="60" r="15" fill="#dc2626" opacity="0.8"/>
+          <circle cx="130" cy="60" r="15" fill="#dc2626" opacity="0.8"/>
+          <rect x="60" y="70" width="20" height="40" fill="#dc2626" opacity="0.6"/>
+          <rect x="120" y="70" width="20" height="40" fill="#dc2626" opacity="0.6"/>
+          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">MMA</text>
+        </svg>
+      )
     },
     {
       title: "Kickboxing",
       description: "Combina boxeo con patadas. Excelente para fitness, defensa personal y técnica de striking.",
       tags: ["Fitness", "Técnica", "Cardio"],
-      image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      svgIcon: (
+        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
+          <rect width="200" height="150" fill="#1a1a1a"/>
+          <circle cx="60" cy="50" r="12" fill="#dc2626" opacity="0.8"/>
+          <rect x="55" y="62" width="10" height="30" fill="#dc2626" opacity="0.6"/>
+          <path d="M 75 75 Q 90 60 105 75" stroke="#eab308" strokeWidth="3" fill="none"/>
+          <circle cx="120" cy="80" r="8" fill="#eab308" opacity="0.8"/>
+          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">KICKBOXING</text>
+        </svg>
+      )
     },
     {
       title: "Brazilian Jiu-Jitsu",
       description: "Arte suave que enfatiza la técnica sobre la fuerza. Ideal para autodefensa y desarrollo mental.",
       tags: ["Gi", "No-Gi", "Self-Defense"],
-      image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      svgIcon: (
+        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
+          <rect width="200" height="150" fill="#1a1a1a"/>
+          <ellipse cx="80" cy="70" rx="25" ry="15" fill="#dc2626" opacity="0.6"/>
+          <ellipse cx="120" cy="80" rx="20" ry="12" fill="#dc2626" opacity="0.8"/>
+          <path d="M 70 60 Q 100 50 130 65" stroke="#eab308" strokeWidth="2" fill="none"/>
+          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">BJJ</text>
+        </svg>
+      )
     },
     {
       title: "Boxeo",
       description: "El arte noble de golpear. Desarrolla coordinación, velocidad y potencia en el tren superior.",
       tags: ["Técnica", "Sparring", "Fitness"],
-      image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      svgIcon: (
+        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
+          <rect width="200" height="150" fill="#1a1a1a"/>
+          <circle cx="60" cy="60" r="10" fill="#dc2626" opacity="0.8"/>
+          <rect x="55" y="70" width="10" height="25" fill="#dc2626" opacity="0.6"/>
+          <circle cx="40" cy="80" r="8" fill="#eab308" opacity="0.8"/>
+          <circle cx="80" cy="75" r="8" fill="#eab308" opacity="0.8"/>
+          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="14" fontWeight="bold">BOXEO</text>
+        </svg>
+      )
     },
     {
       title: "Clases Infantiles",
       description: "Programas especiales para niños que desarrollan disciplina, respeto y confianza a través de artes marciales.",
       tags: ["6-12 años", "Diversión", "Valores"],
-      image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+      svgIcon: (
+        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
+          <rect width="200" height="150" fill="#1a1a1a"/>
+          <circle cx="70" cy="50" r="8" fill="#dc2626" opacity="0.8"/>
+          <circle cx="130" cy="50" r="8" fill="#dc2626" opacity="0.8"/>
+          <rect x="67" y="58" width="6" height="20" fill="#dc2626" opacity="0.6"/>
+          <rect x="127" y="58" width="6" height="20" fill="#dc2626" opacity="0.6"/>
+          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="12" fontWeight="bold">INFANTILES</text>
+        </svg>
+      )
     }
   ];
 
@@ -51,11 +95,9 @@ export default function ServicesSection() {
               className="bg-kaizen-dark rounded-xl p-8 border border-gray-700 hover:border-kaizen-red/50 transition-all duration-300 group"
             >
               <div className="text-center">
-                <img 
-                  src={service.image}
-                  alt={`${service.title} training session`}
-                  className="w-full h-48 object-cover rounded-lg mb-6"
-                />
+                <div className="mb-6">
+                  {service.svgIcon}
+                </div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-kaizen-red transition-colors">
                   {service.title}
                 </h3>

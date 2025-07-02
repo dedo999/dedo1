@@ -27,11 +27,14 @@ export default function AboutSection() {
             </div>
           </div>
           <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-              alt="Brazilian Jiu Jitsu training at Kaizen Burgos" 
-              className="rounded-xl shadow-2xl"
-            />
+            <svg className="w-full rounded-xl shadow-2xl" viewBox="0 0 400 300" style={{aspectRatio: '4/3'}}>
+              <rect width="400" height="300" fill="#1a1a1a" rx="12"/>
+              <circle cx="150" cy="120" r="25" fill="#dc2626" opacity="0.6"/>
+              <circle cx="250" cy="140" r="20" fill="#dc2626" opacity="0.8"/>
+              <ellipse cx="200" cy="180" rx="60" ry="30" fill="#eab308" opacity="0.3"/>
+              <path d="M 120 100 Q 200 80 280 120" stroke="#eab308" strokeWidth="3" fill="none" opacity="0.7"/>
+              <text x="200" y="250" textAnchor="middle" fill="#eab308" fontSize="18" fontWeight="bold">KAIZEN BJJ</text>
+            </svg>
             <div className="absolute -bottom-6 -left-6 bg-kaizen-red p-6 rounded-xl shadow-lg">
               <Trophy className="text-kaizen-gold text-2xl mb-2" />
               <div className="text-white font-bold">Campeones</div>

@@ -5,11 +5,21 @@ export default function HeroSection() {
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-          alt="MMA training at Kaizen gym" 
-          className="w-full h-full object-cover"
-        />
+        <svg className="w-full h-full object-cover" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="heroGrad" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stopColor="#1a1a1a" stopOpacity="0.3"/>
+              <stop offset="100%" stopColor="#0a0a0a" stopOpacity="0.9"/>
+            </radialGradient>
+          </defs>
+          <rect width="1920" height="1080" fill="#0a0a0a"/>
+          <circle cx="300" cy="300" r="80" fill="#dc2626" opacity="0.2"/>
+          <circle cx="1600" cy="200" r="60" fill="#eab308" opacity="0.2"/>
+          <circle cx="200" cy="800" r="70" fill="#dc2626" opacity="0.15"/>
+          <circle cx="1700" cy="900" r="50" fill="#eab308" opacity="0.15"/>
+          <rect x="800" y="400" width="320" height="280" fill="#1a1a1a" opacity="0.3" rx="10"/>
+          <rect width="1920" height="1080" fill="url(#heroGrad)"/>
+        </svg>
         <div className="absolute inset-0 bg-gradient-to-r from-kaizen-darker/90 via-kaizen-darker/70 to-black/60"></div>
       </div>
 
