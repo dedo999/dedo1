@@ -3,32 +3,28 @@ import { Phone } from "lucide-react";
 export default function ScheduleSection() {
   const schedule = [
     {
-      time: "09:00-11:00",
-      classes: ["", "MMA Mañana", "", "MMA Mañana", "", ""]
-    },
-    {
-      time: "10:00-11:00",
-      classes: ["", "", "", "", "", "BJJ Principiantes"]
-    },
-    {
-      time: "11:00-12:00",
-      classes: ["", "", "", "", "", "MMA Open Mat"]
+      time: "11:00-13:00",
+      classes: ["", "", "", "", "", "Open Mat"]
     },
     {
       time: "18:00-19:00",
-      classes: ["Kickboxing", "BJJ Gi", "MMA", "Boxeo", "Kickboxing", ""]
+      classes: ["Kaizen Kids", "", "", "", "", ""]
+    },
+    {
+      time: "19:00-20:00",
+      classes: ["", "Boxeo", "", "Boxeo", "", ""]
     },
     {
       time: "19:00-20:30",
-      classes: ["BJJ No-Gi", "MMA", "BJJ", "MMA", "BJJ Open", ""]
+      classes: ["Brazilian Jiu Jitsu", "", "", "", "MMA", ""]
+    },
+    {
+      time: "20:00-21:30",
+      classes: ["", "Kickboxing / K1", "", "Kickboxing / K1", "", ""]
     },
     {
       time: "20:30-21:45",
-      classes: ["MMA Principiantes", "Kickboxing", "Boxeo", "BJJ Competición", "MMA Avanzado", ""]
-    },
-    {
-      time: "21:45-22:30",
-      classes: ["Sparring", "Open Mat", "", "Libre", "Sparring", ""]
+      classes: ["MMA", "", "", "", "", ""]
     }
   ];
 

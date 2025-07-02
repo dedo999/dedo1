@@ -112,9 +112,11 @@ export default function ContactSection() {
                 <div>
                   <h4 className="font-bold text-white mb-1">Horarios</h4>
                   <div className="space-y-1">
-                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Lunes a Jueves:</span> 18:00-22:30</p>
-                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Viernes:</span> 18:30-22:30</p>
-                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Sábado:</span> 10:00-13:00</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Lunes:</span> 18:00-21:45</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Martes y Jueves:</span> 19:00-21:30</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Viernes:</span> 19:00-20:30</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Sábado:</span> 11:00-13:00</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Miércoles:</span> Consultar horarios</p>
                     <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Domingo:</span> Cerrado</p>
                   </div>
                 </div>
