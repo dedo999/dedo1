@@ -111,10 +111,12 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-white mb-1">Horarios</h4>
-                  <p className="text-gray-300">Lun-Jue: 18:00-22:30</p>
-                  <p className="text-gray-300">Vie: 18:30-22:30</p>
-                  <p className="text-gray-300">Sáb: 10:00-13:00</p>
-                  <p className="text-gray-300">Dom: Cerrado</p>
+                  <div className="space-y-1">
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Lunes a Jueves:</span> 18:00-22:30</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Viernes:</span> 18:30-22:30</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Sábado:</span> 10:00-13:00</p>
+                    <p className="text-gray-300"><span className="font-medium text-kaizen-gold">Domingo:</span> Cerrado</p>
+                  </div>
                 </div>
               </div>
             </div>

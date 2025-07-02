@@ -54,15 +54,15 @@ export default function HeroSection() {
       {/* Floating stats */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden lg:flex space-x-8 text-center">
         <div className="bg-kaizen-dark/80 backdrop-blur-md px-6 py-4 rounded-lg border border-gray-700">
-          <div className="text-2xl font-bold text-kaizen-gold">5.0★</div>
-          <div className="text-sm text-gray-300">Google Reviews</div>
+          <div className="text-2xl font-bold text-kaizen-gold">5.0⭐</div>
+          <div className="text-sm text-gray-300">Valoración</div>
         </div>
         <div className="bg-kaizen-dark/80 backdrop-blur-md px-6 py-4 rounded-lg border border-gray-700">
-          <div className="text-2xl font-bold text-kaizen-red">20+</div>
-          <div className="text-sm text-gray-300">Reseñas</div>
+          <div className="text-2xl font-bold text-kaizen-red">100%</div>
+          <div className="text-sm text-gray-300">Satisfacción</div>
         </div>
         <div className="bg-kaizen-dark/80 backdrop-blur-md px-6 py-4 rounded-lg border border-gray-700">
-          <div className="text-2xl font-bold text-kaizen-gold">4</div>
+          <div className="text-2xl font-bold text-kaizen-gold">5</div>
           <div className="text-sm text-gray-300">Disciplinas</div>
         </div>
       </div>
