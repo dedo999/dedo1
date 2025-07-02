@@ -102,6 +102,31 @@ export default function ScheduleSection() {
           </div>
         </div>
 
+        {/* Official Schedule Images */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">
+            Horarios Oficiales
+          </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-kaizen-darker rounded-xl p-4 border border-gray-700">
+              <h4 className="text-lg font-bold text-kaizen-gold mb-4 text-center">Horario de Clases</h4>
+              <img 
+                src="/schedule-image.jpeg" 
+                alt="Horario oficial de clases de Kaizen Sports Fight Academy"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="bg-kaizen-darker rounded-xl p-4 border border-gray-700">
+              <h4 className="text-lg font-bold text-kaizen-gold mb-4 text-center">Información de Precios</h4>
+              <img 
+                src="/pricing-image.jpeg" 
+                alt="Precios oficiales de Kaizen Sports Fight Academy"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="text-center mt-12">
           <p className="text-gray-300 mb-6">
             ¿Necesitas un horario personalizado? Contáctanos para clases particulares.

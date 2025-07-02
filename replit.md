@@ -105,6 +105,7 @@ Changelog:
 - June 30, 2025. Initial setup
 - June 30, 2025. Updated with realistic martial arts images and removed karate classes per user requirements. Updated Instagram links to @kaizen_burgos
 - July 2, 2025. Enhanced website with authentic data from web scraping script - updated ratings display (5.0⭐), improved schedule formatting, and verified contact information accuracy
+- July 2, 2025. Added comprehensive pricing section with three plans (individual €15, monthly €45, trimestral €120), morning MMA classes (Tuesday/Thursday 9-11am), and official schedule/pricing images from gym documentation
 ```
 
 ## User Preferences
