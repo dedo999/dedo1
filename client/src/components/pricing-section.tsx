@@ -16,31 +16,47 @@ export default function PricingSection() {
       highlighted: false
     },
     {
-      name: "Mensual",
+      name: "2 Disciplinas",
       price: "45",
       period: "por mes",
-      description: "La opción más popular para entrenar regularmente",
+      description: "Combina dos disciplinas de tu elección",
+      features: [
+        "Acceso a 2 disciplinas combinadas",
+        "MMA + BJJ, Kickboxing + Boxeo, etc.",
+        "Clases matutinas y vespertinas",
+        "Asesoramiento personalizado",
+        "Flexibilidad de horarios"
+      ],
+      highlighted: false
+    },
+    {
+      name: "Acceso Completo",
+      price: "80",
+      period: "por mes",
+      description: "La opción más popular - acceso ilimitado",
       features: [
         "Acceso ilimitado a todas las clases",
         "MMA, Kickboxing, BJJ, Boxeo",
         "Clases matutinas y vespertinas",
         "Asesoramiento personalizado",
         "Acceso a sparring y open mat",
-        "Comunidad de entrenamiento"
+        "Comunidad de entrenamiento",
+        "Entrenamientos especializados"
       ],
       highlighted: true
     },
     {
-      name: "Trimestral",
-      price: "120",
+      name: "Trimestral Completo",
+      price: "210",
       period: "3 meses",
-      description: "Ahorra con nuestro plan trimestral",
+      description: "Ahorra con nuestro plan trimestral completo",
       features: [
-        "Todo incluido del plan mensual",
-        "Ahorro de 15€",
+        "Todo incluido del acceso completo",
+        "Ahorro de 30€ (€70/mes)",
         "Plan de entrenamiento personalizado",
         "Acceso prioritario a seminarios",
-        "Seguimiento de progreso mensual"
+        "Seguimiento de progreso mensual",
+        "Sesiones de técnica avanzada"
       ],
       highlighted: false
     }
