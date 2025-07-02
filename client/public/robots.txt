@@ -1,18 +1,31 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemaps
 Sitemap: https://kaizen-burgos.replit.app/sitemap.xml
 
-# Block access to admin or private areas (if any in future)
+# Important pages for martial arts SEO
+Allow: /#inicio
+Allow: /#servicios
+Allow: /#instructores
+Allow: /#horarios
+Allow: /#precios
+Allow: /#testimonios
+Allow: /#contacto
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block common attack paths
 Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
 Disallow: /api/
 
-# Allow all images
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.png
-Allow: /*.webp
-
-# Crawl delay (optional, helps with server load)
-Crawl-delay: 1
+# Allow important assets
+Allow: /kaizen-logo.jpg
+Allow: /mma-image.webp
+Allow: /bjj-image-new.webp
+Allow: /kickboxing-image.webp
+Allow: /boxing-image.webp
+Allow: /champions-image.jpg

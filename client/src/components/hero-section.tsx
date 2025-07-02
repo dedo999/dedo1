@@ -30,7 +30,7 @@ export default function HeroSection() {
             <span className="text-kaizen-gold text-3xl md:text-5xl">SPORTS FIGHT ACADEMY</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
-            Mejora continua • Excelencia en artes marciales • Burgos
+            <strong>Mejor gimnasio artes marciales Burgos</strong> • MMA, BJJ, Kickboxing, Boxeo • Instructores profesionales • Primera clase gratis
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
