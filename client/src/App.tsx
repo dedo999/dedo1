@@ -21,19 +21,13 @@ function Router() {
   return (
     <Switch>
       <Route path="/barbershop" component={BarbershopDesigner} />
-      {isLoading || !isAuthenticated ? (
-        <Route path="/" component={Landing} />
-      ) : (
-        <>
-          <Route path="/" component={Dashboard} />
-          <Route path="/bookings" component={Bookings} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/classes" component={Classes} />
-          <Route path="/capacity" component={GymCapacity} />
-          <Route path="/checkin" component={CheckIn} />
-          <Route path="/website" component={Home} />
-        </>
-      )}
+      <Route path="/" component={Home} />
+      <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
+      <Route path="/app/bookings" component={Bookings} />
+      <Route path="/app/profile" component={Profile} />
+      <Route path="/app/classes" component={Classes} />
+      <Route path="/app/capacity" component={GymCapacity} />
+      <Route path="/app/checkin" component={CheckIn} />
       <Route component={NotFound} />
     </Switch>
   );
