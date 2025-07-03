@@ -117,23 +117,62 @@ export function SimpleChatbot() {
   const handleQuickAction = (action: string) => {
     const actionText = action.toLowerCase();
     
-    if (actionText.includes('horario')) {
-      setInputText('horarios');
-    } else if (actionText.includes('precio')) {
-      setInputText('precios');
-    } else if (actionText.includes('alquiler')) {
-      setInputText('alquiler espacio');
-    } else if (actionText.includes('gratis')) {
+    // Handle external actions immediately
+    if (actionText.includes('gratis')) {
       window.location.href = '#contacto';
       return;
     } else if (actionText.includes('whatsapp')) {
       window.open('https://wa.me/34947123456?text=Hola, estoy interesado en alquilar espacio', '_blank');
       return;
-    } else {
-      setInputText(action);
+    } else if (actionText.includes('google maps')) {
+      window.open('https://maps.google.com/?q=C.+Esteban+Sáez+Alvarado+8+Burgos', '_blank');
+      return;
+    } else if (actionText.includes('llamar')) {
+      window.open('tel:+34947123456', '_blank');
+      return;
     }
-    
-    handleSubmit({ preventDefault: () => {} } as React.FormEvent);
+
+    // Add user message first
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: action,
+      isBot: false,
+      timestamp: new Date()
+    };
+    setMessages(prev => [...prev, userMessage]);
+
+    // Generate automatic response based on action
+    setTimeout(() => {
+      let response = '';
+      let actions: string[] = [];
+
+      if (actionText.includes('horario')) {
+        response = quickResponses.horarios;
+        actions = ['Precios', 'Clase gratis'];
+      } else if (actionText.includes('precio')) {
+        response = quickResponses.precios;
+        actions = ['Clase gratis', 'Horarios'];
+      } else if (actionText.includes('alquiler')) {
+        response = quickResponses.alquiler;
+        actions = ['WhatsApp', 'Más info'];
+      } else if (actionText.includes('ubicacion') || actionText.includes('donde')) {
+        response = quickResponses.ubicacion;
+        actions = ['Google Maps', 'Llamar'];
+      } else {
+        response = 'Perfecto. ¿En qué más puedo ayudarte?';
+        actions = ['Horarios', 'Precios', 'Alquiler'];
+      }
+
+      const botResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: response,
+        isBot: true,
+        timestamp: new Date(),
+        quickActions: actions
+      };
+
+      setMessages(prev => [...prev, botResponse]);
+    }, 800);
   };
 
   if (!isOpen) {
