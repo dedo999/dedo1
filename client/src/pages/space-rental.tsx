@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Calendar, Clock, Users, Euro, MapPin, Star, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, Users, Euro, MapPin, Star, ArrowLeft, CalendarDays, Check, X } from 'lucide-react';
 import { Link } from 'wouter';
 import { useToast } from '@/hooks/use-toast';
 
@@ -62,6 +62,9 @@ const spaceRentals: SpaceRental[] = [
 
 export default function SpaceRental() {
   const [selectedSpace, setSelectedSpace] = useState<SpaceRental | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'spaces' | 'calendar' | 'booking'>('spaces');
   const [bookingForm, setBookingForm] = useState({
     date: '',
     startTime: '',
@@ -75,6 +78,39 @@ export default function SpaceRental() {
   });
 
   const { toast } = useToast();
+
+  // Generate calendar dates for next 30 days
+  const generateCalendarDates = () => {
+    const dates = [];
+    const today = new Date();
+    for (let i = 0; i < 30; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+      dates.push(date);
+    }
+    return dates;
+  };
+
+  // Mock availability data - in real app this would come from database
+  const getAvailabilityForDate = (date: Date, spaceId: number) => {
+    const dayOfWeek = date.getDay();
+    const morningSlots = [
+      '06:00-07:00', '07:00-08:00', '08:00-09:00', 
+      '09:00-10:00', '10:00-11:00'
+    ];
+    
+    // Mock some bookings to show realistic availability
+    const mockBookings = Math.random() > 0.7 ? 1 : 0; // Random bookings
+    return morningSlots.slice(mockBookings);
+  };
+
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('es-ES', { 
+      weekday: 'short', 
+      day: 'numeric', 
+      month: 'short' 
+    });
+  };
 
   // SEO optimization for local search
   useEffect(() => {
@@ -163,16 +199,231 @@ export default function SpaceRental() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {selectedSpace ? (
+        {viewMode === 'spaces' ? (
+          /* Space Selection */
+          <div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Elige tu Espacio</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Instalaciones profesionales equipadas con todo lo necesario para entrenamientos de alto nivel.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {spaceRentals.map((space) => (
+                <Card key={space.id} className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 overflow-hidden transform hover:-translate-y-2">
+                  <CardHeader className="p-0 relative">
+                    <div className="aspect-video bg-gradient-to-br from-blue-100 to-gray-200 flex items-center justify-center text-6xl">
+                      🏟️
+                    </div>
+                    <div className="absolute top-3 right-3">
+                      <Badge className="bg-green-500 text-white font-bold">
+                        <Star className="w-3 h-3 mr-1" />
+                        {space.rating}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors">
+                          {space.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 mt-2">{space.description}</p>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-black text-blue-600">€{space.pricePerHour}/h</span>
+                        <div className="text-right text-sm text-gray-500">
+                          <div className="flex items-center">
+                            <Users className="w-4 h-4 mr-1" />
+                            {space.capacity} personas
+                          </div>
+                          <p>{space.bookingsCount} reservas</p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-sm text-gray-700 mb-2">Equipamiento incluido:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {space.amenities.slice(0, 3).map((amenity, idx) => (
+                            <Badge key={idx} variant="secondary" className="text-xs">
+                              {amenity}
+                            </Badge>
+                          ))}
+                          {space.amenities.length > 3 && (
+                            <Badge variant="secondary" className="text-xs">
+                              +{space.amenities.length - 3} más
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-sm text-gray-700 mb-2">Horarios disponibles:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {space.availableHours.map((hour, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs">
+                              <Clock className="w-3 h-3 mr-1" />
+                              {hour}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <Button 
+                        onClick={() => {
+                          setSelectedSpace(space);
+                          setViewMode('calendar');
+                        }}
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-200"
+                      >
+                        <CalendarDays className="w-4 h-4 mr-2" />
+                        VER DISPONIBILIDAD
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        ) : viewMode === 'calendar' && selectedSpace ? (
+          /* Calendar View */
+          <div className="max-w-4xl mx-auto">
+            <Card className="shadow-2xl border-2 border-blue-200">
+              <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-2xl">{selectedSpace?.name}</CardTitle>
+                    <CardDescription className="text-blue-100">
+                      €{selectedSpace?.pricePerHour}/hora | Selecciona fecha y hora
+                    </CardDescription>
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => {
+                      setViewMode('spaces');
+                      setSelectedSpace(null);
+                    }}
+                    className="text-white hover:bg-blue-800"
+                  >
+                    ← Volver
+                  </Button>
+                </div>
+              </CardHeader>
+              
+              <CardContent className="p-6">
+                <div className="space-y-6">
+                  {/* Calendar Grid */}
+                  <div>
+                    <h3 className="font-bold text-lg mb-4">📅 Selecciona una fecha:</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-7 gap-2">
+                      {generateCalendarDates().map((date, index) => {
+                        const availability = selectedSpace ? getAvailabilityForDate(date, selectedSpace.id) : [];
+                        const isAvailable = availability.length > 0;
+                        const isSelected = selectedDate?.toDateString() === date.toDateString();
+                        
+                        return (
+                          <Button
+                            key={index}
+                            variant={isSelected ? "default" : "outline"}
+                            className={`p-3 h-auto flex flex-col text-xs ${
+                              isAvailable 
+                                ? isSelected 
+                                  ? 'bg-blue-600 text-white' 
+                                  : 'hover:bg-blue-50 border-blue-200'
+                                : 'opacity-50 cursor-not-allowed bg-gray-100'
+                            }`}
+                            onClick={() => {
+                              if (isAvailable) {
+                                setSelectedDate(date);
+                                setSelectedTimeSlot('');
+                              }
+                            }}
+                            disabled={!isAvailable}
+                          >
+                            <span className="font-bold">{date.getDate()}</span>
+                            <span className="text-xs">{formatDate(date).split(' ')[0]}</span>
+                            {isAvailable ? (
+                              <Badge variant="secondary" className="text-xs mt-1">
+                                <Check className="w-2 h-2 mr-1" />
+                                {availability.length}
+                              </Badge>
+                            ) : (
+                              <Badge variant="destructive" className="text-xs mt-1">
+                                <X className="w-2 h-2 mr-1" />
+                                0
+                              </Badge>
+                            )}
+                          </Button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Time Slots */}
+                  {selectedDate && (
+                    <div>
+                      <h3 className="font-bold text-lg mb-4">⏰ Horarios disponibles para {formatDate(selectedDate)}:</h3>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        {selectedSpace && getAvailabilityForDate(selectedDate, selectedSpace.id).map((timeSlot, index) => (
+                          <Button
+                            key={index}
+                            variant={selectedTimeSlot === timeSlot ? "default" : "outline"}
+                            className={`p-4 ${
+                              selectedTimeSlot === timeSlot 
+                                ? 'bg-green-600 text-white' 
+                                : 'hover:bg-green-50 border-green-200'
+                            }`}
+                            onClick={() => setSelectedTimeSlot(timeSlot)}
+                          >
+                            <Clock className="w-4 h-4 mr-2" />
+                            {timeSlot}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Booking Summary */}
+                  {selectedDate && selectedTimeSlot && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <h4 className="font-bold text-green-800 mb-2">✅ Resumen de tu reserva:</h4>
+                      <div className="text-sm text-green-700">
+                        <p><strong>Espacio:</strong> {selectedSpace?.name}</p>
+                        <p><strong>Fecha:</strong> {selectedDate.toLocaleDateString('es-ES', { 
+                          weekday: 'long', 
+                          year: 'numeric', 
+                          month: 'long', 
+                          day: 'numeric' 
+                        })}</p>
+                        <p><strong>Hora:</strong> {selectedTimeSlot}</p>
+                        <p><strong>Precio:</strong> €{selectedSpace?.pricePerHour}/hora</p>
+                      </div>
+                      
+                      <Button 
+                        onClick={() => setViewMode('booking')}
+                        className="w-full mt-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-3"
+                      >
+                        📋 COMPLETAR RESERVA
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        ) : (
           /* Booking Form */
           <div className="max-w-4xl mx-auto">
             <Card className="shadow-2xl border-2 border-blue-200">
               <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-2xl">{selectedSpace.name}</CardTitle>
+                    <CardTitle className="text-2xl">{selectedSpace?.name}</CardTitle>
                     <CardDescription className="text-blue-100">
-                      €{selectedSpace.pricePerHour}/hora | Capacidad: {selectedSpace.capacity} personas
+                      €{selectedSpace?.pricePerHour}/hora | Capacidad: {selectedSpace?.capacity} personas
                     </CardDescription>
                   </div>
                   <Button 
@@ -204,7 +455,7 @@ export default function SpaceRental() {
                       <Input
                         type="number"
                         min="1"
-                        max={selectedSpace.capacity}
+                        max={selectedSpace?.capacity || 10}
                         value={bookingForm.participants}
                         onChange={(e) => setBookingForm({...bookingForm, participants: e.target.value})}
                         required
@@ -296,9 +547,9 @@ export default function SpaceRental() {
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                     <h4 className="font-bold text-blue-800 mb-2">Resumen de la Reserva:</h4>
                     <div className="text-sm text-blue-700">
-                      <p>• Espacio: {selectedSpace.name}</p>
-                      <p>• Precio: €{selectedSpace.pricePerHour}/hora</p>
-                      <p>• Capacidad máxima: {selectedSpace.capacity} personas</p>
+                      <p>• Espacio: {selectedSpace?.name}</p>
+                      <p>• Precio: €{selectedSpace?.pricePerHour}/hora</p>
+                      <p>• Capacidad máxima: {selectedSpace?.capacity} personas</p>
                       <p>• Equipamiento incluido</p>
                     </div>
                   </div>
@@ -312,92 +563,6 @@ export default function SpaceRental() {
                 </form>
               </CardContent>
             </Card>
-          </div>
-        ) : (
-          /* Space Selection */
-          <div>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Elige tu Espacio</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Instalaciones profesionales equipadas con todo lo necesario para entrenamientos de alto nivel.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {spaceRentals.map((space) => (
-                <Card key={space.id} className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 overflow-hidden transform hover:-translate-y-2">
-                  <CardHeader className="p-0 relative">
-                    <div className="aspect-video bg-gradient-to-br from-blue-100 to-gray-200 flex items-center justify-center text-6xl">
-                      🏟️
-                    </div>
-                    <div className="absolute top-3 right-3">
-                      <Badge className="bg-green-500 text-white font-bold">
-                        <Star className="w-3 h-3 mr-1" />
-                        {space.rating}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="p-6">
-                    <div className="space-y-4">
-                      <div>
-                        <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors">
-                          {space.name}
-                        </h3>
-                        <p className="text-sm text-gray-600 mt-2">{space.description}</p>
-                      </div>
-                      
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-black text-blue-600">€{space.pricePerHour}/h</span>
-                        <div className="text-right text-sm text-gray-500">
-                          <div className="flex items-center">
-                            <Users className="w-4 h-4 mr-1" />
-                            {space.capacity} personas
-                          </div>
-                          <p>{space.bookingsCount} reservas</p>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-sm text-gray-700 mb-2">Equipamiento incluido:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {space.amenities.slice(0, 3).map((amenity, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
-                              {amenity}
-                            </Badge>
-                          ))}
-                          {space.amenities.length > 3 && (
-                            <Badge variant="secondary" className="text-xs">
-                              +{space.amenities.length - 3} más
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-sm text-gray-700 mb-2">Horarios disponibles:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {space.availableHours.map((hour, idx) => (
-                            <Badge key={idx} variant="outline" className="text-xs">
-                              <Clock className="w-3 h-3 mr-1" />
-                              {hour}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      <Button 
-                        onClick={() => setSelectedSpace(space)}
-                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-200"
-                      >
-                        <Calendar className="w-4 h-4 mr-2" />
-                        RESERVAR AHORA
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </div>
         )}
       </div>

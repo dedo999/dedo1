@@ -150,10 +150,10 @@ export function KaizenChatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: '¡Hola! Soy el asistente virtual de Kaizen Burgos 🥋\n\n¿En qué puedo ayudarte hoy? Puedo responder sobre horarios, precios, clases y hacer reservas.',
+      text: '¡Hola! 👋\n\n¿En qué puedo ayudarte?',
       isBot: true,
       timestamp: new Date(),
-      quickActions: ['Ver horarios', 'Ver precios', 'Reservar clase', 'Ubicación']
+      quickActions: ['Horarios', 'Precios', 'Clase gratis', 'Alquiler']
     }
   ]);
   const [inputText, setInputText] = useState('');
@@ -230,10 +230,10 @@ export function KaizenChatbot() {
         // Default response for unmatched queries
         botResponse = {
           id: (Date.now() + 1).toString(),
-          text: `Lo siento, no entendí tu consulta. ¿Podrías ser más específico?\n\nPuedo ayudarte con:\n• Horarios y clases\n• Precios y planes\n• Ubicación del gimnasio\n• Reservas y citas\n• Información sobre disciplinas`,
+          text: `No entendí tu pregunta.\n\nPuedo ayudarte con:\n• Horarios\n• Precios\n• Reservas\n• Ubicación`,
           isBot: true,
           timestamp: new Date(),
-          quickActions: ['Hablar con humano', 'Ver horarios', 'Ver precios', 'Reservar clase']
+          quickActions: ['Horarios', 'Precios', 'Clase gratis', 'Ubicación']
         };
       }
 

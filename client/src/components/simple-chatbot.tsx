@@ -1,0 +1,215 @@
+import { useState, useRef, useEffect } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
+import { MessageCircle, Send, X } from 'lucide-react';
+
+interface Message {
+  id: string;
+  text: string;
+  isBot: boolean;
+  timestamp: Date;
+  quickActions?: string[];
+}
+
+const quickResponses = {
+  'horarios': `🕐 **Horarios:**
+
+L-V: 6:00-23:00
+S: 8:00-21:00  
+D: 9:00-20:00`,
+  
+  'precios': `💶 **Precios:**
+
+Individual: €15/mes
+Completo: €45/mes  
+Ilimitado: €80/mes
+
+*Primera clase GRATIS*`,
+
+  'alquiler': `🏟️ **Alquiler:**
+
+Mañanas: 6:00-11:00
+Desde €25/hora
+Ideal para entrenadores
+
+WhatsApp: +34 947 123 456`,
+
+  'ubicacion': `📍 **Ubicación:**
+
+Calle de la Puebla, 9
+Burgos
+Tel: +34 947 123 456`
+};
+
+export function SimpleChatbot() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: '1',
+      text: '¡Hola! 👋\n\n¿En qué puedo ayudarte?',
+      isBot: true,
+      timestamp: new Date(),
+      quickActions: ['Horarios', 'Precios', 'Clase gratis', 'Alquiler']
+    }
+  ]);
+  const [inputText, setInputText] = useState('');
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputText.trim()) return;
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: inputText,
+      isBot: false,
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setInputText('');
+
+    // Simple keyword matching
+    setTimeout(() => {
+      const text = inputText.toLowerCase();
+      let response = '';
+      let actions: string[] = [];
+
+      if (text.includes('horario') || text.includes('hora')) {
+        response = quickResponses.horarios;
+        actions = ['Precios', 'Clase gratis'];
+      } else if (text.includes('precio') || text.includes('cuesta')) {
+        response = quickResponses.precios;
+        actions = ['Clase gratis', 'Horarios'];
+      } else if (text.includes('alquiler') || text.includes('entrenador')) {
+        response = quickResponses.alquiler;
+        actions = ['WhatsApp', 'Más info'];
+      } else if (text.includes('donde') || text.includes('ubicacion')) {
+        response = quickResponses.ubicacion;
+        actions = ['Google Maps', 'Llamar'];
+      } else {
+        response = 'No entendí tu pregunta.\n\nPuedo ayudarte con:\n• Horarios\n• Precios\n• Alquiler\n• Ubicación';
+        actions = ['Horarios', 'Precios', 'Alquiler'];
+      }
+
+      const botResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: response,
+        isBot: true,
+        timestamp: new Date(),
+        quickActions: actions
+      };
+
+      setMessages(prev => [...prev, botResponse]);
+    }, 500);
+  };
+
+  const handleQuickAction = (action: string) => {
+    const actionText = action.toLowerCase();
+    
+    if (actionText.includes('horario')) {
+      setInputText('horarios');
+    } else if (actionText.includes('precio')) {
+      setInputText('precios');
+    } else if (actionText.includes('alquiler')) {
+      setInputText('alquiler espacio');
+    } else if (actionText.includes('gratis')) {
+      window.location.href = '#contacto';
+      return;
+    } else if (actionText.includes('whatsapp')) {
+      window.open('https://wa.me/34947123456?text=Hola, estoy interesado en alquilar espacio', '_blank');
+      return;
+    } else {
+      setInputText(action);
+    }
+    
+    handleSubmit({ preventDefault: () => {} } as React.FormEvent);
+  };
+
+  if (!isOpen) {
+    return (
+      <Button
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-4 right-4 w-14 h-14 rounded-full bg-red-600 hover:bg-red-700 shadow-2xl z-50 p-0"
+      >
+        <MessageCircle className="w-6 h-6" />
+      </Button>
+    );
+  }
+
+  return (
+    <Card className="fixed bottom-4 right-4 w-80 h-[450px] shadow-2xl z-50 flex flex-col">
+      <CardHeader className="bg-red-600 text-white rounded-t-lg p-3">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-sm">💬 Kaizen Chat</CardTitle>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsOpen(false)}
+            className="text-white hover:bg-red-700 p-1"
+          >
+            <X className="h-3 w-3" />
+          </Button>
+        </div>
+      </CardHeader>
+
+      <CardContent className="flex-1 flex flex-col p-0">
+        {/* Messages */}
+        <div className="flex-1 overflow-y-auto p-3 space-y-2">
+          {messages.map((message) => (
+            <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
+              <div className={`max-w-[80%] p-2 rounded-lg text-xs ${
+                message.isBot 
+                  ? 'bg-gray-100 text-gray-800' 
+                  : 'bg-red-600 text-white'
+              }`}>
+                <div className="whitespace-pre-line">{message.text}</div>
+                
+                {message.quickActions && (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {message.quickActions.map((action, index) => (
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="cursor-pointer hover:bg-red-100 text-xs px-2 py-1"
+                        onClick={() => handleQuickAction(action)}
+                      >
+                        {action}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Input */}
+        <div className="border-t p-2 bg-gray-50">
+          <form onSubmit={handleSubmit} className="flex space-x-2">
+            <Input
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              placeholder="Pregunta..."
+              className="flex-1 text-xs"
+            />
+            <Button type="submit" size="sm" className="bg-red-600 hover:bg-red-700 p-2">
+              <Send className="h-3 w-3" />
+            </Button>
+          </form>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
