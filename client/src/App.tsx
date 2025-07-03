@@ -20,20 +20,19 @@ function Router() {
 
   return (
     <Switch>
+      {/* Barbershop designer as main page */}
+      <Route path="/" component={BarbershopDesigner} />
       <Route path="/barbershop" component={BarbershopDesigner} />
-      {isLoading || !isAuthenticated ? (
-        <Route path="/" component={Landing} />
-      ) : (
-        <>
-          <Route path="/" component={Dashboard} />
-          <Route path="/bookings" component={Bookings} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/classes" component={Classes} />
-          <Route path="/capacity" component={GymCapacity} />
-          <Route path="/checkin" component={CheckIn} />
-          <Route path="/website" component={Home} />
-        </>
-      )}
+      
+      {/* Gym website routes */}
+      <Route path="/gym" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
+      <Route path="/gym/bookings" component={Bookings} />
+      <Route path="/gym/profile" component={Profile} />
+      <Route path="/gym/classes" component={Classes} />
+      <Route path="/gym/capacity" component={GymCapacity} />
+      <Route path="/gym/checkin" component={CheckIn} />
+      <Route path="/gym/website" component={Home} />
+      
       <Route component={NotFound} />
     </Switch>
   );
