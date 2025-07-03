@@ -12,6 +12,7 @@ import Profile from "@/pages/profile";
 import Classes from "@/pages/classes";
 import GymCapacity from "@/pages/gym-capacity";
 import CheckIn from "@/pages/check-in";
+import BarbershopDesigner from "@/pages/barbershop-designer";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -19,6 +20,7 @@ function Router() {
 
   return (
     <Switch>
+      <Route path="/barbershop" component={BarbershopDesigner} />
       {isLoading || !isAuthenticated ? (
         <Route path="/" component={Landing} />
       ) : (
