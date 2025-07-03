@@ -7,6 +7,7 @@ import ScheduleSection from "@/components/schedule-section";
 import PricingSection from "@/components/pricing-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
+import SpaceRentalSection from "@/components/space-rental-section";
 import Footer from "@/components/footer";
 import { KaizenChatbot } from "@/components/kaizen-chatbot";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <InstructorsSection />
       <ScheduleSection />
       <PricingSection />
+      <SpaceRentalSection />
       <TestimonialsSection />
       <ContactSection />
       <Footer />

@@ -16,9 +16,9 @@ export default function Navigation() {
     { href: "#instructores", label: "Instructores" },
     { href: "#horarios", label: "Horarios" },
     { href: "#precios", label: "Precios" },
+    { href: "#alquiler-espacio", label: "Alquiler" },
     { href: "#testimonios", label: "Testimonios" },
     { href: "/tienda", label: "Tienda", external: true },
-    { href: "/alquiler-espacios", label: "Alquiler", external: true },
   ];
 
   const handleNavClick = (href: string, external?: boolean) => {

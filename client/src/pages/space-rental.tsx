@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -24,39 +24,39 @@ interface SpaceRental {
 const spaceRentals: SpaceRental[] = [
   {
     id: 1,
-    name: 'Sala Principal MMA',
-    description: 'Espacio completo de 100m² con tatami profesional, sacos de boxeo, y equipamiento completo de MMA.',
-    pricePerHour: 45,
-    capacity: 15,
-    amenities: ['Tatami profesional', 'Sacos de boxeo', 'Guantes disponibles', 'Vestuarios', 'Ducha', 'Aire acondicionado'],
-    availableHours: ['09:00-12:00', '14:00-17:00', '21:00-23:00'],
+    name: 'Espacio Principal para Entrenadores',
+    description: 'Sala principal de 100m² ideal para entrenamiento personal, yoga, pilates y terapias. Suelo acolchado, vestuarios separados y acceso independiente.',
+    pricePerHour: 25,
+    capacity: 8,
+    amenities: ['Suelo acolchado 100m²', 'Vestuarios hombre/mujer', 'Duchas', 'Aire acondicionado', 'Espejos', 'Equipo de sonido'],
+    availableHours: ['06:00-11:00', '20:00-22:00'],
     imageUrl: '/api/placeholder/600/400',
     rating: 4.9,
-    bookingsCount: 127
+    bookingsCount: 45
   },
   {
     id: 2,
-    name: 'Sala BJJ & Grappling',
-    description: 'Espacio dedicado de 80m² con tatami especializado para Brazilian Jiu-Jitsu y grappling.',
-    pricePerHour: 40,
-    capacity: 12,
-    amenities: ['Tatami BJJ', 'Dummies de grappling', 'Cronómetro', 'Vestuarios', 'Ducha'],
-    availableHours: ['10:00-13:00', '15:00-18:00', '20:00-22:00'],
+    name: 'Sala Wellness & Terapias',
+    description: 'Espacio tranquilo de 60m² perfecto para fisioterapia, terapias de rehabilitación y entrenamientos suaves.',
+    pricePerHour: 30,
+    capacity: 6,
+    amenities: ['Ambiente relajado', 'Camilla disponible', 'Vestuarios privados', 'Calefacción', 'Música ambiental'],
+    availableHours: ['07:00-12:00', '19:00-21:00'],
     imageUrl: '/api/placeholder/600/400',
     rating: 4.8,
-    bookingsCount: 89
+    bookingsCount: 28
   },
   {
     id: 3,
-    name: 'Sala Fitness & Conditioning',
-    description: 'Espacio de acondicionamiento físico con equipamiento completo para entrenamientos funcionales.',
+    name: 'Zona Funcional Matutina',
+    description: 'Área de 80m² equipada para entrenamientos funcionales, crossfit y acondicionamiento físico matutino.',
     pricePerHour: 35,
     capacity: 10,
-    amenities: ['Equipamiento funcional', 'Pesas libres', 'TRX', 'Kettlebells', 'Esterillas', 'Música'],
-    availableHours: ['08:00-11:00', '13:00-16:00', '19:00-22:00'],
+    amenities: ['Equipamiento funcional', 'TRX', 'Kettlebells', 'Esterillas yoga', 'Pesas libres', 'Cronómetro'],
+    availableHours: ['06:00-10:00', '21:00-23:00'],
     imageUrl: '/api/placeholder/600/400',
     rating: 4.7,
-    bookingsCount: 156
+    bookingsCount: 52
   }
 ];
 
@@ -75,6 +75,34 @@ export default function SpaceRental() {
   });
 
   const { toast } = useToast();
+
+  // SEO optimization for local search
+  useEffect(() => {
+    document.title = 'Alquiler Espacio Gimnasio Burgos | Entrenadores Personales | Kaizen Burgos';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 
+        'Alquila espacio profesional en Burgos para entrenamiento personal, yoga, pilates y fisioterapia. Gimnasio Kaizen - 100m², vestuarios, horarios flexibles desde €25/hora.'
+      );
+    }
+
+    // Add local SEO keywords meta tag
+    let keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (!keywordsMeta) {
+      keywordsMeta = document.createElement('meta');
+      keywordsMeta.setAttribute('name', 'keywords');
+      document.head.appendChild(keywordsMeta);
+    }
+    keywordsMeta.setAttribute('content', 
+      'alquiler espacio gimnasio burgos, entrenador personal burgos, alquiler sala yoga burgos, espacio fisioterapia burgos, alquiler gimnasio por horas, sala entrenamiento burgos, espacio wellness burgos, alquiler sala deportiva'
+    );
+
+    return () => {
+      document.title = 'Kaizen Burgos - Gimnasio de Artes Marciales';
+    };
+  }, []);
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -121,14 +149,14 @@ export default function SpaceRental() {
 
           <div className="text-center py-8">
             <h1 className="text-5xl font-black bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent mb-4">
-              ALQUILER DE ESPACIOS
+              ALQUILER DE ESPACIO PROFESIONAL
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Alquila nuestras instalaciones profesionales para entrenamientos privados, seminarios, eventos corporativos y competiciones.
+              Espacio de 100m² en el centro de Burgos para entrenadores personales, instructores de yoga/pilates, fisioterapeutas y profesionales del wellness. Horarios matutinos disponibles.
             </p>
             
-            <div className="bg-gradient-to-r from-blue-600 to-green-500 text-white px-6 py-3 rounded-full inline-block font-bold text-lg shadow-xl">
-              ✨ Desde €35/hora | Equipamiento incluido | Disponible 7 días
+            <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full inline-block font-bold text-lg shadow-xl">
+              🌅 MAÑANAS DISPONIBLES | Desde €25/hora | Vestuarios incluidos
             </div>
           </div>
         </div>

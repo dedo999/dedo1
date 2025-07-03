@@ -34,63 +34,80 @@ interface FAQ {
 const gymFAQs: FAQ[] = [
   {
     keywords: ['horarios', 'horario', 'hora', 'abierto', 'cerrado', 'cuando', 'opening', 'schedule'],
-    response: `🕐 **Horarios de Kaizen Burgos:**
-    
-**Lunes a Viernes:** 6:00 - 23:00
-**Sábados:** 8:00 - 21:00  
-**Domingos:** 9:00 - 20:00
+    response: `🕐 **Horarios:**
 
-*Clases matutinas disponibles martes y jueves 9:00-11:00*`,
-    quickActions: ['Ver horarios de clases', 'Reservar clase']
+**L-V:** 6:00-23:00
+**S:** 8:00-21:00  
+**D:** 9:00-20:00
+
+*Clases mañana: Mar/Jue 9-11h*`,
+    quickActions: ['Ver clases', 'Reservar']
   },
   {
     keywords: ['precio', 'precios', 'cuanto', 'cuesta', 'mensualidad', 'price', 'cost'],
-    response: `💶 **Precios Kaizen Burgos:**
+    response: `💶 **Precios:**
 
-**🥊 Plan Individual** (1 disciplina): €15/mes
-**🏆 Plan Completo** (2 disciplinas): €45/mes  
-**👑 Plan Ilimitado** (todas las disciplinas): €80/mes
-**👶 Plan Niños:** €35/mes
+**Individual:** €15/mes
+**Completo:** €45/mes  
+**Ilimitado:** €80/mes
+**Niños:** €35/mes
 
-*Primera clase GRATIS para nuevos miembros*`,
-    quickActions: ['Reservar clase gratis', 'Ver todas las disciplinas']
+*Primera clase GRATIS*`,
+    quickActions: ['Clase gratis', 'Ver disciplinas']
   },
   {
     keywords: ['ubicacion', 'direccion', 'donde', 'como llegar', 'location', 'address'],
-    response: `📍 **Ubicación Kaizen Burgos:**
+    response: `📍 **Ubicación:**
 
-**Dirección:** Calle de la Puebla, 9, 09003 Burgos
-**Teléfono:** +34 947 123 456
-**Email:** info@kaizenburgos.com
+**Dirección:** Calle de la Puebla, 9
+**Tel:** +34 947 123 456
 
-🚗 Parking disponible
-🚌 Transporte público: Líneas 5, 7, 12`,
-    quickActions: ['Ver en Google Maps', 'Contactar por WhatsApp']
+🚗 Parking
+🚌 Líneas 5, 7, 12`,
+    quickActions: ['Google Maps', 'WhatsApp']
   },
   {
     keywords: ['disciplinas', 'clases', 'artes marciales', 'mma', 'bjj', 'jiu jitsu', 'kickboxing', 'boxeo', 'karate'],
-    response: `🥋 **Disciplinas en Kaizen Burgos:**
+    response: `🥋 **Disciplinas:**
 
 **🔥 MMA** - Artes marciales mixtas
-**🇧🇷 Brazilian Jiu-Jitsu** - Arte suave brasileño
+**🇧🇷 BJJ** - Brazilian Jiu-Jitsu
 **👊 Kickboxing** - Boxeo con piernas
-**🥊 Boxeo** - Noble arte del pugilismo
-**👶 Clases para Niños** - Todas las edades
+**🥊 Boxeo** - Arte del pugilismo
+**👶 Niños** - Todas las edades
 
-*Instructores certificados y competidores activos*`,
-    quickActions: ['Reservar clase gratis', 'Ver instructores']
+*Instructores certificados*`,
+    quickActions: ['Clase gratis', 'Instructores']
+  },
+  {
+    keywords: ['alquiler', 'alquilar', 'espacio', 'entrenador personal', 'yoga', 'pilates', 'fisioterapeuta', 'rental', 'space'],
+    response: `🏟️ **Alquiler de Espacio:**
+
+**Mañanas disponibles:**
+L-V: 6:00-11:00
+S: 8:00-12:00
+D: 9:00-13:00
+
+**Ideal para:**
+• Entrenadores personales
+• Instructores yoga/pilates
+• Fisioterapeutas
+• Profesionales wellness
+
+**Desde €25/hora**`,
+    quickActions: ['WhatsApp alquiler', 'Ver instalaciones']
   },
   {
     keywords: ['reservar', 'reserva', 'cita', 'clase', 'book', 'appointment', 'trial'],
-    response: `📅 **Reservar tu clase en Kaizen:**
+    response: `📅 **Reservar clase:**
 
-1️⃣ Elige tu disciplina favorita
-2️⃣ Selecciona horario disponible  
-3️⃣ Proporciona tus datos
-4️⃣ ¡Confirma tu reserva!
+1️⃣ Elige disciplina
+2️⃣ Selecciona horario  
+3️⃣ Datos personales
+4️⃣ ¡Confirma!
 
-**Primera clase GRATIS** para nuevos miembros 🎉`,
-    quickActions: ['Reservar ahora', 'Ver horarios disponibles']
+**Primera clase GRATIS** 🎉`,
+    quickActions: ['Reservar ahora', 'Ver horarios']
   },
   {
     keywords: ['entrenadores', 'instructores', 'profesores', 'trainers', 'coaches'],
@@ -303,20 +320,20 @@ export function KaizenChatbot() {
   }
 
   return (
-    <Card className="fixed bottom-6 right-6 w-96 h-96 shadow-2xl z-50 flex flex-col">
-      <CardHeader className="bg-red-600 text-white rounded-t-lg p-4">
+    <Card className="fixed bottom-4 right-4 w-80 h-[500px] shadow-2xl z-50 flex flex-col md:w-96 md:h-96">
+      <CardHeader className="bg-red-600 text-white rounded-t-lg p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-            <CardTitle className="text-lg">Kaizen Assistant</CardTitle>
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <CardTitle className="text-base">💬 Kaizen Chat</CardTitle>
           </div>
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(false)}
-            className="text-white hover:bg-red-700"
+            className="text-white hover:bg-red-700 p-1"
           >
-            <X className="h-4 w-4" />
+            <X className="h-3 w-3" />
           </Button>
         </div>
       </CardHeader>
@@ -426,22 +443,22 @@ export function KaizenChatbot() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t p-3">
+        <div className="border-t p-2 bg-gray-50">
           <form onSubmit={handleSubmit} className="flex space-x-2">
             <Input
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="Escribe tu pregunta..."
-              className="flex-1"
+              placeholder="Pregunta..."
+              className="flex-1 text-sm"
             />
-            <Button type="submit" size="icon" className="bg-red-600 hover:bg-red-700">
-              <Send className="h-4 w-4" />
+            <Button type="submit" size="sm" className="bg-red-600 hover:bg-red-700 p-2">
+              <Send className="h-3 w-3" />
             </Button>
           </form>
           
-          <div className="flex items-center justify-center mt-2 text-xs text-gray-500">
-            <div className="w-2 h-2 bg-green-400 rounded-full mr-1"></div>
-            Asistente online 24/7
+          <div className="flex items-center justify-center mt-1 text-xs text-gray-500">
+            <div className="w-1 h-1 bg-green-400 rounded-full mr-1"></div>
+            Online 24/7
           </div>
         </div>
       </CardContent>
