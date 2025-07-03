@@ -8,6 +8,7 @@ import PricingSection from "@/components/pricing-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import { KaizenChatbot } from "@/components/kaizen-chatbot";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <TestimonialsSection />
       <ContactSection />
       <Footer />
+      <KaizenChatbot />
     </div>
   );
 }

@@ -10,6 +10,7 @@ import {
   serial,
   time,
   date,
+  numeric,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
@@ -125,6 +126,80 @@ export const contacts = pgTable("contacts", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// E-commerce Products
+export const products = pgTable("products", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description"),
+  price: numeric("price", { precision: 10, scale: 2 }).notNull(),
+  category: text("category").notNull(), // 'clothing', 'equipment', 'kimono'
+  subcategory: text("subcategory"), // 't-shirt', 'shorts', 'gloves', etc.
+  sizes: text("sizes").array(), // ['S', 'M', 'L', 'XL'] for clothing
+  colors: text("colors").array(), // available colors
+  imageUrl: text("image_url"),
+  inStock: integer("in_stock").default(0),
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Orders
+export const orders = pgTable("orders", {
+  id: serial("id").primaryKey(),
+  customerName: text("customer_name").notNull(),
+  customerEmail: text("customer_email").notNull(),
+  customerPhone: text("customer_phone"),
+  totalAmount: numeric("total_amount", { precision: 10, scale: 2 }).notNull(),
+  status: text("status").default("pending"), // 'pending', 'confirmed', 'delivered', 'cancelled'
+  paymentMethod: text("payment_method"), // 'cash', 'pix', 'card'
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Order Items
+export const orderItems = pgTable("order_items", {
+  id: serial("id").primaryKey(),
+  orderId: integer("order_id").notNull(),
+  productId: integer("product_id").notNull(),
+  quantity: integer("quantity").notNull(),
+  size: text("size"),
+  color: text("color"),
+  unitPrice: numeric("unit_price", { precision: 10, scale: 2 }).notNull(),
+  subtotal: numeric("subtotal", { precision: 10, scale: 2 }).notNull(),
+});
+
+// Space Rental Services
+export const spaceRentals = pgTable("space_rentals", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  description: text("description"),
+  pricePerHour: numeric("price_per_hour", { precision: 10, scale: 2 }).notNull(),
+  availableHours: text("available_hours").array(), // ['09:00', '10:00', '11:00', etc.]
+  availableDays: text("available_days").array(), // ['monday', 'tuesday', etc.]
+  maxCapacity: integer("max_capacity"),
+  equipmentIncluded: text("equipment_included").array(),
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Space Rental Bookings
+export const spaceBookings = pgTable("space_bookings", {
+  id: serial("id").primaryKey(),
+  spaceRentalId: integer("space_rental_id").notNull(),
+  customerName: text("customer_name").notNull(),
+  customerEmail: text("customer_email").notNull(),
+  customerPhone: text("customer_phone").notNull(),
+  date: date("date").notNull(),
+  startTime: text("start_time").notNull(),
+  endTime: text("end_time").notNull(),
+  totalHours: integer("total_hours").notNull(),
+  totalAmount: numeric("total_amount", { precision: 10, scale: 2 }).notNull(),
+  purpose: text("purpose"), // what type of class/training
+  status: text("status").default("pending"), // 'pending', 'confirmed', 'completed', 'cancelled'
+  paymentStatus: text("payment_status").default("pending"), // 'pending', 'paid', 'refunded'
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 // Relations
 export const usersRelations = relations(users, ({ many }) => ({
   bookings: many(bookings),
@@ -216,3 +291,23 @@ export const insertContactSchema = createInsertSchema(contacts).omit({
 
 export type InsertContact = z.infer<typeof insertContactSchema>;
 export type Contact = typeof contacts.$inferSelect;
+
+// E-commerce types
+export type Product = typeof products.$inferSelect;
+export type InsertProduct = typeof products.$inferInsert;
+export const insertProductSchema = createInsertSchema(products);
+
+export type Order = typeof orders.$inferSelect;
+export type InsertOrder = typeof orders.$inferInsert;
+export const insertOrderSchema = createInsertSchema(orders);
+
+export type OrderItem = typeof orderItems.$inferSelect;
+export type InsertOrderItem = typeof orderItems.$inferInsert;
+
+export type SpaceRental = typeof spaceRentals.$inferSelect;
+export type InsertSpaceRental = typeof spaceRentals.$inferInsert;
+export const insertSpaceRentalSchema = createInsertSchema(spaceRentals);
+
+export type SpaceBooking = typeof spaceBookings.$inferSelect;
+export type InsertSpaceBooking = typeof spaceBookings.$inferInsert;
+export const insertSpaceBookingSchema = createInsertSchema(spaceBookings);

@@ -45,6 +45,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Chatbot booking request
+  app.post("/api/chatbot/booking", async (req, res) => {
+    try {
+      const { customerName, customerEmail, customerPhone, discipline, preferredTime, message } = req.body;
+      
+      // Create a booking request through contact form
+      const bookingContact = await storage.createContact({
+        name: customerName,
+        email: customerEmail,
+        phone: customerPhone || '',
+        discipline: discipline,
+        message: `RESERVA VIA CHATBOT - Horario preferido: ${preferredTime}\nMensaje: ${message || 'Sin mensaje adicional'}`
+      });
+
+      res.status(201).json({ 
+        success: true,
+        message: "Solicitud de reserva enviada exitosamente", 
+        bookingId: bookingContact.id,
+        confirmationMessage: `¡Perfecto! Tu solicitud de reserva ha sido enviada.\n\n📋 Detalles:\n• Disciplina: ${discipline}\n• Horario: ${preferredTime}\n• Contacto: ${customerEmail}\n\nTe contactaremos en menos de 24 horas para confirmar tu clase gratuita. ¡Nos vemos pronto en Kaizen! 🥋`
+      });
+    } catch (error: any) {
+      console.error("Error creating booking:", error);
+      res.status(400).json({ success: false, message: "Error al procesar la reserva", error: error.message });
+    }
+  });
+
   // Class management routes
   app.get("/api/classes", async (req, res) => {
     try {
