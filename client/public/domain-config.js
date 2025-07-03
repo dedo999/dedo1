@@ -2,8 +2,8 @@
 // This file helps with domain transition and SEO
 
 const DOMAIN_CONFIG = {
-  // Update this when domain is purchased
-  PRODUCTION_DOMAIN: 'kaizenburgos.com', // Replace with actual domain
+  // Domain purchased and configured
+  PRODUCTION_DOMAIN: 'kaizenburgos.com', // ✅ ACTIVE DOMAIN
   CURRENT_DOMAIN: window.location.hostname,
   
   // Business Information

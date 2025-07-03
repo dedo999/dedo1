@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://kaizen-burgos.replit.app/</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://kaizenburgos.com/</loc>
+    <lastmod>2025-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://kaizen-burgos.replit.app/kaizen-logo.jpg</image:loc>
+      <image:loc>https://kaizenburgos.com/kaizen-logo.jpg</image:loc>
       <image:title>Kaizen Burgos - Gimnasio Artes Marciales Logo</image:title>
       <image:caption>Logo oficial del mejor gimnasio de artes marciales en Burgos</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://kaizen-burgos.replit.app/mma-image.webp</image:loc>
+      <image:loc>https://kaizenburgos.com/mma-image.webp</image:loc>
       <image:title>Clases MMA Burgos - Mixed Martial Arts</image:title>
       <image:caption>Entrenamiento profesional de MMA en Kaizen Burgos</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://kaizen-burgos.replit.app/bjj-image-new.webp</image:loc>
+      <image:loc>https://kaizenburgos.com/bjj-image-new.webp</image:loc>
       <image:title>Brazilian Jiu-Jitsu Burgos - BJJ Classes</image:title>
       <image:caption>Clases de Brazilian Jiu-Jitsu en el mejor gimnasio BJJ Burgos</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://kaizen-burgos.replit.app/kickboxing-image.webp</image:loc>
+      <image:loc>https://kaizenburgos.com/kickboxing-image.webp</image:loc>
       <image:title>Kickboxing Burgos - Clases Profesionales</image:title>
       <image:caption>Entrenamientos de kickboxing para todos los niveles en Burgos</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://kaizen-burgos.replit.app/boxing-image.webp</image:loc>
+      <image:loc>https://kaizenburgos.com/boxing-image.webp</image:loc>
       <image:title>Boxeo Burgos - Clases de Boxeo</image:title>
       <image:caption>Clases de boxeo profesional en academia Kaizen Burgos</image:caption>
     </image:image>

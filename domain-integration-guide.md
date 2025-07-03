@@ -2,11 +2,8 @@
 
 ## Step 1: Purchase Domain on GoDaddy
 
-### Recommended Domain Names:
-- **kaizenburgos.com** (Primary recommendation)
-- **kaizenmartialartsurgos.com** 
-- **gimnasiokaizenburgos.com**
-- **kaizen-burgos.es** (Spain extension)
+### Your Domain:
+- **kaizenburgos.com** ✅ **PURCHASED**
 
 ### Purchase Process:
 1. Go to [GoDaddy.com](https://godaddy.com)
@@ -24,6 +21,8 @@
 ### DNS Records to Add:
 
 #### For Replit Deployment:
+**IMPORTANT: Replace "your-repl-name" with your actual Replit project name**
+
 ```
 Type: CNAME
 Name: www
@@ -34,12 +33,13 @@ Type: A
 Name: @
 Value: 34.102.136.180
 TTL: 1 Hour
-
-Type: CNAME
-Name: @
-Value: your-repl-name.replit.app
-TTL: 1 Hour
 ```
+
+**Next Steps:**
+1. In GoDaddy DNS management, add these records
+2. In Replit, go to your project → Deployments → Add Custom Domain
+3. Enter: kaizenburgos.com
+4. Wait for SSL certificate (5-10 minutes)
 
 #### For Email (Optional):
 ```
