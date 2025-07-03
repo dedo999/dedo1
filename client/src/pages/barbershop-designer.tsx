@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AlertCircle, Ruler, Lightbulb, Zap } from 'lucide-react';
+import { BarbershopSVG } from '@/components/barbershop-svg';
 
 interface LayoutItem {
   id: string;
@@ -128,7 +129,7 @@ export default function BarbershopDesigner() {
             ))}
           </div>
 
-          {/* 3D Visualization */}
+          {/* SVG Visualization */}
           <div className="lg:col-span-2">
             <Card className="p-6">
               <CardHeader className="pb-4">
@@ -138,84 +139,8 @@ export default function BarbershopDesigner() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {/* Room Container */}
-                <div className="relative border-4 border-gray-800 bg-gray-100 mx-auto" 
-                     style={{ width: 6 * scale, height: 3.5 * scale }}>
-                  
-                  {/* Grid lines */}
-                  <div className="absolute inset-0 opacity-20">
-                    {Array.from({ length: 7 }, (_, i) => (
-                      <div key={`v-${i}`} className="absolute bg-gray-400" 
-                           style={{ left: i * scale, width: 1, height: '100%' }} />
-                    ))}
-                    {Array.from({ length: 4 }, (_, i) => (
-                      <div key={`h-${i}`} className="absolute bg-gray-400" 
-                           style={{ top: i * scale, height: 1, width: '100%' }} />
-                    ))}
-                  </div>
-
-                  {/* Layout Items */}
-                  {currentLayout.items.map((item) => (
-                    <div
-                      key={item.id}
-                      className={`absolute border-2 rounded cursor-pointer transition-all hover:scale-105 ${
-                        selectedItem === item.id ? 'ring-2 ring-amber-500 z-10' : ''
-                      } ${
-                        item.name.includes('LED') 
-                          ? 'border-yellow-400 shadow-lg shadow-yellow-200' 
-                          : 'border-gray-600'
-                      }`}
-                      style={{
-                        left: item.x * scale,
-                        top: item.y * scale,
-                        width: item.width * scale,
-                        height: item.height * scale,
-                        backgroundColor: item.color,
-                        opacity: item.name.includes('LED') ? 0.9 : 0.8,
-                        boxShadow: item.name.includes('LED') ? '0 0 15px rgba(255, 255, 0, 0.3)' : undefined
-                      }}
-                      onClick={() => setSelectedItem(selectedItem === item.id ? null : item.id)}
-                    >
-                      <div className={`absolute inset-0 flex items-center justify-center font-bold text-xs text-center p-1 ${
-                        item.name.includes('LED') ? 'text-yellow-800' : 'text-white'
-                      }`}>
-                        {item.name}
-                      </div>
-                      {item.name.includes('LED') && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-                      )}
-                    </div>
-                  ))}
-
-                  {/* Measurements */}
-                  <div className="absolute -bottom-8 left-0 right-0 text-center text-sm font-semibold text-gray-700">
-                    6,00m
-                  </div>
-                  <div className="absolute -left-8 top-0 bottom-0 flex items-center">
-                    <div className="transform -rotate-90 text-sm font-semibold text-gray-700">
-                      3,50m
-                    </div>
-                  </div>
-                </div>
-
-                {/* Item Details */}
-                {selectedItem && (
-                  <div className="mt-6 p-4 bg-amber-50 rounded-lg">
-                    {(() => {
-                      const item = currentLayout.items.find(i => i.id === selectedItem);
-                      return item ? (
-                        <div>
-                          <h3 className="font-semibold text-lg text-gray-800">{item.name}</h3>
-                          <p className="text-gray-600 mt-1">{item.description}</p>
-                          <div className="mt-2 text-sm text-gray-500">
-                            <p>Dimensões: {item.width}m × {item.height}m</p>
-                            <p>Posição: {item.x}m, {item.y}m</p>
-                          </div>
-                        </div>
-                      ) : null;
-                    })()}
-                  </div>
-                )}
+                {/* Generated SVG Layout */}
+                <BarbershopSVG layout={selectedLayout} width={600} height={350} />
 
                 {/* LED Lighting Specifications */}
                 <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
