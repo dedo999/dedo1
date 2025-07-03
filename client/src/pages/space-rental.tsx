@@ -1,0 +1,378 @@
+import { useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Calendar, Clock, Users, Euro, MapPin, Star, ArrowLeft } from 'lucide-react';
+import { Link } from 'wouter';
+import { useToast } from '@/hooks/use-toast';
+
+interface SpaceRental {
+  id: number;
+  name: string;
+  description: string;
+  pricePerHour: number;
+  capacity: number;
+  amenities: string[];
+  availableHours: string[];
+  imageUrl: string;
+  rating: number;
+  bookingsCount: number;
+}
+
+const spaceRentals: SpaceRental[] = [
+  {
+    id: 1,
+    name: 'Sala Principal MMA',
+    description: 'Espacio completo de 100m² con tatami profesional, sacos de boxeo, y equipamiento completo de MMA.',
+    pricePerHour: 45,
+    capacity: 15,
+    amenities: ['Tatami profesional', 'Sacos de boxeo', 'Guantes disponibles', 'Vestuarios', 'Ducha', 'Aire acondicionado'],
+    availableHours: ['09:00-12:00', '14:00-17:00', '21:00-23:00'],
+    imageUrl: '/api/placeholder/600/400',
+    rating: 4.9,
+    bookingsCount: 127
+  },
+  {
+    id: 2,
+    name: 'Sala BJJ & Grappling',
+    description: 'Espacio dedicado de 80m² con tatami especializado para Brazilian Jiu-Jitsu y grappling.',
+    pricePerHour: 40,
+    capacity: 12,
+    amenities: ['Tatami BJJ', 'Dummies de grappling', 'Cronómetro', 'Vestuarios', 'Ducha'],
+    availableHours: ['10:00-13:00', '15:00-18:00', '20:00-22:00'],
+    imageUrl: '/api/placeholder/600/400',
+    rating: 4.8,
+    bookingsCount: 89
+  },
+  {
+    id: 3,
+    name: 'Sala Fitness & Conditioning',
+    description: 'Espacio de acondicionamiento físico con equipamiento completo para entrenamientos funcionales.',
+    pricePerHour: 35,
+    capacity: 10,
+    amenities: ['Equipamiento funcional', 'Pesas libres', 'TRX', 'Kettlebells', 'Esterillas', 'Música'],
+    availableHours: ['08:00-11:00', '13:00-16:00', '19:00-22:00'],
+    imageUrl: '/api/placeholder/600/400',
+    rating: 4.7,
+    bookingsCount: 156
+  }
+];
+
+export default function SpaceRental() {
+  const [selectedSpace, setSelectedSpace] = useState<SpaceRental | null>(null);
+  const [bookingForm, setBookingForm] = useState({
+    date: '',
+    startTime: '',
+    endTime: '',
+    participants: '',
+    purpose: '',
+    name: '',
+    email: '',
+    phone: '',
+    notes: ''
+  });
+
+  const { toast } = useToast();
+
+  const handleBookingSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!selectedSpace) return;
+    
+    // Calculate total cost
+    const startHour = parseInt(bookingForm.startTime.split(':')[0]);
+    const endHour = parseInt(bookingForm.endTime.split(':')[0]);
+    const totalHours = endHour - startHour;
+    const totalCost = totalHours * selectedSpace.pricePerHour;
+
+    toast({
+      title: "Solicitud de Reserva Enviada",
+      description: `Tu solicitud para ${selectedSpace.name} ha sido enviada. Te contactaremos pronto para confirmar.`,
+    });
+
+    // Reset form
+    setBookingForm({
+      date: '',
+      startTime: '',
+      endTime: '',
+      participants: '',
+      purpose: '',
+      name: '',
+      email: '',
+      phone: '',
+      notes: ''
+    });
+    setSelectedSpace(null);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-black via-gray-900 to-blue-900 text-white shadow-2xl">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="flex items-center justify-between mb-6">
+            <Link href="/" className="flex items-center text-white hover:text-blue-400 transition-colors">
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Volver al Gimnasio
+            </Link>
+          </div>
+
+          <div className="text-center py-8">
+            <h1 className="text-5xl font-black bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent mb-4">
+              ALQUILER DE ESPACIOS
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Alquila nuestras instalaciones profesionales para entrenamientos privados, seminarios, eventos corporativos y competiciones.
+            </p>
+            
+            <div className="bg-gradient-to-r from-blue-600 to-green-500 text-white px-6 py-3 rounded-full inline-block font-bold text-lg shadow-xl">
+              ✨ Desde €35/hora | Equipamiento incluido | Disponible 7 días
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {selectedSpace ? (
+          /* Booking Form */
+          <div className="max-w-4xl mx-auto">
+            <Card className="shadow-2xl border-2 border-blue-200">
+              <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-2xl">{selectedSpace.name}</CardTitle>
+                    <CardDescription className="text-blue-100">
+                      €{selectedSpace.pricePerHour}/hora | Capacidad: {selectedSpace.capacity} personas
+                    </CardDescription>
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => setSelectedSpace(null)}
+                    className="text-white hover:bg-blue-800"
+                  >
+                    ← Volver
+                  </Button>
+                </div>
+              </CardHeader>
+              
+              <CardContent className="p-8">
+                <form onSubmit={handleBookingSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Fecha de Reserva *</label>
+                      <Input
+                        type="date"
+                        value={bookingForm.date}
+                        onChange={(e) => setBookingForm({...bookingForm, date: e.target.value})}
+                        required
+                        className="border-2 hover:border-blue-300 focus:border-blue-500"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Número de Participantes *</label>
+                      <Input
+                        type="number"
+                        min="1"
+                        max={selectedSpace.capacity}
+                        value={bookingForm.participants}
+                        onChange={(e) => setBookingForm({...bookingForm, participants: e.target.value})}
+                        required
+                        className="border-2 hover:border-blue-300 focus:border-blue-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Hora de Inicio *</label>
+                      <Input
+                        type="time"
+                        value={bookingForm.startTime}
+                        onChange={(e) => setBookingForm({...bookingForm, startTime: e.target.value})}
+                        required
+                        className="border-2 hover:border-blue-300 focus:border-blue-500"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Hora de Fin *</label>
+                      <Input
+                        type="time"
+                        value={bookingForm.endTime}
+                        onChange={(e) => setBookingForm({...bookingForm, endTime: e.target.value})}
+                        required
+                        className="border-2 hover:border-blue-300 focus:border-blue-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Tipo de Evento/Entrenamiento *</label>
+                    <Input
+                      value={bookingForm.purpose}
+                      onChange={(e) => setBookingForm({...bookingForm, purpose: e.target.value})}
+                      placeholder="Ej: Entrenamiento privado BJJ, Seminario de MMA, Clase corporativa..."
+                      required
+                      className="border-2 hover:border-blue-300 focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Nombre Completo *</label>
+                      <Input
+                        value={bookingForm.name}
+                        onChange={(e) => setBookingForm({...bookingForm, name: e.target.value})}
+                        required
+                        className="border-2 hover:border-blue-300 focus:border-blue-500"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Email *</label>
+                      <Input
+                        type="email"
+                        value={bookingForm.email}
+                        onChange={(e) => setBookingForm({...bookingForm, email: e.target.value})}
+                        required
+                        className="border-2 hover:border-blue-300 focus:border-blue-500"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Teléfono *</label>
+                      <Input
+                        type="tel"
+                        value={bookingForm.phone}
+                        onChange={(e) => setBookingForm({...bookingForm, phone: e.target.value})}
+                        required
+                        className="border-2 hover:border-blue-300 focus:border-blue-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Notas Adicionales</label>
+                    <Textarea
+                      value={bookingForm.notes}
+                      onChange={(e) => setBookingForm({...bookingForm, notes: e.target.value})}
+                      placeholder="Equipamiento especial, necesidades específicas, número de instructores..."
+                      rows={3}
+                      className="border-2 hover:border-blue-300 focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h4 className="font-bold text-blue-800 mb-2">Resumen de la Reserva:</h4>
+                    <div className="text-sm text-blue-700">
+                      <p>• Espacio: {selectedSpace.name}</p>
+                      <p>• Precio: €{selectedSpace.pricePerHour}/hora</p>
+                      <p>• Capacidad máxima: {selectedSpace.capacity} personas</p>
+                      <p>• Equipamiento incluido</p>
+                    </div>
+                  </div>
+
+                  <Button 
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 text-lg rounded-lg shadow-xl"
+                  >
+                    📅 ENVIAR SOLICITUD DE RESERVA
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        ) : (
+          /* Space Selection */
+          <div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Elige tu Espacio</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Instalaciones profesionales equipadas con todo lo necesario para entrenamientos de alto nivel.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {spaceRentals.map((space) => (
+                <Card key={space.id} className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 overflow-hidden transform hover:-translate-y-2">
+                  <CardHeader className="p-0 relative">
+                    <div className="aspect-video bg-gradient-to-br from-blue-100 to-gray-200 flex items-center justify-center text-6xl">
+                      🏟️
+                    </div>
+                    <div className="absolute top-3 right-3">
+                      <Badge className="bg-green-500 text-white font-bold">
+                        <Star className="w-3 h-3 mr-1" />
+                        {space.rating}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors">
+                          {space.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 mt-2">{space.description}</p>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-black text-blue-600">€{space.pricePerHour}/h</span>
+                        <div className="text-right text-sm text-gray-500">
+                          <div className="flex items-center">
+                            <Users className="w-4 h-4 mr-1" />
+                            {space.capacity} personas
+                          </div>
+                          <p>{space.bookingsCount} reservas</p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-sm text-gray-700 mb-2">Equipamiento incluido:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {space.amenities.slice(0, 3).map((amenity, idx) => (
+                            <Badge key={idx} variant="secondary" className="text-xs">
+                              {amenity}
+                            </Badge>
+                          ))}
+                          {space.amenities.length > 3 && (
+                            <Badge variant="secondary" className="text-xs">
+                              +{space.amenities.length - 3} más
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-bold text-sm text-gray-700 mb-2">Horarios disponibles:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {space.availableHours.map((hour, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs">
+                              <Clock className="w-3 h-3 mr-1" />
+                              {hour}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <Button 
+                        onClick={() => setSelectedSpace(space)}
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-200"
+                      >
+                        <Calendar className="w-4 h-4 mr-2" />
+                        RESERVAR AHORA
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

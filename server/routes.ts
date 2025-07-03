@@ -6,7 +6,11 @@ import {
   insertBookingSchema, 
   insertMemberNoteSchema,
   insertClassSchema,
-  insertClassScheduleSchema 
+  insertClassScheduleSchema,
+  insertProductSchema,
+  insertOrderSchema,
+  insertSpaceRentalSchema,
+  insertSpaceBookingSchema
 } from "@shared/schema";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
@@ -276,6 +280,129 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error updating check-out:", error);
       res.status(500).json({ message: "Error updating check-out" });
+    }
+  });
+
+  // E-commerce routes
+  
+  // Products routes
+  app.get("/api/products", async (req, res) => {
+    try {
+      const products = await storage.getProducts();
+      res.json(products);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res.status(500).json({ message: "Error fetching products" });
+    }
+  });
+
+  app.get("/api/products/:id", async (req, res) => {
+    try {
+      const productId = parseInt(req.params.id);
+      const product = await storage.getProduct(productId);
+      if (product) {
+        res.json(product);
+      } else {
+        res.status(404).json({ message: "Product not found" });
+      }
+    } catch (error) {
+      console.error("Error fetching product:", error);
+      res.status(500).json({ message: "Error fetching product" });
+    }
+  });
+
+  app.post("/api/products", isAuthenticated, async (req, res) => {
+    try {
+      const validatedData = insertProductSchema.parse(req.body);
+      const product = await storage.createProduct(validatedData);
+      res.status(201).json(product);
+    } catch (error) {
+      console.error("Error creating product:", error);
+      res.status(400).json({ message: "Error creating product" });
+    }
+  });
+
+  app.patch("/api/products/:id", isAuthenticated, async (req, res) => {
+    try {
+      const productId = parseInt(req.params.id);
+      const updateData = req.body;
+      const product = await storage.updateProduct(productId, updateData);
+      if (product) {
+        res.json(product);
+      } else {
+        res.status(404).json({ message: "Product not found" });
+      }
+    } catch (error) {
+      console.error("Error updating product:", error);
+      res.status(400).json({ message: "Error updating product" });
+    }
+  });
+
+  // Orders routes
+  app.get("/api/orders", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const orders = await storage.getUserOrders(userId);
+      res.json(orders);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+      res.status(500).json({ message: "Error fetching orders" });
+    }
+  });
+
+  app.post("/api/orders", async (req, res) => {
+    try {
+      const validatedData = insertOrderSchema.parse(req.body);
+      const order = await storage.createOrder(validatedData);
+      res.status(201).json(order);
+    } catch (error) {
+      console.error("Error creating order:", error);
+      res.status(400).json({ message: "Error creating order" });
+    }
+  });
+
+  // Space rental routes
+  app.get("/api/space-rentals", async (req, res) => {
+    try {
+      const rentals = await storage.getSpaceRentals();
+      res.json(rentals);
+    } catch (error) {
+      console.error("Error fetching space rentals:", error);
+      res.status(500).json({ message: "Error fetching space rentals" });
+    }
+  });
+
+  app.post("/api/space-rentals", isAuthenticated, async (req, res) => {
+    try {
+      const validatedData = insertSpaceRentalSchema.parse(req.body);
+      const rental = await storage.createSpaceRental(validatedData);
+      res.status(201).json(rental);
+    } catch (error) {
+      console.error("Error creating space rental:", error);
+      res.status(400).json({ message: "Error creating space rental" });
+    }
+  });
+
+  // Space booking routes
+  app.get("/api/space-bookings", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const bookings = await storage.getUserSpaceBookings(userId);
+      res.json(bookings);
+    } catch (error) {
+      console.error("Error fetching space bookings:", error);
+      res.status(500).json({ message: "Error fetching space bookings" });
+    }
+  });
+
+  app.post("/api/space-bookings", async (req, res) => {
+    try {
+      const validatedData = insertSpaceBookingSchema.parse(req.body);
+      const booking = await storage.createSpaceBooking(validatedData);
+      res.status(201).json(booking);
+    } catch (error) {
+      console.error("Error creating space booking:", error);
+      res.status(400).json({ message: "Error creating space booking" });
     }
   });
 

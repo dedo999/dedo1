@@ -1,22 +1,34 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+interface NavItem {
+  href: string;
+  label: string;
+  external?: boolean;
+}
+
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { href: "#inicio", label: "Inicio" },
     { href: "#servicios", label: "Servicios" },
     { href: "#instructores", label: "Instructores" },
     { href: "#horarios", label: "Horarios" },
     { href: "#precios", label: "Precios" },
     { href: "#testimonios", label: "Testimonios" },
+    { href: "/tienda", label: "Tienda", external: true },
+    { href: "/alquiler-espacios", label: "Alquiler", external: true },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (href: string, external?: boolean) => {
+    if (external) {
+      window.location.href = href;
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -43,14 +55,14 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <button
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavClick(item.href, item.external)}
                   className="text-gray-300 hover:text-kaizen-red transition-colors duration-200 font-medium"
                 >
                   {item.label}
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection("#contacto")}
+                onClick={() => handleNavClick("#contacto")}
                 className="bg-kaizen-red hover:bg-red-700 px-6 py-2 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105"
               >
                 Contactar
@@ -76,14 +88,14 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <button
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavClick(item.href, item.external)}
                   className="block w-full text-left px-3 py-2 text-gray-300 hover:text-kaizen-red font-medium"
                 >
                   {item.label}
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection("#contacto")}
+                onClick={() => handleNavClick("#contacto")}
                 className="block w-full text-left px-3 py-2 bg-kaizen-red hover:bg-red-700 text-white font-semibold rounded-lg mt-2"
               >
                 Contactar

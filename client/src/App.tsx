@@ -13,6 +13,8 @@ import Classes from "@/pages/classes";
 import GymCapacity from "@/pages/gym-capacity";
 import CheckIn from "@/pages/check-in";
 import BarbershopDesigner from "@/pages/barbershop-designer";
+import Store from "@/pages/store";
+import SpaceRental from "@/pages/space-rental";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +23,10 @@ function Router() {
   return (
     <Switch>
       <Route path="/barbershop" component={BarbershopDesigner} />
+      <Route path="/tienda" component={Store} />
+      <Route path="/store" component={Store} />
+      <Route path="/alquiler-espacios" component={SpaceRental} />
+      <Route path="/space-rental" component={SpaceRental} />
       <Route path="/" component={Home} />
       <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
       <Route path="/app/bookings" component={Bookings} />

@@ -7,6 +7,11 @@ import {
   memberNotes, 
   memberCheckIns,
   contacts,
+  products,
+  orders,
+  orderItems,
+  spaceRentals,
+  spaceBookings,
   type User, 
   type UpsertUser,
   type Class,
@@ -22,7 +27,15 @@ import {
   type MemberCheckIn,
   type InsertMemberCheckIn,
   type Contact,
-  type InsertContact
+  type InsertContact,
+  type Product,
+  type InsertProduct,
+  type Order,
+  type InsertOrder,
+  type SpaceRental,
+  type InsertSpaceRental,
+  type SpaceBooking,
+  type InsertSpaceBooking
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, and, gte, lte, desc, asc } from "drizzle-orm";
@@ -66,6 +79,24 @@ export interface IStorage {
   
   // Contact form (backward compatibility)
   createContact(contact: InsertContact): Promise<Contact>;
+  
+  // E-commerce operations
+  getProducts(): Promise<Product[]>;
+  getProduct(id: number): Promise<Product | undefined>;
+  createProduct(product: InsertProduct): Promise<Product>;
+  updateProduct(id: number, updateData: Partial<InsertProduct>): Promise<Product | undefined>;
+  
+  // Orders
+  getUserOrders(userId: string): Promise<Order[]>;
+  createOrder(order: InsertOrder): Promise<Order>;
+  
+  // Space rentals
+  getSpaceRentals(): Promise<SpaceRental[]>;
+  createSpaceRental(rental: InsertSpaceRental): Promise<SpaceRental>;
+  
+  // Space bookings
+  getUserSpaceBookings(userId: string): Promise<SpaceBooking[]>;
+  createSpaceBooking(booking: InsertSpaceBooking): Promise<SpaceBooking>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -256,6 +287,72 @@ export class DatabaseStorage implements IStorage {
   async createContact(contact: InsertContact): Promise<Contact> {
     const [result] = await db.insert(contacts).values(contact).returning();
     return result;
+  }
+
+  // E-commerce operations
+  async getProducts(): Promise<Product[]> {
+    return await db.select().from(products).where(eq(products.isActive, true));
+  }
+
+  async getProduct(id: number): Promise<Product | undefined> {
+    const [product] = await db.select().from(products).where(eq(products.id, id));
+    return product || undefined;
+  }
+
+  async createProduct(product: InsertProduct): Promise<Product> {
+    const [newProduct] = await db
+      .insert(products)
+      .values(product)
+      .returning();
+    return newProduct;
+  }
+
+  async updateProduct(id: number, updateData: Partial<InsertProduct>): Promise<Product | undefined> {
+    const [updatedProduct] = await db
+      .update(products)
+      .set(updateData)
+      .where(eq(products.id, id))
+      .returning();
+    return updatedProduct || undefined;
+  }
+
+  // Orders
+  async getUserOrders(userId: string): Promise<Order[]> {
+    return await db.select().from(orders).where(eq(orders.customerEmail, userId)).orderBy(desc(orders.createdAt));
+  }
+
+  async createOrder(order: InsertOrder): Promise<Order> {
+    const [newOrder] = await db
+      .insert(orders)
+      .values(order)
+      .returning();
+    return newOrder;
+  }
+
+  // Space rentals
+  async getSpaceRentals(): Promise<SpaceRental[]> {
+    return await db.select().from(spaceRentals).where(eq(spaceRentals.isActive, true));
+  }
+
+  async createSpaceRental(rental: InsertSpaceRental): Promise<SpaceRental> {
+    const [newRental] = await db
+      .insert(spaceRentals)
+      .values(rental)
+      .returning();
+    return newRental;
+  }
+
+  // Space bookings
+  async getUserSpaceBookings(userId: string): Promise<SpaceBooking[]> {
+    return await db.select().from(spaceBookings).where(eq(spaceBookings.customerEmail, userId)).orderBy(desc(spaceBookings.createdAt));
+  }
+
+  async createSpaceBooking(booking: InsertSpaceBooking): Promise<SpaceBooking> {
+    const [newBooking] = await db
+      .insert(spaceBookings)
+      .values(booking)
+      .returning();
+    return newBooking;
   }
 }
 
