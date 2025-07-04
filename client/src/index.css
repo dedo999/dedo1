@@ -24,13 +24,14 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Kaizen brand colors */
-  --kaizen-red: hsl(0, 84%, 55%);
-  --kaizen-gold: hsl(45, 93%, 58%);
-  --kaizen-dark: hsl(0, 0%, 6%);
-  --kaizen-darker: hsl(0, 0%, 4%);
-  --kaizen-gray: hsl(215, 16%, 47%);
-  --kaizen-light-gray: hsl(215, 20%, 65%);
+  /* Kaizen brand colors - Updated to match new logo */
+  --kaizen-red: hsl(355, 85%, 50%);
+  --kaizen-gold: hsl(40, 95%, 65%);
+  --kaizen-dark: hsl(220, 15%, 15%);
+  --kaizen-darker: hsl(220, 20%, 8%);
+  --kaizen-gray: hsl(220, 15%, 45%);
+  --kaizen-light-gray: hsl(220, 20%, 60%);
+  --kaizen-accent: hsl(200, 85%, 55%);
 }
 
 .dark {

@@ -24,9 +24,9 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <img 
-                src="/kaizen-logo.jpg" 
+                src="/kaizen-logo-new.jpg" 
                 alt="Kaizen Burgos Logo"
-                className="h-12 w-auto mr-3 rounded"
+                className="h-12 w-auto mr-3 rounded-lg"
               />
               <div>
                 <div className="text-3xl font-bold text-kaizen-red">KAIZEN</div>

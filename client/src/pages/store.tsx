@@ -208,9 +208,9 @@ export default function Store() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-black text-gray-900 mb-4">
-            TIENDA OFICIAL <span className="text-red-600">KAIZEN BURGOS</span>
+            TIENDA OFICIAL <span className="text-kaizen-red">KAIZEN BURGOS</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-kaizen-gray max-w-2xl mx-auto">
             Productos oficiales de alta calidad para verdaderos luchadores
           </p>
         </div>
@@ -219,7 +219,7 @@ export default function Store() {
         <div className="fixed top-20 right-6 z-50">
           <Button
             onClick={() => setShowCart(!showCart)}
-            className="bg-red-600 hover:bg-red-700 text-white rounded-full p-3 shadow-lg"
+            className="bg-kaizen-red hover:bg-kaizen-darker text-white rounded-full p-3 shadow-lg"
           >
             <ShoppingCart className="h-6 w-6" />
             {cart.length > 0 && (

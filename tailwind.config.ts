@@ -61,6 +61,15 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        kaizen: {
+          red: "var(--kaizen-red)",
+          gold: "var(--kaizen-gold)",
+          dark: "var(--kaizen-dark)",
+          darker: "var(--kaizen-darker)",
+          gray: "var(--kaizen-gray)",
+          "light-gray": "var(--kaizen-light-gray)",
+          accent: "var(--kaizen-accent)",
+        },
       },
       keyframes: {
         "accordion-down": {
