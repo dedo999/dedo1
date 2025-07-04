@@ -26,7 +26,11 @@ export default function Footer() {
               <img 
                 src="/kaizen-logo-new.jpg" 
                 alt="Kaizen Logo"
-                className="h-16 w-auto rounded-lg bg-transparent"
+                className="h-16 w-auto rounded-lg"
+                style={{ 
+                  filter: 'brightness(0) saturate(100%) invert(88%) sepia(37%) saturate(567%) hue-rotate(318deg) brightness(107%) contrast(108%)',
+                  mixBlendMode: 'screen'
+                }}
               />
             </div>
             <p className="text-gray-300 mb-6 max-w-md">

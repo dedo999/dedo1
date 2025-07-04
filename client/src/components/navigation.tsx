@@ -41,7 +41,11 @@ export default function Navigation() {
             <img 
               src="/kaizen-logo-new.jpg" 
               alt="Kaizen Logo"
-              className="h-12 w-auto rounded-lg bg-transparent"
+              className="h-12 w-auto rounded-lg"
+              style={{ 
+                filter: 'brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)',
+                mixBlendMode: 'screen'
+              }}
             />
           </div>
           
