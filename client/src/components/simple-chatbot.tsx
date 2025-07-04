@@ -202,9 +202,9 @@ export function SimpleChatbot() {
         </div>
       </CardHeader>
 
-      <CardContent className="flex-1 flex flex-col p-0">
+      <CardContent className="flex-1 flex flex-col p-0 min-h-0">
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-3 space-y-2">
+        <div className="flex-1 overflow-y-auto p-3 space-y-2" style={{ maxHeight: '320px' }}>
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
               <div className={`max-w-[80%] p-2 rounded-lg text-xs ${
@@ -235,7 +235,7 @@ export function SimpleChatbot() {
         </div>
 
         {/* Input */}
-        <div className="border-t p-2 bg-gray-50">
+        <div className="border-t p-2 bg-gray-50 flex-shrink-0">
           <form onSubmit={handleSubmit} className="flex space-x-2">
             <Input
               value={inputText}
