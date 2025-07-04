@@ -12,6 +12,7 @@ export default function Navigation() {
 
   const navItems: NavItem[] = [
     { href: "#inicio", label: "Inicio" },
+    { href: "/about", label: "Sobre Nosotros", external: true },
     { href: "#servicios", label: "Servicios" },
     { href: "#instructores", label: "Instructores" },
     { href: "#horarios", label: "Horarios" },
