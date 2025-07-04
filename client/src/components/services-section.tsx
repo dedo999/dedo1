@@ -61,14 +61,13 @@ export default function ServicesSection() {
       description: "Programas especiales para niños que desarrollan disciplina, respeto y confianza a través de artes marciales.",
       tags: ["6-12 años", "Diversión", "Valores"],
       svgIcon: (
-        <svg viewBox="0 0 200 150" className="w-full h-48 rounded-lg">
-          <rect width="200" height="150" fill="#1a1a1a"/>
-          <circle cx="70" cy="50" r="8" fill="#dc2626" opacity="0.8"/>
-          <circle cx="130" cy="50" r="8" fill="#dc2626" opacity="0.8"/>
-          <rect x="67" y="58" width="6" height="20" fill="#dc2626" opacity="0.6"/>
-          <rect x="127" y="58" width="6" height="20" fill="#dc2626" opacity="0.6"/>
-          <text x="100" y="130" textAnchor="middle" fill="#eab308" fontSize="12" fontWeight="bold">INFANTILES</text>
-        </svg>
+        <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
+          <img 
+            src="/attached_assets/b682b775-28d1-42cf-a81e-eaf5ce0e686e_1751587288885.jpg" 
+            alt="Clases Infantiles Kaizen Burgos - Kids martial arts training"
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
       )
     }
   ];
