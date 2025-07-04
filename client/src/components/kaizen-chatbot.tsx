@@ -320,12 +320,17 @@ export function KaizenChatbot() {
   }
 
   return (
-    <Card className="fixed bottom-4 right-4 w-80 h-[500px] shadow-2xl z-50 flex flex-col md:w-96 md:h-96">
+    <Card className="fixed bottom-4 right-4 w-80 h-[500px] shadow-2xl z-50 flex flex-col md:w-96 md:h-96 bg-white">
       <CardHeader className="bg-red-600 text-white rounded-t-lg p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
+            <img 
+              src="/kaizen-logo-transparent.png" 
+              alt="Kaizen Logo"
+              className="h-6 w-auto"
+            />
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <CardTitle className="text-base">💬 Kaizen Chat</CardTitle>
+            <CardTitle className="text-base">Kaizen Chat</CardTitle>
           </div>
           <Button
             variant="ghost"
@@ -338,14 +343,14 @@ export function KaizenChatbot() {
         </div>
       </CardHeader>
 
-      <CardContent className="flex-1 flex flex-col p-0">
+      <CardContent className="flex-1 flex flex-col p-0 bg-white">
         {/* Messages Area */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-white">
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
               <div className={`max-w-[80%] p-3 rounded-lg ${
                 message.isBot 
-                  ? 'bg-gray-100 text-gray-800' 
+                  ? 'bg-gray-100 text-gray-800 border border-gray-200' 
                   : 'bg-red-600 text-white'
               }`}>
                 <div className="whitespace-pre-line text-sm">{message.text}</div>
@@ -443,7 +448,7 @@ export function KaizenChatbot() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t p-2 bg-gray-50">
+        <div className="border-t p-2 bg-white">
           <form onSubmit={handleSubmit} className="flex space-x-2">
             <Input
               value={inputText}
