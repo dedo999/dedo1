@@ -40,13 +40,9 @@ export default function Navigation() {
           <div className="flex items-center">
             <img 
               src="/kaizen-logo-new.jpg" 
-              alt="Kaizen Burgos Logo"
-              className="h-12 w-auto mr-3 rounded-lg"
+              alt="Kaizen Logo"
+              className="h-12 w-auto rounded-lg bg-transparent"
             />
-            <div>
-              <div className="text-xl font-bold text-kaizen-red">KAIZEN</div>
-              <div className="text-xs font-medium text-kaizen-gold">BURGOS</div>
-            </div>
           </div>
           
           {/* Desktop Navigation */}
