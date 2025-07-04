@@ -53,9 +53,19 @@ export default function InstructorsSection() {
                 className="bg-kaizen-darker rounded-xl p-8 border border-gray-700 text-center relative overflow-hidden group"
               >
                 <div className="relative z-10">
-                  <div className="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <IconComponent className="text-4xl text-kaizen-gold" size={48} />
-                  </div>
+                  {instructor.name === "Antonio Alonso" ? (
+                    <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-kaizen-gold">
+                      <img 
+                        src="/antonio-profile.jpg" 
+                        alt="Antonio Alonso"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center">
+                      <IconComponent className="text-4xl text-kaizen-gold" size={48} />
+                    </div>
+                  )}
                   <h3 className="text-2xl font-bold text-white mb-2">{instructor.name}</h3>
                   <p className="text-kaizen-red font-semibold mb-4">{instructor.title}</p>
                   <p className="text-gray-300 mb-6">
