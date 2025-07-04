@@ -11,6 +11,7 @@ interface Message {
   isBot: boolean;
   timestamp: Date;
   quickActions?: string[];
+  showBookingCalendar?: boolean;
 }
 
 const quickResponses = {
@@ -40,7 +41,16 @@ WhatsApp: +34 662 323 282`,
 
 C. Esteban Sáez Alvarado, 8
 09007 Burgos, España
-Tel: +34 662 323 282`
+Tel: +34 662 323 282`,
+
+  'reservar': `📅 **Reservar Clase:**
+
+Elige el tipo de reserva:
+• Clases regulares (tarde)
+• Clases mañana (6:00-11:00)
+• Clases particulares
+
+¿Qué tipo prefieres?`
 };
 
 export function SimpleChatbot() {
@@ -51,7 +61,7 @@ export function SimpleChatbot() {
       text: '¡Hola! 👋\n\n¿En qué puedo ayudarte?',
       isBot: true,
       timestamp: new Date(),
-      quickActions: ['Horarios', 'Precios', 'Clase gratis', 'Alquiler']
+      quickActions: ['Horarios', 'Precios', 'Reservar', 'Alquiler']
     }
   ]);
   const [inputText, setInputText] = useState('');
@@ -97,9 +107,12 @@ export function SimpleChatbot() {
       } else if (text.includes('donde') || text.includes('ubicacion')) {
         response = quickResponses.ubicacion;
         actions = ['Google Maps', 'Llamar'];
+      } else if (text.includes('reservar') || text.includes('cita') || text.includes('calendario')) {
+        response = quickResponses.reservar;
+        actions = ['Clases regulares', 'Clases mañana', 'Clase particular'];
       } else {
-        response = 'No entendí tu pregunta.\n\nPuedo ayudarte con:\n• Horarios\n• Precios\n• Alquiler\n• Ubicación';
-        actions = ['Horarios', 'Precios', 'Alquiler'];
+        response = 'No entendí tu pregunta.\n\nPuedo ayudarte con:\n• Horarios\n• Precios\n• Reservar\n• Alquiler';
+        actions = ['Horarios', 'Precios', 'Reservar'];
       }
 
       const botResponse: Message = {
@@ -120,6 +133,9 @@ export function SimpleChatbot() {
     // Handle external actions immediately
     if (actionText.includes('gratis')) {
       window.location.href = '#contacto';
+      return;
+    } else if (actionText.includes('whatsapp reserva')) {
+      window.open('https://wa.me/34662323282?text=Hola, quiero reservar una clase particular. ¿Cuándo podemos coordinar?', '_blank');
       return;
     } else if (actionText.includes('whatsapp')) {
       window.open('https://wa.me/34662323282?text=Hola, estoy interesado en alquilar espacio', '_blank');
@@ -158,9 +174,51 @@ export function SimpleChatbot() {
       } else if (actionText.includes('ubicacion') || actionText.includes('donde')) {
         response = quickResponses.ubicacion;
         actions = ['Google Maps', 'Llamar'];
+      } else if (actionText.includes('reservar')) {
+        response = quickResponses.reservar;
+        actions = ['Clases regulares', 'Clases mañana', 'Clase particular'];
+      } else if (actionText.includes('clases regulares')) {
+        response = `📅 **Clases Regulares:**
+
+Horarios disponibles hoy:
+• 19:00-20:00 - Boxeo
+• 19:00-20:30 - Brazilian Jiu Jitsu  
+• 20:00-21:30 - Kickboxing
+• 20:30-21:45 - MMA
+
+¿Qué clase te interesa?`;
+        actions = ['BJJ 19:00', 'Boxeo 19:00', 'Kickboxing 20:00', 'MMA 20:30'];
+      } else if (actionText.includes('clases mañana')) {
+        response = `🌅 **Clases Mañana:**
+
+Horarios disponibles:
+• Martes 09:00-11:00 - MMA Mañana
+• Jueves 09:00-11:00 - MMA Mañana  
+• Sábado 11:00-13:00 - Open Mat
+
+¿Cuál prefieres?`;
+        actions = ['MMA Mar 9:00', 'MMA Jue 9:00', 'Open Mat Sab 11:00'];
+      } else if (actionText.includes('clase particular')) {
+        response = `👨‍🏫 **Clase Particular:**
+
+Entrenamientos personalizados:
+• 1 hora individual: €30
+• Horarios flexibles 
+• Todos los niveles
+
+¿Te interesa reservar?`;
+        actions = ['WhatsApp reserva', 'Llamar'];
+      } else if (actionText.includes('bjj') || actionText.includes('boxeo') || actionText.includes('kickboxing') || actionText.includes('mma') || actionText.includes('open mat')) {
+        response = `✅ **Reserva Confirmada:**
+
+Tu clase ha sido registrada.
+Recibirás confirmación por WhatsApp.
+
+¡Te esperamos en Kaizen!`;
+        actions = ['WhatsApp', 'Más clases', 'Horarios'];
       } else {
         response = 'Perfecto. ¿En qué más puedo ayudarte?';
-        actions = ['Horarios', 'Precios', 'Alquiler'];
+        actions = ['Horarios', 'Precios', 'Reservar'];
       }
 
       const botResponse: Message = {
