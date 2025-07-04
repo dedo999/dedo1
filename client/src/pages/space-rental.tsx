@@ -185,43 +185,44 @@ export default function SpaceRental() {
 
           <div className="text-center py-8">
             <h1 className="text-5xl font-black bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent mb-6">
-              Alquila un espacio profesional en Gamonal (Burgos) 🧘‍♀️🕺
+              ALQUILER DE ESPACIO PROFESIONAL
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
-              ¿Eres instructor de yoga, danza, pilates, o entrenador personal?<br/>
-              Te ofrecemos un espacio exclusivo y de alta calidad para tus clases.
+              Espacio premium disponible para profesionales del fitness y bienestar.<br/>
+              Instalaciones modernas con equipamiento completo para desarrollar tu actividad profesional.
             </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-left mb-8">
               {/* Instalaciones */}
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-lg font-bold text-white mb-4">🏢 Instalaciones</h3>
+                <h3 className="text-lg font-bold text-white mb-4">Instalaciones</h3>
                 <ul className="text-gray-200 space-y-2">
-                  <li>🏢 100 m² de sala diáfana</li>
-                  <li>🪞 Espejos de pared completa</li>
-                  <li>🚿 Vestuarios masculinos y femeninos</li>
-                  <li>🌞 Disponibilidad por las mañanas y tardes</li>
-                  <li>📍 En el corazón de Gamonal – excelente ubicación</li>
+                  <li>• 100 m² de sala diáfana</li>
+                  <li>• Espejos de pared completa</li>
+                  <li>• Vestuarios masculinos y femeninos</li>
+                  <li>• Disponibilidad mañanas y tardes</li>
+                  <li>• Excelente ubicación en Burgos</li>
                 </ul>
               </div>
 
               {/* Ideal para */}
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-lg font-bold text-white mb-4">💼 Ideal para:</h3>
+                <h3 className="text-lg font-bold text-white mb-4">Ideal para:</h3>
                 <ul className="text-gray-200 space-y-2">
-                  <li>✅ Clases dirigidas</li>
-                  <li>✅ Sesiones privadas</li>
-                  <li>✅ Talleres y eventos</li>
+                  <li>• Clases dirigidas</li>
+                  <li>• Sesiones privadas</li>
+                  <li>• Talleres y eventos</li>
+                  <li>• Entrenamientos personales</li>
                 </ul>
               </div>
 
               {/* Tarifas */}
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-lg font-bold text-white mb-4">💸 Tarifas:</h3>
+                <h3 className="text-lg font-bold text-white mb-4">Tarifas:</h3>
                 <ul className="text-gray-200 space-y-2">
-                  <li>🔹 Desde 25 €/hora (alquiler puntual)</li>
-                  <li>🔹 Bonos especiales para alquiler fijo mensual</li>
-                  <li>🔹 Consulta precios para uso exclusivo</li>
+                  <li>• Desde 25 €/hora (alquiler puntual)</li>
+                  <li>• Bonos especiales para alquiler fijo mensual</li>
+                  <li>• Consulta precios para uso exclusivo</li>
                 </ul>
               </div>
             </div>
@@ -231,8 +232,8 @@ export default function SpaceRental() {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-md mx-auto">
-              <h3 className="text-lg font-bold text-white mb-4 text-center">📩 Contacto</h3>
-              <p className="text-gray-200 text-center mb-4">Escríbeme para agendar una visita o reservar tu horario</p>
+              <h3 className="text-lg font-bold text-white mb-4 text-center">Contacto</h3>
+              <p className="text-gray-200 text-center mb-4">Contacta para agendar una visita o reservar tu horario</p>
               <div className="flex justify-center space-x-4">
                 <a 
                   href="https://wa.me/34662323282?text=Hola, estoy interesado en alquilar espacio profesional para clases"
