@@ -63,7 +63,7 @@ export default function ServicesSection() {
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
           <img 
-            src="/attached_assets/b682b775-28d1-42cf-a81e-eaf5ce0e686e_1751587288885.jpg" 
+            src="/kids-martial-arts.jpg" 
             alt="Clases Infantiles Kaizen Burgos - Kids martial arts training"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
