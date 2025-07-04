@@ -302,9 +302,9 @@ export default function SpaceRental() {
             </div>
 
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Elige tu Espacio</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Instalaciones Profesionales</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Instalaciones profesionales equipadas con todo lo necesario para entrenamientos de alto nivel.
+                Espacios completamente equipados para entrenamientos de alto nivel y actividades profesionales.
               </p>
             </div>
 
