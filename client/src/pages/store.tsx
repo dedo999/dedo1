@@ -33,15 +33,41 @@ interface CartItem {
 }
 
 const productCategories = [
-  { id: 'clothing', name: 'Ropa Deportiva', icon: '👕' },
-  { id: 'equipment', name: 'Equipamiento', icon: '🥊' },
-  { id: 'kimono', name: 'Kimonos', icon: '🥋' }
+  { id: 'clothing', name: 'Ropa Deportiva', icon: 'Shirt' },
+  { id: 'equipment', name: 'Equipamiento', icon: 'Dumbbell' },
+  { id: 'kimono', name: 'Kimonos', icon: 'Users' }
 ];
 
 // Premium products for the Kaizen store
 const premiumProducts: Product[] = [
   {
     id: 1,
+    name: 'Sudadera Kaizen Negra Premium',
+    description: 'Sudadera oficial con capucha Kaizen Burgos. Algodón premium 400gsm con logo bordado. Perfecta para entrenamientos y uso casual.',
+    price: '55.00',
+    category: 'clothing',
+    subcategory: 'hoodie',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: ['Negro'],
+    imageUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMkEyQTJBIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwIDgwKSI+CjxwYXRoIGQ9Ik0yMCA0MEgzMFY3MEgxODBWNDBIMTkwQzIwMCA0MCAyMTAgNTAgMjEwIDYwVjkwQzIxMCA5NSAyMDUgMTAwIDIwMCAxMDBIMTkwVjI2MEM4OSAyNjAgMTIwIDI1NSAxMTAgMjUwSDEwMFYyNjBDMTAwIDI2MCA5MCAyNTAgOTAgMjQwSDEwVjEwMEgwQy01IDEwMCAtMTAgOTUgLTEwIDkwVjYwQy0xMCA1MCAuNCA0MCAxMCA0MFoiIGZpbGw9IiM0MDQwNDAiLz4KPHA+Z1RyYW5zZm9ybT0idHJhbnNsYXRlKDcwIDEyMCkiPgo8cGF0aCBkPSJNMCAwSDYwVjEwMEgwVlYwWiIgZmlsbD0iIzMzMzMzMyIvPgo8L2c+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMCAxMjApIj4KPHA+YXRoIGQ9Ik0wIDBINjBWMTAwSDBWMFoiIGZpbGw9IiMzMzMzMzMiLz4KPC9nPgo8cmVjdCB4PSI3NSIgeT0iMTcwIiB3aWR0aD0iNTAiIGhlaWdodD0iNSIgZmlsbD0iI0RDMjYyNiIvPgo8dGV4dCB4PSIxMDAiIHk9IjE5NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjRkZGRkZGIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5LQUlaRU48L3RleHQ+CjwvZz4KPC9zdmc+',
+    inStock: 20,
+    isActive: true
+  },
+  {
+    id: 2,
+    name: 'Camiseta Kaizen Negra Oficial',
+    description: 'Camiseta negra oficial de Kaizen Burgos. Tejido técnico transpirable ideal para entrenamientos y uso diario.',
+    price: '35.00',
+    category: 'clothing',
+    subcategory: 't-shirt',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: ['Negro'],
+    imageUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMjAyMDIwIi8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMCAxMDApIj4KPHA+YXRoIGQ9Ik0yMCAyMEM0MCAyMCA1MCA0MCA1MCA2MEg1NVY4MEgxNDVWNjBIMTUwQzE1MCA0MCAxNjAgMjAgMTgwIDIwQzE5MCAyMCAyMDAgMzAgMjAwIDQwVjgwSDE5MFYxODBIMTBWODBIMFY0MEMwIDMwIDEwIDIwIDIwIDIwWiIgZmlsbD0iIzMzMzMzMyIvPgo8cmVjdCB4PSI1NSIgeT0iODAiIHdpZHRoPSI5MCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMzMzMzMzMiLz4KPHJlY3QgeD0iODAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjMiIGZpbGw9IiNEQzI2MjYiLz4KPHRleHQgeD0iMTAwIiB5PSIxNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI0ZGRkZGRiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+S0FJWkVOPC90ZXh0Pgo8L2c+Cjwvc3ZnPg==',
+    inStock: 25,
+    isActive: true
+  },
+  {
+    id: 3,
     name: 'Camiseta Kaizen Pro MMA',
     description: 'Camiseta oficial premium de Kaizen Burgos. Tejido técnico que mantiene la piel seca durante entrenamientos intensos.',
     price: '29.95',
@@ -54,7 +80,7 @@ const premiumProducts: Product[] = [
     isActive: true
   },
   {
-    id: 2,
+    id: 4,
     name: 'Shorts BJJ Elite Performance',
     description: 'Shorts profesionales con tecnología de secado rápido. Usados por atletas de competición. Diseño ergonómico para máxima movilidad.',
     price: '49.95',
@@ -67,7 +93,7 @@ const premiumProducts: Product[] = [
     isActive: true
   },
   {
-    id: 3,
+    id: 5,
     name: 'Guantes Venum Impact 12oz',
     description: 'Guantes de boxeo premium con espuma de triple densidad. Cuero genuino y cierre de velcro reforzado. Homologados para competición.',
     price: '89.95',
@@ -372,20 +398,20 @@ export default function Store() {
             
             {/* Strong CTAs */}
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all">
-                🥊 EQUIPAMIENTO PRO
+              <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 text-sm md:text-lg font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all">
+                EQUIPAMIENTO PRO
               </Button>
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-3 text-lg font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all">
-                👕 ROPA OFICIAL
+              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 text-sm md:text-lg font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all">
+                ROPA OFICIAL
               </Button>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all">
-                🥋 KIMONOS ELITE
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-sm md:text-lg font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all">
+                KIMONOS ELITE
               </Button>
             </div>
 
             {/* Promotional Banner */}
-            <div className="bg-gradient-to-r from-red-600 to-yellow-500 text-black px-6 py-3 rounded-full inline-block font-bold text-lg shadow-xl">
-              🔥 ENVÍO GRATIS en pedidos +€50 | Descuento 10% miembros Kaizen
+            <div className="bg-gradient-to-r from-red-600 to-yellow-500 text-black px-6 py-3 rounded-full inline-block font-bold text-sm md:text-lg shadow-xl">
+              ENVÍO GRATIS en pedidos +€50 | Descuento 10% miembros Kaizen
             </div>
           </div>
         </div>
@@ -426,7 +452,7 @@ export default function Store() {
                       className="w-full justify-start"
                       onClick={() => setSelectedCategory('all')}
                     >
-                      🛍️ Todos los productos
+                      Todos los productos
                     </Button>
                     {productCategories.map(category => (
                       <Button
@@ -435,7 +461,7 @@ export default function Store() {
                         className="w-full justify-start"
                         onClick={() => setSelectedCategory(category.id)}
                       >
-                        {category.icon} {category.name}
+                        {category.name}
                       </Button>
                     ))}
                   </div>
@@ -539,7 +565,7 @@ export default function Store() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {sortedProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
