@@ -17,7 +17,7 @@ export default function InstructorsSection() {
       ]
     },
     {
-      name: "Carlos Martínez",
+      name: "Eduardo",
       title: "Instructor de Kickboxing",
       description: "Campeón nacional de kickboxing especializado en técnicas de striking y acondicionamiento físico.",
       specialties: ["Kickboxing", "Boxeo"],
