@@ -184,15 +184,71 @@ export default function SpaceRental() {
           </div>
 
           <div className="text-center py-8">
-            <h1 className="text-5xl font-black bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent mb-4">
-              ALQUILER DE ESPACIO PROFESIONAL
+            <h1 className="text-5xl font-black bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent mb-6">
+              Alquila un espacio profesional en Gamonal (Burgos) 🧘‍♀️🕺
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Espacio de 100m² en el centro de Burgos para entrenadores personales, instructores de yoga/pilates, fisioterapeutas y profesionales del wellness. Horarios matutinos disponibles.
+            <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto">
+              ¿Eres instructor de yoga, danza, pilates, o entrenador personal?<br/>
+              Te ofrecemos un espacio exclusivo y de alta calidad para tus clases.
             </p>
             
-            <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full inline-block font-bold text-lg shadow-xl">
-              🌅 MAÑANAS DISPONIBLES | Desde €25/hora | Vestuarios incluidos
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-left mb-8">
+              {/* Instalaciones */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-lg font-bold text-white mb-4">🏢 Instalaciones</h3>
+                <ul className="text-gray-200 space-y-2">
+                  <li>🏢 100 m² de sala diáfana</li>
+                  <li>🪞 Espejos de pared completa</li>
+                  <li>🚿 Vestuarios masculinos y femeninos</li>
+                  <li>🌞 Disponibilidad por las mañanas y tardes</li>
+                  <li>📍 En el corazón de Gamonal – excelente ubicación</li>
+                </ul>
+              </div>
+
+              {/* Ideal para */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-lg font-bold text-white mb-4">💼 Ideal para:</h3>
+                <ul className="text-gray-200 space-y-2">
+                  <li>✅ Clases dirigidas</li>
+                  <li>✅ Sesiones privadas</li>
+                  <li>✅ Talleres y eventos</li>
+                </ul>
+              </div>
+
+              {/* Tarifas */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-lg font-bold text-white mb-4">💸 Tarifas:</h3>
+                <ul className="text-gray-200 space-y-2">
+                  <li>🔹 Desde 25 €/hora (alquiler puntual)</li>
+                  <li>🔹 Bonos especiales para alquiler fijo mensual</li>
+                  <li>🔹 Consulta precios para uso exclusivo</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 rounded-full inline-block font-bold text-lg shadow-xl mb-6">
+              Espacio profesional, sin inversión inicial, sin compromiso a largo plazo
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-md mx-auto">
+              <h3 className="text-lg font-bold text-white mb-4 text-center">📩 Contacto</h3>
+              <p className="text-gray-200 text-center mb-4">Escríbeme para agendar una visita o reservar tu horario</p>
+              <div className="flex justify-center space-x-4">
+                <a 
+                  href="https://wa.me/34662323282?text=Hola, estoy interesado en alquilar espacio profesional para clases"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+                >
+                  WhatsApp
+                </a>
+                <a 
+                  href="tel:+34662323282"
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+                >
+                  Llamar
+                </a>
+              </div>
             </div>
           </div>
         </div>
