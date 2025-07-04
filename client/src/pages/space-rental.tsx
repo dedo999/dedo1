@@ -302,89 +302,162 @@ export default function SpaceRental() {
             </div>
 
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Instalaciones Profesionales</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Reserva tu Espacio</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Espacios completamente equipados para entrenamientos de alto nivel y actividades profesionales.
+                Selecciona el día y horario que mejor se adapte a tu actividad profesional.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {spaceRentals.map((space) => (
-                <Card key={space.id} className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-blue-200 overflow-hidden transform hover:-translate-y-2">
-                  <CardHeader className="p-0 relative">
-                    <div className="aspect-video bg-gradient-to-br from-blue-100 to-gray-200 flex items-center justify-center text-6xl">
-                      🏟️
-                    </div>
-                    <div className="absolute top-3 right-3">
-                      <Badge className="bg-green-500 text-white font-bold">
-                        <Star className="w-3 h-3 mr-1" />
-                        {space.rating}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="p-6">
-                    <div className="space-y-4">
-                      <div>
-                        <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors">
-                          {space.name}
-                        </h3>
-                        <p className="text-sm text-gray-600 mt-2">{space.description}</p>
+            {/* Calendar Booking Interface */}
+            <div className="max-w-4xl mx-auto">
+              <Card className="shadow-2xl border-2 border-blue-200">
+                <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
+                  <CardTitle className="text-2xl text-center">📅 Calendario de Reservas</CardTitle>
+                  <CardDescription className="text-blue-100 text-center">
+                    Desde €25/hora | Selecciona fecha y horario disponible
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="p-6">
+                  <div className="space-y-6">
+                    {/* Calendar Grid */}
+                    <div>
+                      <h3 className="font-bold text-lg mb-4">Selecciona una fecha:</h3>
+                      <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-7 gap-2">
+                        {generateCalendarDates().map((date, index) => {
+                          const isSelected = selectedDate?.toDateString() === date.toDateString();
+                          const isToday = date.toDateString() === new Date().toDateString();
+                          const isPast = date < new Date() && !isToday;
+                          
+                          return (
+                            <Button
+                              key={index}
+                              variant={isSelected ? "default" : "outline"}
+                              onClick={() => setSelectedDate(date)}
+                              disabled={isPast}
+                              className={`p-3 text-sm ${
+                                isSelected 
+                                  ? 'bg-blue-600 text-white' 
+                                  : isPast 
+                                    ? 'opacity-50 cursor-not-allowed'
+                                    : isToday
+                                      ? 'border-2 border-blue-400'
+                                      : 'hover:bg-blue-50'
+                              }`}
+                            >
+                              <div className="text-center">
+                                <div className="text-xs font-medium">
+                                  {date.toLocaleDateString('es-ES', { weekday: 'short' })}
+                                </div>
+                                <div className="text-lg font-bold">
+                                  {date.getDate()}
+                                </div>
+                                <div className="text-xs">
+                                  {date.toLocaleDateString('es-ES', { month: 'short' })}
+                                </div>
+                              </div>
+                            </Button>
+                          );
+                        })}
                       </div>
-                      
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-black text-blue-600">€{space.pricePerHour}/h</span>
-                        <div className="text-right text-sm text-gray-500">
-                          <div className="flex items-center">
-                            <Users className="w-4 h-4 mr-1" />
-                            {space.capacity} personas
+                    </div>
+
+                    {/* Time Slots */}
+                    {selectedDate && (
+                      <div>
+                        <h3 className="font-bold text-lg mb-4">Horarios disponibles:</h3>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                          {['06:00-07:00', '07:00-08:00', '08:00-09:00', '09:00-10:00', '10:00-11:00', 
+                            '16:00-17:00', '17:00-18:00', '18:00-19:00', '19:00-20:00', '20:00-21:00'].map((timeSlot) => {
+                            const isSelected = selectedTimeSlot === timeSlot;
+                            const isAvailable = Math.random() > 0.3; // Mock availability
+                            
+                            return (
+                              <Button
+                                key={timeSlot}
+                                variant={isSelected ? "default" : "outline"}
+                                onClick={() => setSelectedTimeSlot(timeSlot)}
+                                disabled={!isAvailable}
+                                className={`p-3 ${
+                                  isSelected 
+                                    ? 'bg-green-600 text-white' 
+                                    : !isAvailable 
+                                      ? 'opacity-50 cursor-not-allowed bg-red-100'
+                                      : 'hover:bg-green-50 border-green-300'
+                                }`}
+                              >
+                                <div className="text-center">
+                                  <div className="font-bold">{timeSlot}</div>
+                                  <div className="text-xs">
+                                    {isAvailable ? 'Disponible' : 'Ocupado'}
+                                  </div>
+                                </div>
+                              </Button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Booking Form */}
+                    {selectedDate && selectedTimeSlot && (
+                      <div className="bg-blue-50 p-6 rounded-lg">
+                        <h3 className="font-bold text-lg mb-4">Completa tu reserva</h3>
+                        <form onSubmit={handleBookingSubmit} className="space-y-4">
+                          <div className="grid md:grid-cols-2 gap-4">
+                            <Input
+                              placeholder="Nombre completo"
+                              value={bookingForm.name}
+                              onChange={(e) => setBookingForm(prev => ({ ...prev, name: e.target.value }))}
+                              required
+                            />
+                            <Input
+                              type="email"
+                              placeholder="Email"
+                              value={bookingForm.email}
+                              onChange={(e) => setBookingForm(prev => ({ ...prev, email: e.target.value }))}
+                              required
+                            />
+                            <Input
+                              type="tel"
+                              placeholder="Teléfono"
+                              value={bookingForm.phone}
+                              onChange={(e) => setBookingForm(prev => ({ ...prev, phone: e.target.value }))}
+                              required
+                            />
+                            <Input
+                              placeholder="Actividad (yoga, entrenamiento, etc.)"
+                              value={bookingForm.purpose}
+                              onChange={(e) => setBookingForm(prev => ({ ...prev, purpose: e.target.value }))}
+                              required
+                            />
                           </div>
-                          <p>{space.bookingsCount} reservas</p>
-                        </div>
+                          <Textarea
+                            placeholder="Información adicional (opcional)"
+                            value={bookingForm.notes}
+                            onChange={(e) => setBookingForm(prev => ({ ...prev, notes: e.target.value }))}
+                            rows={3}
+                          />
+                          
+                          <div className="bg-white p-4 rounded border-l-4 border-blue-500">
+                            <h4 className="font-bold mb-2">Resumen de tu reserva:</h4>
+                            <p><strong>Fecha:</strong> {selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                            <p><strong>Horario:</strong> {selectedTimeSlot}</p>
+                            <p><strong>Precio:</strong> €25/hora</p>
+                          </div>
+                          
+                          <Button 
+                            type="submit"
+                            className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-3 rounded-lg shadow-xl"
+                          >
+                            Confirmar Reserva
+                          </Button>
+                        </form>
                       </div>
-
-                      <div>
-                        <h4 className="font-bold text-sm text-gray-700 mb-2">Equipamiento incluido:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {space.amenities.slice(0, 3).map((amenity, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
-                              {amenity}
-                            </Badge>
-                          ))}
-                          {space.amenities.length > 3 && (
-                            <Badge variant="secondary" className="text-xs">
-                              +{space.amenities.length - 3} más
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-sm text-gray-700 mb-2">Horarios disponibles:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {space.availableHours.map((hour, idx) => (
-                            <Badge key={idx} variant="outline" className="text-xs">
-                              <Clock className="w-3 h-3 mr-1" />
-                              {hour}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      <Button 
-                        onClick={() => {
-                          setSelectedSpace(space);
-                          setViewMode('calendar');
-                        }}
-                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-200"
-                      >
-                        <CalendarDays className="w-4 h-4 mr-2" />
-                        VER DISPONIBILIDAD
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         ) : viewMode === 'calendar' && selectedSpace ? (
