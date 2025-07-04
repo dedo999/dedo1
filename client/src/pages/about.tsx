@@ -34,6 +34,14 @@ export default function About() {
                   alt="Antonio Alonso - Maestro Kaizen"
                   className="relative w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
+                {/* Jiu Jitsu Logo Badge */}
+                <div className="absolute top-4 right-4 bg-white/95 p-3 rounded-full shadow-lg border-2 border-kaizen-gold">
+                  <img
+                    src="/jiu-jitsu-logo.jpg"
+                    alt="Jiu Jitsu Logo"
+                    className="w-16 h-16 object-contain rounded-full"
+                  />
+                </div>
               </div>
             </div>
 
