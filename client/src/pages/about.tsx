@@ -30,7 +30,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-kaizen-red/20 to-kaizen-gold/20 rounded-2xl transform rotate-3"></div>
                 <img
-                  src="/instructor-antonio.jpg"
+                  src="/antonio-about-photo.jpg"
                   alt="Antonio Alonso - Maestro Kaizen"
                   className="relative w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
