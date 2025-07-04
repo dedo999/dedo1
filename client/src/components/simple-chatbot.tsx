@@ -34,13 +34,13 @@ Mañanas: 6:00-11:00
 Desde €25/hora
 Ideal para entrenadores
 
-WhatsApp: +34 947 123 456`,
+WhatsApp: +34 662 323 282`,
 
   'ubicacion': `📍 **Ubicación:**
 
-Calle de la Puebla, 9
-Burgos
-Tel: +34 947 123 456`
+C. Esteban Sáez Alvarado, 8
+09007 Burgos, España
+Tel: +34 662 323 282`
 };
 
 export function SimpleChatbot() {
@@ -122,13 +122,13 @@ export function SimpleChatbot() {
       window.location.href = '#contacto';
       return;
     } else if (actionText.includes('whatsapp')) {
-      window.open('https://wa.me/34947123456?text=Hola, estoy interesado en alquilar espacio', '_blank');
+      window.open('https://wa.me/34662323282?text=Hola, estoy interesado en alquilar espacio', '_blank');
       return;
     } else if (actionText.includes('google maps')) {
       window.open('https://maps.google.com/?q=C.+Esteban+Sáez+Alvarado+8+Burgos', '_blank');
       return;
     } else if (actionText.includes('llamar')) {
-      window.open('tel:+34947123456', '_blank');
+      window.open('tel:+34662323282', '_blank');
       return;
     }
 
