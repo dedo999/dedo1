@@ -1,108 +1,142 @@
 import { Phone } from "lucide-react";
 
 export default function ScheduleSection() {
-  const schedule = [
+  // Mobile-optimized schedule data organized by day
+  const weekSchedule = [
     {
-      time: "09:00-11:00",
-      classes: ["", "MMA Mañana", "", "MMA Mañana", "", ""]
+      day: "Lunes",
+      classes: [
+        { time: "18:00-19:00", name: "Kaizen Kids", type: "kids" },
+        { time: "19:00-20:30", name: "Brazilian Jiu Jitsu", type: "grappling" },
+        { time: "20:30-21:45", name: "MMA", type: "striking" }
+      ]
     },
     {
-      time: "11:00-13:00",
-      classes: ["", "", "", "", "", "Open Mat"]
+      day: "Martes", 
+      classes: [
+        { time: "09:00-11:00", name: "MMA Mañana", type: "striking" },
+        { time: "19:00-20:00", name: "Boxeo", type: "striking" },
+        { time: "20:00-21:30", name: "Kickboxing / K1", type: "striking" }
+      ]
     },
     {
-      time: "18:00-19:00",
-      classes: ["Kaizen Kids", "", "MMA", "", "", ""]
+      day: "Miércoles",
+      classes: [
+        { time: "18:00-19:00", name: "MMA", type: "striking" },
+        { time: "19:00-20:30", name: "Brazilian Jiu Jitsu", type: "grappling" },
+        { time: "20:30-21:45", name: "Boxeo", type: "striking" }
+      ]
     },
     {
-      time: "19:00-20:00",
-      classes: ["", "Boxeo", "", "Boxeo", "", ""]
+      day: "Jueves",
+      classes: [
+        { time: "09:00-11:00", name: "MMA Mañana", type: "striking" },
+        { time: "19:00-20:00", name: "Boxeo", type: "striking" },
+        { time: "20:00-21:30", name: "Kickboxing / K1", type: "striking" }
+      ]
     },
     {
-      time: "19:00-20:30",
-      classes: ["Brazilian Jiu Jitsu", "", "Brazilian Jiu Jitsu", "", "MMA", ""]
+      day: "Viernes",
+      classes: [
+        { time: "19:00-20:30", name: "MMA", type: "striking" }
+      ]
     },
     {
-      time: "20:00-21:30",
-      classes: ["", "Kickboxing / K1", "", "Kickboxing / K1", "", ""]
-    },
-    {
-      time: "20:30-21:45",
-      classes: ["MMA", "", "Boxeo", "", "", ""]
+      day: "Sábado",
+      classes: [
+        { time: "11:00-13:00", name: "Open Mat", type: "grappling" }
+      ]
     }
   ];
 
-  const days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-
-  const getClassStyle = (className: string) => {
-    if (className.includes("BJJ") || className.includes("Grappling") || className.includes("Open")) {
-      return "bg-kaizen-gold/20 text-kaizen-gold";
+  const getClassStyle = (type: string) => {
+    switch (type) {
+      case "grappling":
+        return "bg-kaizen-gold/20 text-kaizen-gold border-kaizen-gold/30";
+      case "striking":
+        return "bg-kaizen-red/20 text-kaizen-red border-kaizen-red/30";
+      case "kids":
+        return "bg-blue-500/20 text-blue-400 border-blue-400/30";
+      default:
+        return "bg-gray-500/20 text-gray-400 border-gray-400/30";
     }
-    if (className.includes("MMA") || className.includes("Kickboxing") || className.includes("Boxeo") || className.includes("Sparring")) {
-      return "bg-kaizen-red/20 text-kaizen-red";
-    }
-    return "";
   };
 
   return (
     <section id="horarios" className="py-20 bg-kaizen-darker">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Horarios de <span className="text-kaizen-red">Clases</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Encuentra el horario perfecto para ti. Clases para todos los niveles y edades.
           </p>
         </div>
 
-        <div className="bg-kaizen-dark rounded-xl p-8 border border-gray-700">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="pb-4 text-kaizen-gold font-bold min-w-[100px]">Horario</th>
-                  {days.map((day) => (
-                    <th key={day} className="pb-4 text-kaizen-gold font-bold min-w-[120px]">
-                      {day}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="text-sm">
-                {schedule.map((row, index) => (
-                  <tr key={index} className="border-b border-gray-800">
-                    <td className="py-3 text-gray-300 font-medium">{row.time}</td>
-                    {row.classes.map((className, classIndex) => (
-                      <td key={classIndex} className="py-3">
-                        {className ? (
-                          <div className={`px-2 py-1 rounded text-xs font-medium ${getClassStyle(className)}`}>
-                            {className}
+        {/* Mobile-optimized daily schedule */}
+        <div className="space-y-6">
+          {weekSchedule.map((day, dayIndex) => (
+            <div key={dayIndex} className="bg-kaizen-dark rounded-xl p-6 border border-gray-700">
+              <h3 className="text-xl font-bold text-kaizen-gold mb-4 text-center">
+                {day.day}
+              </h3>
+              
+              {day.classes.length > 0 ? (
+                <div className="space-y-3">
+                  {day.classes.map((classItem, classIndex) => (
+                    <div 
+                      key={classIndex}
+                      className={`p-4 rounded-lg border-2 ${getClassStyle(classItem.type)}`}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-bold text-sm md:text-base">
+                            {classItem.name}
                           </div>
-                        ) : (
-                          <span className="text-gray-500">-</span>
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-kaizen-red/20 rounded mr-2"></div>
-              <span className="text-sm text-gray-300">Striking / Boxeo</span>
+                          <div className="text-sm opacity-90 mt-1">
+                            {classItem.time}
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-xs opacity-75 capitalize">
+                            {classItem.type === 'grappling' ? 'Grappling' : 
+                             classItem.type === 'striking' ? 'Striking' : 'Infantil'}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center text-gray-500 py-8">
+                  Sin clases programadas
+                </div>
+              )}
             </div>
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-kaizen-gold/20 rounded mr-2"></div>
+          ))}
+        </div>
+
+        {/* Legend */}
+        <div className="mt-8 bg-kaizen-dark rounded-xl p-6 border border-gray-700">
+          <h4 className="text-lg font-bold text-white mb-4 text-center">Tipos de Clases</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="flex items-center justify-center">
+              <div className="w-4 h-4 bg-kaizen-red/20 border-2 border-kaizen-red/30 rounded mr-3"></div>
+              <span className="text-sm text-gray-300">Striking / MMA / Boxeo</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-4 h-4 bg-kaizen-gold/20 border-2 border-kaizen-gold/30 rounded mr-3"></div>
               <span className="text-sm text-gray-300">Grappling / BJJ</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-4 h-4 bg-blue-500/20 border-2 border-blue-400/30 rounded mr-3"></div>
+              <span className="text-sm text-gray-300">Clases Infantiles</span>
             </div>
           </div>
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8">
           <p className="text-gray-300 mb-6">
             ¿Necesitas un horario personalizado? Contáctanos para clases particulares.
           </p>
