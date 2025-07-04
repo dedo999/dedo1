@@ -4,7 +4,7 @@ export default function InstructorsSection() {
   const instructors = [
     {
       name: "Antonio Alonso",
-      title: "Maestro Principal y Propietario",
+      title: "BJJ Maestro",
       description: "Maestro de Artes Marciales con más de 45 años de experiencia. Pionero del Jiu Jitsu Brasileño y MMA en Castilla y León. Cinturón Negro 4° Grado (Faixa preta) representando al Peposo Fight Team bajo Paulo Peposo Curi y Hitler Curi de Brasil.",
       specialties: ["MMA", "BJJ", "Judo", "Ne Waza"],
       icon: Shield,
