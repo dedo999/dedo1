@@ -49,7 +49,7 @@ const premiumProducts: Product[] = [
     subcategory: 'hoodie',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     colors: ['Negro'],
-    imageUrl: '/sudadera-final.jpg?t=' + Math.random(),
+    imageUrl: '/sudadera-final.jpg',
     inStock: 20,
     isActive: true
   },
