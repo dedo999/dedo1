@@ -117,25 +117,6 @@ export default function ScheduleSection() {
           ))}
         </div>
 
-        {/* Legend */}
-        <div className="mt-8 bg-kaizen-dark rounded-xl p-6 border border-gray-700">
-          <h4 className="text-lg font-bold text-white mb-4 text-center">Tipos de Clases</h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="flex items-center justify-center">
-              <div className="w-4 h-4 bg-kaizen-red/20 border-2 border-kaizen-red/30 rounded mr-3"></div>
-              <span className="text-sm text-gray-300">Striking / MMA / Boxeo</span>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-4 h-4 bg-kaizen-gold/20 border-2 border-kaizen-gold/30 rounded mr-3"></div>
-              <span className="text-sm text-gray-300">Grappling / BJJ</span>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-4 h-4 bg-blue-500/20 border-2 border-blue-400/30 rounded mr-3"></div>
-              <span className="text-sm text-gray-300">Clases Infantiles</span>
-            </div>
-          </div>
-        </div>
-
         <div className="text-center mt-8">
           <p className="text-gray-300 mb-6">
             ¿Necesitas un horario personalizado? Contáctanos para clases particulares.
