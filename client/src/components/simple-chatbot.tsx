@@ -29,30 +29,29 @@ Ilimitado: €80/mes
 
 *Primera clase GRATIS*`,
 
-  'alquiler': `🏢 **Alquila Espacio Profesional en Gamonal (Burgos)**
-
+  'alquiler': `Alquila un espacio profesional en Gamonal (Burgos) 🧘‍♀️🕺
 ¿Eres instructor de yoga, danza, pilates, o entrenador personal?
-Te ofrecemos un espacio exclusivo y de alta calidad.
+Te ofrecemos un espacio exclusivo y de alta calidad para tus clases.
 
-**🏢 Instalaciones:**
-• 100 m² de sala diáfana
-• Espejos de pared completa
-• Vestuarios masculinos y femeninos
-• Excelente ubicación en Gamonal
+🏢 100 m² de sala diáfana
+🪞 Espejos de pared completa
+🚿 Vestuarios masculinos y femeninos
+🌞 Disponibilidad por las mañanas y tardes
+📍 En el corazón de Gamonal – excelente ubicación
 
-**💼 Ideal para:**
+💼 Ideal para:
 ✅ Clases dirigidas
-✅ Sesiones privadas  
+✅ Sesiones privadas
 ✅ Talleres y eventos
 
-**💸 Tarifas:**
-• Desde 25€/hora (alquiler puntual)
-• Bonos especiales para uso mensual
-• Sin inversión inicial
-• Sin compromiso a largo plazo
+💸 Tarifas:
+🔹 Desde 25 €/hora (alquiler puntual)
+🔹 Bonos especiales para alquiler fijo mensual o por franjas horarias
+🔹 Consulta precios para uso exclusivo de mañana o tarde
 
-**Disponibilidad mañanas y tardes**
-WhatsApp: +34 662 323 282`,
+Espacio profesional, sin inversión inicial, sin compromiso a largo plazo
+
+📩 Escríbeme para agendar una visita o reservar tu horario`,
 
   'ubicacion': `📍 **Ubicación:**
 
