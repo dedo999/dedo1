@@ -62,7 +62,7 @@ const premiumProducts: Product[] = [
     subcategory: 't-shirt',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     colors: ['Negro'],
-    imageUrl: '/camiseta-kaizen.jpg',
+    imageUrl: '/camiseta-negra.jpg',
     inStock: 25,
     isActive: true
   },
