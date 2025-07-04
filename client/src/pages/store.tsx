@@ -49,7 +49,7 @@ const premiumProducts: Product[] = [
     subcategory: 'hoodie',
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     colors: ['Negro'],
-    imageUrl: '/hoodie-kaizen.jpg',
+    imageUrl: '/sudadera-negra.jpg',
     inStock: 20,
     isActive: true
   },
