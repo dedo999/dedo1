@@ -258,6 +258,48 @@ export default function SpaceRental() {
         {viewMode === 'spaces' ? (
           /* Space Selection */
           <div>
+            {/* Testimonials Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Lo que dicen nuestros profesionales</h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+                  <div className="flex items-center mb-4">
+                    <div className="text-2xl mr-3">🧘‍♀️</div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">María González</h4>
+                      <p className="text-sm text-gray-600">Instructora de Yoga</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 italic">"Espacio perfecto para mis clases matutinas. Los espejos y la amplitud hacen que mis estudiantes se sientan cómodos. Sin inversión inicial, pude empezar inmediatamente."</p>
+                  <div className="mt-4 text-yellow-500">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-green-500">
+                  <div className="flex items-center mb-4">
+                    <div className="text-2xl mr-3">💪</div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">Carlos Ruiz</h4>
+                      <p className="text-sm text-gray-600">Entrenador Personal</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 italic">"Ideal para entrenamientos funcionales. Los vestuarios y el acceso independiente me permiten ofrecer un servicio profesional a mis clientes."</p>
+                  <div className="mt-4 text-yellow-500">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-purple-500">
+                  <div className="flex items-center mb-4">
+                    <div className="text-2xl mr-3">🩺</div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">Ana Martín</h4>
+                      <p className="text-sm text-gray-600">Fisioterapeuta</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 italic">"El ambiente tranquilo y profesional es perfecto para terapias. La flexibilidad horaria me permite adaptarme a las necesidades de mis pacientes."</p>
+                  <div className="mt-4 text-yellow-500">⭐⭐⭐⭐⭐</div>
+                </div>
+              </div>
+            </div>
+
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Elige tu Espacio</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">

@@ -261,7 +261,7 @@ Recibirás confirmación por WhatsApp.
   }
 
   return (
-    <Card className="fixed bottom-4 right-4 w-80 h-[450px] shadow-2xl z-50 flex flex-col">
+    <Card className="fixed bottom-4 right-4 w-80 sm:w-96 h-[450px] sm:h-[500px] shadow-2xl z-50 flex flex-col">
       <CardHeader className="bg-red-600 text-white rounded-t-lg p-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-sm">💬 Kaizen Chat</CardTitle>

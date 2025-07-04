@@ -112,6 +112,7 @@ Changelog:
 - July 3, 2025. Added dedicated gym space rental section targeting wellness professionals in Burgos with morning hours, SEO optimization for local searches, and WhatsApp integration
 - July 3, 2025. Created comprehensive domain integration guide for GoDaddy setup, including DNS configuration, SSL certificates, and SEO optimization for professional domain deployment
 - July 3, 2025. Completed kaizenburgos.com domain configuration with full DNS setup guides, updated all website URLs and SEO metadata, ready for GoDaddy DNS connection
+- July 4, 2025. Enhanced website performance and marketing: added professional space rental testimonials, comprehensive booking calendar in chatbot, TikTok/YouTube social media integration, mobile optimization, and updated Facebook link to authentic account
 ```
 
 ## User Preferences
