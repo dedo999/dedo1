@@ -24,9 +24,9 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <img 
-                src="/kaizen-logo-new.jpg" 
+                src="/kaizen-logo-transparent.png" 
                 alt="Kaizen Logo"
-                className="h-16 w-auto rounded-lg bg-white/10 p-2"
+                className="h-14 w-auto"
               />
             </div>
             <p className="text-gray-300 mb-6 max-w-md">

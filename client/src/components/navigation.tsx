@@ -39,9 +39,9 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <img 
-              src="/kaizen-logo-new.jpg" 
+              src="/kaizen-logo-transparent.png" 
               alt="Kaizen Logo"
-              className="h-12 w-auto rounded-lg bg-white/10 p-1"
+              className="h-10 w-auto"
             />
           </div>
           
