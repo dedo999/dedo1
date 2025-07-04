@@ -26,7 +26,14 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
-            <span className="text-kaizen-red">KAIZEN</span><br />
+            <div className="flex items-center justify-center gap-4 mb-2">
+              <img 
+                src="/kaizen-logo-new.jpg" 
+                alt="Kaizen Logo"
+                className="h-16 md:h-20 w-auto rounded-lg bg-white/10 p-2"
+              />
+              <span className="text-kaizen-red">KAIZEN</span>
+            </div>
             <span className="text-kaizen-gold text-3xl md:text-5xl">SPORTS FIGHT ACADEMY</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
