@@ -270,12 +270,17 @@ export default function Store() {
             )}
           </div>
           
-          {/* Product image placeholder with premium styling */}
+          {/* Product image */}
           <div className="aspect-square overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 relative">
-            <div className="w-full h-full flex items-center justify-center text-8xl bg-gradient-to-br from-red-50 to-gray-100">
-              {product.category === 'clothing' ? '👕' :
-               product.category === 'equipment' ? '🥊' : '🥋'}
-            </div>
+            <img 
+              src={product.imageUrl} 
+              alt={product.name}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/api/placeholder/400/400';
+              }}
+            />
             {/* Stock indicator overlay */}
             <div className="absolute bottom-3 right-3">
               <div className={`w-3 h-3 rounded-full ${product.inStock > 10 ? 'bg-green-500' : 
