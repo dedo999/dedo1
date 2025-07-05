@@ -77,11 +77,11 @@ export default function BJJPage() {
             {/* Content */}
             <div className="order-2 lg:order-1">
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                <span className="text-kaizen-gold">Jiu Jitsu Brasileño</span><br />
+                <span className="text-kaizen-gold">BJJ</span><br />
                 en Kaizen Burgos
               </h1>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Conoce a Rubén Sancho, instructor especializado en Jiu Jitsu Brasileño. 
+                Conoce a Rubén Sancho, instructor especializado en BJJ. 
                 Cinturón marrón, competidor activo y apasionado por enseñar el arte suave.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -158,10 +158,10 @@ export default function BJJPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              <span className="text-kaizen-gold">Jiu Jitsu Brasileño</span> en Kaizen Burgos
+              <span className="text-kaizen-gold">Kaizen BJJ</span>
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Instructores especializados en el arte suave del Jiu Jitsu Brasileño
+              Instructores especializados en el arte suave
             </p>
           </div>
 
@@ -176,7 +176,7 @@ export default function BJJPage() {
                 </div>
               </div>
               <p className="text-gray-300 mb-6 text-lg">
-                Estudiante, instructor y competidor de Jiu Jitsu Brasileño. 
+                Estudiante, instructor y competidor de BJJ. 
                 Cinturón marrón con amplia experiencia en competición y enseñanza técnica especializada.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -255,7 +255,7 @@ export default function BJJPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Beneficios del <span className="text-kaizen-red">Jiu Jitsu Brasileño</span>
+              Beneficios del <span className="text-kaizen-red">BJJ</span>
             </h2>
           </div>
 
@@ -264,7 +264,7 @@ export default function BJJPage() {
               <Target className="w-12 h-12 text-kaizen-red mb-4" />
               <h3 className="text-xl font-bold text-white mb-4">Técnica y Estrategia</h3>
               <p className="text-gray-300">
-                Desarrolla habilidades técnicas refinadas y pensamiento estratégico aplicable dentro y fuera del tatami.
+                El Brazilian Jiu-Jitsu desarrolla habilidades técnicas refinadas y pensamiento estratégico aplicable dentro y fuera del tatami.
               </p>
             </div>
 
@@ -292,7 +292,7 @@ export default function BJJPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Planes de <span className="text-kaizen-gold">Jiu Jitsu</span>
+              Planes de <span className="text-kaizen-gold">BJJ</span>
             </h2>
             <p className="text-lg text-gray-300">
               Elige el plan que mejor se adapte a tu ritmo de entrenamiento
