@@ -123,17 +123,8 @@ export default function About() {
       {/* Philosophy Section */}
       <section className="py-20 bg-kaizen-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Filosofía del <span className="text-kaizen-gold">Jiu Jitsu</span>
-            </h3>
-            <p className="text-lg text-gray-300">
-              Las enseñanzas de Antonio Alonso trascienden la técnica
-            </p>
-          </div>
-          
           <div className="bg-gradient-to-br from-kaizen-darker to-gray-900 p-8 md:p-12 rounded-2xl border border-kaizen-gold/20">
-            <div className="space-y-6 text-gray-300 leading-relaxed">
+            <div className="space-y-6 text-gray-300 leading-relaxed text-justify">
               <p className="text-lg">
                 El jiu-jitsu de Antonio trasciende la simple práctica de un arte marcial; se convierte en un camino de transformación integral que abarca tanto lo físico como lo mental. En medio del ruido cotidiano, cada clase representa una oportunidad para encontrar calma, salud y conexión interior. Los alumnos no solo aprenden técnicas en el tatami, sino que se llevan consigo una porción de esa serenidad a su día a día.
               </p>
@@ -146,7 +137,7 @@ export default function About() {
                 Más allá del combate, Antonio inculca la filosofía, la disciplina y las normas propias de este arte, enseñanzas que los alumnos aprenden a respetar y trasladar a su vida cotidiana. La constancia, el respeto, la humildad y la lealtad con uno mismo se convierten en herramientas valiosas para afrontar los desafíos diarios con mayor confianza, equilibrio y determinación.
               </p>
               
-              <p className="text-lg border-l-4 border-kaizen-gold pl-6 italic">
+              <p className="text-lg">
                 El jiu-jitsu, en palabras de Antonio, trasciende y se define no solo como un deporte, un arte marcial o un sistema de defensa personal, sino como una forma de vida: un camino de autoconocimiento y crecimiento que acompaña y transforma a quien lo practica en todos los aspectos de su vida.
               </p>
             </div>
