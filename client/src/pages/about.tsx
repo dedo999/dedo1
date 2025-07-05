@@ -86,9 +86,6 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Pionero */}
             <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
-              <div className="w-16 h-16 bg-kaizen-red rounded-full flex items-center justify-center mb-6">
-                <div className="w-8 h-8 border-2 border-white rounded"></div>
-              </div>
               <h4 className="text-xl font-bold text-white mb-4">Pionero en la Región</h4>
               <p className="text-gray-300">
                 Realizó las primeras competiciones de Jiu Jitsu y MMA en Castilla y León para dar a conocer el arte.
@@ -97,9 +94,6 @@ export default function About() {
 
             {/* Formador */}
             <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
-              <div className="w-16 h-16 bg-kaizen-gold rounded-full flex items-center justify-center mb-6">
-                <div className="w-8 h-8 border-2 border-black rounded"></div>
-              </div>
               <h4 className="text-xl font-bold text-white mb-4">Formador de Campeones</h4>
               <p className="text-gray-300">
                 Formó a los primeros cintos negros de la comunidad y a los primeros competidores tanto de Jiu Jitsu como en MMA.
@@ -108,9 +102,6 @@ export default function About() {
 
             {/* Legado */}
             <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
-              <div className="w-16 h-16 bg-kaizen-red rounded-full flex items-center justify-center mb-6">
-                <div className="w-8 h-8 border-2 border-white rounded"></div>
-              </div>
               <h4 className="text-xl font-bold text-white mb-4">Legado de Éxito</h4>
               <p className="text-gray-300">
                 Sus estudiantes han conseguido títulos desde nacionales a mundiales, y hoy tienen sus propias academias y equipos.
