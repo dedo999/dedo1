@@ -4,7 +4,7 @@ export default function InstructorsSection() {
   const instructors = [
     {
       name: "Antonio Alonso",
-      title: "BJJ Maestro",
+      title: "BJJ Maestro - Faixa Preta / Black Belt",
       description: "Maestro de Artes Marciales con más de 45 años de experiencia. Pionero del Jiu Jitsu Brasileño y MMA en Castilla y León. Cinturón Negro 4° Grado (Faixa preta) representando al Peposo Fight Team bajo Paulo Peposo Curi y Hitler Curi de Brasil.",
       specialties: ["MMA", "BJJ", "Judo", "Ne Waza"],
       icon: Shield,
@@ -24,10 +24,10 @@ export default function InstructorsSection() {
       icon: Zap
     },
     {
-      name: "Miguel García",
-      title: "Instructor de BJJ",
-      description: "Cinturón púrpura de BJJ con experiencia en competiciones nacionales e internacionales.",
-      specialties: ["BJJ", "Grappling"],
+      name: "Rubén Sancho",
+      title: "Instructor de BJJ - Faixa Marrón / Brown Belt",
+      description: "Estudiante, instructor y competidor de Jiu Jitsu Brasileño. Cinturón marrón con amplia experiencia en competición y enseñanza.",
+      specialties: ["BJJ", "Grappling", "Competición"],
       icon: Medal
     }
   ];

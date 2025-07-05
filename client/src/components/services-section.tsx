@@ -32,6 +32,7 @@ export default function ServicesSection() {
       title: "Brazilian Jiu-Jitsu",
       description: "Arte suave que enfatiza la técnica sobre la fuerza. Ideal para autodefensa y desarrollo mental.",
       tags: ["Gi", "No-Gi", "Self-Defense"],
+      hasDetailPage: true,
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-gradient-to-br from-gray-900 to-black flex items-center justify-center overflow-hidden shadow-lg">
           <img 
@@ -100,11 +101,19 @@ export default function ServicesSection() {
                 <p className="text-gray-300 mb-6">
                   {service.description}
                 </p>
-                <div className="flex justify-center flex-wrap gap-2 text-sm text-kaizen-gold">
+                <div className="flex justify-center flex-wrap gap-2 text-sm text-kaizen-gold mb-6">
                   {service.tags.map((tag, tagIndex) => (
                     <span key={tagIndex}>• {tag}</span>
                   ))}
                 </div>
+                {service.hasDetailPage && (
+                  <a 
+                    href="/bjj"
+                    className="bg-kaizen-gold hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-lg transition-all duration-300 inline-block"
+                  >
+                    Conoce nuestro BJJ
+                  </a>
+                )}
               </div>
             </div>
           ))}

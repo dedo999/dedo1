@@ -16,6 +16,7 @@ import BarbershopDesigner from "@/pages/barbershop-designer";
 import Store from "@/pages/store";
 import SpaceRental from "@/pages/space-rental";
 import About from "@/pages/about";
+import BJJ from "@/pages/bjj";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -29,6 +30,8 @@ function Router() {
       <Route path="/alquiler-espacios" component={SpaceRental} />
       <Route path="/space-rental" component={SpaceRental} />
       <Route path="/about" component={About} />
+      <Route path="/bjj" component={BJJ} />
+      <Route path="/jiu-jitsu" component={BJJ} />
       <Route path="/" component={Home} />
       <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
       <Route path="/app/bookings" component={Bookings} />
