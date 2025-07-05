@@ -18,8 +18,8 @@ export default function BJJPage() {
                 en Kaizen Burgos
               </h1>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Descubre el arte suave del Jiu Jitsu Brasileño bajo la guía de nuestros instructores especializados. 
-                Una disciplina que combina técnica, estrategia y filosofía de vida.
+                Conoce a Rubén Sancho, instructor especializado en Jiu Jitsu Brasileño. 
+                Cinturón marrón, competidor activo y apasionado por enseñar el arte suave.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
@@ -39,12 +39,16 @@ export default function BJJPage() {
               </div>
             </div>
 
-            {/* Image placeholder - will add Rubén's image */}
+            {/* Rubén's BJJ Image */}
             <div className="order-1 lg:order-2">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-kaizen-red/20 to-kaizen-gold/20 rounded-2xl transform rotate-3"></div>
-                <div className="relative w-full h-96 bg-kaizen-dark rounded-2xl shadow-2xl border border-kaizen-gold/30 flex items-center justify-center">
-                  <p className="text-gray-400">Imagen de Rubén Sancho próximamente</p>
+                <div className="relative w-full h-96 bg-kaizen-dark rounded-2xl shadow-2xl border border-kaizen-gold/30 overflow-hidden">
+                  <img 
+                    src="/ruben-bjj-main.jpeg" 
+                    alt="Rubén Sancho - Instructor de Jiu Jitsu Brasileño en Kaizen Burgos"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -57,53 +61,68 @@ export default function BJJPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestros <span className="text-kaizen-gold">Instructores de BJJ</span>
+              <span className="text-kaizen-gold">Jiu Jitsu Brasileño</span> en Kaizen Burgos
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Aprende de los mejores instructores de Jiu Jitsu Brasileño en Castilla y León
+              Instructores especializados en el arte suave del Jiu Jitsu Brasileño
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Antonio Alonso */}
-            <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
-              <div className="flex items-center mb-6">
-                <Shield className="w-8 h-8 text-kaizen-red mr-3" />
-                <div>
-                  <h3 className="text-2xl font-bold text-white">Antonio Alonso</h3>
-                  <p className="text-kaizen-gold font-semibold">BJJ Maestro - Faixa Preta / Black Belt</p>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6">
-                Maestro pionero del BJJ en Castilla y León con más de 45 años de experiencia. 
-                Cinturón Negro 4° Grado representando al Peposo Fight Team de Brasil.
-              </p>
-              <div className="space-y-2">
-                <p className="text-sm text-gray-400">• Primer instructor de BJJ en la región</p>
-                <p className="text-sm text-gray-400">• Formó a los primeros cinturones negros</p>
-                <p className="text-sm text-gray-400">• Maestro entrenador nacional</p>
-              </div>
-            </div>
-
-            {/* Rubén Sancho */}
-            <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Rubén Sancho - Featured */}
+            <div className="lg:col-span-2 bg-gradient-to-br from-kaizen-darker to-kaizen-dark p-8 rounded-xl border border-kaizen-gold/30">
               <div className="flex items-center mb-6">
                 <Medal className="w-8 h-8 text-kaizen-gold mr-3" />
                 <div>
-                  <h3 className="text-2xl font-bold text-white">Rubén Sancho</h3>
-                  <p className="text-kaizen-gold font-semibold">Faixa Marrón / Brown Belt</p>
+                  <h3 className="text-3xl font-bold text-white">Rubén Sancho</h3>
+                  <p className="text-kaizen-gold font-semibold text-lg">Faixa Marrón / Brown Belt</p>
                 </div>
               </div>
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-300 mb-6 text-lg">
                 Estudiante, instructor y competidor de Jiu Jitsu Brasileño. 
                 Cinturón marrón con amplia experiencia en competición y enseñanza técnica especializada.
               </p>
-              <div className="space-y-2">
-                <p className="text-sm text-gray-400">• Instructor especializado en técnicas de competición</p>
-                <p className="text-sm text-gray-400">• Experiencia en torneos nacionales</p>
-                <p className="text-sm text-gray-400">• Enfoque en desarrollo técnico y táctico</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h4 className="text-white font-bold">Especialización:</h4>
+                  <p className="text-sm text-gray-400">• Técnicas de competición</p>
+                  <p className="text-sm text-gray-400">• Desarrollo técnico y táctico</p>
+                  <p className="text-sm text-gray-400">• Preparación para torneos</p>
+                  <p className="text-sm text-gray-400">• Gi y No-Gi</p>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="text-white font-bold">Experiencia:</h4>
+                  <p className="text-sm text-gray-400">• Competidor activo nacional</p>
+                  <p className="text-sm text-gray-400">• Instructor especializado</p>
+                  <p className="text-sm text-gray-400">• Enfoque en progresión técnica</p>
+                  <p className="text-sm text-gray-400">• Filosofía del arte suave</p>
+                </div>
               </div>
             </div>
+
+            {/* Training Photo */}
+            <div className="bg-kaizen-darker rounded-xl border border-gray-800 overflow-hidden">
+              <img 
+                src="/ruben-bjj-training.jpeg" 
+                alt="Rubén Sancho entrenando BJJ en Kaizen Burgos"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Antonio Alonso - Supporting */}
+          <div className="mt-12 bg-kaizen-darker p-6 rounded-xl border border-gray-800">
+            <div className="flex items-center mb-4">
+              <Shield className="w-6 h-6 text-kaizen-red mr-3" />
+              <div>
+                <h4 className="text-xl font-bold text-white">Bajo la mentoría de Antonio Alonso</h4>
+                <p className="text-kaizen-gold">BJJ Maestro - Faixa Preta / Black Belt</p>
+              </div>
+            </div>
+            <p className="text-gray-300">
+              Maestro pionero del BJJ en Castilla y León con más de 45 años de experiencia. 
+              Cinturón Negro 4° Grado del Peposo Fight Team de Brasil.
+            </p>
           </div>
         </div>
       </section>
