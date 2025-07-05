@@ -25,13 +25,13 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up">
-          <h1 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">
-            <span className="text-black" style={{
-              textShadow: '2px 2px 0 #FFD700, -2px -2px 0 #FFD700, 2px -2px 0 #FFD700, -2px 2px 0 #FFD700, 0 2px 0 #FFD700, 2px 0 0 #FFD700, 0 -2px 0 #FFD700, -2px 0 0 #FFD700',
-              fontFamily: 'Impact, Arial Black, sans-serif',
-              letterSpacing: '0.1em',
-              fontWeight: '900'
-            }}>KAIZEN</span><span className="text-kaizen-gold">Academy改善Burgos</span>
+          <h1 className="flex items-center justify-center gap-2 text-3xl md:text-5xl font-black mb-6 tracking-tight">
+            <img 
+              src="/kaizen_logo_hero.png" 
+              alt="KAIZEN Logo"
+              className="h-12 md:h-16 w-auto"
+            />
+            <span className="text-kaizen-gold">Academy改善Burgos</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
             MMA, BJJ, Kickboxing, Boxeo • Instructores profesionales • Primera clase gratis
