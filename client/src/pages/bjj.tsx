@@ -1,8 +1,39 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-import { Shield, Medal, Star, Users, Trophy, Target } from "lucide-react";
+import { Shield, Medal, Star, Users, Trophy, Target, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function BJJPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    {
+      src: "/ruben-bjj-hero.jpeg",
+      alt: "Rubén Sancho - Instructor de Jiu Jitsu Brasileño en Kaizen Burgos"
+    },
+    {
+      src: "/ruben-bjj-main.jpeg", 
+      alt: "Rubén Sancho entrenando BJJ en Kaizen Burgos"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  const nextImage = () => {
+    setCurrentImageIndex(currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex(currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1);
+  };
+
   return (
     <div className="min-h-screen bg-kaizen-darker text-white">
       <Navigation />
@@ -39,16 +70,50 @@ export default function BJJPage() {
               </div>
             </div>
 
-            {/* Rubén's BJJ Image */}
+            {/* Rubén's BJJ Image Slideshow */}
             <div className="order-1 lg:order-2">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-kaizen-red/20 to-kaizen-gold/20 rounded-2xl transform rotate-3"></div>
                 <div className="relative w-full h-96 bg-kaizen-dark rounded-2xl shadow-2xl border border-kaizen-gold/30 overflow-hidden">
-                  <img 
-                    src="/ruben-bjj-main.jpeg" 
-                    alt="Rubén Sancho - Instructor de Jiu Jitsu Brasileño en Kaizen Burgos"
-                    className="w-full h-full object-cover"
-                  />
+                  {images.map((image, index) => (
+                    <img 
+                      key={index}
+                      src={image.src} 
+                      alt={image.alt}
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                        index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                  
+                  {/* Navigation buttons */}
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                  
+                  {/* Dots indicator */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                    {images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentImageIndex 
+                            ? 'bg-kaizen-gold' 
+                            : 'bg-white/50 hover:bg-white/70'
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
