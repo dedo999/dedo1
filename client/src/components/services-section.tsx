@@ -58,14 +58,14 @@ export default function ServicesSection() {
       )
     },
     {
-      title: "Clases Infantiles",
-      description: "Programas especiales para niños que desarrollan disciplina, respeto y confianza a través de artes marciales.",
-      tags: ["6-12 años", "Diversión", "Valores"],
+      title: "Jiu Jitsu Kids/Infantil",
+      description: "Programas especiales de Jiu Jitsu para niños que desarrollan disciplina, respeto y confianza a través del arte suave.",
+      tags: ["6-12 años", "Técnica", "Valores"],
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
           <img 
             src="/kids-martial-arts.jpg" 
-            alt="Clases Infantiles Kaizen Burgos - Kids martial arts training"
+            alt="Jiu Jitsu Kids Kaizen Burgos - BJJ training for children"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
