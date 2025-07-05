@@ -61,6 +61,7 @@ export default function ServicesSection() {
       title: "Jiu Jitsu Kids/Infantil",
       description: "Programas especiales de Jiu Jitsu para niños que desarrollan disciplina, respeto y confianza a través del arte suave.",
       tags: ["6-12 años", "Técnica", "Valores"],
+      hasKidsPage: true,
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
           <img 
@@ -112,6 +113,14 @@ export default function ServicesSection() {
                     className="bg-kaizen-gold hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-lg transition-all duration-300 inline-block"
                   >
                     Conoce nuestro BJJ
+                  </a>
+                )}
+                {service.hasKidsPage && (
+                  <a 
+                    href="/bjj-kids"
+                    className="bg-kaizen-red hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 inline-block"
+                  >
+                    BJJ Infantil
                   </a>
                 )}
               </div>

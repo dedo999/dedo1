@@ -17,6 +17,7 @@ import Store from "@/pages/store";
 import SpaceRental from "@/pages/space-rental";
 import About from "@/pages/about";
 import BJJ from "@/pages/bjj";
+import BJJKids from "@/pages/bjj-kids";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -32,6 +33,8 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/bjj" component={BJJ} />
       <Route path="/jiu-jitsu" component={BJJ} />
+      <Route path="/bjj-kids" component={BJJKids} />
+      <Route path="/jiu-jitsu-kids" component={BJJKids} />
       <Route path="/" component={Home} />
       <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
       <Route path="/app/bookings" component={Bookings} />
