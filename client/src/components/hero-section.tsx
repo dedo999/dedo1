@@ -27,7 +27,7 @@ export default function HeroSection() {
         <div className="animate-fade-in-up">
           <div className="mb-8">
             <img 
-              src="/kaizen_logo_new.png" 
+              src="/kaizen_logo_final.png" 
               alt="KaizenAcademy改善Burgos Logo"
               className="h-24 md:h-32 w-auto mx-auto"
             />

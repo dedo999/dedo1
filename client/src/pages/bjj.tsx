@@ -159,7 +159,7 @@ export default function BJJPage() {
           <div className="text-center mb-16">
             <div className="flex justify-center">
               <img 
-                src="/kaizen_logo_new.png" 
+                src="/kaizen_logo_final.png" 
                 alt="KaizenAcademy改善Burgos Logo"
                 className="h-16 w-auto"
               />
