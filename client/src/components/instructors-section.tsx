@@ -112,6 +112,18 @@ export default function InstructorsSection() {
                       </ul>
                     </div>
                   )}
+
+                  {/* Button for Rubén Sancho */}
+                  {instructor.name === "Rubén Sancho" && (
+                    <div className="mt-6">
+                      <a 
+                        href="/bjj"
+                        className="bg-kaizen-gold hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block"
+                      >
+                        Conoce a Rubén
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             );

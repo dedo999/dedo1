@@ -77,8 +77,8 @@ export default function BJJPage() {
             {/* Content */}
             <div className="order-2 lg:order-1">
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                <span className="text-kaizen-gold">BJJ</span><br />
-                en Kaizen Burgos
+                <span className="text-kaizen-gold">Instructor Especializado</span><br />
+                Rubén Sancho
               </h1>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
                 Conoce a Rubén Sancho, instructor especializado en BJJ. 
