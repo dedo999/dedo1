@@ -157,16 +157,13 @@ export default function BJJPage() {
       <section className="py-20 bg-kaizen-dark">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center">
               <img 
                 src="/kaizen-logo.png" 
                 alt="Kaizen Burgos Logo"
                 className="h-16 w-auto"
               />
             </div>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Instructores especializados en el arte suave
-            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
