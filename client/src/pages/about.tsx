@@ -166,11 +166,9 @@ export default function About() {
             </div>
           </div>
           
-          <div className="mt-12 p-8 bg-gradient-to-r from-kaizen-red/10 to-kaizen-gold/10 rounded-xl border border-kaizen-gold/30">
-            <p className="text-lg text-gray-300 italic">
-              "La dedicación constante al perfeccionamiento técnico y la formación de nuevas generaciones de artistas marciales define mi pasión por las artes marciales."
-            </p>
-            <p className="text-kaizen-gold font-semibold mt-4">- Antonio Alonso</p>
+          <div className="mt-12 text-center">
+            <p className="text-2xl font-bold text-kaizen-gold">Antonio Alonso</p>
+            <p className="text-lg text-gray-300 mt-2">Fundador y Director Técnico</p>
           </div>
         </div>
       </section>
