@@ -61,6 +61,14 @@ export default function InstructorsSection() {
                         className="w-full h-full object-cover"
                       />
                     </div>
+                  ) : instructor.name === "Eduardo" ? (
+                    <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-kaizen-red">
+                      <img 
+                        src="/eduardo-profile.jpeg" 
+                        alt="Eduardo - Instructor de Kickboxing"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   ) : (
                     <div className="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center">
                       <IconComponent className="text-4xl text-kaizen-gold" size={48} />
