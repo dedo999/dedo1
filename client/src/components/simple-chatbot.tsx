@@ -23,9 +23,14 @@ D: 9:00-20:00`,
   
   'precios': `💶 **Precios:**
 
-Individual: €15/mes
-Completo: €45/mes  
-Ilimitado: €80/mes
+Kickboxing: €45/mes
+Combinar 2 disciplinas: €60/mes
+BJJ - 2 días: €50/mes
+BJJ - 3 días: €60/mes
+BJJ - 4 días: €70/mes
+Boxeo: €40/mes
+MMA: €40/mes
+Tarifa Plana: €80/mes
 
 *Primera clase GRATIS*`,
 
@@ -276,9 +281,18 @@ Recibirás confirmación por WhatsApp.
         </div>
       </CardHeader>
 
-      <CardContent className="flex-1 flex flex-col p-0 min-h-0">
+      <CardContent className="flex-1 flex flex-col p-0 min-h-0 bg-gradient-to-br from-white to-gray-50 relative">
+        {/* Subtle BJJ Pattern Background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="h-full w-full" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.08'%3E%3Cpath d='M20 20m-3 0a3 3 0 1 1 6 0a3 3 0 1 1 -6 0'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '20px 20px'
+          }}>
+          </div>
+        </div>
+        
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-3 space-y-2" style={{ maxHeight: '320px' }}>
+        <div className="flex-1 overflow-y-auto p-3 space-y-2 relative z-10" style={{ maxHeight: '320px' }}>
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
               <div className={`max-w-[80%] p-2 rounded-lg text-xs ${
@@ -309,7 +323,7 @@ Recibirás confirmación por WhatsApp.
         </div>
 
         {/* Input */}
-        <div className="border-t p-2 bg-gray-50 flex-shrink-0">
+        <div className="border-t p-2 bg-white/80 backdrop-blur-sm flex-shrink-0 relative z-10">
           <form onSubmit={handleSubmit} className="flex space-x-2">
             <Input
               value={inputText}

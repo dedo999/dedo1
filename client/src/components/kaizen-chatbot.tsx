@@ -47,10 +47,14 @@ const gymFAQs: FAQ[] = [
     keywords: ['precio', 'precios', 'cuanto', 'cuesta', 'mensualidad', 'price', 'cost'],
     response: `💶 **Precios:**
 
-**Individual:** €15/mes
-**Completo:** €45/mes  
-**Ilimitado:** €80/mes
-**Niños:** €35/mes
+**Kickboxing:** €45/mes
+**Combinar 2 disciplinas:** €60/mes
+**BJJ - 2 días:** €50/mes
+**BJJ - 3 días:** €60/mes
+**BJJ - 4 días:** €70/mes
+**Boxeo:** €40/mes
+**MMA:** €40/mes
+**Tarifa Plana:** €80/mes
 
 *Primera clase GRATIS*`,
     quickActions: ['Clase gratis', 'Ver disciplinas']
@@ -325,8 +329,8 @@ export function KaizenChatbot() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img 
-              src="/kaizen-logo-transparent.png" 
-              alt="Kaizen Logo"
+              src="/kaizen_logo_final.png" 
+              alt="KaizenAcademy改善Burgos Logo"
               className="h-6 w-auto"
             />
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -343,9 +347,18 @@ export function KaizenChatbot() {
         </div>
       </CardHeader>
 
-      <CardContent className="flex-1 flex flex-col p-0 bg-white">
+      <CardContent className="flex-1 flex flex-col p-0 bg-gradient-to-br from-gray-50 to-white relative">
+        {/* BJJ Pattern Background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="h-full w-full" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '30px 30px'
+          }}>
+          </div>
+        </div>
+        
         {/* Messages Area */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-white">
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 relative z-10">
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
               <div className={`max-w-[80%] p-3 rounded-lg ${
