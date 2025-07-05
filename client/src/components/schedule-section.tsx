@@ -6,7 +6,7 @@ export default function ScheduleSection() {
     {
       day: "Lunes",
       classes: [
-        { time: "18:00-19:00", name: "Kaizen Kids", type: "kids" },
+        { time: "18:00-19:00", name: "Jiu Jitsu Kids/Infantil", type: "kids" },
         { time: "19:00-20:30", name: "Brazilian Jiu Jitsu", type: "grappling" },
         { time: "20:30-21:45", name: "MMA", type: "striking" }
       ]
