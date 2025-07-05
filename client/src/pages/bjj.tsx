@@ -177,8 +177,13 @@ export default function BJJPage() {
                 </div>
               </div>
               <p className="text-gray-300 mb-6 text-lg">
-                Estudiante, instructor y competidor de BJJ. 
-                Cinturón marrón con amplia experiencia en competición y enseñanza técnica especializada.
+                Destacado practicante e instructor de Jiu Jitsu Brasileño, Rubén Sancho ha forjado su camino en el tatami a través de una sólida trayectoria como competidor, logrando múltiples podios en campeonatos nacionales tanto en modalidad Gi como No Gi.
+              </p>
+              <p className="text-gray-300 mb-6">
+                Formado bajo la guía de Antonio Alonso, y siguiendo la filosofía aprendida, transmite de forma seria, real y basada en el respeto por el arte marcial. Rubén Sancho no solo transmite técnicas efectivas, sino también los valores profundos del Jiu Jitsu.
+              </p>
+              <p className="text-gray-300 mb-6">
+                Su compromiso con la excelencia, su experiencia en la competencia y su enfoque pedagógico lo convierten en un referente para sus compañeros, ayudando a formar nuevos talentos con una visión disciplinada, honesta y realista del Jiu Jitsu.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-3">
