@@ -87,7 +87,7 @@ export default function About() {
             {/* Pionero */}
             <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
               <div className="w-16 h-16 bg-kaizen-red rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl font-bold text-white">🥋</span>
+                <span className="text-2xl font-bold text-white">⚔️</span>
               </div>
               <h4 className="text-xl font-bold text-white mb-4">Pionero en la Región</h4>
               <p className="text-gray-300">
@@ -98,7 +98,7 @@ export default function About() {
             {/* Formador */}
             <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
               <div className="w-16 h-16 bg-kaizen-gold rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl font-bold text-black">👨‍🏫</span>
+                <span className="text-2xl font-bold text-black">🎓</span>
               </div>
               <h4 className="text-xl font-bold text-white mb-4">Formador de Campeones</h4>
               <p className="text-gray-300">
@@ -109,7 +109,7 @@ export default function About() {
             {/* Legado */}
             <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
               <div className="w-16 h-16 bg-kaizen-red rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl font-bold text-white">🏆</span>
+                <span className="text-2xl font-bold text-white">👑</span>
               </div>
               <h4 className="text-xl font-bold text-white mb-4">Legado de Éxito</h4>
               <p className="text-gray-300">
@@ -166,10 +166,7 @@ export default function About() {
             </div>
           </div>
           
-          <div className="mt-12 text-center">
-            <p className="text-2xl font-bold text-kaizen-gold">Antonio Alonso</p>
-            <p className="text-lg text-gray-300 mt-2">Fundador y Director Técnico</p>
-          </div>
+
         </div>
       </section>
     </div>
