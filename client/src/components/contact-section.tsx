@@ -230,7 +230,7 @@ export default function ContactSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de Kaizen Sports Fight Academy en Burgos"
+                title="Ubicación de KaizenAcademy改善Burgos en Burgos"
               ></iframe>
             </div>
           </div>

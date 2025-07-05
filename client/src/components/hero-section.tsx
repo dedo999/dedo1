@@ -27,13 +27,13 @@ export default function HeroSection() {
         <div className="animate-fade-in-up">
           <div className="mb-8">
             <img 
-              src="/kaizen-logo-transparent.png" 
-              alt="Kaizen Logo"
+              src="/kaizen_logo_new.png" 
+              alt="KaizenAcademy改善Burgos Logo"
               className="h-24 md:h-32 w-auto mx-auto"
             />
           </div>
           <h1 className="text-3xl md:text-5xl font-black text-kaizen-gold mb-6 tracking-tight">
-            SPORTS FIGHT ACADEMY
+            KaizenAcademy改善Burgos
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
             <strong>Mejor gimnasio artes marciales Burgos</strong> • MMA, BJJ, Kickboxing, Boxeo • Instructores profesionales • Primera clase gratis
