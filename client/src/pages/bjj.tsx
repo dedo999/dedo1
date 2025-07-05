@@ -13,6 +13,38 @@ export default function BJJPage() {
     {
       src: "/ruben-bjj-main.jpeg", 
       alt: "Rubén Sancho entrenando BJJ en Kaizen Burgos"
+    },
+    {
+      src: "/ruben-bjj-1.jpeg",
+      alt: "Rubén Sancho - Técnicas de BJJ en Kaizen Burgos"
+    },
+    {
+      src: "/ruben-bjj-2.jpeg",
+      alt: "Rubén Sancho - Entrenamiento de Jiu Jitsu"
+    },
+    {
+      src: "/ruben-bjj-3.jpeg",
+      alt: "Rubén Sancho - Competición de BJJ"
+    },
+    {
+      src: "/ruben-bjj-4.jpeg",
+      alt: "Rubén Sancho - Instructor especializado en BJJ"
+    },
+    {
+      src: "/ruben-bjj-5.jpeg",
+      alt: "Rubén Sancho - Cinturón marrón de BJJ"
+    },
+    {
+      src: "/ruben-bjj-6.jpeg",
+      alt: "Rubén Sancho - Filosofía del arte suave"
+    },
+    {
+      src: "/ruben-bjj-7.jpeg",
+      alt: "Rubén Sancho - Estudiante y competidor de BJJ"
+    },
+    {
+      src: "/ruben-bjj-8.jpeg",
+      alt: "Rubén Sancho - Kaizen Burgos BJJ Team"
     }
   ];
 
@@ -188,6 +220,32 @@ export default function BJJPage() {
               Maestro pionero del BJJ en Castilla y León con más de 45 años de experiencia. 
               Cinturón Negro 4° Grado del Peposo Fight Team de Brasil.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="py-20 bg-kaizen-darker">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Rubén en <span className="text-kaizen-gold">Acción</span>
+            </h2>
+            <p className="text-lg text-gray-300">
+              Técnicas, entrenamiento y competición de nuestro instructor de BJJ
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {images.slice(2).map((image, index) => (
+              <div key={index} className="bg-kaizen-dark rounded-lg overflow-hidden border border-gray-800 hover:border-kaizen-gold/50 transition-all duration-300 group">
+                <img 
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
