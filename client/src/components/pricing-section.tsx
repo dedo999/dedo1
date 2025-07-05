@@ -17,6 +17,20 @@ export default function PricingSection() {
       highlighted: false
     },
     {
+      name: "Combinar 2 disciplinas",
+      price: "60",
+      period: "por mes",
+      description: "Combina dos disciplinas de tu elección",
+      features: [
+        "Elige 2 disciplinas",
+        "Flexibilidad de horarios",
+        "Acceso a clases de sábado",
+        "Entrenamiento completo",
+        "Máximo aprovechamiento"
+      ],
+      highlighted: false
+    },
+    {
       name: "Jiu Jitsu - 2 días",
       price: "50",
       period: "por mes",

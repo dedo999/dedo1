@@ -305,7 +305,23 @@ export default function BJJPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {/* Combinar 2 disciplinas */}
+            <div className="bg-kaizen-gold/10 p-8 rounded-xl border border-kaizen-gold">
+              <h3 className="text-2xl font-bold text-white mb-2">Combinar 2 disciplinas</h3>
+              <div className="flex items-baseline mb-4">
+                <span className="text-4xl font-bold text-kaizen-gold">60€</span>
+                <span className="text-gray-400 ml-2">por mes</span>
+              </div>
+              <p className="text-gray-300 mb-6">BJJ + otra disciplina</p>
+              <ul className="space-y-2 text-gray-300">
+                <li>• Elige BJJ + 1 más</li>
+                <li>• Flexibilidad de horarios</li>
+                <li>• Acceso a clases de sábado</li>
+                <li>• Entrenamiento completo</li>
+              </ul>
+            </div>
+
             {/* 2 días */}
             <div className="bg-kaizen-darker p-8 rounded-xl border border-gray-800">
               <h3 className="text-2xl font-bold text-white mb-2">BJJ - 2 días</h3>
