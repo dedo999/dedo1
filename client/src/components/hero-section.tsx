@@ -29,7 +29,7 @@ export default function HeroSection() {
             <img 
               src="/kaizen_logo_hero.png" 
               alt="KAIZEN Logo"
-              className="h-12 md:h-16 w-auto"
+              className="h-16 md:h-24 w-auto"
             />
             <span className="text-kaizen-gold">Academy改善Burgos</span>
           </h1>
