@@ -32,8 +32,13 @@ export default function HeroSection() {
               className="h-24 md:h-32 w-auto mx-auto"
             />
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-kaizen-gold mb-6 tracking-tight">
-            KaizenAcademy改善Burgos
+          <h1 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">
+            <span className="text-black" style={{
+              textShadow: '2px 2px 0 #FFD700, -2px -2px 0 #FFD700, 2px -2px 0 #FFD700, -2px 2px 0 #FFD700, 0 2px 0 #FFD700, 2px 0 0 #FFD700, 0 -2px 0 #FFD700, -2px 0 0 #FFD700',
+              fontFamily: 'Impact, Arial Black, sans-serif',
+              letterSpacing: '0.1em',
+              fontWeight: '900'
+            }}>KAIZEN</span><span className="text-kaizen-gold">Academy改善Burgos</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
             <strong>Mejor gimnasio artes marciales Burgos</strong> • MMA, BJJ, Kickboxing, Boxeo • Instructores profesionales • Primera clase gratis
