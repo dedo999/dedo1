@@ -128,7 +128,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2024 Kaizen Sports Fight Academy Burgos. Todos los derechos reservados.
+            © 2024 KaizenAcademy改善Burgos. Todos los derechos reservados.
           </p>
           <p className="text-gray-500 text-xs mt-2">
             Mejora continua • Excelencia en artes marciales • #KaizenBurgos
