@@ -3,49 +3,102 @@ import { Check, Star } from "lucide-react";
 export default function PricingSection() {
   const pricingPlans = [
     {
-      name: "2 Disciplinas",
+      name: "Kickboxing",
       price: "45",
       period: "por mes",
-      description: "Combina dos disciplinas de tu elección",
+      description: "Dos clases semana más sábados",
       features: [
-        "Acceso a 2 disciplinas combinadas",
-        "MMA + BJJ, Kickboxing + Boxeo, etc.",
-        "Clases matutinas y vespertinas",
-        "Asesoramiento personalizado",
-        "Flexibilidad de horarios"
+        "2 clases por semana",
+        "Acceso a clases de sábado",
+        "Técnicas de striking",
+        "Acondicionamiento físico",
+        "Asesoramiento personalizado"
       ],
       highlighted: false
     },
     {
-      name: "Acceso Completo",
+      name: "Jiu Jitsu - 2 días",
+      price: "50",
+      period: "por mes",
+      description: "Dos días semana más sábados",
+      features: [
+        "2 días por semana",
+        "Acceso a clases de sábado",
+        "Técnicas de grappling",
+        "Open mat incluido",
+        "Progresión de cinturones"
+      ],
+      highlighted: false
+    },
+    {
+      name: "Jiu Jitsu - 3 días",
+      price: "60",
+      period: "por mes",
+      description: "Tres días semana más sábados",
+      features: [
+        "3 días por semana",
+        "Acceso a clases de sábado",
+        "Técnicas avanzadas",
+        "Open mat incluido",
+        "Progresión acelerada"
+      ],
+      highlighted: false
+    },
+    {
+      name: "Jiu Jitsu - 4 días",
+      price: "70",
+      period: "por mes",
+      description: "Cuatro días semana más sábados",
+      features: [
+        "4 días por semana",
+        "Acceso a clases de sábado",
+        "Entrenamiento intensivo",
+        "Técnicas de competición",
+        "Preparación para torneos"
+      ],
+      highlighted: false
+    },
+    {
+      name: "Boxeo",
+      price: "40",
+      period: "por mes",
+      description: "Tres días semana más sábados",
+      features: [
+        "3 días por semana",
+        "Acceso a clases de sábado",
+        "Técnicas de boxeo",
+        "Sparring controlado",
+        "Acondicionamiento físico"
+      ],
+      highlighted: false
+    },
+    {
+      name: "MMA",
+      price: "40",
+      period: "por mes",
+      description: "Dos días semana más sábados",
+      features: [
+        "2 días por semana",
+        "Acceso a clases de sábado",
+        "Técnicas mixtas",
+        "Striking y grappling",
+        "Preparación integral"
+      ],
+      highlighted: false
+    },
+    {
+      name: "Tarifa Plana",
       price: "80",
       period: "por mes",
-      description: "La opción más popular - acceso ilimitado",
+      description: "Acceso ilimitado a todas las disciplinas",
       features: [
         "Acceso ilimitado a todas las clases",
-        "MMA, Kickboxing, BJJ, Boxeo",
+        "Todas las disciplinas incluidas",
         "Clases matutinas y vespertinas",
-        "Asesoramiento personalizado",
-        "Acceso a sparring y open mat",
-        "Comunidad de entrenamiento",
-        "Entrenamientos especializados"
+        "Open mat y sparring",
+        "Flexibilidad total de horarios"
       ],
       highlighted: true
-    },
-    {
-      name: "Trimestral Completo",
-      price: "210",
-      period: "3 meses",
-      description: "Ahorra con nuestro plan trimestral completo",
-      features: [
-        "Todo incluido del acceso completo",
-        "Ahorro de 30€ (€70/mes)",
-        "Plan de entrenamiento personalizado",
-        "Acceso prioritario a seminarios",
-        "Seguimiento de progreso mensual",
-        "Sesiones de técnica avanzada"
-      ],
-      highlighted: false
     }
   ];
 
@@ -61,7 +114,7 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <div 
               key={index}
