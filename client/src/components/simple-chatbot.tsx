@@ -62,16 +62,54 @@ Espacio profesional, sin inversión inicial, sin compromiso a largo plazo
 
 C. Esteban Sáez Alvarado, 8
 09007 Burgos, España
-Tel: +34 662 323 282`,
+Tel: +34 662 323 282
 
-  'reservar': `📅 **Reservar Clase:**
+🚗 Parking disponible
+🚌 Transporte público accesible`,
 
-Elige el tipo de reserva:
-• Clases regulares (tarde)
-• Clases mañana (6:00-11:00)
-• Clases particulares
+  'reservar': `📅 **Reserva tu Primera Clase GRATIS:**
 
-¿Qué tipo prefieres?`
+🥋 **Disciplinas disponibles:**
+• Brazilian Jiu-Jitsu con Rubén Sancho (Cinturón Marrón)
+• Kickboxing con Eduardo (Instructor Certificado)
+• MMA - Artes Marciales Mixtas
+• Boxeo - Técnica y acondicionamiento
+
+⏰ **Horarios:**
+• Lunes a Viernes: 18:00-22:30
+• Sábados: 11:00-13:00 (Open Mat)
+• Clases matutinas: Mar/Jue 9:00-11:00
+
+¿Qué disciplina te interesa probar?`,
+
+  'disciplinas': `🥋 **Nuestras Disciplinas:**
+
+🇧🇷 **Brazilian Jiu-Jitsu**
+Instructor: Rubén Sancho (Cinturón Marrón)
+• Técnicas de grappling y sumisión
+• Competidor con múltiples podios nacionales
+• Clases Gi y No-Gi
+
+👊 **Kickboxing**
+Instructor: Eduardo
+• Combinaciones de puños y patadas
+• Acondicionamiento físico completo
+• Técnicas de defensa personal
+
+🥊 **MMA - Artes Marciales Mixtas**
+• Combinación de striking y grappling
+• Preparación integral de combate
+• Técnicas de todas las distancias
+
+🥊 **Boxeo**
+• Arte del pugilismo clásico
+• Técnica de golpeo con manos
+• Trabajo de saco y sparring controlado
+
+👶 **Jiu Jitsu Kids/Infantil**
+• Programa especializado 6-12 años
+• Valores: respeto, disciplina, anti-bullying
+• Desarrollo físico y mental`
 };
 
 export function SimpleChatbot() {
@@ -79,10 +117,10 @@ export function SimpleChatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: '¡Hola! 👋\n\n¿En qué puedo ayudarte?',
+      text: 'Bienvenido a KaizenAcademy改善Burgos 🥋\n\nSoy tu asistente virtual. ¿Cómo puedo ayudarte hoy?',
       isBot: true,
       timestamp: new Date(),
-      quickActions: ['Horarios', 'Precios', 'Reservar', 'Alquiler']
+      quickActions: ['Horarios', 'Precios', 'Clase gratis', 'Alquiler espacio']
     }
   ]);
   const [inputText, setInputText] = useState('');
@@ -185,19 +223,22 @@ export function SimpleChatbot() {
 
       if (actionText.includes('horario')) {
         response = quickResponses.horarios;
-        actions = ['Precios', 'Clase gratis'];
+        actions = ['Precios', 'Disciplinas', 'Clase gratis'];
       } else if (actionText.includes('precio')) {
         response = quickResponses.precios;
-        actions = ['Clase gratis', 'Horarios'];
+        actions = ['Clase gratis', 'Disciplinas', 'Ubicación'];
       } else if (actionText.includes('alquiler')) {
         response = quickResponses.alquiler;
-        actions = ['WhatsApp', 'Más info'];
+        actions = ['WhatsApp alquiler', 'Más información', 'Ubicación'];
       } else if (actionText.includes('ubicacion') || actionText.includes('donde')) {
         response = quickResponses.ubicacion;
-        actions = ['Google Maps', 'Llamar'];
-      } else if (actionText.includes('reservar')) {
+        actions = ['Google Maps', 'Llamar', 'Horarios'];
+      } else if (actionText.includes('reservar') || actionText.includes('clase gratis')) {
         response = quickResponses.reservar;
-        actions = ['Clases regulares', 'Clases mañana', 'Clase particular'];
+        actions = ['BJJ', 'Kickboxing', 'MMA', 'Boxeo'];
+      } else if (actionText.includes('disciplinas')) {
+        response = quickResponses.disciplinas;
+        actions = ['Clase gratis', 'Precios', 'Instructores'];
       } else if (actionText.includes('clases regulares')) {
         response = `📅 **Clases Regulares:**
 
@@ -269,7 +310,7 @@ Recibirás confirmación por WhatsApp.
     <Card className="fixed bottom-4 right-4 w-80 sm:w-96 h-[450px] sm:h-[500px] shadow-2xl z-50 flex flex-col">
       <CardHeader className="bg-red-600 text-white rounded-t-lg p-3">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-sm">💬 Kaizen Chat</CardTitle>
+          <CardTitle className="text-sm">💬 KaizenAcademy改善Burgos</CardTitle>
           <Button
             variant="ghost"
             size="sm"
