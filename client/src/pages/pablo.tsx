@@ -1,6 +1,27 @@
 import { Calendar, Medal, Trophy, Target, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import pabloImage from "@assets/WhatsApp Image 2025-07-06 at 2.52.00 PM_1751808825522.jpeg";
+import pabloImage1 from "@assets/WhatsApp Image 2025-07-06 at 4.10.31 PM_1751811273951.jpeg";
+import pabloImage2 from "@assets/WhatsApp Image 2025-07-06 at 4.10.31 PM (1)_1751811273950.jpeg";
+import pabloImage3 from "@assets/WhatsApp Image 2025-07-06 at 4.10.31 PM (2)_1751811273950.jpeg";
+import pabloImage4 from "@assets/WhatsApp Image 2025-07-06 at 4.10.31 PM (3)_1751811273949.jpeg";
+import pabloImage5 from "@assets/WhatsApp Image 2025-07-06 at 4.10.31 PM (4)_1751811273948.jpeg";
+import pabloImage6 from "@assets/WhatsApp Image 2025-07-06 at 4.10.32 PM_1751811273948.jpeg";
+import pabloImage7 from "@assets/WhatsApp Image 2025-07-06 at 4.10.32 PM (1)_1751811273947.jpeg";
+import pabloImage8 from "@assets/WhatsApp Image 2025-07-06 at 4.10.32 PM (2)_1751811273947.jpeg";
+import pabloImage9 from "@assets/WhatsApp Image 2025-07-06 at 4.10.32 PM (3)_1751811273946.jpeg";
+import pabloImage10 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM_1751811273945.jpeg";
+import pabloImage11 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM_1751811248696.jpeg";
+import pabloImage12 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (1)_1751811248696.jpeg";
+import pabloImage13 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (2)_1751811248696.jpeg";
+import pabloImage14 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (3)_1751811248696.jpeg";
+import pabloImage15 from "@assets/WhatsApp Image 2025-07-06 at 4.10.34 PM_1751811248695.jpeg";
+import pabloImage16 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM_1751811248695.jpeg";
+import pabloImage17 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM (1)_1751811248694.jpeg";
+import pabloImage18 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM (2)_1751811248694.jpeg";
+import pabloImage19 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM_1751811248693.jpeg";
+import pabloImage20 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (1)_1751811248693.jpeg";
+import pabloImage21 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (2)_1751811248692.jpeg";
 
 export default function PabloPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -10,7 +31,90 @@ export default function PabloPage() {
       src: pabloImage,
       alt: "Pablo Mate - Profesor BJJ y Judo"
     },
-    // More images can be added here
+    {
+      src: pabloImage1,
+      alt: "Pablo Mate entrenando BJJ"
+    },
+    {
+      src: pabloImage2,
+      alt: "Pablo Mate en competición"
+    },
+    {
+      src: pabloImage3,
+      alt: "Pablo Mate enseñando técnicas"
+    },
+    {
+      src: pabloImage4,
+      alt: "Pablo Mate en el tatami"
+    },
+    {
+      src: pabloImage5,
+      alt: "Pablo Mate practicando Judo"
+    },
+    {
+      src: pabloImage6,
+      alt: "Pablo Mate en sesión de entrenamiento"
+    },
+    {
+      src: pabloImage7,
+      alt: "Pablo Mate demostrando técnicas"
+    },
+    {
+      src: pabloImage8,
+      alt: "Pablo Mate en clase"
+    },
+    {
+      src: pabloImage9,
+      alt: "Pablo Mate entrenando alumnos"
+    },
+    {
+      src: pabloImage10,
+      alt: "Pablo Mate en competición BJJ"
+    },
+    {
+      src: pabloImage11,
+      alt: "Pablo Mate enseñando Judo"
+    },
+    {
+      src: pabloImage12,
+      alt: "Pablo Mate en el gimnasio"
+    },
+    {
+      src: pabloImage13,
+      alt: "Pablo Mate practicando técnicas"
+    },
+    {
+      src: pabloImage14,
+      alt: "Pablo Mate con sus alumnos"
+    },
+    {
+      src: pabloImage15,
+      alt: "Pablo Mate en entrenamiento"
+    },
+    {
+      src: pabloImage16,
+      alt: "Pablo Mate demostrando BJJ"
+    },
+    {
+      src: pabloImage17,
+      alt: "Pablo Mate en sesión práctica"
+    },
+    {
+      src: pabloImage18,
+      alt: "Pablo Mate enseñando artes marciales"
+    },
+    {
+      src: pabloImage19,
+      alt: "Pablo Mate en el tatami de Kaizen"
+    },
+    {
+      src: pabloImage20,
+      alt: "Pablo Mate entrenando BJJ"
+    },
+    {
+      src: pabloImage21,
+      alt: "Pablo Mate - Instructor profesional"
+    }
   ];
 
   const nextImage = () => {
