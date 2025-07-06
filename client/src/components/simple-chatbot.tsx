@@ -255,16 +255,16 @@ export function SimpleChatbot() {
     
     // Handle external actions immediately
     if (actionText.includes('gratis') || actionText.includes('clase gratis')) {
-      window.location.href = '#contacto';
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🥋%0A%0AQuiero%20reservar%20mi%20CLASE%20GRATUITA%20de%20prueba.%0A%0A¿Podrían%20ayudarme%20con:%0A•%20Horarios%20disponibles%20esta%20semana%0A•%20Qué%20disciplina%20me%20recomiendan%0A•%20Qué%20debo%20traer%20a%20mi%20primera%20clase%0A•%20Confirmar%20que%20es%20100%25%20gratis%0A%0AMis%20horarios%20preferidos:%20_______%0AEstoy%20interesado/a%20en:%20_______%0A%0A¡Muchas%20gracias!', '_blank');
       return;
     } else if (actionText.includes('whatsapp reserva')) {
-      window.open('https://wa.me/34662323282?text=Hola, quiero reservar una clase particular. ¿Cuándo podemos coordinar?', '_blank');
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🥋%0A%0AQuiero%20reservar%20una%20clase%20particular%20personalizada.%0A%0A¿Podrían%20ayudarme%20con:%0A•%20Disponibilidad%20de%20instructores%0A•%20Horarios%20para%20clases%20privadas%0A•%20Precios%20por%20sesión%0A•%20Qué%20disciplina%20recomiendan%0A%0AMis%20horarios%20preferidos:%20_______%0AObjetivos:%20_______%0A%0A¡Gracias!', '_blank');
       return;
     } else if (actionText.includes('whatsapp alquiler')) {
-      window.open('https://wa.me/34662323282?text=Hola, estoy interesado en alquilar espacio para clases', '_blank');
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🏋️‍♀️💼%0A%0ASoy%20entrenador%20personal%20y%20estoy%20interesado%20en%20alquilar%20espacio%20para%20mis%20clientes.%0A%0A¿Podrían%20informarme%20sobre:%0A•%20Horarios%20matutinos%20disponibles%0A•%20Precios%20por%20hora/sesión%0A•%20Equipamiento%20incluido%0A•%20Proceso%20de%20reserva%0A%0AMi%20especialidad:%20_______%0AClientes%20estimados:%20_______%0A%0A¡Espero%20trabajar%20juntos!', '_blank');
       return;
     } else if (actionText.includes('whatsapp')) {
-      window.open('https://wa.me/34662323282?text=Hola, tengo consultas sobre KaizenAcademy', '_blank');
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20👋%0A%0ATengo%20consultas%20sobre%20la%20academia%20y%20las%20clases.%0A%0A¿Podrían%20ayudarme%20con:%0A•%20Información%20general%0A•%20Horarios%20y%20precios%0A•%20Primera%20clase%20gratuita%0A•%20Disciplinas%20disponibles%0A%0A¡Muchas%20gracias!', '_blank');
       return;
     } else if (actionText.includes('google maps')) {
       window.open('https://maps.google.com/?q=C.+Esteban+Sáez+Alvarado+8+Burgos', '_blank');
@@ -273,16 +273,16 @@ export function SimpleChatbot() {
       window.open('tel:+34662323282', '_blank');
       return;
     } else if (actionText.includes('bjj')) {
-      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de Brazilian Jiu-Jitsu', '_blank');
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🥋%0A%0AQuiero%20probar%20mi%20CLASE%20GRATUITA%20de%20Brazilian%20Jiu-Jitsu.%0A%0A¿Podrían%20ayudarme%20con:%0A•%20Horarios%20de%20BJJ%20disponibles%0A•%20Qué%20debo%20traer%20a%20mi%20primera%20clase%0A•%20Si%20hay%20clases%20para%20principiantes%0A•%20Confirmar%20que%20es%20100%25%20gratis%0A%0AMi%20experiencia:%20_______%0AHorarios%20preferidos:%20_______%0A%0A¡Muchas%20gracias!', '_blank');
       return;
     } else if (actionText.includes('kickboxing')) {
-      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de Kickboxing', '_blank');
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🥊%0A%0AQuiero%20probar%20mi%20CLASE%20GRATUITA%20de%20Kickboxing.%0A%0A¿Podrían%20ayudarme%20con:%0A•%20Horarios%20de%20Kickboxing%20disponibles%0A•%20Qué%20debo%20traer%20a%20mi%20primera%20clase%0A•%20Si%20hay%20clases%20para%20principiantes%0A•%20Confirmar%20que%20es%20100%25%20gratis%0A%0AMi%20experiencia:%20_______%0AHorarios%20preferidos:%20_______%0A%0A¡Muchas%20gracias!', '_blank');
       return;
     } else if (actionText.includes('mma')) {
-      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de MMA', '_blank');
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🥊🥋%0A%0AQuiero%20probar%20mi%20CLASE%20GRATUITA%20de%20MMA%20(Artes%20Marciales%20Mixtas).%0A%0A¿Podrían%20ayudarme%20con:%0A•%20Horarios%20de%20MMA%20disponibles%0A•%20Qué%20debo%20traer%20a%20mi%20primera%20clase%0A•%20Si%20hay%20clases%20para%20principiantes%0A•%20Confirmar%20que%20es%20100%25%20gratis%0A%0AMi%20experiencia:%20_______%0AHorarios%20preferidos:%20_______%0A%0A¡Muchas%20gracias!', '_blank');
       return;
     } else if (actionText.includes('boxeo')) {
-      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de Boxeo', '_blank');
+      window.open('https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🥊%0A%0AQuiero%20probar%20mi%20CLASE%20GRATUITA%20de%20Boxeo.%0A%0A¿Podrían%20ayudarme%20con:%0A•%20Horarios%20de%20Boxeo%20disponibles%0A•%20Qué%20debo%20traer%20a%20mi%20primera%20clase%0A•%20Si%20hay%20clases%20para%20principiantes%0A•%20Confirmar%20que%20es%20100%25%20gratis%0A%0AMi%20experiencia:%20_______%0AHorarios%20preferidos:%20_______%0A%0A¡Muchas%20gracias!', '_blank');
       return;
     }
 

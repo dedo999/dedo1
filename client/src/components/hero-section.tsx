@@ -1,6 +1,12 @@
 import { Phone, Calendar } from "lucide-react";
 
 export default function HeroSection() {
+  const openReservationWhatsApp = () => {
+    const phoneNumber = '34662323282';
+    const message = '¡Hola KaizenAcademy改善Burgos! 🥋\n\nQuiero reservar mi CLASE GRATUITA de prueba.\n\n¿Podrían ayudarme con:\n• Horarios disponibles esta semana\n• Qué disciplina me recomiendan para empezar\n• Qué debo traer a mi primera clase\n• Confirmar que es 100% gratis\n\nMis horarios preferidos son: _______\nEstoy interesado/a en: _______\n\n¡Muchas gracias!';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with overlay */}
@@ -40,7 +46,7 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <button
-              onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={openReservationWhatsApp}
               className="w-full sm:w-auto bg-kaizen-red hover:bg-red-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center"
             >
               <Calendar className="mr-2" size={18} />

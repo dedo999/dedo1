@@ -228,7 +228,7 @@ export default function BJJKidsPage() {
                 Reservar Clase Gratuita
               </a>
               <a 
-                href="https://wa.me/34662323282?text=Hola,%20me%20gustaría%20información%20sobre%20los%20precios%20y%20horarios%20de%20BJJ%20para%20niños"
+                href="https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20👶🥋%0A%0AEstoy%20interesado/a%20en%20las%20clases%20de%20Brazilian%20Jiu-Jitsu%20para%20niños.%0A%0A¿Podrían%20informarme%20sobre:%0A•%20Horarios%20para%20niños%0A•%20Precios%20y%20planes%20(40€/mes)%0A•%20Clase%20gratuita%20de%20prueba%0A•%20Edades%20y%20grupos%20disponibles%0A•%20Metodología%20para%20pequeños%0A%0AMi%20hijo/a%20tiene%20____%20años.%0A%0A¡Gracias!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black px-8 py-3 rounded-lg font-bold transition-all duration-300"

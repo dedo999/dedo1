@@ -388,7 +388,7 @@ export default function BJJPage() {
                 Reservar Clase Gratuita
               </a>
               <a 
-                href="https://wa.me/34662323282?text=Hola,%20me%20gustaría%20información%20sobre%20los%20planes%20de%20BJJ"
+                href="https://wa.me/34662323282?text=¡Hola%20KaizenAcademy改善Burgos!%20🥋%0A%0AEstoy%20interesado/a%20en%20las%20clases%20de%20Brazilian%20Jiu-Jitsu.%0A%0A¿Podrían%20informarme%20sobre:%0A•%20Horarios%20de%20BJJ%0A•%20Precios%20y%20planes%20disponibles%0A•%20Mi%20clase%20gratuita%20de%20prueba%0A•%20Nivel%20para%20principiantes%0A%0A¡Espero%20su%20respuesta!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black px-8 py-3 rounded-lg font-bold transition-all duration-300"

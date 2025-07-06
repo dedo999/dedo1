@@ -5,8 +5,8 @@ import { Clock, MapPin, Users, CheckCircle, Calendar, Phone, MessageCircle } fro
 
 export default function SpaceRentalSection() {
   const openWhatsApp = () => {
-    const phoneNumber = '34947123456';
-    const message = 'Hola, estoy interesado en alquilar el espacio de Kaizen Burgos para entrenamientos personales. ¿Podrían darme más información sobre horarios y precios?';
+    const phoneNumber = '34662323282';
+    const message = '¡Hola KaizenAcademy改善Burgos! 🏋️‍♀️💼\n\nSoy entrenador personal/profesional del bienestar y estoy interesado/a en alquilar el espacio de gimnasio para mis clientes.\n\n¿Podrían informarme sobre:\n• Horarios matutinos disponibles (6:00-11:00)\n• Precios por hora/sesión\n• Equipamiento incluido\n• Proceso de reserva\n• Condiciones del alquiler\n\nMi especialidad es: ________\n\n¡Espero trabajar juntos!';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -173,7 +173,7 @@ export default function SpaceRentalSection() {
                         WhatsApp
                       </Button>
                       <Button 
-                        onClick={() => window.location.href = 'tel:+34947123456'}
+                        onClick={() => window.location.href = 'tel:+34662323282'}
                         className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
                       >
                         <Phone className="w-4 h-4 mr-2" />
