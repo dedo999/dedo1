@@ -10,10 +10,10 @@ export default function AboutSection() {
               La Filosofía <span className="text-kaizen-red">Kaizen</span>
             </h2>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              En <strong className="text-kaizen-gold">Kaizen Burgos</strong>, nuestra <strong>academia artes marciales Burgos</strong>, creemos en la mejora continua. Cada día es una oportunidad para ser mejor que ayer, tanto dentro como fuera del tatami.
+              En <strong className="text-kaizen-gold">Kaizen Burgos</strong>, nuestra <strong>academia de artes marciales Burgos</strong>, creemos en la mejora continua. Cada día es una oportunidad para ser mejor que ayer, tanto dentro como fuera del tatami.
             </p>
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Nuestra <strong>academia MMA Burgos</strong> ofrece entrenamiento de nivel mundial en <strong>clases MMA</strong>, <strong>kickboxing Burgos</strong>, <strong>Brazilian Jiu-Jitsu Burgos</strong> y <strong>boxeo Burgos</strong>. Desde principiantes hasta luchadores profesionales, todos encuentran su lugar en nuestra <strong>academia artes marciales Burgos</strong>.
+              Nuestra <strong>academia MMA Burgos</strong> ofrece entrenamiento de nivel mundial en <strong>clases MMA</strong>, <strong>kickboxing Burgos</strong>, <strong>Brazilian Jiu-Jitsu Burgos</strong> y <strong>boxeo Burgos</strong>. Desde principiantes hasta luchadores profesionales, todos encuentran su lugar en nuestra <strong>academia de artes marciales Burgos</strong>.
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
