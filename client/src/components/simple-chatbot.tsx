@@ -184,7 +184,7 @@ export function SimpleChatbot() {
       text: 'Bienvenido a KaizenAcademy改善Burgos 🥋\n\nSoy tu asistente virtual. ¿Cómo puedo ayudarte hoy?',
       isBot: true,
       timestamp: new Date(),
-      quickActions: ['Horarios', 'Precios', 'Clase gratis', 'Alquiler espacio']
+      quickActions: ['Horarios', 'Precios', 'Ubicación', 'Clase gratis']
     }
   ]);
   const [inputText, setInputText] = useState('');
@@ -309,7 +309,7 @@ export function SimpleChatbot() {
       } else if (actionText.includes('alquiler')) {
         response = quickResponses.alquiler;
         actions = ['WhatsApp alquiler', 'Más información', 'Ubicación'];
-      } else if (actionText.includes('ubicacion') || actionText.includes('donde')) {
+      } else if (actionText.includes('ubicacion') || actionText.includes('ubicación') || actionText.includes('donde') || actionText.includes('dirección') || actionText.includes('direccion')) {
         response = quickResponses.ubicacion;
         actions = ['Google Maps', 'Llamar', 'Horarios'];
       } else if (actionText.includes('reservar') || actionText.includes('clase gratis')) {
