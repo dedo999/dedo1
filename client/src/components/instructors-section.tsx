@@ -18,6 +18,17 @@ export default function InstructorsSection() {
       ]
     },
     {
+      name: "Pablo Mate",
+      title: "Profesor - Faixa Preta / Black Belt 1° Grado",
+      description: "Profesor especializado en Brazilian Jiu-Jitsu y Judo con amplia experiencia en enseñanza y técnicas de grappling.",
+      specialties: ["BJJ", "Judo", "Grappling"],
+      icon: Shield,
+      achievements: [
+        "Faixa preta/black Belt 1°Grado",
+        "Cinto negro de judo 1° Dan"
+      ]
+    },
+    {
       name: "Eduardo",
       title: "Instructor de Kickboxing",
       description: "Campeón nacional de kickboxing especializado en técnicas de striking y acondicionamiento físico.",
