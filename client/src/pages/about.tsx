@@ -69,30 +69,26 @@ export default function About() {
                 {/* Credentials Section */}
                 <div className="mt-8 p-6 bg-gradient-to-r from-kaizen-dark to-kaizen-darker rounded-xl border border-kaizen-gold/20">
                   <h3 className="text-2xl font-bold text-kaizen-gold mb-4">Graduaciones y Certificaciones</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-3">
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
-                        <span className="text-white font-semibold">Faixa Preta/Black Belt BJJ</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
-                        <span className="text-white font-semibold">Cinturón Negro de Judo</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
-                        <span className="text-white font-semibold">Cinturón Negro de Jiu Jitsu Japonés</span>
-                      </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
+                      <span className="text-white font-semibold">La Faixa preta/black Belt y los grados de Bjj</span>
                     </div>
-                    <div className="space-y-3">
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-kaizen-gold rounded-full mr-3"></div>
-                        <span className="text-white font-semibold">Entrenador Nacional de Grappling</span>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-kaizen-gold rounded-full mr-3"></div>
-                        <span className="text-white font-semibold">Maestro Entrenador Nacional</span>
-                      </div>
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
+                      <span className="text-white font-semibold">Cinto negro de judo</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
+                      <span className="text-white font-semibold">Cinto negro de jiu jitsu japones</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-kaizen-gold rounded-full mr-3"></div>
+                      <span className="text-white font-semibold">Entrenador nacional de grapoling</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-kaizen-gold rounded-full mr-3"></div>
+                      <span className="text-white font-semibold">Maestro entrenador Nacional</span>
                     </div>
                   </div>
                 </div>
