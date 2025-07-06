@@ -1,4 +1,5 @@
 import { Shield, Zap, Medal } from "lucide-react";
+import pabloInstructorImage from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (1)_1751812019842.jpeg";
 
 export default function InstructorsSection() {
   const instructors = [
@@ -23,6 +24,7 @@ export default function InstructorsSection() {
       description: "Profesor especializado en Brazilian Jiu-Jitsu y Judo con amplia experiencia en enseñanza y técnicas de grappling.",
       specialties: ["BJJ", "Judo", "Grappling"],
       icon: Shield,
+      image: pabloInstructorImage,
       achievements: [
         "Faixa preta/black Belt 1°Grado",
         "Cinto negro de judo 1° Dan"
@@ -70,6 +72,14 @@ export default function InstructorsSection() {
                       <img 
                         src="/antonio-profile.jpg" 
                         alt="Antonio Alonso"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : instructor.name === "Pablo Mate" ? (
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full mx-auto mb-4 sm:mb-6 overflow-hidden border-3 sm:border-4 border-kaizen-gold">
+                      <img 
+                        src={instructor.image} 
+                        alt="Pablo Mate - Profesor BJJ y Judo"
                         className="w-full h-full object-cover"
                       />
                     </div>
