@@ -31,10 +31,7 @@ export default function HeroSection() {
               alt="KAIZEN Logo"
               className="h-12 sm:h-16 md:h-24 w-auto mb-2 sm:mb-0"
             />
-            <span className="text-kaizen-gold">
-              <span className="text-2xl sm:text-3xl md:text-5xl">Kaizen</span>
-              <span className="text-lg sm:text-2xl md:text-4xl">Academy改善Burgos</span>
-            </span>
+            <span className="text-kaizen-gold text-lg sm:text-2xl md:text-4xl">Academy改善Burgos</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto font-light leading-relaxed px-2">
             Academia de Artes Marciales<br className="sm:hidden"/>
