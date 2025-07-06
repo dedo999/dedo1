@@ -1,12 +1,13 @@
 import { Calendar, Medal, Trophy, Target, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import pabloImage from "@assets/WhatsApp Image 2025-07-06 at 2.52.00 PM_1751808825522.jpeg";
 
 export default function PabloPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const images = [
     {
-      src: "/attached_assets/WhatsApp Image 2025-07-06 at 2.52.00 PM_1751808825522.jpeg",
+      src: pabloImage,
       alt: "Pablo Mate - Profesor BJJ y Judo"
     },
     // More images can be added here
