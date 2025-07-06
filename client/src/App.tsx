@@ -25,6 +25,7 @@ import AppDashboard from "@/pages/app-dashboard";
 import AppPhotos from "@/pages/app-photos";
 import AppChat from "@/pages/app-chat";
 import MobileApp from "@/pages/mobile-app";
+import QRCodePage from "@/pages/qr-code";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -49,6 +50,8 @@ function Router() {
       <Route path="/app/dashboard" component={MobileApp} />
       <Route path="/app/photos" component={AppPhotos} />
       <Route path="/app/chat" component={AppChat} />
+      <Route path="/qr" component={QRCodePage} />
+      <Route path="/qr-code" component={QRCodePage} />
       <Route path="/" component={Home} />
       <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
       <Route path="/app/bookings" component={Bookings} />
