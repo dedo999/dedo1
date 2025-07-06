@@ -39,17 +39,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="flex items-center gap-2">
-              <img 
-                src="/kaizen-logo-transparent.png" 
-                alt="Kaizen Logo"
-                className="h-8 sm:h-10 w-auto"
-              />
-              <span className="text-kaizen-gold font-bold">
-                <span className="text-xl sm:text-2xl">Kaizen</span>
-                <span className="text-sm sm:text-base ml-1">Academy改善</span>
-              </span>
-            </div>
+            <img 
+              src="/kaizen-logo-transparent.png" 
+              alt="Kaizen Logo"
+              className="h-12 sm:h-14 w-auto"
+            />
           </div>
           
           {/* Desktop Navigation */}
