@@ -14,7 +14,7 @@ export default function InstructorsSection() {
         "La Faixa preta/black Belt y los grados de Bjj",
         "Cinto negro de judo",
         "Cinto negro de jiu jitsu japones",
-        "Entrenador nacional de grapoling",
+        "Entrenador nacional de grappling",
         "Maestro entrenador Nacional"
       ]
     },
