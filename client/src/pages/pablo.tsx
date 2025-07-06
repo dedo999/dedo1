@@ -266,16 +266,57 @@ export default function PabloPage() {
                   )}
                 </div>
                 
-                {/* BJJ Logo Badge */}
-                <div className="absolute top-4 right-4 bg-white/95 p-3 rounded-full shadow-lg border-2 border-kaizen-gold">
-                  <img
-                    src="/jiu-jitsu-logo.jpg"
-                    alt="BJJ Logo"
-                    className="w-16 h-16 object-contain rounded-full"
-                  />
-                </div>
+
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pablo Mate en Acción Gallery */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-kaizen-dark to-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+              <span className="text-kaizen-gold">Pablo Mate</span> en <span className="text-kaizen-red">Acción</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+              Descubre la pasión y técnica de Pablo en el tatami, enseñando y practicando las artes marciales
+            </p>
+          </div>
+
+          {/* Action Photos Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+            {images.slice(1, 13).map((image, index) => (
+              <div 
+                key={index}
+                className="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                onClick={() => setCurrentImageIndex(index + 1)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-2 left-2 right-2">
+                    <p className="text-white text-xs sm:text-sm font-medium truncate">
+                      {image.alt}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* View More Button */}
+          <div className="text-center mt-8 sm:mt-12">
+            <button 
+              onClick={() => setCurrentImageIndex(0)}
+              className="bg-kaizen-red hover:bg-red-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-white transition-all duration-300 transform hover:scale-105"
+            >
+              Ver Galería Completa ({images.length} fotos)
+            </button>
           </div>
         </div>
       </section>
