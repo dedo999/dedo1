@@ -28,7 +28,7 @@ export default function DemoAccess() {
 
     // Redirect to mobile app after 2 seconds
     setTimeout(() => {
-      window.location.href = '/app/dashboard';
+      window.location.href = '/app';
     }, 2000);
   }, []);
 
