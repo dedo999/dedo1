@@ -11,17 +11,26 @@ import pabloImage7 from "@assets/WhatsApp Image 2025-07-06 at 4.10.32 PM (1)_175
 import pabloImage8 from "@assets/WhatsApp Image 2025-07-06 at 4.10.32 PM (2)_1751811273947.jpeg";
 import pabloImage9 from "@assets/WhatsApp Image 2025-07-06 at 4.10.32 PM (3)_1751811273946.jpeg";
 import pabloImage10 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM_1751811273945.jpeg";
-import pabloImage11 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM_1751811248696.jpeg";
-import pabloImage12 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (1)_1751811248696.jpeg";
-import pabloImage13 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (2)_1751811248696.jpeg";
-import pabloImage14 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (3)_1751811248696.jpeg";
-import pabloImage15 from "@assets/WhatsApp Image 2025-07-06 at 4.10.34 PM_1751811248695.jpeg";
-import pabloImage16 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM_1751811248695.jpeg";
-import pabloImage17 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM (1)_1751811248694.jpeg";
-import pabloImage18 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM (2)_1751811248694.jpeg";
-import pabloImage19 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM_1751811248693.jpeg";
-import pabloImage20 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (1)_1751811248693.jpeg";
-import pabloImage21 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (2)_1751811248692.jpeg";
+import pabloImage11 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (1)_1751811248696.jpeg";
+import pabloImage12 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (2)_1751811248696.jpeg";
+import pabloImage13 from "@assets/WhatsApp Image 2025-07-06 at 4.10.33 PM (3)_1751811248696.jpeg";
+import pabloImage14 from "@assets/WhatsApp Image 2025-07-06 at 4.10.34 PM_1751811248695.jpeg";
+import pabloImage15 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM_1751811248695.jpeg";
+import pabloImage16 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM (1)_1751811248694.jpeg";
+import pabloImage17 from "@assets/WhatsApp Image 2025-07-06 at 4.10.35 PM (2)_1751811248694.jpeg";
+import pabloImage18 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM_1751811248693.jpeg";
+import pabloImage19 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (1)_1751811248693.jpeg";
+import pabloImage20 from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (2)_1751811248692.jpeg";
+import pabloImage21 from "@assets/WhatsApp Image 2025-07-06 at 4.10.23 PM (1)_1751811384443.jpeg";
+import pabloImage22 from "@assets/WhatsApp Image 2025-07-06 at 4.10.25 PM_1751811384442.jpeg";
+import pabloImage23 from "@assets/WhatsApp Image 2025-07-06 at 4.10.26 PM_1751811384442.jpeg";
+import pabloImage24 from "@assets/WhatsApp Image 2025-07-06 at 4.10.28 PM_1751811384441.jpeg";
+import pabloImage25 from "@assets/WhatsApp Image 2025-07-06 at 4.10.29 PM_1751811384440.jpeg";
+import pabloImage26 from "@assets/WhatsApp Image 2025-07-06 at 4.10.29 PM (1)_1751811384440.jpeg";
+import pabloImage27 from "@assets/WhatsApp Image 2025-07-06 at 4.10.30 PM_1751811384439.jpeg";
+import pabloImage28 from "@assets/WhatsApp Image 2025-07-06 at 4.10.30 PM (1)_1751811384438.jpeg";
+import pabloImage29 from "@assets/WhatsApp Image 2025-07-06 at 4.10.30 PM (2)_1751811384438.jpeg";
+import pabloImage30 from "@assets/WhatsApp Image 2025-07-06 at 4.10.30 PM (3)_1751811384437.jpeg";
 
 export default function PabloPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -109,11 +118,47 @@ export default function PabloPage() {
     },
     {
       src: pabloImage20,
-      alt: "Pablo Mate entrenando BJJ"
+      alt: "Pablo Mate - Instructor profesional"
     },
     {
       src: pabloImage21,
-      alt: "Pablo Mate - Instructor profesional"
+      alt: "Pablo Mate en sesión de entrenamiento"
+    },
+    {
+      src: pabloImage22,
+      alt: "Pablo Mate practicando técnicas avanzadas"
+    },
+    {
+      src: pabloImage23,
+      alt: "Pablo Mate en competición profesional"
+    },
+    {
+      src: pabloImage24,
+      alt: "Pablo Mate demostrando Judo"
+    },
+    {
+      src: pabloImage25,
+      alt: "Pablo Mate enseñando BJJ"
+    },
+    {
+      src: pabloImage26,
+      alt: "Pablo Mate en el tatami"
+    },
+    {
+      src: pabloImage27,
+      alt: "Pablo Mate con sus estudiantes"
+    },
+    {
+      src: pabloImage28,
+      alt: "Pablo Mate entrenando en Kaizen"
+    },
+    {
+      src: pabloImage29,
+      alt: "Pablo Mate en clase grupal"
+    },
+    {
+      src: pabloImage30,
+      alt: "Pablo Mate - Maestro de artes marciales"
     }
   ];
 
