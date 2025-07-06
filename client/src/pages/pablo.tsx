@@ -6,7 +6,7 @@ export default function PabloPage() {
   
   const images = [
     {
-      src: "/pablo-profile.jpg",
+      src: "/attached_assets/ScreenShot Tool -20250706153319_1751808818747.png",
       alt: "Pablo Mate - Profesor BJJ y Judo"
     },
     // More images can be added here
