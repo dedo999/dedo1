@@ -63,38 +63,38 @@ export default function ScheduleSection() {
   };
 
   return (
-    <section id="horarios" className="py-20 bg-kaizen-darker">
+    <section id="horarios" className="py-12 sm:py-16 lg:py-20 bg-kaizen-darker">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-2">
             Horarios de <span className="text-kaizen-red">Clases</span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-4 leading-relaxed">
             Encuentra el horario perfecto para ti. Clases para todos los niveles y edades.
           </p>
         </div>
 
         {/* Mobile-optimized daily schedule */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {weekSchedule.map((day, dayIndex) => (
-            <div key={dayIndex} className="bg-kaizen-dark rounded-xl p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-kaizen-gold mb-4 text-center">
+            <div key={dayIndex} className="bg-kaizen-dark rounded-xl p-4 sm:p-6 border border-gray-700">
+              <h3 className="text-lg sm:text-xl font-bold text-kaizen-gold mb-3 sm:mb-4 text-center">
                 {day.day}
               </h3>
               
               {day.classes.length > 0 ? (
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {day.classes.map((classItem, classIndex) => (
                     <div 
                       key={classIndex}
-                      className={`p-4 rounded-lg border-2 ${getClassStyle(classItem.type)}`}
+                      className={`p-3 sm:p-4 rounded-lg border-2 ${getClassStyle(classItem.type)}`}
                     >
                       <div className="flex justify-between items-center">
                         <div>
-                          <div className="font-bold text-sm md:text-base">
+                          <div className="font-bold text-sm sm:text-base">
                             {classItem.name}
                           </div>
-                          <div className="text-sm opacity-90 mt-1">
+                          <div className="text-xs sm:text-sm opacity-90 mt-1">
                             {classItem.time}
                           </div>
                         </div>

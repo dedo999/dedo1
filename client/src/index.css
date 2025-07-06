@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile-first responsive optimizations */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Touch optimization for mobile */
+  button, [role="button"] {
+    touch-action: manipulation;
+  }
+  
+  /* Improve text readability on mobile */
+  @media (max-width: 640px) {
+    body {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);

@@ -75,34 +75,34 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="servicios" className="py-20 bg-kaizen-darker">
+    <section id="servicios" className="py-12 sm:py-16 lg:py-20 bg-kaizen-darker">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-2">
             Nuestras <span className="text-kaizen-red">Disciplinas</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Descubre el arte marcial que mejor se adapte a ti con nuestros instructores especializados
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-kaizen-dark rounded-xl p-8 border border-gray-700 hover:border-kaizen-red/50 transition-all duration-300 group"
+              className="bg-kaizen-dark rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-700 hover:border-kaizen-red/50 transition-all duration-300 group"
             >
               <div className="text-center">
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   {service.svgIcon}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-kaizen-red transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-kaizen-red transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-300 mb-6">
+                <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <div className="flex justify-center flex-wrap gap-2 text-sm text-kaizen-gold mb-6">
+                <div className="flex justify-center flex-wrap gap-2 text-xs sm:text-sm text-kaizen-gold mb-4 sm:mb-6">
                   {service.tags.map((tag, tagIndex) => (
                     <span key={tagIndex}>• {tag}</span>
                   ))}

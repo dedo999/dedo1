@@ -25,28 +25,29 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up">
-          <h1 className="flex items-center justify-center gap-2 text-3xl md:text-5xl font-black mb-6 tracking-tight">
+          <h1 className="flex flex-col sm:flex-row items-center justify-center gap-2 text-2xl sm:text-3xl md:text-5xl font-black mb-4 sm:mb-6 tracking-tight">
             <img 
               src="/kaizen_logo_hero.png" 
               alt="KAIZEN Logo"
-              className="h-16 md:h-24 w-auto"
+              className="h-12 sm:h-16 md:h-24 w-auto mb-2 sm:mb-0"
             />
-            <span className="text-kaizen-gold">Academy改善Burgos</span>
+            <span className="text-kaizen-gold text-lg sm:text-2xl md:text-4xl">Academy改善Burgos</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
-            MMA, BJJ, Kickboxing, Boxeo • Instructores profesionales • Primera clase gratis
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto font-light leading-relaxed px-2">
+            MMA • BJJ • Kickboxing • Boxeo<br className="sm:hidden"/>
+            <span className="hidden sm:inline"> • </span>Instructores profesionales • Primera clase gratis
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <button
               onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-kaizen-red hover:bg-red-700 px-8 py-4 rounded-lg font-bold text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center"
+              className="w-full sm:w-auto bg-kaizen-red hover:bg-red-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center"
             >
-              <Calendar className="mr-2" size={20} />
+              <Calendar className="mr-2" size={18} />
               Reserva tu Clase Gratis
             </button>
             <a 
               href="tel:662323282" 
-              className="border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center"
+              className="w-full sm:w-auto border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
             >
               <Phone className="mr-2" size={20} />
               662 323 282

@@ -24,18 +24,18 @@ export default function PabloPage() {
   return (
     <div className="min-h-screen bg-kaizen-darker">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-kaizen-darker via-kaizen-dark to-black">
+      <section className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-kaizen-darker via-kaizen-dark to-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             {/* Content */}
             <div className="order-2 lg:order-1">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
                 <span className="text-kaizen-gold">Pablo Mate</span>
                 <br />
-                Profesor de BJJ y Judo
+                <span className="text-lg sm:text-xl md:text-2xl">Profesor de BJJ y Judo</span>
               </h1>
               
-              <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
                 <p>
                   <strong className="text-kaizen-gold">Profesor Pablo Mate</strong> - Faixa Preta/Black Belt 1° Grado y Cinturón Negro de Judo 1° Dan, representa la dedicación y evolución constante en las artes marciales.
                 </p>
@@ -46,22 +46,22 @@ export default function PabloPage() {
               </div>
 
               {/* Professional Credentials Section */}
-              <div className="mt-8 p-8 bg-gradient-to-br from-kaizen-darker/80 to-black/40 rounded-2xl border-2 border-kaizen-gold/30 shadow-2xl">
-                <div className="flex items-center mb-6">
-                  <div className="w-1 h-8 bg-kaizen-gold mr-4"></div>
-                  <h3 className="text-2xl font-bold text-kaizen-gold">Graduaciones y Certificaciones Profesionales</h3>
+              <div className="mt-6 sm:mt-8 p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-kaizen-darker/80 to-black/40 rounded-2xl border-2 border-kaizen-gold/30 shadow-2xl">
+                <div className="flex items-center mb-4 sm:mb-6">
+                  <div className="w-1 h-6 sm:h-8 bg-kaizen-gold mr-3 sm:mr-4"></div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-kaizen-gold">Graduaciones y Certificaciones Profesionales</h3>
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-kaizen-dark/50 p-4 rounded-lg border-l-4 border-kaizen-red">
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="bg-kaizen-dark/50 p-3 sm:p-4 rounded-lg border-l-4 border-kaizen-red">
                     <div className="flex items-center">
                       <div className="w-2 h-2 bg-kaizen-red rounded-full mr-3"></div>
-                      <span className="text-white font-semibold text-lg">Faixa preta/black Belt 1°Grado</span>
+                      <span className="text-white font-semibold text-sm sm:text-base lg:text-lg">Faixa preta/black Belt 1°Grado</span>
                     </div>
                   </div>
-                  <div className="bg-kaizen-dark/50 p-4 rounded-lg border-l-4 border-kaizen-red">
+                  <div className="bg-kaizen-dark/50 p-3 sm:p-4 rounded-lg border-l-4 border-kaizen-red">
                     <div className="flex items-center">
                       <div className="w-2 h-2 bg-kaizen-red rounded-full mr-3"></div>
-                      <span className="text-white font-semibold text-lg">Cinto negro de judo 1° Dan</span>
+                      <span className="text-white font-semibold text-sm sm:text-base lg:text-lg">Cinto negro de judo 1° Dan</span>
                     </div>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ export default function PabloPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-kaizen-red/20 to-kaizen-gold/20 rounded-2xl transform rotate-3"></div>
                 
                 {/* Main Image */}
-                <div className="relative w-full h-96 rounded-2xl shadow-2xl overflow-hidden">
+                <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl shadow-2xl overflow-hidden">
                   <img
                     src={images[currentImageIndex].src}
                     alt={images[currentImageIndex].alt}
@@ -86,27 +86,27 @@ export default function PabloPage() {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
+                        className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
                       >
-                        <ChevronLeft size={24} />
+                        <ChevronLeft size={20} />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
+                        className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
                       >
-                        <ChevronRight size={24} />
+                        <ChevronRight size={20} />
                       </button>
                     </>
                   )}
                   
                   {/* Image Indicators - only show if more than 1 image */}
                   {images.length > 1 && (
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                       {images.map((_, index) => (
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
-                          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                             index === currentImageIndex 
                               ? 'bg-kaizen-gold' 
                               : 'bg-white/50 hover:bg-white/70'

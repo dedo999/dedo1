@@ -117,13 +117,13 @@ export default function PricingSection() {
   ];
 
   return (
-    <section id="precios" className="py-20 bg-kaizen-dark">
+    <section id="precios" className="py-12 sm:py-16 lg:py-20 bg-kaizen-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-2">
             Nuestros <span className="text-kaizen-red">Precios</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4 leading-relaxed">
             Planes flexibles para todos los niveles. Primera clase gratuita para nuevos estudiantes.
           </p>
         </div>
@@ -132,42 +132,42 @@ export default function PricingSection() {
           {pricingPlans.map((plan, index) => (
             <div 
               key={index}
-              className={`relative rounded-xl p-8 border transition-all duration-300 hover:scale-105 ${
+              className={`relative rounded-xl p-4 sm:p-6 lg:p-8 border transition-all duration-300 hover:scale-105 ${
                 plan.highlighted 
                   ? 'bg-kaizen-red/10 border-kaizen-red shadow-2xl shadow-kaizen-red/20' 
                   : 'bg-kaizen-darker border-gray-700 hover:border-kaizen-gold/50'
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-kaizen-red px-4 py-2 rounded-full text-white text-sm font-bold flex items-center">
-                    <Star className="w-4 h-4 mr-1" />
+                <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-kaizen-red px-3 sm:px-4 py-1 sm:py-2 rounded-full text-white text-xs sm:text-sm font-bold flex items-center">
+                    <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                     MÁS POPULAR
                   </div>
                 </div>
               )}
 
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-gray-300 mb-4">{plan.description}</p>
+              <div className="text-center mb-6 sm:mb-8">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4 leading-relaxed">{plan.description}</p>
                 <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-black text-kaizen-gold">{plan.price}€</span>
-                  <span className="text-gray-400 ml-2">{plan.period}</span>
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-kaizen-gold">{plan.price}€</span>
+                  <span className="text-gray-400 ml-2 text-sm sm:text-base">{plan.period}</span>
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-2 sm:space-y-3 lg:space-y-4 mb-6 sm:mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start">
-                    <Check className="text-kaizen-gold w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-300">{feature}</span>
+                    <Check className="text-kaizen-gold w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm sm:text-base">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <button
                 onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}
-                className={`w-full py-4 rounded-lg font-bold transition-all duration-300 ${
+                className={`w-full py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 ${
                   plan.highlighted
                     ? 'bg-kaizen-red hover:bg-red-700 text-white'
                     : 'border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black'

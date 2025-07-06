@@ -45,28 +45,28 @@ export default function InstructorsSection() {
   ];
 
   return (
-    <section id="instructores" className="py-20 bg-kaizen-dark">
+    <section id="instructores" className="py-12 sm:py-16 lg:py-20 bg-kaizen-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-2">
             Nuestros <span className="text-kaizen-red">Instructores</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Liderados por Antonio Alonso, Maestro pionero del BJJ y MMA en Castilla y León con 45 años de experiencia
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4 leading-relaxed">
+            Liderados por Antonio Alonso, Profesor pionero del BJJ y MMA en Castilla y León con 45 años de experiencia
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {instructors.map((instructor, index) => {
             const IconComponent = instructor.icon;
             return (
               <div 
                 key={index}
-                className="bg-kaizen-darker rounded-xl p-8 border border-gray-700 text-center relative overflow-hidden group"
+                className="bg-kaizen-darker rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-700 text-center relative overflow-hidden group"
               >
                 <div className="relative z-10">
                   {instructor.name === "Antonio Alonso" ? (
-                    <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-kaizen-gold">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full mx-auto mb-4 sm:mb-6 overflow-hidden border-3 sm:border-4 border-kaizen-gold">
                       <img 
                         src="/antonio-profile.jpg" 
                         alt="Antonio Alonso"
@@ -74,7 +74,7 @@ export default function InstructorsSection() {
                       />
                     </div>
                   ) : instructor.name === "Eduardo" ? (
-                    <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-kaizen-red">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full mx-auto mb-4 sm:mb-6 overflow-hidden border-3 sm:border-4 border-kaizen-red">
                       <img 
                         src="/eduardo-profile.jpeg" 
                         alt="Eduardo - Instructor de Kickboxing"
@@ -82,13 +82,13 @@ export default function InstructorsSection() {
                       />
                     </div>
                   ) : (
-                    <div className="w-32 h-32 bg-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center">
-                      <IconComponent className="text-4xl text-kaizen-gold" size={48} />
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-gray-700 rounded-full mx-auto mb-4 sm:mb-6 flex items-center justify-center">
+                      <IconComponent className="text-3xl sm:text-4xl text-kaizen-gold" size={36} />
                     </div>
                   )}
-                  <h3 className="text-2xl font-bold text-white mb-2">{instructor.name}</h3>
-                  <p className="text-kaizen-red font-semibold mb-4">{instructor.title}</p>
-                  <p className="text-gray-300 mb-6">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">{instructor.name}</h3>
+                  <p className="text-kaizen-red font-semibold mb-3 sm:mb-4 text-sm sm:text-base">{instructor.title}</p>
+                  <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
                     {instructor.description}
                   </p>
                   <div className="flex justify-center flex-wrap gap-2 mb-4">

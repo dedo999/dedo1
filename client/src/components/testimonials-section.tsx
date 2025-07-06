@@ -37,44 +37,46 @@ export default function TestimonialsSection() {
   return (
     <section id="testimonios" className="py-20 bg-kaizen-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-2">
             Lo que Dicen Nuestros <span className="text-kaizen-red">Alumnos</span>
           </h2>
-          <div className="flex justify-center items-center mb-6">
-            <div className="flex text-kaizen-gold text-2xl mr-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center mb-6 gap-2 sm:gap-0">
+            <div className="flex text-kaizen-gold text-lg sm:text-xl md:text-2xl mr-0 sm:mr-4">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="fill-current" size={24} />
+                <Star key={i} className="fill-current" size={20} />
               ))}
             </div>
-            <span className="text-3xl font-bold text-kaizen-gold">5.0</span>
-            <span className="text-gray-300 ml-2">en Google (20+ reseñas)</span>
+            <div className="flex items-center">
+              <span className="text-2xl sm:text-3xl font-bold text-kaizen-gold">5.0</span>
+              <span className="text-sm sm:text-base text-gray-300 ml-2">en Google (20+ reseñas)</span>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-kaizen-darker rounded-xl p-8 border border-gray-700 relative"
+              className="bg-kaizen-darker rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-700 relative"
             >
-              <div className="flex text-kaizen-gold text-lg mb-4">
+              <div className="flex text-kaizen-gold text-base sm:text-lg mb-3 sm:mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="fill-current" size={16} />
+                  <Star key={i} className="fill-current" size={14} />
                 ))}
               </div>
-              <p className="text-gray-300 mb-6 italic">
+              <p className="text-gray-300 mb-4 sm:mb-6 italic text-sm sm:text-base leading-relaxed">
                 "{testimonial.text}"
               </p>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-kaizen-gold font-bold">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-700 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <span className="text-kaizen-gold font-bold text-sm sm:text-base">
                     {testimonial.author.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <div className="font-bold text-white">{testimonial.author}</div>
-                  <div className="text-sm text-gray-400">{testimonial.timeAgo}</div>
+                  <div className="font-bold text-white text-sm sm:text-base">{testimonial.author}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{testimonial.timeAgo}</div>
                 </div>
               </div>
             </div>
