@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, QrCode } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 interface NavItem {
   href: string;
@@ -58,6 +60,45 @@ export default function Navigation() {
                   {item.label}
                 </button>
               ))}
+              {/* QR Code Dialog */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black"
+                  >
+                    <QrCode className="mr-2" size={16} />
+                    App QR
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="bg-black border-gray-700 max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-kaizen-gold text-center">
+                      KaizenApp - Código QR
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="flex flex-col items-center space-y-4 p-4">
+                    <img 
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(window.location.origin + '/app/login')}`}
+                      alt="QR Code para KaizenApp"
+                      className="w-64 h-64 border border-gray-300 rounded-lg"
+                    />
+                    <div className="text-center space-y-2">
+                      <p className="text-white font-medium">
+                        Escanea para acceder a KaizenApp
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        Solo para miembros del gimnasio
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        {window.location.origin}/app/login
+                      </p>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
               <button
                 onClick={() => handleNavClick("#contacto")}
                 className="bg-kaizen-red hover:bg-red-700 px-6 py-2 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105"
