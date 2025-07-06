@@ -65,6 +65,37 @@ export default function About() {
                 <p>
                   Alonso proviene de una familia con profunda tradición marcial, los cuales también fueron los pioneros del judo. Aún continúa bajo la supervisión de su padre y profesor, especialista en Ne Waza, del cual sigue formándose constantemente.
                 </p>
+
+                {/* Credentials Section */}
+                <div className="mt-8 p-6 bg-gradient-to-r from-kaizen-dark to-kaizen-darker rounded-xl border border-kaizen-gold/20">
+                  <h3 className="text-2xl font-bold text-kaizen-gold mb-4">Graduaciones y Certificaciones</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
+                        <span className="text-white font-semibold">Faixa Preta/Black Belt BJJ</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
+                        <span className="text-white font-semibold">Cinturón Negro de Judo</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-kaizen-red rounded-full mr-3"></div>
+                        <span className="text-white font-semibold">Cinturón Negro de Jiu Jitsu Japonés</span>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-kaizen-gold rounded-full mr-3"></div>
+                        <span className="text-white font-semibold">Entrenador Nacional de Grappling</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-kaizen-gold rounded-full mr-3"></div>
+                        <span className="text-white font-semibold">Maestro Entrenador Nacional</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
