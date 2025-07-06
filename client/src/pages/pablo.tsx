@@ -1,6 +1,25 @@
-import { Calendar, Medal, Trophy, Target } from "lucide-react";
+import { Calendar, Medal, Trophy, Target, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 export default function PabloPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const images = [
+    {
+      src: "attached_assets/WhatsApp Image 2025-07-06 at 2.52.00 PM_1751807903180.jpeg",
+      alt: "Pablo Mate - Profesor BJJ y Judo"
+    },
+    // More images can be added here
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <div className="min-h-screen bg-kaizen-darker">
       {/* Hero Section */}
@@ -48,15 +67,55 @@ export default function PabloPage() {
               </div>
             </div>
 
-            {/* Image */}
+            {/* Image Slider */}
             <div className="order-1 lg:order-2">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-kaizen-red/20 to-kaizen-gold/20 rounded-2xl transform rotate-3"></div>
-                <img
-                  src="/attached_assets/WhatsApp Image 2025-07-06 at 2.52.00 PM_1751807903180.jpeg"
-                  alt="Pablo Mate - Profesor BJJ y Judo"
-                  className="relative w-full h-96 object-cover rounded-2xl shadow-2xl"
-                />
+                
+                {/* Main Image */}
+                <div className="relative w-full h-96 rounded-2xl shadow-2xl overflow-hidden">
+                  <img
+                    src={`/${images[currentImageIndex].src}`}
+                    alt={images[currentImageIndex].alt}
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Navigation Arrows - only show if more than 1 image */}
+                  {images.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </>
+                  )}
+                  
+                  {/* Image Indicators - only show if more than 1 image */}
+                  {images.length > 1 && (
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                      {images.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                            index === currentImageIndex 
+                              ? 'bg-kaizen-gold' 
+                              : 'bg-white/50 hover:bg-white/70'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
                 {/* BJJ Logo Badge */}
                 <div className="absolute top-4 right-4 bg-white/95 p-3 rounded-full shadow-lg border-2 border-kaizen-gold">
                   <img
@@ -147,14 +206,14 @@ export default function PabloPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-white text-kaizen-red px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
+              className="bg-kaizen-gold text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-600 transition-colors duration-300 flex items-center justify-center"
             >
               <Calendar className="mr-2" size={20} />
               Reserva tu Clase
             </button>
             <a 
               href="tel:662323282" 
-              className="border-2 border-white text-white hover:bg-white hover:text-kaizen-red px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 flex items-center justify-center"
+              className="border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 flex items-center justify-center"
             >
               Llama Ahora
             </a>

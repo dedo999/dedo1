@@ -150,7 +150,7 @@ export default function InstructorsSection() {
                     <div className="mt-6">
                       <a 
                         href="/pablo"
-                        className="bg-kaizen-red hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block"
+                        className="bg-kaizen-gold hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block"
                       >
                         Conoce a Pablo
                       </a>
