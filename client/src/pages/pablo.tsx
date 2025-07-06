@@ -53,7 +53,7 @@ export default function PabloPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-kaizen-red/20 to-kaizen-gold/20 rounded-2xl transform rotate-3"></div>
                 <img
-                  src="/pablo-instructor.jpg"
+                  src="/attached_assets/WhatsApp Image 2025-07-06 at 2.52.00 PM_1751807903180.jpeg"
                   alt="Pablo Mate - Profesor BJJ y Judo"
                   className="relative w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
