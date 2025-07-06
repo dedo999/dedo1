@@ -1,5 +1,6 @@
 import { Shield, Zap, Medal } from "lucide-react";
 import pabloInstructorImage from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (1)_1751812019842.jpeg";
+import rubenInstructorImage from "@assets/WhatsApp Image 2025-07-06 at 5.01.16 PM_1751814250916.jpeg";
 
 export default function InstructorsSection() {
   const instructors = [
@@ -42,7 +43,8 @@ export default function InstructorsSection() {
       title: "Instructor de BJJ - Faixa Marrón / Brown Belt",
       description: "Estudiante, instructor y competidor de Jiu Jitsu Brasileño. Cinturón marrón con amplia experiencia en competición y enseñanza.",
       specialties: ["BJJ", "Grappling", "Competición"],
-      icon: Medal
+      icon: Medal,
+      image: rubenInstructorImage
     }
   ];
 
@@ -80,6 +82,14 @@ export default function InstructorsSection() {
                       <img 
                         src={instructor.image} 
                         alt="Pablo Mate - Profesor BJJ y Judo"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : instructor.name === "Rubén Sancho" ? (
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full mx-auto mb-4 sm:mb-6 overflow-hidden border-3 sm:border-4 border-kaizen-gold">
+                      <img 
+                        src={instructor.image} 
+                        alt="Rubén Sancho - Instructor BJJ Brown Belt"
                         className="w-full h-full object-cover"
                       />
                     </div>
