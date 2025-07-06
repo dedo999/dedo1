@@ -77,19 +77,19 @@ export default function About() {
                       <div className="bg-kaizen-dark/50 p-4 rounded-lg border-l-4 border-kaizen-red">
                         <div className="flex items-center">
                           <div className="w-2 h-2 bg-kaizen-red rounded-full mr-3"></div>
-                          <span className="text-white font-semibold text-lg">La Faixa preta/black Belt y los grados de Bjj</span>
+                          <span className="text-white font-semibold text-lg">Faixa Preta/Black Belt BJJ 4° Grado</span>
                         </div>
                       </div>
                       <div className="bg-kaizen-dark/50 p-4 rounded-lg border-l-4 border-kaizen-red">
                         <div className="flex items-center">
                           <div className="w-2 h-2 bg-kaizen-red rounded-full mr-3"></div>
-                          <span className="text-white font-semibold text-lg">Cinto negro de judo</span>
+                          <span className="text-white font-semibold text-lg">Cinturón Negro de Judo</span>
                         </div>
                       </div>
                       <div className="bg-kaizen-dark/50 p-4 rounded-lg border-l-4 border-kaizen-red">
                         <div className="flex items-center">
                           <div className="w-2 h-2 bg-kaizen-red rounded-full mr-3"></div>
-                          <span className="text-white font-semibold text-lg">Cinto negro de jiu jitsu japones</span>
+                          <span className="text-white font-semibold text-lg">Cinturón Negro de Jiu Jitsu Japonés</span>
                         </div>
                       </div>
                     </div>
@@ -97,13 +97,13 @@ export default function About() {
                       <div className="bg-kaizen-dark/50 p-4 rounded-lg border-l-4 border-kaizen-gold">
                         <div className="flex items-center">
                           <div className="w-2 h-2 bg-kaizen-gold rounded-full mr-3"></div>
-                          <span className="text-white font-semibold text-lg">Entrenador nacional de grapoling</span>
+                          <span className="text-white font-semibold text-lg">Entrenador Nacional de Grappling</span>
                         </div>
                       </div>
                       <div className="bg-kaizen-dark/50 p-4 rounded-lg border-l-4 border-kaizen-gold">
                         <div className="flex items-center">
                           <div className="w-2 h-2 bg-kaizen-gold rounded-full mr-3"></div>
-                          <span className="text-white font-semibold text-lg">Maestro entrenador Nacional</span>
+                          <span className="text-white font-semibold text-lg">Maestro Entrenador Nacional</span>
                         </div>
                       </div>
                     </div>
@@ -180,30 +180,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Credentials Section */}
-      <section className="py-20 bg-kaizen-darker">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-12">
-            Credenciales y <span className="text-kaizen-gold">Graduaciones</span>
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-kaizen-gold/30">
-              <h4 className="text-xl font-bold text-kaizen-gold mb-4">Jiu Jitsu Brasileño</h4>
-              <p className="text-2xl font-bold text-white mb-2">Cinto Negro</p>
-              <p className="text-kaizen-red font-semibold">Faixa Preta 4° Grau</p>
-            </div>
-            
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-kaizen-gold/30">
-              <h4 className="text-xl font-bold text-kaizen-gold mb-4">Judo</h4>
-              <p className="text-2xl font-bold text-white mb-2">Cinto Negro</p>
-              <p className="text-kaizen-red font-semibold">Maestro Entrenador Nacional</p>
-            </div>
-          </div>
-          
 
-        </div>
-      </section>
     </div>
   );
 }
