@@ -20,6 +20,11 @@ import BJJ from "@/pages/bjj";
 import BJJKids from "@/pages/bjj-kids";
 import Pablo from "@/pages/pablo";
 import Community from "@/pages/community";
+import AppLogin from "@/pages/app-login";
+import AppDashboard from "@/pages/app-dashboard";
+import AppPhotos from "@/pages/app-photos";
+import AppChat from "@/pages/app-chat";
+import MobileApp from "@/pages/mobile-app";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -40,6 +45,10 @@ function Router() {
       <Route path="/pablo" component={Pablo} />
       <Route path="/community" component={Community} />
       <Route path="/comunidad" component={Community} />
+      <Route path="/app/login" component={AppLogin} />
+      <Route path="/app/dashboard" component={MobileApp} />
+      <Route path="/app/photos" component={AppPhotos} />
+      <Route path="/app/chat" component={AppChat} />
       <Route path="/" component={Home} />
       <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
       <Route path="/app/bookings" component={Bookings} />

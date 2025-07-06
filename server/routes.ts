@@ -563,6 +563,311 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Mobile-specific API routes
+
+  // Today's schedule for mobile
+  app.get("/api/mobile/schedule/today", isAuthenticated, async (req: any, res) => {
+    try {
+      const today = new Date().toISOString().split('T')[0];
+      const schedules = await storage.getSchedulesByDay(new Date().getDay());
+      
+      // Add booking status and spots left (simplified)
+      const schedulesWithBooking = schedules.map(schedule => ({
+        id: schedule.id,
+        discipline: schedule.class?.name || 'General',
+        startTime: schedule.startTime,
+        endTime: schedule.endTime,
+        instructor: schedule.instructor || 'Instructor',
+        isBooked: false, // TODO: Check user bookings
+        spotsLeft: Math.max(0, (schedule.maxCapacity || 20) - (schedule.currentBookings || 0))
+      }));
+
+      res.json(schedulesWithBooking);
+    } catch (error) {
+      console.error("Error fetching mobile schedule:", error);
+      res.status(500).json({ message: "Error fetching schedule" });
+    }
+  });
+
+  // Current gym count for mobile
+  app.get("/api/mobile/gym/count", async (req, res) => {
+    try {
+      const count = await storage.getTodayAttendanceCount();
+      res.json({ count, capacity: 50 });
+    } catch (error) {
+      console.error("Error fetching gym count:", error);
+      res.status(500).json({ count: 0, capacity: 50 });
+    }
+  });
+
+  // User streak and stats
+  app.get("/api/mobile/user/streak", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const checkIns = await storage.getMemberCheckIns(userId, 30);
+      
+      // Calculate streak (simplified)
+      let streak = 0;
+      const sortedCheckIns = checkIns.sort((a, b) => 
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+
+      // Count consecutive days (simplified calculation)
+      for (const checkIn of sortedCheckIns) {
+        const checkInDate = new Date(checkIn.createdAt).toDateString();
+        const expectedDate = new Date();
+        expectedDate.setDate(expectedDate.getDate() - streak);
+        
+        if (checkInDate === expectedDate.toDateString()) {
+          streak++;
+        } else {
+          break;
+        }
+      }
+
+      res.json({ 
+        streak, 
+        totalClasses: checkIns.length 
+      });
+    } catch (error) {
+      console.error("Error fetching user streak:", error);
+      res.status(500).json({ streak: 0, totalClasses: 0 });
+    }
+  });
+
+  // Discipline motivation messages
+  app.get("/api/mobile/motivation/:discipline", async (req, res) => {
+    try {
+      const { discipline } = req.params;
+      
+      // Kaizen Burgos personalized motivation messages by discipline
+      const motivationMessages: Record<string, any[]> = {
+        'BJJ': [
+          { message: "¡El tatami de Kaizen te espera! Hora de fluir 🌊", emoji: "🥋", type: "motivational" },
+          { message: "Osss! El arte suave burgalés conquista al fuerte 💪", emoji: "🥋", type: "philosophy" },
+          { message: "¡En Kaizen no hay límites! A por esas sumisiones 🔥", emoji: "🥋", type: "technique" },
+          { message: "¿Listo para la guerra de ajedrez en el tatami de Burgos? ♟️", emoji: "🥋", type: "funny" },
+          { message: "¡Hoy alguien va a 'dormir' en KaizenAcademy! 😴", emoji: "🥋", type: "funny" },
+          { message: "¡Que fluya el jiu-jitsu burgalés! 改善", emoji: "🥋", type: "motivational" }
+        ],
+        'MMA': [
+          { message: "¡Kaizen MMA: Sé agua, sé fuego, sé todo! 🔥", emoji: "🥊", type: "motivational" },
+          { message: "El espíritu guerrero de Burgos te llama 🛡️", emoji: "🥊", type: "motivational" },
+          { message: "En Kaizen: Striking + Grappling = Dominación total 💥", emoji: "🥊", type: "technique" },
+          { message: "¿Listo para ser una máquina de pelear burgalesa? 🤖", emoji: "🥊", type: "funny" },
+          { message: "¡A mezclar estilos como los campeones de Kaizen! 🎧", emoji: "🥊", type: "funny" },
+          { message: "¡Kaizen改善: Mejora continua en combate! 🚀", emoji: "🥊", type: "philosophy" }
+        ],
+        'Kickboxing': [
+          { message: "¡Tus piernas son las armas letales de Kaizen! 🦵", emoji: "🦵", type: "motivational" },
+          { message: "Velocidad + Potencia = KO estilo Burgos 💥", emoji: "🦵", type: "technique" },
+          { message: "¡Dale caña a esos paos en Kaizen! 🔨", emoji: "🦵", type: "motivational" },
+          { message: "¿Preparado para hacer música con tus patadas burgalesas? 🎵", emoji: "🦵", type: "funny" },
+          { message: "¡Hoy vas a 'barrer' el tatami de Kaizen! 🧹", emoji: "🦵", type: "funny" },
+          { message: "¡El poder del kick burgalés! 改善", emoji: "🦵", type: "motivational" }
+        ],
+        'Boxeo': [
+          { message: "¡Float like a butterfly, sting like a bee... en Kaizen! 🦋", emoji: "👊", type: "motivational" },
+          { message: "Jab, Cross, Hook... ¡El dulce arte de Burgos! 🎶", emoji: "👊", type: "technique" },
+          { message: "El ring de Kaizen es tu escenario, ¡brilla! ✨", emoji: "👊", type: "motivational" },
+          { message: "¿Listo para tocar la campanilla en KaizenAcademy? 🔔", emoji: "👊", type: "funny" },
+          { message: "¡Hoy los guantes de Kaizen van a 'hablar'! 🗣️", emoji: "👊", type: "funny" },
+          { message: "¡El noble arte en la ciudad de Burgos! 改善", emoji: "👊", type: "philosophy" }
+        ]
+      };
+
+      const messages = motivationMessages[discipline] || motivationMessages['BJJ'];
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      
+      res.json({
+        id: Date.now(),
+        discipline,
+        ...randomMessage
+      });
+    } catch (error) {
+      console.error("Error fetching motivation:", error);
+      res.status(500).json({ message: "Error fetching motivation" });
+    }
+  });
+
+  // Upcoming class with pre-class motivation
+  app.get("/api/mobile/upcoming-class", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const now = new Date();
+      const schedules = await storage.getSchedulesByDay(now.getDay());
+      
+      // Find next class in the next 2 hours
+      const upcomingClasses = schedules.filter(schedule => {
+        const [hours, minutes] = schedule.startTime.split(':');
+        const classTime = new Date();
+        classTime.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+        
+        const timeDiff = classTime.getTime() - now.getTime();
+        const minutesDiff = timeDiff / (1000 * 60);
+        
+        return minutesDiff > 0 && minutesDiff <= 120; // Next 2 hours
+      });
+
+      if (upcomingClasses.length === 0) {
+        return res.json(null);
+      }
+
+      const nextClass = upcomingClasses[0];
+      const [hours, minutes] = nextClass.startTime.split(':');
+      const classTime = new Date();
+      classTime.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+      
+      const timeUntil = Math.round((classTime.getTime() - now.getTime()) / (1000 * 60));
+
+      // Kaizen Burgos pre-class motivation messages
+      const preClassMessages: Record<string, string[]> = {
+        'BJJ': [
+          "¡El tatami de Kaizen te llama! Hora de fluir 🌊",
+          "¿Listo para la guerra dulce burgalesa? ⚔️",
+          "¡A conquistar posiciones en KaizenAcademy! 🏰",
+          "El jiu-jitsu de Burgos no espera, ¡vamos! 🚀",
+          "¡Tu clase de BJJ en Kaizen está a punto de empezar! 改善"
+        ],
+        'MMA': [
+          "¡Guerrero de Kaizen, la batalla comienza pronto! ⚔️",
+          "¡Tiempo de mezclar artes marciales en Burgos! 🥊",
+          "El octágono mental de Kaizen ya está listo 🔥",
+          "¡A por la dominación total estilo KaizenAcademy! 💪",
+          "¡Tu clase de MMA en Kaizen está por comenzar! 改善"
+        ],
+        'Kickboxing': [
+          "¡Tus piernas están listas para la acción en Kaizen! 🦵",
+          "¿Preparado para hacer ruido en Burgos? 💥",
+          "¡Los paos de Kaizen no saben lo que les espera! 🎯",
+          "¡Dale caña con esas patadas burgalesas! 🔥",
+          "¡Tu clase de Kickboxing en KaizenAcademy empieza ya! 改善"
+        ],
+        'Boxeo': [
+          "¡Los guantes de Kaizen esperan tus puños! 👊",
+          "¿Listo para el dulce arte burgalés? 🥊",
+          "¡Float and sting en KaizenAcademy, campéon! 🦋",
+          "El ring de Kaizen es tuyo, ¡tómalo! 👑",
+          "¡Tu clase de Boxeo en Burgos está a punto de empezar! 改善"
+        ]
+      };
+
+      const discipline = nextClass.class?.name || 'General';
+      const messages = preClassMessages[discipline] || preClassMessages['BJJ'];
+      const motivationMessage = timeUntil <= 60 ? {
+        id: Date.now(),
+        discipline,
+        message: messages[Math.floor(Math.random() * messages.length)],
+        emoji: discipline === 'BJJ' ? '🥋' : discipline === 'MMA' ? '🥊' : discipline === 'Kickboxing' ? '🦵' : '👊',
+        type: 'pre_class'
+      } : undefined;
+
+      res.json({
+        class: {
+          id: nextClass.id,
+          discipline,
+          startTime: nextClass.startTime,
+          endTime: nextClass.endTime,
+          instructor: nextClass.instructor || 'Instructor',
+          isBooked: false,
+          spotsLeft: Math.max(0, (nextClass.maxCapacity || 20) - (nextClass.currentBookings || 0))
+        },
+        timeUntil,
+        message: motivationMessage
+      });
+    } catch (error) {
+      console.error("Error fetching upcoming class:", error);
+      res.status(500).json({ message: "Error fetching upcoming class" });
+    }
+  });
+
+  // Mobile attendance confirmation
+  app.post("/api/mobile/attendance/confirm", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const { classId, discipline } = req.body;
+      const today = new Date().toISOString().split('T')[0];
+
+      // Create or update attendance record
+      const attendance = await storage.createDailyAttendance({
+        userId,
+        date: today,
+        isGoing: true,
+        disciplines: [discipline]
+      });
+
+      // Funny confirmation messages
+      const confirmationMessages: Record<string, string[]> = {
+        'BJJ': [
+          "¡Osss! El tatami te extrañaba 🥋",
+          "¡Confirmado! A por esas sumisiones 🔥",
+          "¡El arte suave te espera! 🌊"
+        ],
+        'MMA': [
+          "¡Guerrero confirmado! 💪",
+          "¡El octágono te llama! 🥊",
+          "¡A mezclar estilos! 🔥"
+        ],
+        'Kickboxing': [
+          "¡Confirmado! Tus piernas están listas 🦵",
+          "¡Los paos tiemblan! 💥",
+          "¡Dale caña! 🔨"
+        ],
+        'Boxeo': [
+          "¡Float and sting confirmado! 🥊",
+          "¡Los guantes te esperan! 👊",
+          "¡Sweet science time! 🎯"
+        ]
+      };
+
+      const messages = confirmationMessages[discipline] || confirmationMessages['BJJ'];
+      const message = messages[Math.floor(Math.random() * messages.length)];
+
+      res.json({ 
+        success: true, 
+        message,
+        attendance 
+      });
+    } catch (error) {
+      console.error("Error confirming attendance:", error);
+      res.status(400).json({ message: "Error confirming attendance" });
+    }
+  });
+
+  // Mobile-friendly gym photos
+  app.get("/api/mobile/photos", async (req, res) => {
+    try {
+      // Return sample gym photos data for mobile
+      const samplePhotos = [
+        {
+          id: 1,
+          title: "Entrenamiento BJJ",
+          description: "Sesión intensa de Brazilian Jiu-Jitsu",
+          imageUrl: "/api/placeholder/gym-bjj-training.jpg",
+          category: "training",
+          discipline: "BJJ",
+          likes: 15,
+          createdAt: new Date().toISOString()
+        },
+        {
+          id: 2,
+          title: "Clase de MMA",
+          description: "Entrenamiento mixto de MMA",
+          imageUrl: "/api/placeholder/gym-mma-training.jpg",
+          category: "training", 
+          discipline: "MMA",
+          likes: 23,
+          createdAt: new Date().toISOString()
+        }
+      ];
+      
+      res.json(samplePhotos);
+    } catch (error) {
+      console.error("Error fetching mobile photos:", error);
+      res.status(500).json({ message: "Error fetching photos" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

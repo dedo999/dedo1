@@ -33,6 +33,8 @@ export const sessions = pgTable(
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().notNull(),
   email: varchar("email").unique(),
+  username: varchar("username").unique(), // For app login
+  passwordHash: varchar("password_hash"), // For app login
   firstName: varchar("first_name"),
   lastName: varchar("last_name"),
   profileImageUrl: varchar("profile_image_url"),
@@ -43,6 +45,8 @@ export const users = pgTable("users", {
   medicalNotes: text("medical_notes"),
   preferredDisciplines: varchar("preferred_disciplines").array(),
   isActive: boolean("is_active").default(true),
+  authProvider: varchar("auth_provider").default("replit"), // replit, local, google
+  lastLoginAt: timestamp("last_login_at"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -245,6 +249,111 @@ export const memberAchievements = pgTable("member_achievements", {
   earnedAt: timestamp("earned_at").defaultNow().notNull(),
 });
 
+// Gym photos gallery
+export const gymPhotos = pgTable("gym_photos", {
+  id: serial("id").primaryKey(),
+  title: varchar("title").notNull(),
+  description: text("description"),
+  imageUrl: varchar("image_url").notNull(),
+  category: varchar("category").default("general"), // general, training, events, facilities
+  discipline: varchar("discipline"), // BJJ, MMA, Kickboxing, Boxeo
+  uploadedBy: varchar("uploaded_by").references(() => users.id),
+  isVisible: boolean("is_visible").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Member conversations/chat
+export const conversations = pgTable("conversations", {
+  id: serial("id").primaryKey(),
+  name: varchar("name"), // Group name or null for direct messages
+  type: varchar("type").default("direct"), // direct, group, discipline, general
+  discipline: varchar("discipline"), // BJJ, MMA, etc for discipline groups
+  createdBy: varchar("created_by").references(() => users.id).notNull(),
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Conversation participants
+export const conversationParticipants = pgTable("conversation_participants", {
+  id: serial("id").primaryKey(),
+  conversationId: integer("conversation_id").references(() => conversations.id).notNull(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  joinedAt: timestamp("joined_at").defaultNow().notNull(),
+  lastReadAt: timestamp("last_read_at"),
+});
+
+// Chat messages
+export const chatMessages = pgTable("chat_messages", {
+  id: serial("id").primaryKey(),
+  conversationId: integer("conversation_id").references(() => conversations.id).notNull(),
+  senderId: varchar("sender_id").references(() => users.id).notNull(),
+  content: text("content").notNull(),
+  messageType: varchar("message_type").default("text"), // text, image, file
+  fileUrl: varchar("file_url"),
+  isEdited: boolean("is_edited").default(false),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Member notifications
+export const notifications = pgTable("notifications", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  title: varchar("title").notNull(),
+  message: text("message").notNull(),
+  type: varchar("type").notNull(), // reminder, achievement, community, class, general
+  discipline: varchar("discipline"), // For discipline-specific notifications
+  actionUrl: varchar("action_url"), // Deep link for app navigation
+  isRead: boolean("is_read").default(false),
+  scheduledFor: timestamp("scheduled_for"), // For future notifications
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Training reminders
+export const trainingReminders = pgTable("training_reminders", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  title: varchar("title").notNull(),
+  message: text("message").notNull(),
+  discipline: varchar("discipline").notNull(),
+  reminderTime: time("reminder_time").notNull(), // 19:00 for example
+  daysOfWeek: varchar("days_of_week").array(), // ["monday", "wednesday", "friday"]
+  isActive: boolean("is_active").default(true),
+  lastSent: timestamp("last_sent"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Discipline quotes/messages
+export const disciplineQuotes = pgTable("discipline_quotes", {
+  id: serial("id").primaryKey(),
+  discipline: varchar("discipline").notNull(),
+  quote: text("quote").notNull(),
+  author: varchar("author"),
+  type: varchar("type").default("motivational"), // motivational, technique, philosophy
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Password reset tokens
+export const passwordResetTokens = pgTable("password_reset_tokens", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  token: varchar("token").notNull().unique(),
+  expiresAt: timestamp("expires_at").notNull(),
+  isUsed: boolean("is_used").default(false),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// User verification tokens (for email verification)
+export const verificationTokens = pgTable("verification_tokens", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  token: varchar("token").notNull().unique(),
+  type: varchar("type").default("email"), // email, phone
+  expiresAt: timestamp("expires_at").notNull(),
+  isUsed: boolean("is_used").default(false),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 // Relations
 export const usersRelations = relations(users, ({ many }) => ({
   bookings: many(bookings),
@@ -255,6 +364,11 @@ export const usersRelations = relations(users, ({ many }) => ({
   communityPosts: many(communityPosts),
   postLikes: many(postLikes),
   achievements: many(memberAchievements),
+  passwordResetTokens: many(passwordResetTokens),
+  verificationTokens: many(verificationTokens),
+  sentMessages: many(chatMessages),
+  notifications: many(notifications),
+  trainingReminders: many(trainingReminders),
 }));
 
 export const classesRelations = relations(classes, ({ many }) => ({
