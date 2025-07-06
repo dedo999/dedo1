@@ -1,0 +1,27 @@
+{
+  "name": "KaizenApp - Academia de Artes Marciales Burgos",
+  "short_name": "KaizenApp",
+  "description": "App oficial de KaizenAcademy改善 Burgos - Notificaciones de clases, horarios y más",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#dc2626",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/kaizen_logo_transparent.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/kaizen_logo_transparent.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["sports", "fitness", "lifestyle"],
+  "lang": "es",
+  "scope": "/"
+}
