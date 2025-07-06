@@ -29,6 +29,7 @@ import QRCodePage from "@/pages/qr-code";
 import DemoLogin from "@/pages/demo-login";
 import DemoAccess from "@/pages/demo-access";
 import AppSimple from "@/pages/app-simple";
+import DownloadApp from "@/pages/download-app";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -39,6 +40,8 @@ function Router() {
       <Route path="/qr" component={QRCodePage} />
       <Route path="/qr-code" component={QRCodePage} />
       <Route path="/demo" component={DemoAccess} />
+      <Route path="/download-app" component={DownloadApp} />
+      <Route path="/descargar-app" component={DownloadApp} />
       <Route path="/app/login" component={DemoLogin} />
       <Route path="/app/dashboard" component={AppSimple} />
       <Route path="/app" component={AppSimple} />
