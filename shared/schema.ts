@@ -200,12 +200,61 @@ export const spaceBookings = pgTable("space_bookings", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+// Daily attendance tracking
+export const dailyAttendance = pgTable("daily_attendance", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  date: date("date").notNull(),
+  isGoing: boolean("is_going").default(true),
+  disciplines: varchar("disciplines").array(), // What they plan to train
+  checkedIn: boolean("checked_in").default(false),
+  checkInTime: timestamp("check_in_time"),
+  checkOutTime: timestamp("check_out_time"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Community posts (photos, achievements, etc.)
+export const communityPosts = pgTable("community_posts", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  content: text("content").notNull(),
+  imageUrl: varchar("image_url"),
+  type: varchar("type").default("general"), // general, achievement, progress, event
+  likes: integer("likes").default(0),
+  discipline: varchar("discipline"), // BJJ, MMA, etc.
+  isVisible: boolean("is_visible").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Community post likes
+export const postLikes = pgTable("post_likes", {
+  id: serial("id").primaryKey(),
+  postId: integer("post_id").references(() => communityPosts.id).notNull(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Member achievements/badges
+export const memberAchievements = pgTable("member_achievements", {
+  id: serial("id").primaryKey(),
+  userId: varchar("user_id").references(() => users.id).notNull(),
+  achievementType: varchar("achievement_type").notNull(), // weekly_warrior, monthly_champion, streak_master, etc.
+  title: varchar("title").notNull(),
+  description: text("description"),
+  badgeIcon: varchar("badge_icon"),
+  earnedAt: timestamp("earned_at").defaultNow().notNull(),
+});
+
 // Relations
 export const usersRelations = relations(users, ({ many }) => ({
   bookings: many(bookings),
   memberNotes: many(memberNotes, { relationName: "memberNotes" }),
   authoredNotes: many(memberNotes, { relationName: "authoredNotes" }),
   checkIns: many(memberCheckIns),
+  dailyAttendance: many(dailyAttendance),
+  communityPosts: many(communityPosts),
+  postLikes: many(postLikes),
+  achievements: many(memberAchievements),
 }));
 
 export const classesRelations = relations(classes, ({ many }) => ({
@@ -253,6 +302,40 @@ export const memberCheckInsRelations = relations(memberCheckIns, ({ one }) => ({
   class: one(classes, {
     fields: [memberCheckIns.classId],
     references: [classes.id],
+  }),
+}));
+
+// Community relations
+export const dailyAttendanceRelations = relations(dailyAttendance, ({ one }) => ({
+  user: one(users, {
+    fields: [dailyAttendance.userId],
+    references: [users.id],
+  }),
+}));
+
+export const communityPostsRelations = relations(communityPosts, ({ one, many }) => ({
+  user: one(users, {
+    fields: [communityPosts.userId],
+    references: [users.id],
+  }),
+  likes: many(postLikes),
+}));
+
+export const postLikesRelations = relations(postLikes, ({ one }) => ({
+  post: one(communityPosts, {
+    fields: [postLikes.postId],
+    references: [communityPosts.id],
+  }),
+  user: one(users, {
+    fields: [postLikes.userId],
+    references: [users.id],
+  }),
+}));
+
+export const memberAchievementsRelations = relations(memberAchievements, ({ one }) => ({
+  user: one(users, {
+    fields: [memberAchievements.userId],
+    references: [users.id],
   }),
 }));
 
@@ -311,3 +394,20 @@ export const insertSpaceRentalSchema = createInsertSchema(spaceRentals);
 export type SpaceBooking = typeof spaceBookings.$inferSelect;
 export type InsertSpaceBooking = typeof spaceBookings.$inferInsert;
 export const insertSpaceBookingSchema = createInsertSchema(spaceBookings);
+
+// Community types
+export type DailyAttendance = typeof dailyAttendance.$inferSelect;
+export type InsertDailyAttendance = typeof dailyAttendance.$inferInsert;
+export const insertDailyAttendanceSchema = createInsertSchema(dailyAttendance);
+
+export type CommunityPost = typeof communityPosts.$inferSelect;
+export type InsertCommunityPost = typeof communityPosts.$inferInsert;
+export const insertCommunityPostSchema = createInsertSchema(communityPosts);
+
+export type PostLike = typeof postLikes.$inferSelect;
+export type InsertPostLike = typeof postLikes.$inferInsert;
+export const insertPostLikeSchema = createInsertSchema(postLikes);
+
+export type MemberAchievement = typeof memberAchievements.$inferSelect;
+export type InsertMemberAchievement = typeof memberAchievements.$inferInsert;
+export const insertMemberAchievementSchema = createInsertSchema(memberAchievements);
