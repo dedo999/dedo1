@@ -6,7 +6,7 @@ import { ArrowLeft, Smartphone, Download } from 'lucide-react';
 import kaizenLogo from '@assets/kaizen_logo_transparent_1751749979875.png';
 
 export default function QRCodePage() {
-  const appUrl = `${window.location.origin}/app/login`;
+  const appUrl = `${window.location.origin}/demo`;
 
   const downloadQR = () => {
     const canvas = document.querySelector('canvas');

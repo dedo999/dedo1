@@ -27,6 +27,7 @@ import AppChat from "@/pages/app-chat";
 import MobileApp from "@/pages/mobile-app";
 import QRCodePage from "@/pages/qr-code";
 import DemoLogin from "@/pages/demo-login";
+import DemoAccess from "@/pages/demo-access";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -36,6 +37,7 @@ function Router() {
     <Switch>
       <Route path="/qr" component={QRCodePage} />
       <Route path="/qr-code" component={QRCodePage} />
+      <Route path="/demo" component={DemoAccess} />
       <Route path="/app/login" component={DemoLogin} />
       <Route path="/app/dashboard" component={MobileApp} />
       <Route path="/app/photos" component={AppPhotos} />
