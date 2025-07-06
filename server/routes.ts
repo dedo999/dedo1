@@ -868,6 +868,61 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Create demo user for testing
+  app.post("/api/auth/create-demo", async (req, res) => {
+    try {
+      // Demo credentials for testing KaizenApp
+      const demoUser = {
+        username: "kaizen_demo",
+        password: "burgos2025",
+        email: "demo@kaizenburgos.com",
+        firstName: "Demo",
+        lastName: "User",
+        phone: "+34662323282",
+        preferredDisciplines: ["BJJ", "MMA"],
+        membershipType: "monthly",
+        membershipExpiry: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days from now
+      };
+
+      // Check if demo user already exists
+      const existingUser = await storage.getUserByUsername(demoUser.username);
+      if (existingUser) {
+        return res.json({ 
+          message: "Demo user already exists",
+          credentials: {
+            username: "kaizen_demo",
+            password: "burgos2025"
+          }
+        });
+      }
+
+      // Create the demo user
+      const hashedPassword = await hashPassword(demoUser.password);
+      const newUser = await storage.createUser({
+        username: demoUser.username,
+        password: hashedPassword,
+        email: demoUser.email,
+        firstName: demoUser.firstName,
+        lastName: demoUser.lastName,
+        phone: demoUser.phone,
+        preferredDisciplines: demoUser.preferredDisciplines,
+        membershipType: demoUser.membershipType,
+        membershipExpiry: demoUser.membershipExpiry
+      });
+
+      res.json({ 
+        message: "Demo user created successfully",
+        credentials: {
+          username: "kaizen_demo",
+          password: "burgos2025"
+        }
+      });
+    } catch (error: any) {
+      console.error('Create demo user error:', error);
+      res.status(500).json({ message: 'Error creating demo user' });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
