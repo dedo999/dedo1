@@ -28,13 +28,16 @@ import kaizenLogo from '@assets/kaizen_logo_transparent_1751749979875.png';
 export default function AppSimple() {
   const [currentView, setCurrentView] = useState('dashboard');
   const [checkedIn, setCheckedIn] = useState(false);
+  const [selectedDisciplines, setSelectedDisciplines] = useState(['BJJ', 'MMA']);
+  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [notifications, setNotifications] = useState([
     {
       id: 1,
       title: "¡Clase de BJJ en 1 hora!",
       message: "Tu clase favorita empieza pronto. ¿Vienes a entrenar duro? 🥋",
       time: "hace 5 min",
-      type: "class"
+      type: "class",
+      discipline: "BJJ"
     },
     {
       id: 2,
@@ -45,14 +48,46 @@ export default function AppSimple() {
     }
   ]);
 
+  // Available disciplines
+  const availableDisciplines = [
+    { id: 'BJJ', name: 'Brazilian Jiu-Jitsu', logo: kaizenLogo, description: 'Arte marcial brasileño en el suelo' },
+    { id: 'MMA', name: 'MMA', logo: kaizenLogo, description: 'Artes marciales mixtas' },
+    { id: 'Kickboxing', name: 'Kickboxing', logo: kaizenLogo, description: 'Patadas y puños de alta intensidad' },
+    { id: 'Boxing', name: 'Boxeo', logo: kaizenLogo, description: 'Arte dulce de los puños' },
+    { id: 'Muay Thai', name: 'Muay Thai', logo: kaizenLogo, description: 'El arte de las ocho extremidades' }
+  ];
+
   // Demo user data - no authentication needed
   const user = {
     firstName: "Demo",
     lastName: "Member",
     profileImageUrl: "/api/placeholder/user-avatar.jpg",
-    preferredDisciplines: ["BJJ", "MMA", "Kickboxing"],
-    membershipType: "premium"
+    preferredDisciplines: selectedDisciplines,
+    membershipType: "premium",
+    notificationsEnabled: notificationsEnabled
   };
+
+  // Save preferences to localStorage
+  const savePreferences = () => {
+    localStorage.setItem('kaizen_preferences', JSON.stringify({
+      selectedDisciplines,
+      notificationsEnabled
+    }));
+  };
+
+  // Load preferences from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('kaizen_preferences');
+    if (saved) {
+      try {
+        const prefs = JSON.parse(saved);
+        setSelectedDisciplines(prefs.selectedDisciplines || ['BJJ', 'MMA']);
+        setNotificationsEnabled(prefs.notificationsEnabled !== false);
+      } catch (e) {
+        console.log('Error loading preferences');
+      }
+    }
+  }, []);
 
   // Mock data for demo
   const todaySchedule = [
@@ -104,6 +139,60 @@ export default function AppSimple() {
   const handleCheckIn = () => {
     setCheckedIn(!checkedIn);
   };
+
+  const toggleDiscipline = (disciplineId: string) => {
+    setSelectedDisciplines(prev => {
+      const newSelection = prev.includes(disciplineId) 
+        ? prev.filter(d => d !== disciplineId)
+        : [...prev, disciplineId];
+      
+      // Save to localStorage immediately
+      setTimeout(() => savePreferences(), 100);
+      return newSelection;
+    });
+  };
+
+  const toggleNotifications = () => {
+    setNotificationsEnabled(!notificationsEnabled);
+    setTimeout(() => savePreferences(), 100);
+  };
+
+  // Generate personalized notifications based on selected disciplines
+  const generatePersonalizedNotifications = () => {
+    const personalizedNotifications = [];
+    
+    selectedDisciplines.forEach(discipline => {
+      const disciplineInfo = availableDisciplines.find(d => d.id === discipline);
+      if (disciplineInfo && notificationsEnabled) {
+        personalizedNotifications.push({
+          id: Date.now() + Math.random(),
+          title: `¡Clase de ${disciplineInfo.name} en 1 hora!`,
+          message: `Tu clase favorita empieza pronto. ¿Vienes a entrenar duro?`,
+          time: "hace 5 min",
+          type: "class",
+          discipline: discipline
+        });
+      }
+    });
+
+    if (notificationsEnabled) {
+      personalizedNotifications.push({
+        id: Date.now() + Math.random() + 1,
+        title: "Gimnasio al 60% de capacidad",
+        message: "¡Perfecto momento para entrenar! Menos gente = más espacio para ti",
+        time: "hace 10 min",
+        type: "capacity"
+      });
+    }
+
+    return personalizedNotifications;
+  };
+
+  // Update notifications when disciplines change
+  useEffect(() => {
+    setNotifications(generatePersonalizedNotifications());
+    savePreferences();
+  }, [selectedDisciplines, notificationsEnabled]);
 
   const renderDashboard = () => (
     <div className="space-y-6">
@@ -368,23 +457,102 @@ export default function AppSimple() {
           
           <div className="space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-gray-300">Disciplinas:</span>
-              <div className="flex space-x-2">
-                {user.preferredDisciplines?.map((discipline: string) => (
-                  <Badge key={discipline} className="bg-kaizen-red text-xs">
-                    {discipline}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-            
-            <div className="flex justify-between items-center">
               <span className="text-gray-300">Estado:</span>
               <Badge className={`${checkedIn ? 'bg-green-600' : 'bg-gray-600'} text-xs`}>
                 {checkedIn ? 'En el gym' : 'Fuera'}
               </Badge>
             </div>
           </div>
+        </div>
+      </Card>
+
+      {/* Discipline Selection */}
+      <Card className="bg-gray-800 border-gray-700">
+        <div className="p-4">
+          <h3 className="text-white font-semibold mb-4 flex items-center">
+            <Target className="w-4 h-4 mr-2 text-kaizen-gold" />
+            Mis Disciplinas
+          </h3>
+          <p className="text-gray-400 text-sm mb-4">
+            Selecciona las disciplinas que entrenas para recibir notificaciones personalizadas
+          </p>
+          <div className="space-y-3">
+            {availableDisciplines.map((discipline) => (
+              <div 
+                key={discipline.id}
+                onClick={() => toggleDiscipline(discipline.id)}
+                className={`p-3 rounded-lg border cursor-pointer transition-all ${
+                  selectedDisciplines.includes(discipline.id)
+                    ? 'border-kaizen-red bg-kaizen-red/10'
+                    : 'border-gray-600 bg-gray-700 hover:border-gray-500'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <img src={discipline.logo} alt="Kaizen" className="w-8 h-8 object-contain" />
+                    <div>
+                      <p className="text-white font-medium">{discipline.name}</p>
+                      <p className="text-gray-400 text-xs">{discipline.description}</p>
+                    </div>
+                  </div>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                    selectedDisciplines.includes(discipline.id)
+                      ? 'border-kaizen-red bg-kaizen-red'
+                      : 'border-gray-400'
+                  }`}>
+                    {selectedDisciplines.includes(discipline.id) && (
+                      <CheckCircle2 className="w-3 h-3 text-white" />
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+
+      {/* Notification Settings */}
+      <Card className="bg-gray-800 border-gray-700">
+        <div className="p-4">
+          <h3 className="text-white font-semibold mb-4 flex items-center">
+            <Bell className="w-4 h-4 mr-2 text-kaizen-gold" />
+            Notificaciones
+          </h3>
+          <div 
+            onClick={toggleNotifications}
+            className="flex items-center justify-between p-3 bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-600 transition-colors"
+          >
+            <div>
+              <p className="text-white font-medium">Recibir notificaciones</p>
+              <p className="text-gray-400 text-sm">
+                Alertas de clases y estado del gimnasio
+              </p>
+            </div>
+            <div className={`w-12 h-6 rounded-full transition-colors ${
+              notificationsEnabled ? 'bg-kaizen-red' : 'bg-gray-500'
+            }`}>
+              <div className={`w-5 h-5 bg-white rounded-full shadow transition-transform mt-0.5 ${
+                notificationsEnabled ? 'translate-x-6' : 'translate-x-0.5'
+              }`} />
+            </div>
+          </div>
+          
+          {selectedDisciplines.length > 0 && (
+            <div className="mt-3 p-3 bg-gray-700 rounded-lg">
+              <p className="text-gray-300 text-sm mb-2">Notificaciones activas para:</p>
+              <div className="flex flex-wrap gap-2">
+                {selectedDisciplines.map((disciplineId) => {
+                  const discipline = availableDisciplines.find(d => d.id === disciplineId);
+                  return discipline ? (
+                    <Badge key={disciplineId} className="bg-kaizen-red text-xs flex items-center gap-1">
+                      <img src={discipline.logo} alt="Kaizen" className="w-3 h-3 object-contain" />
+                      {discipline.name}
+                    </Badge>
+                  ) : null;
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </Card>
 
