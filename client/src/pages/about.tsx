@@ -31,7 +31,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-r from-kaizen-red/20 to-kaizen-gold/20 rounded-2xl transform rotate-3"></div>
                 <img
                   src="/antonio-about-photo.jpg"
-                  alt="Antonio Alonso - Maestro Kaizen"
+                  alt="Antonio Alonso - Profesor Kaizen"
                   className="relative w-full h-96 object-cover rounded-2xl shadow-2xl"
                 />
                 {/* Jiu Jitsu Logo Badge */}
@@ -50,7 +50,7 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 <span className="text-kaizen-gold">Antonio Alonso</span>
                 <br />
-                Maestro de Artes Marciales
+                Profesor de Artes Marciales
               </h2>
               
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
@@ -59,11 +59,11 @@ export default function About() {
                 </p>
                 
                 <p>
-                  Representa al equipo <strong className="text-white">Peposo Fight Team</strong> bajo la tutela de los Maestros <strong className="text-kaizen-red">Paulo Peposo Curi</strong> Faixa preta 6° Grau y <strong className="text-kaizen-red">Hitler Curi</strong> - Cinturón Rojo (Faixa vermelha) con sede en Brasil.
+                  Representa al equipo <strong className="text-white">Peposo Fight Team</strong> bajo la tutela de los profesores <strong className="text-kaizen-red">Paulo Peposo Curi</strong> Faixa preta 6° Grau y <strong className="text-kaizen-red">Hitler Curi</strong> - Cinturón Rojo (Faixa vermelha) con sede en Brasil.
                 </p>
 
                 <p>
-                  Alonso proviene de una familia con profunda tradición marcial, los cuales también fueron los pioneros del judo. Aún continúa bajo la supervisión de su padre y Maestro, especialista en Ne Waza, del cual sigue formándose constantemente.
+                  Alonso proviene de una familia con profunda tradición marcial, los cuales también fueron los pioneros del judo. Aún continúa bajo la supervisión de su padre y profesor, especialista en Ne Waza, del cual sigue formándose constantemente.
                 </p>
               </div>
             </div>
