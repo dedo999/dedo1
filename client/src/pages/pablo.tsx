@@ -6,7 +6,7 @@ export default function PabloPage() {
   
   const images = [
     {
-      src: "attached_assets/WhatsApp Image 2025-07-06 at 2.52.00 PM_1751807903180.jpeg",
+      src: "/pablo-profile.jpg",
       alt: "Pablo Mate - Profesor BJJ y Judo"
     },
     // More images can be added here
@@ -75,7 +75,7 @@ export default function PabloPage() {
                 {/* Main Image */}
                 <div className="relative w-full h-96 rounded-2xl shadow-2xl overflow-hidden">
                   <img
-                    src={`/${images[currentImageIndex].src}`}
+                    src={images[currentImageIndex].src}
                     alt={images[currentImageIndex].alt}
                     className="w-full h-full object-cover"
                   />

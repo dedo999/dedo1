@@ -15,11 +15,23 @@ interface Message {
 }
 
 const quickResponses = {
-  'horarios': `🕐 **Horarios:**
+  'horarios': `📅 **Horarios de Clases:**
 
-L-V: 6:00-23:00
-S: 8:00-21:00  
-D: 9:00-20:00`,
+**Lunes a Viernes:**
+• 17:00-18:00: BJJ Infantil (6-12 años)
+• 18:00-19:30: BJJ Adultos
+• 19:30-21:00: Kickboxing/MMA
+• 21:00-22:30: BJJ Avanzado
+
+**Sábados:**
+• 11:00-13:00: Open Mat/Sparring
+
+**Domingos: CERRADO**
+
+**Clases Matutinas:**
+• Martes/Jueves: 9:00-11:00 (MMA)
+
+¿Qué disciplina te interesa?`,
   
   'precios': `💶 **Precios:**
 
@@ -58,27 +70,37 @@ Espacio profesional, sin inversión inicial, sin compromiso a largo plazo
 
 📩 Escríbeme para agendar una visita o reservar tu horario`,
 
-  'ubicacion': `📍 **Ubicación:**
+  'ubicacion': `📍 **Nuestra Ubicación:**
 
+**KaizenAcademy改善Burgos**
 C. Esteban Sáez Alvarado, 8
 09007 Burgos, España
-Tel: +34 662 323 282
+
+📞 Teléfono: +34 662 323 282
+📧 Email: info@kaizenburgos.com
 
 🚗 Parking disponible
-🚌 Transporte público accesible`,
+🚌 Transporte público accesible
+🗺️ Zona Gamonal - Fácil acceso
+
+¿Necesitas indicaciones específicas?`,
 
   'reservar': `📅 **Reserva tu Primera Clase GRATIS:**
 
 🥋 **Disciplinas disponibles:**
-• Brazilian Jiu-Jitsu con Rubén Sancho (Cinturón Marrón)
-• Kickboxing con Eduardo (Instructor Certificado)
+• Brazilian Jiu-Jitsu (Rubén Sancho, Pablo Mate)
+• Kickboxing (Eduardo)
 • MMA - Artes Marciales Mixtas
 • Boxeo - Técnica y acondicionamiento
 
-⏰ **Horarios:**
-• Lunes a Viernes: 18:00-22:30
-• Sábados: 11:00-13:00 (Open Mat)
-• Clases matutinas: Mar/Jue 9:00-11:00
+⏰ **Horarios disponibles:**
+• Lunes a Viernes: 17:00-22:30
+• Sábados: 11:00-13:00
+• Domingos: CERRADO
+
+📞 **Reserva ahora:**
+• Llama: +34 662 323 282
+• WhatsApp: +34 662 323 282
 
 ¿Qué disciplina te interesa probar?`,
 
@@ -109,7 +131,49 @@ Instructor: Eduardo
 👶 **Jiu Jitsu Kids/Infantil**
 • Programa especializado 6-12 años
 • Valores: respeto, disciplina, anti-bullying
-• Desarrollo físico y mental`
+• Desarrollo físico y mental`,
+
+  'instructores': `👨‍🏫 **Nuestro Equipo de Instructores:**
+
+🥋 **Antonio Alonso - Fundador**
+• Profesor de Artes Marciales
+• Faixa Preta BJJ y Cinturón Negro Judo
+• +45 años de experiencia
+• Maestro Entrenador Nacional
+
+🥋 **Pablo Mate - Profesor**  
+• Faixa Preta BJJ 1° Grado
+• Cinturón Negro Judo 1° Dan
+• 15 años en la academia
+
+🥊 **Eduardo - Instructor Kickboxing**
+• Especialista en striking
+• Campeón nacional
+• Técnicas de defensa personal
+
+🇧🇷 **Rubén Sancho - Instructor BJJ**
+• Faixa Marrón (Brown Belt)
+• Competidor activo
+• Especialista Gi y No-Gi`,
+
+  'mas_informacion': `ℹ️ **Más Información:**
+
+📍 **Ubicación:** C. Esteban Sáez Alvarado, 8, Burgos
+📞 **Teléfono:** +34 662 323 282
+📧 **Email:** info@kaizenburgos.com
+
+🌟 **Beneficios únicos:**
+• Primera clase GRATIS
+• Instructores certificados
+• Ambiente familiar y profesional
+• Equipamiento de alta calidad
+• Filosofía Kaizen (mejora continua)
+
+💪 **Para todos los niveles:**
+• Principiantes bienvenidos
+• Clases adaptadas por edades
+• Programas de competición
+• Desarrollo personal y físico`
 };
 
 export function SimpleChatbot() {
@@ -190,20 +254,35 @@ export function SimpleChatbot() {
     const actionText = action.toLowerCase();
     
     // Handle external actions immediately
-    if (actionText.includes('gratis')) {
+    if (actionText.includes('gratis') || actionText.includes('clase gratis')) {
       window.location.href = '#contacto';
       return;
     } else if (actionText.includes('whatsapp reserva')) {
       window.open('https://wa.me/34662323282?text=Hola, quiero reservar una clase particular. ¿Cuándo podemos coordinar?', '_blank');
       return;
+    } else if (actionText.includes('whatsapp alquiler')) {
+      window.open('https://wa.me/34662323282?text=Hola, estoy interesado en alquilar espacio para clases', '_blank');
+      return;
     } else if (actionText.includes('whatsapp')) {
-      window.open('https://wa.me/34662323282?text=Hola, estoy interesado en alquilar espacio', '_blank');
+      window.open('https://wa.me/34662323282?text=Hola, tengo consultas sobre KaizenAcademy', '_blank');
       return;
     } else if (actionText.includes('google maps')) {
       window.open('https://maps.google.com/?q=C.+Esteban+Sáez+Alvarado+8+Burgos', '_blank');
       return;
     } else if (actionText.includes('llamar')) {
       window.open('tel:+34662323282', '_blank');
+      return;
+    } else if (actionText.includes('bjj')) {
+      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de Brazilian Jiu-Jitsu', '_blank');
+      return;
+    } else if (actionText.includes('kickboxing')) {
+      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de Kickboxing', '_blank');
+      return;
+    } else if (actionText.includes('mma')) {
+      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de MMA', '_blank');
+      return;
+    } else if (actionText.includes('boxeo')) {
+      window.open('https://wa.me/34662323282?text=Hola, quiero probar una clase de Boxeo', '_blank');
       return;
     }
 
@@ -239,6 +318,12 @@ export function SimpleChatbot() {
       } else if (actionText.includes('disciplinas')) {
         response = quickResponses.disciplinas;
         actions = ['Clase gratis', 'Precios', 'Instructores'];
+      } else if (actionText.includes('instructores')) {
+        response = quickResponses.instructores;
+        actions = ['Antonio Alonso', 'Pablo Mate', 'Rubén Sancho'];
+      } else if (actionText.includes('más información') || actionText.includes('mas informacion')) {
+        response = quickResponses.mas_informacion;
+        actions = ['WhatsApp', 'Llamar', 'Clase gratis'];
       } else if (actionText.includes('clases regulares')) {
         response = `📅 **Clases Regulares:**
 
@@ -270,6 +355,90 @@ Entrenamientos personalizados:
 
 ¿Te interesa reservar?`;
         actions = ['WhatsApp reserva', 'Llamar'];
+      } else if (actionText.includes('antonio alonso')) {
+        response = `👨‍🏫 **Antonio Alonso - Fundador**
+
+🥋 **Credenciales:**
+• Profesor de Artes Marciales
+• Faixa Preta Brazilian Jiu-Jitsu
+• Cinturón Negro Judo  
+• +45 años de experiencia
+• Maestro Entrenador Nacional
+
+🏆 **Especialidades:**
+• Fundador de KaizenAcademy
+• Técnicas tradicionales y modernas
+• Filosofía Kaizen aplicada al entrenamiento
+• Formación integral de luchadores`;
+        actions = ['Pablo Mate', 'Rubén Sancho', 'Clase gratis'];
+      } else if (actionText.includes('pablo mate')) {
+        response = `🥋 **Pablo Mate - Profesor**
+
+🏆 **Credenciales:**
+• Faixa Preta BJJ 1° Grado
+• Cinturón Negro Judo 1° Dan
+• 15 años en la academia
+• Especialista en competición
+
+📚 **Su historia:**
+Comenzó practicando artes marciales hace 15 años y se ha convertido en uno de nuestros instructores más respetados. Su dedicación y técnica son ejemplares.
+
+💪 **Especialidades:**
+• Brazilian Jiu-Jitsu avanzado
+• Técnicas de competición
+• Preparación física específica`;
+        actions = ['Antonio Alonso', 'Rubén Sancho', 'Clase gratis'];
+      } else if (actionText.includes('rubén sancho') || actionText.includes('ruben sancho')) {
+        response = `🇧🇷 **Rubén Sancho - Instructor BJJ**
+
+🥋 **Credenciales:**
+• Faixa Marrón (Brown Belt)
+• Competidor activo
+• Especialista Gi y No-Gi
+• Experiencia internacional
+
+🏆 **Especialidades:**
+• Brazilian Jiu-Jitsu técnico
+• Modalidades Gi y No-Gi
+• Preparación para competiciones
+• Defensa personal aplicada`;
+        actions = ['Antonio Alonso', 'Pablo Mate', 'Clase gratis'];
+      } else if (actionText.includes('google maps')) {
+        response = `🗺️ **Abrir en Google Maps:**
+
+Te estoy dirigiendo a nuestra ubicación en Google Maps.
+📍 C. Esteban Sáez Alvarado, 8, Burgos
+
+¡Nos vemos pronto!`;
+        actions = ['Llamar', 'WhatsApp', 'Horarios'];
+        // Open Google Maps
+        setTimeout(() => {
+          window.open('https://maps.google.com/?q=C.+Esteban+Sáez+Alvarado,+8,+Burgos', '_blank');
+        }, 1000);
+      } else if (actionText.includes('llamar')) {
+        response = `📞 **Llamar Ahora:**
+
+Te estoy conectando con nuestro teléfono.
+📞 +34 662 323 282
+
+¡Hablamos en un momento!`;
+        actions = ['WhatsApp', 'Google Maps', 'Horarios'];
+        // Initiate phone call
+        setTimeout(() => {
+          window.open('tel:+34662323282', '_self');
+        }, 1000);
+      } else if (actionText.includes('whatsapp')) {
+        response = `💬 **Abrir WhatsApp:**
+
+Te estoy redirigiendo a WhatsApp.
+Mensaje preparado para enviar.
+
+¡Hablamos por WhatsApp!`;
+        actions = ['Llamar', 'Google Maps', 'Más clases'];
+        // Open WhatsApp
+        setTimeout(() => {
+          window.open('https://wa.me/34662323282?text=Hola%20KaizenAcademy%2C%20me%20interesa%20información%20sobre%20las%20clases%20de%20artes%20marciales', '_blank');
+        }, 1000);
       } else if (actionText.includes('bjj') || actionText.includes('boxeo') || actionText.includes('kickboxing') || actionText.includes('mma') || actionText.includes('open mat')) {
         response = `✅ **Reserva Confirmada:**
 
