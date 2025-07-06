@@ -237,6 +237,40 @@ export default function AppSimple() {
         </div>
       </Card>
 
+      {/* Discipline Quick Selector */}
+      <Card className="bg-gray-800 border-gray-700">
+        <div className="p-4">
+          <h3 className="text-white font-semibold mb-3 flex items-center">
+            <Target className="w-4 h-4 mr-2 text-kaizen-gold" />
+            Selecciona tus Disciplinas
+          </h3>
+          <div className="grid grid-cols-2 gap-2">
+            {availableDisciplines.slice(0, 4).map((discipline) => (
+              <button
+                key={discipline.id}
+                onClick={() => toggleDiscipline(discipline.id)}
+                className={`p-2 rounded-lg border text-xs transition-all ${
+                  selectedDisciplines.includes(discipline.id)
+                    ? 'border-kaizen-red bg-kaizen-red/20 text-white'
+                    : 'border-gray-600 bg-gray-700 text-gray-300 hover:border-gray-500'
+                }`}
+              >
+                <div className="flex items-center space-x-2">
+                  <img src={discipline.logo} alt="Kaizen" className="w-4 h-4 object-contain" />
+                  <span>{discipline.name}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+          <p className="text-gray-400 text-xs mt-2">
+            {selectedDisciplines.length > 0 
+              ? `Recibirás notificaciones para: ${selectedDisciplines.join(', ')}`
+              : 'Selecciona disciplinas para recibir notificaciones personalizadas'
+            }
+          </p>
+        </div>
+      </Card>
+
       {/* Quick Actions */}
       <div className="grid grid-cols-2 gap-4">
         <Card className="bg-gray-800 border-gray-700">
