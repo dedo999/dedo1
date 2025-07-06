@@ -33,6 +33,12 @@ function Router() {
 
   return (
     <Switch>
+      <Route path="/qr" component={QRCodePage} />
+      <Route path="/qr-code" component={QRCodePage} />
+      <Route path="/app/login" component={AppLogin} />
+      <Route path="/app/dashboard" component={MobileApp} />
+      <Route path="/app/photos" component={AppPhotos} />
+      <Route path="/app/chat" component={AppChat} />
       <Route path="/barbershop" component={BarbershopDesigner} />
       <Route path="/tienda" component={Store} />
       <Route path="/store" component={Store} />
@@ -46,12 +52,6 @@ function Router() {
       <Route path="/pablo" component={Pablo} />
       <Route path="/community" component={Community} />
       <Route path="/comunidad" component={Community} />
-      <Route path="/app/login" component={AppLogin} />
-      <Route path="/app/dashboard" component={MobileApp} />
-      <Route path="/app/photos" component={AppPhotos} />
-      <Route path="/app/chat" component={AppChat} />
-      <Route path="/qr" component={QRCodePage} />
-      <Route path="/qr-code" component={QRCodePage} />
       <Route path="/" component={Home} />
       <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
       <Route path="/app/bookings" component={Bookings} />
