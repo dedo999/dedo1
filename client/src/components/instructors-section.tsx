@@ -4,16 +4,17 @@ export default function InstructorsSection() {
   const instructors = [
     {
       name: "Antonio Alonso",
-      title: "BJJ Maestro - Faixa Preta / Black Belt",
-      description: "Maestro de Artes Marciales con más de 45 años de experiencia. Pionero del Jiu Jitsu Brasileño y MMA en Castilla y León. Cinturón Negro 4° Grado (Faixa preta) representando al Peposo Fight Team bajo Paulo Peposo Curi y Hitler Curi de Brasil.",
+      title: "Profesor de Artes Marciales - Faixa Preta / Black Belt",
+      description: "Profesor de Artes Marciales con más de 45 años de experiencia. Pionero del Jiu Jitsu Brasileño y MMA en Castilla y León. Propietario de la Academia Kaizen representando al Peposo Fight Team bajo Paulo Peposo Curi y Hitler Curi de Brasil.",
       specialties: ["MMA", "BJJ", "Judo", "Ne Waza"],
       icon: Shield,
       instagram: "https://www.instagram.com/kaizen_burgos?igsh=YW9qcnNtN3ZkdWJw",
       achievements: [
-        "Profesor con mayor graduación de Castilla y León",
-        "Pionero del BJJ y MMA en la comunidad",
-        "Formó a los primeros cinturones negros de la región",
-        "Maestro entrenador nacional"
+        "La Faixa preta/black Belt y los grados de Bjj",
+        "Cinto negro de judo",
+        "Cinto negro de jiu jitsu japones",
+        "Entrenador nacional de grapoling",
+        "Maestro entrenador Nacional"
       ]
     },
     {

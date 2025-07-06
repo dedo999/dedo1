@@ -112,7 +112,7 @@ export default function ServicesSection() {
                     href="/about"
                     className="bg-kaizen-gold hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-lg transition-all duration-300 inline-block"
                   >
-                    Conoce a Antonio Alonso
+                    Nuestro Fundador
                   </a>
                 )}
                 {service.hasKidsPage && (
