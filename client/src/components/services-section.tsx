@@ -1,72 +1,72 @@
 export default function ServicesSection() {
   const services = [
     {
-      title: "MMA",
-      description: "Artes marciales mixtas combinando striking, grappling y lucha en el suelo. El deporte de combate más completo.",
+      title: "MMA Burgos",
+      description: "Clases de MMA en Burgos - Artes marciales mixtas combinando striking, grappling y lucha en el suelo. El deporte de combate más completo para adultos y jóvenes.",
       tags: ["Principiantes", "Avanzado", "Competición"],
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
           <img 
             src="/mma-image.jpg" 
-            alt="MMA training at Kaizen Burgos"
+            alt="Clases MMA Burgos - Artes marciales mixtas en KaizenAcademy"
             className="w-full h-full object-cover"
           />
         </div>
       )
     },
     {
-      title: "Kickboxing",
-      description: "Combina boxeo con patadas. Excelente para fitness, defensa personal y técnica de striking.",
+      title: "Kickboxing Burgos",
+      description: "Clases de kickboxing en Burgos - Combina boxeo con patadas. Excelente para fitness, defensa personal y técnica de striking. Ideal para mujeres y hombres.",
       tags: ["Fitness", "Técnica", "Cardio"],
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
           <img 
             src="/kickboxing-image.webp" 
-            alt="Kickboxing training at Kaizen Burgos"
+            alt="Clases de kickboxing Burgos - Entrenamientos en KaizenAcademy"
             className="w-full h-full object-cover"
           />
         </div>
       )
     },
     {
-      title: "Brazilian Jiu-Jitsu",
-      description: "Arte suave que enfatiza la técnica sobre la fuerza. Ideal para autodefensa y desarrollo mental.",
+      title: "Jiu Jitsu Burgos",
+      description: "Clases de jiu jitsu en Burgos - Arte suave que enfatiza la técnica sobre la fuerza. Ideal para autodefensa y desarrollo mental. Brazilian Jiu-Jitsu gi y no-gi.",
       tags: ["Gi", "No-Gi", "Self-Defense"],
       hasDetailPage: true,
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-gradient-to-br from-gray-900 to-black flex items-center justify-center overflow-hidden shadow-lg">
           <img 
             src="/bjj-image-new.webp" 
-            alt="Brazilian Jiu-Jitsu training at Kaizen Burgos"
+            alt="Clases jiu jitsu Burgos - Brazilian Jiu-Jitsu en KaizenAcademy"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
       )
     },
     {
-      title: "Boxeo",
-      description: "El arte noble de golpear. Desarrolla coordinación, velocidad y potencia en el tren superior.",
+      title: "Boxeo Burgos",
+      description: "Clases de boxeo en Burgos - El arte noble de golpear. Desarrolla coordinación, velocidad y potencia en el tren superior. Boxeo profesional y amateur.",
       tags: ["Técnica", "Sparring", "Fitness"],
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
           <img 
             src="/boxeo-image.webp" 
-            alt="Boxeo training at Kaizen Burgos"
+            alt="Clases de boxeo Burgos - Entrenamientos profesionales KaizenAcademy"
             className="w-full h-full object-cover"
           />
         </div>
       )
     },
     {
-      title: "Jiu Jitsu Kids/Infantil",
-      description: "Programas especiales de Jiu Jitsu para niños que desarrollan disciplina, respeto y confianza a través del arte suave.",
+      title: "Artes Marciales para Niños Burgos",
+      description: "Clases infantiles de artes marciales en Burgos - Programas especiales de Jiu Jitsu para niños que desarrollan disciplina, respeto y confianza a través del arte suave.",
       tags: ["6-12 años", "Técnica", "Valores"],
       hasKidsPage: true,
       svgIcon: (
         <div className="w-full h-48 rounded-lg bg-black flex items-center justify-center overflow-hidden">
           <img 
             src="/kids-martial-arts.jpg" 
-            alt="Jiu Jitsu Kids Kaizen Burgos - BJJ training for children"
+            alt="Artes marciales para niños Burgos - Clases infantiles KaizenAcademy"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
@@ -79,10 +79,10 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-2">
-            Nuestras <span className="text-kaizen-red">Disciplinas</span>
+            <span className="text-kaizen-red">MMA</span> • <span className="text-kaizen-red">Jiu Jitsu</span> • <span className="text-kaizen-red">Kickboxing</span> • <span className="text-kaizen-red">Boxeo</span> Burgos
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-            Descubre el arte marcial que mejor se adapte a ti con nuestros instructores especializados
+            Academia de artes marciales #1 en Burgos. Clases para niños y adultos con instructores certificados. Primera clase gratis.
           </p>
         </div>
 
