@@ -44,7 +44,7 @@
 - "Brazilian Jiu Jitsu casco histórico Burgos"
 
 ### Regional Keywords
-- "mejor gimnasio MMA Castilla y León"
+- "academia MMA Castilla y León"
 - "artes marciales provincia Burgos"
 - "kickboxing norte España"
 
@@ -76,7 +76,7 @@
 - "dónde entrenar MMA en Burgos"
 - "cuánto cuesta gimnasio artes marciales Burgos"
 - "qué arte marcial elegir Burgos"
-- "mejor gimnasio BJJ Burgos"
+- "academia BJJ Burgos"
 - "horarios entrenamientos kickboxing Burgos"
 
 ### Age/Gender Specific

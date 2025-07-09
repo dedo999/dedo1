@@ -50,7 +50,7 @@
 5. **"clases MMA Burgos"** - Intent-based
 
 ### **Long-Tail Keywords (Lower Competition)**
-1. **"mejor gimnasio MMA Burgos"** - Competitive advantage
+1. **"academia MMA Burgos"** - Professional positioning
 2. **"clases BJJ principiantes Burgos"** - Beginner targeting
 3. **"kickboxing mujeres Burgos"** - Gender-specific
 4. **"horarios clases MMA Burgos"** - Schedule-based
@@ -90,7 +90,7 @@
 - **Knowledge Panel**: Business information panel
 
 ### **Long-term (3-6 months)**
-- **#1 Position**: "mejor gimnasio MMA Burgos"
+- **#1 Position**: "gimnasio artes marciales Burgos"
 - **Featured Snippets**: FAQ answers in position 0
 - **Local Authority**: Dominant martial arts presence in Burgos
 

@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 export default function TestimonialsSection() {
   const testimonials = [
     {
-      text: "El mejor gimnasio de artes marciales de Burgos. Instructores altamente cualificados y dedicados. Ambiente familiar y profesional.",
+      text: "Excelente gimnasio de artes marciales en Burgos. Instructores altamente cualificados y dedicados. Ambiente familiar y profesional.",
       author: "María González",
       timeAgo: "Hace 1 año"
     },

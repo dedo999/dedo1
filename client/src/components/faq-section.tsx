@@ -42,9 +42,9 @@ export default function FAQSection() {
       keywords: ["artes marciales para niños Burgos", "clases infantiles", "jiu jitsu niños"]
     },
     {
-      question: "¿Cuál es el mejor gimnasio de artes marciales en Burgos?",
-      answer: "KaizenAcademy改善Burgos es considerada la academia #1 de artes marciales en Burgos. Ofrecemos MMA, jiu jitsu, kickboxing, boxeo y defensa personal. Con instructores certificados, instalaciones modernas en el centro de Burgos y +20 años de experiencia. 5.0⭐ en Google Reviews.",
-      keywords: ["gimnasio artes marciales Burgos", "academia artes marciales", "mejor gimnasio"]
+      question: "¿Cuáles son los horarios de las clases en KaizenAcademy Burgos?",
+      answer: "Tenemos horarios flexibles para todas las disciplinas. MMA: martes y jueves 20:00-21:30. Jiu Jitsu: lunes 19:00-20:30, miércoles 19:00-20:30, sábados 11:00-13:00. Kickboxing: martes y jueves 20:00-21:30. Boxeo: martes 19:00-20:00, miércoles 20:30-21:45, jueves 19:00-20:00. También tenemos clases matutinas de MMA.",
+      keywords: ["horarios clases Burgos", "horarios artes marciales", "clases mañana tarde"]
     }
   ];
 
