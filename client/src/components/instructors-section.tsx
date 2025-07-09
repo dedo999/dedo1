@@ -32,11 +32,17 @@ export default function InstructorsSection() {
       ]
     },
     {
-      name: "Eduardo",
-      title: "Instructor de Kickboxing",
-      description: "Campeón nacional de kickboxing especializado en técnicas de striking y acondicionamiento físico.",
-      specialties: ["Kickboxing", "Boxeo"],
-      icon: Zap
+      name: "Eduardo Cortés",
+      title: "Experto en Kickboxing, Striking y Defensa Personal",
+      description: "Experto en Kickboxing, Striking y Defensa personal, con más de 20 años de experiencia como profesor y preparador de competidores.",
+      specialties: ["Kickboxing", "Striking", "Defensa Personal", "Boxeo"],
+      icon: Zap,
+      achievements: [
+        "Más de 20 años de experiencia como profesor",
+        "Preparador de competidores",
+        "Especialista en técnicas de striking",
+        "Experto en defensa personal"
+      ]
     },
     {
       name: "Rubén Sancho",
