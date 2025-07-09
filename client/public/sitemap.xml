@@ -1,35 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kaizenburgos.com/</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://kaizenburgos.com/kaizen-logo.jpg</image:loc>
-      <image:title>Kaizen Burgos - Gimnasio Artes Marciales Logo</image:title>
-      <image:caption>Logo oficial del mejor gimnasio de artes marciales en Burgos</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kaizenburgos.com/mma-image.webp</image:loc>
-      <image:title>Clases MMA Burgos - Mixed Martial Arts</image:title>
-      <image:caption>Entrenamiento profesional de MMA en Kaizen Burgos</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kaizenburgos.com/bjj-image-new.webp</image:loc>
-      <image:title>Brazilian Jiu-Jitsu Burgos - BJJ Classes</image:title>
-      <image:caption>Clases de Brazilian Jiu-Jitsu en el mejor gimnasio BJJ Burgos</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kaizenburgos.com/kickboxing-image.webp</image:loc>
-      <image:title>Kickboxing Burgos - Clases Profesionales</image:title>
-      <image:caption>Entrenamientos de kickboxing para todos los niveles en Burgos</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://kaizenburgos.com/boxing-image.webp</image:loc>
-      <image:title>Boxeo Burgos - Clases de Boxeo</image:title>
-      <image:caption>Clases de boxeo profesional en academia Kaizen Burgos</image:caption>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/bjj</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/jiu-jitsu</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/tienda</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/store</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/alquiler-espacios</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/space-rental</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/download-app</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kaizenburgos.com/descargar-app</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -6,7 +6,7 @@ import InstructorsSection from "@/components/instructors-section";
 import ScheduleSection from "@/components/schedule-section";
 import PricingSection from "@/components/pricing-section";
 import TestimonialsSection from "@/components/testimonials-section";
-import CommunitySection from "@/components/community-section";
+
 import ContactSection from "@/components/contact-section";
 
 import Footer from "@/components/footer";
@@ -23,7 +23,7 @@ export default function Home() {
       <ScheduleSection />
       <PricingSection />
       <TestimonialsSection />
-      <CommunitySection />
+
       <ContactSection />
       <Footer />
       <SimpleChatbot />

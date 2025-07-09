@@ -1,31 +1,26 @@
 User-agent: *
 Allow: /
+Allow: /bjj
+Allow: /jiu-jitsu
+Allow: /tienda
+Allow: /store
+Allow: /alquiler-espacios
+Allow: /space-rental
+Allow: /download-app
+Allow: /descargar-app
 
-# Sitemaps
-Sitemap: https://kaizen-burgos.replit.app/sitemap.xml
-
-# Important pages for martial arts SEO
-Allow: /#inicio
-Allow: /#servicios
-Allow: /#instructores
-Allow: /#horarios
-Allow: /#precios
-Allow: /#testimonios
-Allow: /#contacto
-
-# Crawl-delay for respectful crawling
+# Enhanced crawling for SEO
 Crawl-delay: 1
 
-# Block common attack paths
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /api/
+# Sitemaps
+Sitemap: https://kaizenburgos.com/sitemap.xml
 
-# Allow important assets
-Allow: /kaizen-logo.jpg
-Allow: /mma-image.webp
-Allow: /bjj-image-new.webp
-Allow: /kickboxing-image.webp
-Allow: /boxing-image.webp
-Allow: /champions-image.jpg
+# KaizenAcademy改善 Burgos - Academia #1 Artes Marciales
+# MMA, Brazilian Jiu-Jitsu, Kickboxing, Boxeo en Burgos
+# Perfecta para turistas del Camino Santiago
+# Centro histórico Burgos, cerca Plaza Mayor y Catedral
+# Instructores certificados internacionalmente
+# Clases flexibles para visitantes y peregrinos
+# Turismo deportivo y experiencias únicas
+# Contacto: +34662323282 | info@kaizenburgos.com
+# https://kaizenburgos.com
