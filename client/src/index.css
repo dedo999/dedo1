@@ -2,6 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile-first performance optimizations */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Touch-friendly buttons */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Improve performance on mobile */
+* {
+  box-sizing: border-box;
+}
+
+/* Better image rendering on mobile */
+img {
+  image-rendering: optimizeQuality;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Prevent horizontal scrolling on mobile */
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Optimize loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Critical above-the-fold styles */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f1f1f 0%, #000 100%);
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  /* Improve button sizes for mobile */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Optimize for slow connections */
+@media (max-width: 480px) {
+  .bg-gradient-to-br {
+    background: #1a1a1a; /* Fallback solid color */
+  }
+  
+  /* Reduce complex animations on small screens */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Preload critical fonts */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeMZhrib2Bg-4.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* Mobile-first responsive optimizations */
 @layer base {
   html {

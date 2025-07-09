@@ -1,26 +1,58 @@
 User-agent: *
 Allow: /
+
+# High-priority martial arts pages for crawling
+Allow: /mma-burgos
+Allow: /jiu-jitsu-burgos
+Allow: /kickboxing-burgos
+Allow: /boxeo-burgos
+Allow: /defensa-personal-burgos
+Allow: /artes-marciales-ninos-burgos
+Allow: /gimnasio-artes-marciales-burgos
+
+# Business pages
+Allow: /precios-artes-marciales-burgos
+Allow: /horarios-clases-burgos
+Allow: /contacto-academia-burgos
+Allow: /primera-clase-gratis-burgos
+
+# Instructor pages
+Allow: /instructores-burgos
+Allow: /antonio-alonso-instructor
+Allow: /pablo-mate-instructor
+Allow: /eduardo-cortes-instructor
+Allow: /ruben-sancho-instructor
+
+# Class-specific pages
+Allow: /clases-mma-burgos
+Allow: /clases-jiu-jitsu-burgos
+Allow: /clases-kickboxing-burgos
+Allow: /clases-boxeo-burgos
+Allow: /clases-infantiles-artes-marciales-burgos
+
+# English pages for tourists
+Allow: /martial-arts-burgos
+Allow: /kickboxing-classes-burgos
+Allow: /boxing-classes-burgos
+
+# Legacy pages
 Allow: /bjj
 Allow: /jiu-jitsu
-Allow: /tienda
-Allow: /store
-Allow: /alquiler-espacios
-Allow: /space-rental
-Allow: /download-app
-Allow: /descargar-app
+Allow: /about
 
-# Enhanced crawling for SEO
-Crawl-delay: 1
+# Disallow app-specific and admin pages
+Disallow: /app/
+Disallow: /demo
+Disallow: /qr
+Disallow: /barbershop
 
-# Sitemaps
+# Sitemap location
 Sitemap: https://kaizenburgos.com/sitemap.xml
 
-# KaizenAcademy改善 Burgos - Academia #1 Artes Marciales
-# MMA, Brazilian Jiu-Jitsu, Kickboxing, Boxeo en Burgos
-# Perfecta para turistas del Camino Santiago
-# Centro histórico Burgos, cerca Plaza Mayor y Catedral
-# Instructores certificados internacionalmente
-# Clases flexibles para visitantes y peregrinos
-# Turismo deportivo y experiencias únicas
-# Contacto: +34662323282 | info@kaizenburgos.com
-# https://kaizenburgos.com
+# Keywords for search engines (Burgos martial arts focus)
+# MMA Burgos, jiu jitsu Burgos, kickboxing Burgos, boxeo Burgos
+# Academia artes marciales Burgos, gimnasio Burgos
+# Clases MMA, clases kickboxing, clases boxeo, Brazilian Jiu-Jitsu
+# Defensa personal Burgos, artes marciales para niños
+# KaizenAcademy Burgos, instructores certificados
+# Camino Santiago martial arts, tourism Burgos sports

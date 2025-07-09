@@ -1,7 +1,7 @@
-import Navigation from "@/components/navigation";
-import HeroSection from "@/components/hero-section";
+import MobileNavbar from "@/components/mobile-navbar";
+import MobileOptimizedHero from "@/components/mobile-optimized-hero";
 import AboutSection from "@/components/about-section";
-import ServicesSection from "@/components/services-section";
+import MobileOptimizedServices from "@/components/mobile-optimized-services";
 import InstructorsSection from "@/components/instructors-section";
 import ScheduleSection from "@/components/schedule-section";
 import PricingSection from "@/components/pricing-section";
@@ -16,10 +16,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-kaizen-darker text-white overflow-x-hidden">
       <StructuredData />
-      <Navigation />
-      <HeroSection />
+      <MobileNavbar />
+      <MobileOptimizedHero />
       <AboutSection />
-      <ServicesSection />
+      <MobileOptimizedServices />
       <InstructorsSection />
       <ScheduleSection />
       <PricingSection />
