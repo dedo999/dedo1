@@ -34,15 +34,15 @@ export default function HeroSection() {
           <h1 className="flex flex-col sm:flex-row items-center justify-center gap-2 text-2xl sm:text-3xl md:text-5xl font-black mb-4 sm:mb-6 tracking-tight">
             <img 
               src="/kaizen_logo_hero.png" 
-              alt="Academia MMA Burgos - Jiu Jitsu Kickboxing Boxeo"
+              alt="KAIZEN Logo"
               className="h-12 sm:h-16 md:h-24 w-auto mb-2 sm:mb-0"
             />
-            <span className="text-kaizen-gold text-lg sm:text-2xl md:text-4xl">MMA • Jiu Jitsu • Kickboxing • Boxeo Burgos</span>
+            <span className="text-kaizen-gold text-lg sm:text-2xl md:text-4xl">Academy改善Burgos</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto font-light leading-relaxed px-2">
-            Academia de Artes Marciales #1 en Burgos<br className="sm:hidden"/>
-            <span className="hidden sm:inline"> • </span>MMA • Jiu Jitsu • Kickboxing • Boxeo • Defensa Personal<br className="sm:hidden"/>
-            <span className="hidden sm:inline"> • </span>Clases para niños y adultos • Instructores certificados • Primera clase gratis
+            Academia de Artes Marciales<br className="sm:hidden"/>
+            <span className="hidden sm:inline"> • </span>MMA • BJJ • Kickboxing • Boxeo<br className="sm:hidden"/>
+            <span className="hidden sm:inline"> • </span>Instructores profesionales • Primera clase gratis
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <button
