@@ -1,6 +1,7 @@
 import { Shield, Zap, Medal } from "lucide-react";
 import pabloInstructorImage from "@assets/WhatsApp Image 2025-07-06 at 4.10.36 PM (1)_1751812019842.jpeg";
 import rubenInstructorImage from "@assets/WhatsApp Image 2025-07-06 at 5.01.16 PM_1751814250916.jpeg";
+import eduardoInstructorImage from "@assets/WhatsApp Image 2025-07-05 at 10.34.23 PM_1752089581069.jpeg";
 
 export default function InstructorsSection() {
   const instructors = [
@@ -37,6 +38,7 @@ export default function InstructorsSection() {
       description: "Experto en Kickboxing, Striking y Defensa personal, con más de 20 años de experiencia como profesor y preparador de competidores.",
       specialties: ["Kickboxing", "Striking", "Defensa Personal", "Boxeo"],
       icon: Zap,
+      image: eduardoInstructorImage,
       achievements: [
         "Más de 20 años de experiencia como profesor",
         "Preparador de competidores",
@@ -99,12 +101,13 @@ export default function InstructorsSection() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                  ) : instructor.name === "Eduardo" ? (
+                  ) : instructor.name === "Eduardo Cortés" ? (
                     <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full mx-auto mb-4 sm:mb-6 overflow-hidden border-3 sm:border-4 border-kaizen-red">
                       <img 
-                        src="/eduardo-profile.jpeg" 
-                        alt="Eduardo - Instructor de Kickboxing"
-                        className="w-full h-full object-cover"
+                        src={instructor.image} 
+                        alt="Eduardo Cortés - Experto en Kickboxing, Striking y Defensa Personal"
+                        className="w-full h-full object-cover object-center"
+                        style={{ objectPosition: 'center top' }}
                       />
                     </div>
                   ) : (
