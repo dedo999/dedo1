@@ -54,6 +54,8 @@ export default function Navigation() {
               src="/kaizen-logo-transparent.png" 
               alt="Kaizen Logo"
               className="h-12 sm:h-14 w-auto"
+              loading="eager"
+              decoding="async"
             />
           </div>
           

@@ -36,6 +36,8 @@ export default function HeroSection() {
               src="/kaizen_logo_hero.png" 
               alt="KAIZEN Logo"
               className="h-12 sm:h-16 md:h-24 w-auto mb-2 sm:mb-0"
+              loading="eager"
+              decoding="async"
             />
             <span className="text-kaizen-gold text-lg sm:text-2xl md:text-4xl">Academy改善Burgos</span>
           </h1>
@@ -47,14 +49,14 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <button
               onClick={openReservationWhatsApp}
-              className="w-full sm:w-auto bg-kaizen-red hover:bg-red-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center"
+              className="w-full sm:w-auto bg-kaizen-red hover:bg-red-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center touch-manipulation"
             >
               <Calendar className="mr-2" size={18} />
               Reserva tu Clase Gratis
             </button>
             <a 
               href="tel:662323282" 
-              className="w-full sm:w-auto border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+              className="w-full sm:w-auto border-2 border-kaizen-gold text-kaizen-gold hover:bg-kaizen-gold hover:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center touch-manipulation"
             >
               <Phone className="mr-2" size={20} />
               662 323 282
