@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Ebook Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Professional Ebook Creator</h1>
+            <p>Create beautiful, professional ebooks with custom styling</p>
+        </header>
+
+        <main class="main-content">
+            <section class="editor-section">
+                <h2>Ebook Editor</h2>
+                
+                <div class="form-group">
+                    <label for="title">Ebook Title</label>
+                    <input type="text" id="title" placeholder="Enter your ebook title">
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author Name</label>
+                    <input type="text" id="author" placeholder="Author name">
+                </div>
+
+                <div class="form-group">
+                    <label for="subtitle">Subtitle (optional)</label>
+                    <input type="text" id="subtitle" placeholder="Subtitle or description">
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea id="content" rows="15" placeholder="Write your ebook content here...
+
+Use # for chapter titles
+Use ## for section headings
+Use ### for subsections
+
+Example:
+# Chapter 1: Introduction
+This is the introduction to your ebook...
+
+## Section 1.1: Getting Started
+Content for this section...
+
+# Chapter 2: Advanced Topics
+More content here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="theme">Theme</label>
+                    <select id="theme">
+                        <option value="professional">Professional</option>
+                        <option value="modern">Modern</option>
+                        <option value="classic">Classic</option>
+                        <option value="minimal">Minimal</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button id="preview-btn" class="btn btn-primary">Preview</button>
+                    <button id="export-pdf" class="btn btn-secondary">Export PDF</button>
+                    <button id="export-html" class="btn btn-secondary">Export HTML</button>
+                </div>
+            </section>
+
+            <section class="preview-section">
+                <h2>Live Preview</h2>
+                <div id="preview-content" class="preview-window">
+                    <p>Preview will appear here...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
