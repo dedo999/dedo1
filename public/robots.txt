@@ -1,0 +1,54 @@
+# Robots.txt for KaizenAcademy改善 Burgos - Academia #1 MMA BJJ Kickboxing Boxeo
+# Target: #1 Google ranking for martial arts keywords in Burgos
+
+User-agent: *
+Allow: /
+
+# Priority directories for martial arts content
+Allow: /mma-burgos
+Allow: /brazilian-jiu-jitsu-burgos  
+Allow: /kickboxing-burgos
+Allow: /boxeo-burgos
+Allow: /contacto
+Allow: /horarios-clases
+Allow: /precios-artes-marciales-burgos
+Allow: /instructores
+Allow: /camino-santiago-artes-marciales
+Allow: /turismo-deportivo-burgos
+Allow: /artes-marciales-ninos-burgos
+Allow: /defensa-personal-burgos
+Allow: /gimnasio-centro-burgos
+
+# Block admin and development files
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dev/
+Disallow: /_next/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /server/
+Disallow: /build/
+Disallow: /src/
+
+# Allow critical assets
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+
+# Sitemap location
+Sitemap: https://kaizenburgos.com/sitemap.xml
+
+# Target crawl rate for better indexing
+Crawl-delay: 1
+
+# High-value martial arts keywords for search engines:
+# MMA Burgos, BJJ Burgos, kickboxing Burgos, boxeo Burgos, artes marciales Burgos
+# Brazilian Jiu-Jitsu Burgos, defensa personal Burgos, gimnasio artes marciales Burgos
+# academia MMA Burgos, clases kickboxing Burgos, entrenamientos boxeo Burgos
+# turismo deportivo Burgos, Camino Santiago artes marciales, KaizenAcademy改善
