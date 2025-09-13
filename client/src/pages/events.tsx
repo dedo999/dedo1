@@ -1,8 +1,59 @@
 import { Link } from "wouter";
+import { useEffect } from "react";
 import fighterImage1 from "@assets/ScreenShot Tool -20250913190644_1757783437418.png";
 import fighterImage2 from "@assets/ScreenShot Tool -20250913190620_1757783437423.png";
 
 export default function EventsPage() {
+  useEffect(() => {
+    // Update page meta tags for SEO
+    document.title = "Kombat Games Burgos 2025 | Luchadores Kaizen Academy | Evento MMA 20 Septiembre";
+    
+    const description = "Álvar Romero y Álex Calvo de KaizenAcademy改善 Burgos compiten en Kombat Games Burgos el 20 de Septiembre. Conoce a nuestros luchadores profesionales de MMA.";
+    
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', description);
+
+    // Add Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]') || document.createElement('meta');
+    ogTitle.setAttribute('property', 'og:title');
+    ogTitle.setAttribute('content', 'Kombat Games Burgos 2025 | Luchadores Kaizen Academy MMA');
+    if (!document.querySelector('meta[property="og:title"]')) {
+      document.head.appendChild(ogTitle);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]') || document.createElement('meta');
+    ogDescription.setAttribute('property', 'og:description');
+    ogDescription.setAttribute('content', description);
+    if (!document.querySelector('meta[property="og:description"]')) {
+      document.head.appendChild(ogDescription);
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]') || document.createElement('meta');
+    ogUrl.setAttribute('property', 'og:url');
+    ogUrl.setAttribute('content', 'https://kaizenburgos.com/eventos');
+    if (!document.querySelector('meta[property="og:url"]')) {
+      document.head.appendChild(ogUrl);
+    }
+
+    // Add canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://kaizenburgos.com/eventos');
+
+    // Clean up function
+    return () => {
+      document.title = "MMA Burgos | Academia Artes Marciales KaizenAcademy改善 | BJJ Kickboxing Boxeo";
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-red-900/20 to-black">
       {/* Navigation */}
