@@ -1,14 +1,13 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
+import bcrypt from "bcrypt";
 import { 
   insertContactSchema, 
   insertBookingSchema, 
   insertMemberNoteSchema,
   insertClassSchema,
   insertClassScheduleSchema,
-  insertProductSchema,
-  insertOrderSchema,
   insertSpaceRentalSchema,
   insertSpaceBookingSchema,
   insertDailyAttendanceSchema,
@@ -18,6 +17,12 @@ import {
 } from "@shared/schema";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
+
+// Password hashing utility
+async function hashPassword(password: string): Promise<string> {
+  const saltRounds = 10;
+  return await bcrypt.hash(password, saltRounds);
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Auth middleware
@@ -289,81 +294,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // E-commerce routes
   
-  // Products routes
-  app.get("/api/products", async (req, res) => {
-    try {
-      const products = await storage.getProducts();
-      res.json(products);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-      res.status(500).json({ message: "Error fetching products" });
-    }
-  });
-
-  app.get("/api/products/:id", async (req, res) => {
-    try {
-      const productId = parseInt(req.params.id);
-      const product = await storage.getProduct(productId);
-      if (product) {
-        res.json(product);
-      } else {
-        res.status(404).json({ message: "Product not found" });
-      }
-    } catch (error) {
-      console.error("Error fetching product:", error);
-      res.status(500).json({ message: "Error fetching product" });
-    }
-  });
-
-  app.post("/api/products", isAuthenticated, async (req, res) => {
-    try {
-      const validatedData = insertProductSchema.parse(req.body);
-      const product = await storage.createProduct(validatedData);
-      res.status(201).json(product);
-    } catch (error) {
-      console.error("Error creating product:", error);
-      res.status(400).json({ message: "Error creating product" });
-    }
-  });
-
-  app.patch("/api/products/:id", isAuthenticated, async (req, res) => {
-    try {
-      const productId = parseInt(req.params.id);
-      const updateData = req.body;
-      const product = await storage.updateProduct(productId, updateData);
-      if (product) {
-        res.json(product);
-      } else {
-        res.status(404).json({ message: "Product not found" });
-      }
-    } catch (error) {
-      console.error("Error updating product:", error);
-      res.status(400).json({ message: "Error updating product" });
-    }
-  });
-
-  // Orders routes
-  app.get("/api/orders", isAuthenticated, async (req: any, res) => {
-    try {
-      const userId = req.user.claims.sub;
-      const orders = await storage.getUserOrders(userId);
-      res.json(orders);
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-      res.status(500).json({ message: "Error fetching orders" });
-    }
-  });
-
-  app.post("/api/orders", async (req, res) => {
-    try {
-      const validatedData = insertOrderSchema.parse(req.body);
-      const order = await storage.createOrder(validatedData);
-      res.status(201).json(order);
-    } catch (error) {
-      console.error("Error creating order:", error);
-      res.status(400).json({ message: "Error creating order" });
-    }
-  });
 
   // Space rental routes
   app.get("/api/space-rentals", async (req, res) => {
@@ -457,13 +387,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Calculate streak (simplified)
       let streak = 0;
-      const sortedCheckIns = checkIns.sort((a, b) => 
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
+      const sortedCheckIns = checkIns
+        .filter(checkIn => checkIn.createdAt) // Filter out null dates
+        .sort((a, b) => 
+          new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime()
+        );
 
       // Count consecutive days (simplified calculation)
       for (const checkIn of sortedCheckIns) {
-        const checkInDate = new Date(checkIn.createdAt).toDateString();
+        const checkInDate = new Date(checkIn.createdAt!).toDateString();
         const expectedDate = new Date();
         expectedDate.setDate(expectedDate.getDate() - streak);
         

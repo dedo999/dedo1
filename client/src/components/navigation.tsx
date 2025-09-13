@@ -29,7 +29,6 @@ export default function Navigation() {
     { href: "#instructores", label: "Instructores" },
     { href: "#horarios", label: "Horarios" },
     { href: "#precios", label: "Precios" },
-    { href: "/tienda", label: "Tienda", external: true },
     { href: "/alquiler-espacios", label: "Alquiler", external: true },
   ];
 

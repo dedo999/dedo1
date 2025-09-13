@@ -117,6 +117,7 @@ export const memberCheckIns = pgTable("member_check_ins", {
   checkOutTime: timestamp("check_out_time"),
   classId: integer("class_id").references(() => classes.id),
   notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow(),
 });
 
 // Keep contacts table for backward compatibility
@@ -130,46 +131,8 @@ export const contacts = pgTable("contacts", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
-// E-commerce Products
-export const products = pgTable("products", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  description: text("description"),
-  price: numeric("price", { precision: 10, scale: 2 }).notNull(),
-  category: text("category").notNull(), // 'clothing', 'equipment', 'kimono'
-  subcategory: text("subcategory"), // 't-shirt', 'shorts', 'gloves', etc.
-  sizes: text("sizes").array(), // ['S', 'M', 'L', 'XL'] for clothing
-  colors: text("colors").array(), // available colors
-  imageUrl: text("image_url"),
-  inStock: integer("in_stock").default(0),
-  isActive: boolean("is_active").default(true),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
 
-// Orders
-export const orders = pgTable("orders", {
-  id: serial("id").primaryKey(),
-  customerName: text("customer_name").notNull(),
-  customerEmail: text("customer_email").notNull(),
-  customerPhone: text("customer_phone"),
-  totalAmount: numeric("total_amount", { precision: 10, scale: 2 }).notNull(),
-  status: text("status").default("pending"), // 'pending', 'confirmed', 'delivered', 'cancelled'
-  paymentMethod: text("payment_method"), // 'cash', 'pix', 'card'
-  notes: text("notes"),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
 
-// Order Items
-export const orderItems = pgTable("order_items", {
-  id: serial("id").primaryKey(),
-  orderId: integer("order_id").notNull(),
-  productId: integer("product_id").notNull(),
-  quantity: integer("quantity").notNull(),
-  size: text("size"),
-  color: text("color"),
-  unitPrice: numeric("unit_price", { precision: 10, scale: 2 }).notNull(),
-  subtotal: numeric("subtotal", { precision: 10, scale: 2 }).notNull(),
-});
 
 // Space Rental Services
 export const spaceRentals = pgTable("space_rentals", {
@@ -489,17 +452,6 @@ export const insertContactSchema = createInsertSchema(contacts).omit({
 export type InsertContact = z.infer<typeof insertContactSchema>;
 export type Contact = typeof contacts.$inferSelect;
 
-// E-commerce types
-export type Product = typeof products.$inferSelect;
-export type InsertProduct = typeof products.$inferInsert;
-export const insertProductSchema = createInsertSchema(products);
-
-export type Order = typeof orders.$inferSelect;
-export type InsertOrder = typeof orders.$inferInsert;
-export const insertOrderSchema = createInsertSchema(orders);
-
-export type OrderItem = typeof orderItems.$inferSelect;
-export type InsertOrderItem = typeof orderItems.$inferInsert;
 
 export type SpaceRental = typeof spaceRentals.$inferSelect;
 export type InsertSpaceRental = typeof spaceRentals.$inferInsert;

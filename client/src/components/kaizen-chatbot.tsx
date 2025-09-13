@@ -145,7 +145,7 @@ D: 9:00-13:00
 🥋 Kimonos (alquiler)
 
 *Todo el material básico está incluido*`,
-    quickActions: ['Ver tienda', 'Reservar clase']
+    quickActions: ['Reservar clase']
   }
 ];
 

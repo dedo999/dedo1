@@ -7,9 +7,6 @@ import {
   memberNotes, 
   memberCheckIns,
   contacts,
-  products,
-  orders,
-  orderItems,
   spaceRentals,
   spaceBookings,
   dailyAttendance,
@@ -32,10 +29,6 @@ import {
   type InsertMemberCheckIn,
   type Contact,
   type InsertContact,
-  type Product,
-  type InsertProduct,
-  type Order,
-  type InsertOrder,
   type SpaceRental,
   type InsertSpaceRental,
   type SpaceBooking,
@@ -55,6 +48,8 @@ import { eq, and, gte, lte, desc, asc, inArray } from "drizzle-orm";
 export interface IStorage {
   // User operations (mandatory for Replit Auth)
   getUser(id: string): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  createUser(userData: any): Promise<User>;
   upsertUser(user: UpsertUser): Promise<User>;
   
   // Class management
@@ -92,15 +87,6 @@ export interface IStorage {
   // Contact form (backward compatibility)
   createContact(contact: InsertContact): Promise<Contact>;
   
-  // E-commerce operations
-  getProducts(): Promise<Product[]>;
-  getProduct(id: number): Promise<Product | undefined>;
-  createProduct(product: InsertProduct): Promise<Product>;
-  updateProduct(id: number, updateData: Partial<InsertProduct>): Promise<Product | undefined>;
-  
-  // Orders
-  getUserOrders(userId: string): Promise<Order[]>;
-  createOrder(order: InsertOrder): Promise<Order>;
   
   // Space rentals
   getSpaceRentals(): Promise<SpaceRental[]>;
@@ -144,6 +130,34 @@ export class DatabaseStorage implements IStorage {
     return user;
   }
 
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
+  }
+
+  async createUser(userData: any): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values({
+        id: userData.id || `user_${Date.now()}`,
+        username: userData.username,
+        passwordHash: userData.password,
+        email: userData.email,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        phone: userData.phone,
+        preferredDisciplines: userData.preferredDisciplines,
+        membershipType: userData.membershipType,
+        membershipExpiry: userData.membershipExpiry,
+        authProvider: 'local',
+        isActive: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      })
+      .returning();
+    return user;
+  }
+
   async upsertUser(userData: UpsertUser): Promise<User> {
     const [user] = await db
       .insert(users)
@@ -184,11 +198,29 @@ export class DatabaseStorage implements IStorage {
   }
 
   // Class schedules
-  async getClassSchedules(classId?: number): Promise<ClassSchedule[]> {
+  async getClassSchedules(classId?: number): Promise<any[]> {
     if (classId) {
       return await db
-        .select()
+        .select({
+          id: classSchedules.id,
+          classId: classSchedules.classId,
+          dayOfWeek: classSchedules.dayOfWeek,
+          startTime: classSchedules.startTime,
+          endTime: classSchedules.endTime,
+          isActive: classSchedules.isActive,
+          createdAt: classSchedules.createdAt,
+          class: {
+            id: classes.id,
+            name: classes.name,
+            description: classes.description,
+            instructor: classes.instructor,
+            duration: classes.duration,
+            maxCapacity: classes.maxCapacity,
+            difficulty: classes.difficulty,
+          }
+        })
         .from(classSchedules)
+        .leftJoin(classes, eq(classSchedules.classId, classes.id))
         .where(and(
           eq(classSchedules.classId, classId),
           eq(classSchedules.isActive, true)
@@ -197,8 +229,26 @@ export class DatabaseStorage implements IStorage {
     }
     
     return await db
-      .select()
+      .select({
+        id: classSchedules.id,
+        classId: classSchedules.classId,
+        dayOfWeek: classSchedules.dayOfWeek,
+        startTime: classSchedules.startTime,
+        endTime: classSchedules.endTime,
+        isActive: classSchedules.isActive,
+        createdAt: classSchedules.createdAt,
+        class: {
+          id: classes.id,
+          name: classes.name,
+          description: classes.description,
+          instructor: classes.instructor,
+          duration: classes.duration,
+          maxCapacity: classes.maxCapacity,
+          difficulty: classes.difficulty,
+        }
+      })
       .from(classSchedules)
+      .leftJoin(classes, eq(classSchedules.classId, classes.id))
       .where(eq(classSchedules.isActive, true))
       .orderBy(asc(classSchedules.dayOfWeek), asc(classSchedules.startTime));
   }
@@ -208,10 +258,28 @@ export class DatabaseStorage implements IStorage {
     return result;
   }
 
-  async getSchedulesByDay(dayOfWeek: number): Promise<ClassSchedule[]> {
+  async getSchedulesByDay(dayOfWeek: number): Promise<any[]> {
     return await db
-      .select()
+      .select({
+        id: classSchedules.id,
+        classId: classSchedules.classId,
+        dayOfWeek: classSchedules.dayOfWeek,
+        startTime: classSchedules.startTime,
+        endTime: classSchedules.endTime,
+        isActive: classSchedules.isActive,
+        createdAt: classSchedules.createdAt,
+        class: {
+          id: classes.id,
+          name: classes.name,
+          description: classes.description,
+          instructor: classes.instructor,
+          duration: classes.duration,
+          maxCapacity: classes.maxCapacity,
+          difficulty: classes.difficulty,
+        }
+      })
       .from(classSchedules)
+      .leftJoin(classes, eq(classSchedules.classId, classes.id))
       .where(and(
         eq(classSchedules.dayOfWeek, dayOfWeek),
         eq(classSchedules.isActive, true)
@@ -327,45 +395,6 @@ export class DatabaseStorage implements IStorage {
     return result;
   }
 
-  // E-commerce operations
-  async getProducts(): Promise<Product[]> {
-    return await db.select().from(products).where(eq(products.isActive, true));
-  }
-
-  async getProduct(id: number): Promise<Product | undefined> {
-    const [product] = await db.select().from(products).where(eq(products.id, id));
-    return product || undefined;
-  }
-
-  async createProduct(product: InsertProduct): Promise<Product> {
-    const [newProduct] = await db
-      .insert(products)
-      .values(product)
-      .returning();
-    return newProduct;
-  }
-
-  async updateProduct(id: number, updateData: Partial<InsertProduct>): Promise<Product | undefined> {
-    const [updatedProduct] = await db
-      .update(products)
-      .set(updateData)
-      .where(eq(products.id, id))
-      .returning();
-    return updatedProduct || undefined;
-  }
-
-  // Orders
-  async getUserOrders(userId: string): Promise<Order[]> {
-    return await db.select().from(orders).where(eq(orders.customerEmail, userId)).orderBy(desc(orders.createdAt));
-  }
-
-  async createOrder(order: InsertOrder): Promise<Order> {
-    const [newOrder] = await db
-      .insert(orders)
-      .values(order)
-      .returning();
-    return newOrder;
-  }
 
   // Space rentals
   async getSpaceRentals(): Promise<SpaceRental[]> {
