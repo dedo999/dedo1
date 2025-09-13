@@ -1,5 +1,6 @@
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
+import LatestNewsSection from "@/components/latest-news-section";
 import AboutSection from "@/components/about-section";
 import ServicesSection from "@/components/services-section";
 import InstructorsSection from "@/components/instructors-section";
@@ -18,6 +19,7 @@ export default function Home() {
       <StructuredData />
       <Navigation />
       <HeroSection />
+      <LatestNewsSection />
       <AboutSection />
       <ServicesSection />
       <InstructorsSection />
