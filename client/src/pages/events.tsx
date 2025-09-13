@@ -197,6 +197,239 @@ export default function EventsPage() {
         </div>
       </section>
 
+      {/* Complete Fight Card Section */}
+      <section className="py-16 bg-gradient-to-r from-black/90 to-red-900/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+            🥊 CARTELERA COMPLETA KOMBAT GAMES BURGOS
+          </h2>
+          
+          {/* Main Events/Title Fights */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center text-yellow-400 mb-8">
+              🏆 PELEAS POR TÍTULOS - MAIN EVENTS
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              <div className="bg-gradient-to-br from-yellow-600/30 to-red-600/30 rounded-xl p-6 border-2 border-yellow-500/50">
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-yellow-400 mb-3">LIGHT HEAVYWEIGHT TITLE</h4>
+                  <div className="bg-black/50 rounded-lg p-4 mb-4">
+                    <p className="text-lg font-bold text-white mb-1">LUCAS SIMIÃO</p>
+                    <p className="text-sm text-gray-300">Hybrid Training Center</p>
+                    <p className="text-red-400 font-bold text-lg my-2">VS</p>
+                    <p className="text-lg font-bold text-white mb-1">RATZA CIPRIAN</p>
+                    <p className="text-sm text-gray-300">PGT Spain</p>
+                  </div>
+                  <div className="bg-yellow-600/20 rounded-lg p-2">
+                    <p className="text-yellow-400 font-bold">🏆 Light Heavyweight MMA Title Bout</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-yellow-600/30 to-red-600/30 rounded-xl p-6 border-2 border-yellow-500/50">
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-yellow-400 mb-3">WELTERWEIGHT TITLE</h4>
+                  <div className="bg-black/50 rounded-lg p-4 mb-4">
+                    <p className="text-lg font-bold text-white mb-1">MIGUEL ÁNGEL LLANOS</p>
+                    <p className="text-sm text-gray-300">Circus Arena</p>
+                    <p className="text-red-400 font-bold text-lg my-2">VS</p>
+                    <p className="text-lg font-bold text-white mb-1">MIHAI DOGARU</p>
+                    <p className="text-sm text-gray-300">Solum Burgos</p>
+                  </div>
+                  <div className="bg-yellow-600/20 rounded-lg p-2">
+                    <p className="text-yellow-400 font-bold">🏆 Welterweight MMA Title Bout</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Featured Bouts - Kaizen Fighters */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center text-red-400 mb-8">
+              🥋 LUCHADORES KAIZEN ACADEMY - FEATURED BOUTS
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              <div className="bg-gradient-to-br from-red-600/30 to-black/50 rounded-xl p-6 border-2 border-red-500/50">
+                <div className="text-center">
+                  <h4 className="text-lg font-bold text-red-400 mb-3">WELTERWEIGHT MMA BOUT</h4>
+                  <div className="bg-black/50 rounded-lg p-4 mb-4">
+                    <p className="text-lg font-bold text-white mb-1">ICARO BRUNO SOUSA</p>
+                    <p className="text-sm text-gray-300">CD Tibet</p>
+                    <p className="text-red-400 font-bold text-lg my-2">VS</p>
+                    <p className="text-lg font-bold text-yellow-400 mb-1">ÁLVAR ROMERO</p>
+                    <p className="text-sm text-red-400">🥋 KAIZEN BURGOS</p>
+                  </div>
+                  <div className="bg-red-600/20 rounded-lg p-2">
+                    <p className="text-white font-bold">Welterweight MMA Bout</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-red-600/30 to-black/50 rounded-xl p-6 border-2 border-red-500/50">
+                <div className="text-center">
+                  <h4 className="text-lg font-bold text-red-400 mb-3">CATCHWEIGHT MMA BOUT - 75 KG</h4>
+                  <div className="bg-black/50 rounded-lg p-4 mb-4">
+                    <p className="text-lg font-bold text-white mb-1">RIQUI ANDRÉS SANTANA</p>
+                    <p className="text-sm text-gray-300">Riders Kensei</p>
+                    <p className="text-red-400 font-bold text-lg my-2">VS</p>
+                    <p className="text-lg font-bold text-yellow-400 mb-1">ÁLEX CALVO</p>
+                    <p className="text-sm text-red-400">🥋 KAIZEN BURGOS</p>
+                  </div>
+                  <div className="bg-red-600/20 rounded-lg p-2">
+                    <p className="text-white font-bold">Catchweight MMA - 75KG</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Undercard */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center text-white mb-8">
+              ⚡ CARTELERA PRELIMINAR - UNDERCARD BOUTS
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
+              
+              {/* Fight 1 */}
+              <div className="bg-black/50 rounded-lg p-4 border border-gray-500/30">
+                <div className="text-center">
+                  <p className="text-yellow-400 font-bold text-sm mb-2">FEATHERWEIGHT MMA</p>
+                  <p className="text-white font-semibold mb-1">ISMAILA DIEYE</p>
+                  <p className="text-xs text-gray-400 mb-2">CD Tibet</p>
+                  <p className="text-red-400 font-bold mb-2">VS</p>
+                  <p className="text-white font-semibold mb-1">ADRIÁN BARANDA</p>
+                  <p className="text-xs text-gray-400">PGT Spain</p>
+                </div>
+              </div>
+              
+              {/* Fight 2 */}
+              <div className="bg-black/50 rounded-lg p-4 border border-gray-500/30">
+                <div className="text-center">
+                  <p className="text-yellow-400 font-bold text-sm mb-2">LIGHTWEIGHT MMA</p>
+                  <p className="text-white font-semibold mb-1">DOMINGO MANDINGANU</p>
+                  <p className="text-xs text-gray-400 mb-2">Blacks Bilbao</p>
+                  <p className="text-red-400 font-bold mb-2">VS</p>
+                  <p className="text-white font-semibold mb-1">LUCIAN GRIGORE</p>
+                  <p className="text-xs text-gray-400">PGT Spain</p>
+                </div>
+              </div>
+              
+              {/* Fight 3 */}
+              <div className="bg-black/50 rounded-lg p-4 border border-gray-500/30">
+                <div className="text-center">
+                  <p className="text-yellow-400 font-bold text-sm mb-2">MMA BOUT</p>
+                  <p className="text-white font-semibold mb-1">TIAGO VIANA</p>
+                  <p className="text-xs text-gray-400 mb-2">Hybrid Training Center</p>
+                  <p className="text-red-400 font-bold mb-2">VS</p>
+                  <p className="text-white font-semibold mb-1">GIORGI KURDIANI</p>
+                  <p className="text-xs text-gray-400">Gaman Haro Fight</p>
+                </div>
+              </div>
+              
+              {/* Fight 4 */}
+              <div className="bg-black/50 rounded-lg p-4 border border-gray-500/30">
+                <div className="text-center">
+                  <p className="text-yellow-400 font-bold text-sm mb-2">MMA BOUT</p>
+                  <p className="text-white font-semibold mb-1">ISMAEL RUIZ</p>
+                  <p className="text-xs text-gray-400 mb-2">Chapimuay Gim</p>
+                  <p className="text-red-400 font-bold mb-2">VS</p>
+                  <p className="text-white font-semibold mb-1">CARLOS MIGUEL ANDRADE</p>
+                  <p className="text-xs text-gray-400">PGT Spain</p>
+                </div>
+              </div>
+              
+              {/* Fight 5 */}
+              <div className="bg-black/50 rounded-lg p-4 border border-gray-500/30">
+                <div className="text-center">
+                  <p className="text-yellow-400 font-bold text-sm mb-2">CATCHWEIGHT MMA - 55KG</p>
+                  <p className="text-white font-semibold mb-1">ARTURO COLMENAREJO</p>
+                  <p className="text-xs text-gray-400 mb-2">Circus Arena</p>
+                  <p className="text-red-400 font-bold mb-2">VS</p>
+                  <p className="text-white font-semibold mb-1">ORISHA YOTUEL</p>
+                  <p className="text-xs text-gray-400">CD Tibet</p>
+                </div>
+              </div>
+              
+              {/* Fight 6 */}
+              <div className="bg-black/50 rounded-lg p-4 border border-gray-500/30">
+                <div className="text-center">
+                  <p className="text-yellow-400 font-bold text-sm mb-2">LIGHTWEIGHT MMA</p>
+                  <p className="text-white font-semibold mb-1">LEONARDO AZEVEDO</p>
+                  <p className="text-xs text-gray-400 mb-2">Hybrid Training Center</p>
+                  <p className="text-red-400 font-bold mb-2">VS</p>
+                  <p className="text-white font-semibold mb-1">RAWAD HAMFE</p>
+                  <p className="text-xs text-gray-400">Team Bardena</p>
+                </div>
+              </div>
+              
+              {/* Fight 7 */}
+              <div className="bg-black/50 rounded-lg p-4 border border-gray-500/30">
+                <div className="text-center">
+                  <p className="text-yellow-400 font-bold text-sm mb-2">MMA BOUT</p>
+                  <p className="text-white font-semibold mb-1">ABDELBARI LOUCIF</p>
+                  <p className="text-xs text-gray-400 mb-2">Team Bardena</p>
+                  <p className="text-red-400 font-bold mb-2">VS</p>
+                  <p className="text-white font-semibold mb-1">IZAN SANCHO</p>
+                  <p className="text-xs text-gray-400">PGT Spain</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Event Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="bg-gradient-to-br from-red-600/30 to-black/50 rounded-lg p-4 text-center border border-red-500/30">
+              <div className="text-3xl font-bold text-yellow-400 mb-1">11</div>
+              <div className="text-sm text-white">Total Peleas MMA</div>
+            </div>
+            <div className="bg-gradient-to-br from-yellow-600/30 to-red-600/30 rounded-lg p-4 text-center border border-yellow-500/30">
+              <div className="text-3xl font-bold text-yellow-400 mb-1">2</div>
+              <div className="text-sm text-white">Títulos en Juego</div>
+            </div>
+            <div className="bg-gradient-to-br from-red-600/30 to-black/50 rounded-lg p-4 text-center border border-red-500/30">
+              <div className="text-3xl font-bold text-yellow-400 mb-1">22</div>
+              <div className="text-sm text-white">Luchadores</div>
+            </div>
+            <div className="bg-gradient-to-br from-red-600/30 to-yellow-600/20 rounded-lg p-4 text-center border border-red-500/30">
+              <div className="text-3xl font-bold text-yellow-400 mb-1">2</div>
+              <div className="text-sm text-white">Kaizen Fighters</div>
+            </div>
+          </div>
+          
+          {/* Promotional Text */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-red-600/30 to-yellow-500/20 backdrop-blur-sm rounded-xl p-6 border border-red-500/50 max-w-4xl mx-auto">
+              <h4 className="text-2xl font-bold text-yellow-400 mb-4">🔥 LA ESPERA HA TERMINADO 🔥</h4>
+              <p className="text-lg text-white mb-4">
+                Este 20 de septiembre, el Polideportivo de Villagonzalo Pedernales (Burgos) será el epicentro de la batalla.
+              </p>
+              <p className="text-xl font-bold text-red-400 mb-4">Llega KOMBAT GAMES BURGOS 🥊💥</p>
+              <p className="text-lg text-gray-200 mb-4">
+                Un evento único donde solo los guerreros más valientes se atreven a entrar en la jaula.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4 mb-6">
+                <div className="bg-black/50 rounded-lg p-3">
+                  <p className="text-yellow-400 font-bold">⚡ Peleas explosivas</p>
+                </div>
+                <div className="bg-black/50 rounded-lg p-3">
+                  <p className="text-yellow-400 font-bold">⚡ Luchadores locales y estrellas invitadas</p>
+                </div>
+                <div className="bg-black/50 rounded-lg p-3">
+                  <p className="text-yellow-400 font-bold">⚡ La tensión, la adrenalina y el rugido de la grada</p>
+                </div>
+              </div>
+              <p className="text-lg text-white font-semibold">
+                Cuando las luces se enciendan y la puerta de la jaula se cierre… no habrá marcha atrás.
+              </p>
+              <p className="text-xl text-yellow-400 font-bold mt-4">
+                ¿Estás listo para ser testigo de la noche más intensa del año?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Event Info Section */}
       <section className="py-16 bg-gradient-to-r from-red-900/20 to-yellow-500/10">
         <div className="container mx-auto px-4 text-center">
@@ -212,15 +445,17 @@ export default function EventsPage() {
             </div>
             
             <div className="bg-black/50 backdrop-blur-sm rounded-lg p-6 border border-red-500/30">
-              <div className="text-4xl mb-4">🥊</div>
-              <h3 className="text-xl font-bold text-yellow-400 mb-2">Evento</h3>
-              <p className="text-white">Kombat Games Burgos</p>
+              <div className="text-4xl mb-4">📍</div>
+              <h3 className="text-xl font-bold text-yellow-400 mb-2">Lugar</h3>
+              <p className="text-white">Polideportivo Villagonzalo Pedernales</p>
+              <p className="text-gray-300 text-sm">Burgos</p>
             </div>
             
             <div className="bg-black/50 backdrop-blur-sm rounded-lg p-6 border border-red-500/30">
-              <div className="text-4xl mb-4">🏆</div>
+              <div className="text-4xl mb-4">🥋</div>
               <h3 className="text-xl font-bold text-yellow-400 mb-2">Academia</h3>
               <p className="text-white">KaizenAcademy改善 Burgos</p>
+              <p className="text-gray-300 text-sm">2 Luchadores Compitiendo</p>
             </div>
           </div>
 

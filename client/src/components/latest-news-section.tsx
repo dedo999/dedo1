@@ -44,45 +44,85 @@ export default function LatestNewsSection() {
               </div>
             </div>
 
-            {/* Fighters Showcase */}
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              
-              {/* Álvar Romero */}
-              <div className="bg-black/50 rounded-xl p-6 border border-yellow-500/30 hover:border-yellow-400/50 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src={fighterImage1} 
-                    alt="Álvar Romero - Kaizen Burgos"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-yellow-400"
-                  />
-                  <div>
-                    <h4 className="text-xl font-bold text-yellow-400">ÁLVAR ROMERO</h4>
-                    <p className="text-red-400 font-semibold">🥋 Kaizen Academy</p>
-                    <p className="text-gray-300">vs Icaro Bruno Sousa</p>
+            {/* Main Event Highlights */}
+            <div className="mb-8">
+              <div className="bg-gradient-to-r from-yellow-600/30 to-red-600/30 rounded-xl p-4 mb-6 border border-yellow-500/50">
+                <h4 className="text-center text-xl font-bold text-yellow-400 mb-2">🏆 PELEAS PRINCIPALES</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                  <div className="bg-black/40 rounded-lg p-3">
+                    <p className="text-white font-bold">LUCAS SIMIÃO vs RATZA CIPRIAN</p>
+                    <p className="text-yellow-400 text-sm">Light Heavyweight Title</p>
                   </div>
-                </div>
-                <div className="bg-gradient-to-r from-red-600/20 to-yellow-500/10 rounded-lg p-3">
-                  <p className="text-white font-semibold">Welterweight MMA Bout</p>
+                  <div className="bg-black/40 rounded-lg p-3">
+                    <p className="text-white font-bold">MIGUEL Á. LLANOS vs MIHAI DOGARU</p>
+                    <p className="text-yellow-400 text-sm">Welterweight Title</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Álex Calvo */}
-              <div className="bg-black/50 rounded-xl p-6 border border-yellow-500/30 hover:border-yellow-400/50 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src={fighterImage2} 
-                    alt="Álex Calvo - Kaizen Burgos"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-yellow-400"
-                  />
-                  <div>
-                    <h4 className="text-xl font-bold text-yellow-400">ÁLEX CALVO</h4>
-                    <p className="text-red-400 font-semibold">🥋 Kaizen Academy</p>
-                    <p className="text-gray-300">vs Riqui Andrés Santana</p>
+              {/* Kaizen Fighters Showcase */}
+              <div className="bg-gradient-to-r from-red-600/20 to-black/50 rounded-xl p-4 border border-red-500/50">
+                <h4 className="text-center text-xl font-bold text-red-400 mb-4">🥋 LUCHADORES KAIZEN ACADEMY</h4>
+                <div className="grid md:grid-cols-2 gap-6">
+                  
+                  {/* Álvar Romero */}
+                  <div className="bg-black/50 rounded-xl p-6 border border-yellow-500/30 hover:border-yellow-400/50 transition-all duration-300">
+                    <div className="flex items-center gap-4 mb-4">
+                      <img 
+                        src={fighterImage1} 
+                        alt="Álvar Romero - Kaizen Burgos"
+                        className="w-20 h-20 rounded-full object-cover border-2 border-yellow-400"
+                      />
+                      <div>
+                        <h5 className="text-xl font-bold text-yellow-400">ÁLVAR ROMERO</h5>
+                        <p className="text-red-400 font-semibold">🥋 Kaizen Academy</p>
+                        <p className="text-gray-300">vs Icaro Bruno Sousa</p>
+                      </div>
+                    </div>
+                    <div className="bg-gradient-to-r from-red-600/20 to-yellow-500/10 rounded-lg p-3">
+                      <p className="text-white font-semibold">Welterweight MMA Bout</p>
+                    </div>
+                  </div>
+
+                  {/* Álex Calvo */}
+                  <div className="bg-black/50 rounded-xl p-6 border border-yellow-500/30 hover:border-yellow-400/50 transition-all duration-300">
+                    <div className="flex items-center gap-4 mb-4">
+                      <img 
+                        src={fighterImage2} 
+                        alt="Álex Calvo - Kaizen Burgos"
+                        className="w-20 h-20 rounded-full object-cover border-2 border-yellow-400"
+                      />
+                      <div>
+                        <h5 className="text-xl font-bold text-yellow-400">ÁLEX CALVO</h5>
+                        <p className="text-red-400 font-semibold">🥋 Kaizen Academy</p>
+                        <p className="text-gray-300">vs Riqui Andrés Santana</p>
+                      </div>
+                    </div>
+                    <div className="bg-gradient-to-r from-red-600/20 to-yellow-500/10 rounded-lg p-3">
+                      <p className="text-white font-semibold">Catchweight MMA - 75KG</p>
+                    </div>
                   </div>
                 </div>
-                <div className="bg-gradient-to-r from-red-600/20 to-yellow-500/10 rounded-lg p-3">
-                  <p className="text-white font-semibold">Catchweight MMA - 75KG</p>
-                </div>
+              </div>
+            </div>
+
+            {/* Event Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div className="bg-black/50 rounded-lg p-4 text-center border border-red-500/30">
+                <div className="text-2xl font-bold text-yellow-400">12+</div>
+                <div className="text-sm text-gray-300">Peleas MMA</div>
+              </div>
+              <div className="bg-black/50 rounded-lg p-4 text-center border border-red-500/30">
+                <div className="text-2xl font-bold text-yellow-400">2</div>
+                <div className="text-sm text-gray-300">Títulos en Juego</div>
+              </div>
+              <div className="bg-black/50 rounded-lg p-4 text-center border border-red-500/30">
+                <div className="text-2xl font-bold text-yellow-400">24+</div>
+                <div className="text-sm text-gray-300">Luchadores</div>
+              </div>
+              <div className="bg-black/50 rounded-lg p-4 text-center border border-red-500/30">
+                <div className="text-2xl font-bold text-yellow-400">2</div>
+                <div className="text-sm text-gray-300">Kaizen Fighters</div>
               </div>
             </div>
 
