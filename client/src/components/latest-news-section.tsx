@@ -165,7 +165,6 @@ BREAKING NEWS
         <div className="text-center mt-8">
           <div className="inline-flex items-center bg-gradient-to-r from-yellow-500/20 to-red-600/20 backdrop-blur-sm rounded-full px-6 py-3 border border-yellow-500/30">
             <span className="text-yellow-400 font-bold">
-              Train with the methods that take our athletes to professional success
             </span>
           </div>
         </div>
