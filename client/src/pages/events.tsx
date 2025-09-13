@@ -136,6 +136,16 @@ export default function EventsPage() {
                   <span className="text-gray-300">Modalidad:</span>
                   <span className="text-red-400 font-semibold">MMA</span>
                 </div>
+                <button
+                  onClick={() => {
+                    const message = encodeURIComponent(`¡Hola! Quiero apoyar a Álvar Romero de Kaizen Academy en Kombat Games Burgos. ¿Cómo puedo conseguir entradas para el evento del 20 de septiembre?`);
+                    window.open(`https://wa.me/34662323282?text=${message}`, '_blank');
+                  }}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors font-medium mt-4"
+                  data-testid="button-support-alvar"
+                >
+                  💪 Apoyar a Álvar - Comprar Entrada
+                </button>
               </div>
             </div>
 
@@ -171,6 +181,16 @@ export default function EventsPage() {
                   <span className="text-gray-300">Modalidad:</span>
                   <span className="text-red-400 font-semibold">MMA</span>
                 </div>
+                <button
+                  onClick={() => {
+                    const message = encodeURIComponent(`¡Hola! Quiero apoyar a Álex Calvo de Kaizen Academy en Kombat Games Burgos. ¿Cómo puedo conseguir entradas para el evento del 20 de septiembre?`);
+                    window.open(`https://wa.me/34662323282?text=${message}`, '_blank');
+                  }}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors font-medium mt-4"
+                  data-testid="button-support-alex"
+                >
+                  💪 Apoyar a Álex - Comprar Entrada
+                </button>
               </div>
             </div>
           </div>
@@ -215,6 +235,16 @@ export default function EventsPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => {
+                  const message = encodeURIComponent(`¡Hola! Me interesa comprar entradas para ver a Álvar Romero y Álex Calvo de Kaizen Academy en Kombat Games Burgos el 20 de septiembre. ¿Podrían ayudarme con la información de tickets?`);
+                  window.open(`https://wa.me/34662323282?text=${message}`, '_blank');
+                }}
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-colors flex items-center justify-center gap-2"
+                data-testid="button-buy-tickets-whatsapp"
+              >
+                🎟️ Comprar Entradas por WhatsApp
+              </button>
               <Link 
                 href="/#contact"
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-bold transition-colors"
