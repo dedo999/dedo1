@@ -36,10 +36,10 @@ BREAKING NEWS
               </h3>
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg">
                 <div className="bg-red-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-red-500/30">
-                  <strong className="text-yellow-400">Saturday, September 20th</strong>
+                  <strong className="text-yellow-400">Sábado, 20 de Septiembre</strong>
                 </div>
                 <div className="bg-red-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-red-500/30">
-                  <strong className="text-yellow-400">First professional MMA event in Burgos</strong>
+                  <strong className="text-yellow-400">Primer evento profesional de MMA en Burgos</strong>
                 </div>
               </div>
             </div>
