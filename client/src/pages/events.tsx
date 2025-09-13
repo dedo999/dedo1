@@ -19,7 +19,7 @@ export default function EventsPage() {
     // Update page meta tags for SEO
     document.title = "Kombat Games Burgos - Fight Card | 20 Sep 2025 | Kaizen Academy";
     
-    const description = "Professional MMA event featuring Álvar Romero and Álex Calvo from Kaizen Academy Burgos competing on September 20, 2025 at Polideportivo Villagonzalo Pedernales.";
+    const description = "Primer evento profesional de MMA en Burgos con Álvar Romero y Álex Calvo de Kaizen Academy compitiendo el 20 de Septiembre 2025 en Polideportivo Villagonzalo Pedernales.";
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -95,9 +95,9 @@ export default function EventsPage() {
             </div>
             <div className="bg-red-600/30 backdrop-blur-sm rounded-lg p-3 border border-red-500/50">
               <p className="text-sm text-white">
-                <strong>Date:</strong> September 20, 2025<br />
-                <strong>Venue:</strong> Polideportivo Villagonzalo, Burgos<br />
-                <strong>Kaizen Fighters:</strong> Álvar Romero & Álex Calvo
+                <strong>Fecha:</strong> 20 de Septiembre, 2025<br />
+                <strong>Lugar:</strong> Polideportivo Villagonzalo, Burgos<br />
+                <strong>Luchadores Kaizen:</strong> Álvar Romero & Álex Calvo
               </p>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function EventsPage() {
       <section className="py-6">
         <div className="container mx-auto px-3">
           <h2 className="text-xl md:text-2xl font-bold text-center text-white mb-6">
-            KAIZEN ACADEMY FIGHTERS
+            LUCHADORES KAIZEN ACADEMY
           </h2>
           
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -139,7 +139,7 @@ export default function EventsPage() {
                 className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors font-medium text-sm"
                 data-testid="button-support-alvar"
               >
-                Support Alvar - Buy Tickets
+                Apoyar Álvar - Comprar Entradas
               </button>
             </div>
 
@@ -170,7 +170,7 @@ export default function EventsPage() {
                 className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors font-medium text-sm"
                 data-testid="button-support-alex"
               >
-                Contact Alex - Buy Tickets
+                Apoyar Álex - Comprar Entradas
               </button>
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function EventsPage() {
           {/* Main Card - Title Fights */}
           <div className="mb-8">
             <div className="text-center mb-6">
-              <h3 className="text-lg font-bold text-white mb-2">MAIN CARD</h3>
+              <h3 className="text-lg font-bold text-white mb-2">CARTELERA PRINCIPAL</h3>
               <p className="text-yellow-400 uppercase tracking-wide text-xs">Championship Bouts</p>
             </div>
             
@@ -238,7 +238,7 @@ export default function EventsPage() {
           {/* Featured Bouts - Kaizen Academy */}
           <div className="mb-8">
             <div className="text-center mb-6">
-              <h3 className="text-lg font-bold text-white mb-2">FEATURED BOUTS</h3>
+              <h3 className="text-lg font-bold text-white mb-2">PELEAS DESTACADAS</h3>
               <p className="text-red-400 uppercase tracking-wide text-xs">Kaizen Academy Fighters</p>
             </div>
             
@@ -288,7 +288,7 @@ export default function EventsPage() {
           {/* Preliminary Card */}
           <div className="mb-8">
             <div className="text-center mb-6">
-              <h3 className="text-lg font-bold text-white mb-2">PRELIMINARY CARD</h3>
+              <h3 className="text-lg font-bold text-white mb-2">CARTELERA PRELIMINAR</h3>
               <p className="text-gray-400 uppercase tracking-wide text-xs">Undercard Bouts</p>
             </div>
             
