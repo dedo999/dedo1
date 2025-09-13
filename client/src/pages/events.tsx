@@ -1,14 +1,25 @@
 import { Link } from "wouter";
 import { useEffect } from "react";
-import fighterImage1 from "@assets/ScreenShot Tool -20250913190644_1757783437418.png";
-import fighterImage2 from "@assets/ScreenShot Tool -20250913190620_1757783437423.png";
+
+// Fighter promotional images
+import alvarRomeroFight from "@assets/ScreenShot Tool -20250913190644_1757785030165.png";
+import alexCalvoFight from "@assets/ScreenShot Tool -20250913190620_1757785030166.png";
+import lucasSimiaoFight from "@assets/ScreenShot Tool -20250913191214_1757785030165.png";
+import miguelLlanosFight from "@assets/ScreenShot Tool -20250913193459_1757785030161.png";
+import ismailaDieyeFight from "@assets/ScreenShot Tool -20250913193637_1757785030159.png";
+import domingoMandinganuFight from "@assets/ScreenShot Tool -20250913193517_1757785030161.png";
+import tiagoVianaFight from "@assets/ScreenShot Tool -20250913193427_1757785030162.png";
+import ismaelRuizFight from "@assets/ScreenShot Tool -20250913193441_1757785030162.png";
+import arturoColmenarejFight from "@assets/ScreenShot Tool -20250913193412_1757785030162.png";
+import leonardoAzevedoFight from "@assets/ScreenShot Tool -20250913193355_1757785030163.png";
+import abdelbaridLoucifFight from "@assets/ScreenShot Tool -20250913193338_1757785030163.png";
 
 export default function EventsPage() {
   useEffect(() => {
     // Update page meta tags for SEO
-    document.title = "Kombat Games Burgos 2025 | Luchadores Kaizen Academy | Evento MMA 20 Septiembre";
+    document.title = "Kombat Games Burgos - Fight Card | 20 Sep 2025 | Kaizen Academy";
     
-    const description = "Álvar Romero y Álex Calvo de KaizenAcademy改善 Burgos compiten en Kombat Games Burgos el 20 de Septiembre. Conoce a nuestros luchadores profesionales de MMA.";
+    const description = "Professional MMA event featuring Álvar Romero and Álex Calvo from Kaizen Academy Burgos competing on September 20, 2025 at Polideportivo Villagonzalo Pedernales.";
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -21,7 +32,7 @@ export default function EventsPage() {
     // Add Open Graph tags
     const ogTitle = document.querySelector('meta[property="og:title"]') || document.createElement('meta');
     ogTitle.setAttribute('property', 'og:title');
-    ogTitle.setAttribute('content', 'Kombat Games Burgos 2025 | Luchadores Kaizen Academy MMA');
+    ogTitle.setAttribute('content', 'Kombat Games Burgos - Fight Card | 20 Sep 2025');
     if (!document.querySelector('meta[property="og:title"]')) {
       document.head.appendChild(ogTitle);
     }
@@ -80,16 +91,17 @@ export default function EventsPage() {
               KOMBAT GAMES BURGOS
             </h1>
             <div className="text-2xl md:text-3xl text-yellow-400 font-bold mb-6">
-              20 SEPTIEMBRE 2025
+              SÁBADO, 20 SEPTIEMBRE 2025
             </div>
             <p className="text-xl text-gray-300 mb-8">
-              ¡Nuestros luchadores de KaizenAcademy改善 Burgos listos para el combate!
+              Professional MMA event featuring fighters from KaizenAcademy改善 Burgos
             </p>
             <div className="bg-red-600/30 backdrop-blur-sm rounded-lg p-6 border border-red-500/50">
               <p className="text-lg text-white">
-                📍 <strong>Evento:</strong> Kombat Games Burgos 2025<br />
-                📅 <strong>Fecha:</strong> Viernes 20 de Septiembre<br />
-                🥋 <strong>Academia:</strong> 2 luchadores de Kaizen Burgos compitiendo
+                <strong>Event:</strong> Kombat Games Burgos 2025<br />
+                <strong>Date:</strong> Saturday, September 20th<br />
+                <strong>Venue:</strong> Polideportivo Villagonzalo Pedernales, Burgos<br />
+                <strong>Academy:</strong> 2 fighters from Kaizen Burgos competing
               </p>
             </div>
           </div>
@@ -108,7 +120,7 @@ export default function EventsPage() {
             <div className="bg-gradient-to-br from-red-900/40 to-black/60 rounded-xl p-6 border border-red-500/30 hover:border-red-400/50 transition-all duration-300">
               <div className="text-center mb-6">
                 <img 
-                  src={fighterImage1} 
+                  src={alvarRomeroFight} 
                   alt="Álvar Romero vs Icaro Bruno Sousa - Kombat Games Burgos" 
                   className="w-full rounded-lg shadow-2xl mb-4"
                   data-testid="image-fighter-alvar"
@@ -153,7 +165,7 @@ export default function EventsPage() {
             <div className="bg-gradient-to-br from-red-900/40 to-black/60 rounded-xl p-6 border border-red-500/30 hover:border-red-400/50 transition-all duration-300">
               <div className="text-center mb-6">
                 <img 
-                  src={fighterImage2} 
+                  src={alexCalvoFight} 
                   alt="Álex Calvo vs Riqui Andrés Santana - Kombat Games Burgos" 
                   className="w-full rounded-lg shadow-2xl mb-4"
                   data-testid="image-fighter-alex"
