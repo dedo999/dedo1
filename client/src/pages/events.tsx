@@ -71,7 +71,7 @@ export default function EventsPage() {
       <nav className="bg-black/90 backdrop-blur-sm border-b border-red-500/30">
         <div className="container mx-auto px-3 py-2 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <img src="/kaizen_logo_transparent.png" alt="Kaizen Logo" className="h-8" />
+            <img src="/kaizen-logo-transparent.png" alt="Kaizen Logo" className="h-8" />
             <span className="text-white font-bold text-lg">KaizenAcademy改善</span>
           </Link>
           <Link 
