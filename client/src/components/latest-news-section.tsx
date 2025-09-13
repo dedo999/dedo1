@@ -12,7 +12,7 @@ export default function LatestNewsSection() {
         {/* Breaking News Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center bg-red-600 text-white px-6 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
-            🔴 EN VIVO · ÚLTIMAS NOTICIAS
+BREAKING NEWS
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             ¡HISTORIA EN BURGOS!
@@ -36,10 +36,10 @@ export default function LatestNewsSection() {
               </h3>
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg">
                 <div className="bg-red-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-red-500/30">
-                  📅 <strong className="text-yellow-400">Viernes 20 Septiembre</strong>
+                  <strong className="text-yellow-400">Saturday, September 20th</strong>
                 </div>
                 <div className="bg-red-600/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-red-500/30">
-                  🥊 <strong className="text-yellow-400">Primer evento MMA en Burgos</strong>
+                  <strong className="text-yellow-400">First professional MMA event in Burgos</strong>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function LatestNewsSection() {
             {/* Main Event Highlights */}
             <div className="mb-8">
               <div className="bg-gradient-to-r from-yellow-600/30 to-red-600/30 rounded-xl p-4 mb-6 border border-yellow-500/50">
-                <h4 className="text-center text-xl font-bold text-yellow-400 mb-2">🏆 PELEAS PRINCIPALES</h4>
+                <h4 className="text-center text-xl font-bold text-yellow-400 mb-2">MAIN CARD</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
                   <div className="bg-black/40 rounded-lg p-3">
                     <p className="text-white font-bold">LUCAS SIMIÃO vs RATZA CIPRIAN</p>
@@ -62,7 +62,7 @@ export default function LatestNewsSection() {
 
               {/* Kaizen Fighters Showcase */}
               <div className="bg-gradient-to-r from-red-600/20 to-black/50 rounded-xl p-4 border border-red-500/50">
-                <h4 className="text-center text-xl font-bold text-red-400 mb-4">🥋 LUCHADORES KAIZEN ACADEMY</h4>
+                <h4 className="text-center text-xl font-bold text-red-400 mb-4">KAIZEN ACADEMY FIGHTERS</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   
                   {/* Álvar Romero */}
@@ -75,7 +75,7 @@ export default function LatestNewsSection() {
                       />
                       <div>
                         <h5 className="text-xl font-bold text-yellow-400">ÁLVAR ROMERO</h5>
-                        <p className="text-red-400 font-semibold">🥋 Kaizen Academy</p>
+                        <p className="text-red-400 font-semibold">Kaizen Academy</p>
                         <p className="text-gray-300">vs Icaro Bruno Sousa</p>
                       </div>
                     </div>
@@ -94,7 +94,7 @@ export default function LatestNewsSection() {
                       />
                       <div>
                         <h5 className="text-xl font-bold text-yellow-400">ÁLEX CALVO</h5>
-                        <p className="text-red-400 font-semibold">🥋 Kaizen Academy</p>
+                        <p className="text-red-400 font-semibold">Kaizen Academy</p>
                         <p className="text-gray-300">vs Riqui Andrés Santana</p>
                       </div>
                     </div>
@@ -144,7 +144,7 @@ export default function LatestNewsSection() {
                   className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                   data-testid="button-ver-evento-completo"
                 >
-                  🎟️ Ver Evento Completo
+                  View Full Event
                 </Link>
                 <button
                   onClick={() => {
@@ -154,7 +154,7 @@ export default function LatestNewsSection() {
                   className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                   data-testid="button-info-entradas"
                 >
-                  💬 Info & Entradas
+                  Tickets & Info
                 </button>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function LatestNewsSection() {
         <div className="text-center mt-8">
           <div className="inline-flex items-center bg-gradient-to-r from-yellow-500/20 to-red-600/20 backdrop-blur-sm rounded-full px-6 py-3 border border-yellow-500/30">
             <span className="text-yellow-400 font-bold">
-              ⭐ Entrena con los métodos que llevan a nuestros atletas al éxito profesional
+              Train with the methods that take our athletes to professional success
             </span>
           </div>
         </div>

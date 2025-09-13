@@ -486,23 +486,23 @@ export default function EventsPage() {
           {/* Promotional Text */}
           <div className="text-center">
             <div className="bg-gradient-to-r from-red-600/30 to-yellow-500/20 backdrop-blur-sm rounded-xl p-6 border border-red-500/50 max-w-4xl mx-auto">
-              <h4 className="text-2xl font-bold text-yellow-400 mb-4">🔥 LA ESPERA HA TERMINADO 🔥</h4>
+              <h4 className="text-2xl font-bold text-yellow-400 mb-4">THE WAIT IS OVER</h4>
               <p className="text-lg text-white mb-4">
                 Este 20 de septiembre, el Polideportivo de Villagonzalo Pedernales (Burgos) será el epicentro de la batalla.
               </p>
-              <p className="text-xl font-bold text-red-400 mb-4">Llega KOMBAT GAMES BURGOS 🥊💥</p>
+              <p className="text-xl font-bold text-red-400 mb-4">Llega KOMBAT GAMES BURGOS </p>
               <p className="text-lg text-gray-200 mb-4">
                 Un evento único donde solo los guerreros más valientes se atreven a entrar en la jaula.
               </p>
               <div className="grid md:grid-cols-3 gap-4 mb-6">
                 <div className="bg-black/50 rounded-lg p-3">
-                  <p className="text-yellow-400 font-bold">⚡ Peleas explosivas</p>
+                  <p className="text-yellow-400 font-bold">Explosive Fights</p>
                 </div>
                 <div className="bg-black/50 rounded-lg p-3">
-                  <p className="text-yellow-400 font-bold">⚡ Luchadores locales y estrellas invitadas</p>
+                  <p className="text-yellow-400 font-bold">Local Fighters and International Stars</p>
                 </div>
                 <div className="bg-black/50 rounded-lg p-3">
-                  <p className="text-yellow-400 font-bold">⚡ La tensión, la adrenalina y el rugido de la grada</p>
+                  <p className="text-yellow-400 font-bold">Tension, Adrenaline, and the Roar of the Crowd</p>
                 </div>
               </div>
               <p className="text-lg text-white font-semibold">
@@ -525,20 +525,20 @@ export default function EventsPage() {
           
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
             <div className="bg-black/50 backdrop-blur-sm rounded-lg p-6 border border-red-500/30">
-              <div className="text-4xl mb-4">📅</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-xl font-bold text-yellow-400 mb-2">Fecha</h3>
               <p className="text-white">Viernes 20 de Septiembre 2025</p>
             </div>
             
             <div className="bg-black/50 backdrop-blur-sm rounded-lg p-6 border border-red-500/30">
-              <div className="text-4xl mb-4">📍</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-xl font-bold text-yellow-400 mb-2">Lugar</h3>
               <p className="text-white">Polideportivo Villagonzalo Pedernales</p>
               <p className="text-gray-300 text-sm">Burgos</p>
             </div>
             
             <div className="bg-black/50 backdrop-blur-sm rounded-lg p-6 border border-red-500/30">
-              <div className="text-4xl mb-4">🥋</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-xl font-bold text-yellow-400 mb-2">Academia</h3>
               <p className="text-white">KaizenAcademy改善 Burgos</p>
               <p className="text-gray-300 text-sm">2 Luchadores Compitiendo</p>
@@ -564,7 +564,7 @@ export default function EventsPage() {
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition-colors flex items-center justify-center gap-2"
                 data-testid="button-buy-tickets-whatsapp"
               >
-                🎟️ Comprar Entradas por WhatsApp
+                Buy Tickets via WhatsApp
               </button>
               <Link 
                 href="/#contact"
