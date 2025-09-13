@@ -31,6 +31,7 @@ import DemoAccess from "@/pages/demo-access";
 import AppSimple from "@/pages/app-simple";
 import DownloadApp from "@/pages/download-app";
 import NotFound from "@/pages/not-found";
+import EventsPage from "@/pages/events";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -58,6 +59,8 @@ function Router() {
       <Route path="/bjj-kids" component={BJJKids} />
       <Route path="/jiu-jitsu-kids" component={BJJKids} />
       <Route path="/pablo" component={Pablo} />
+      <Route path="/eventos" component={EventsPage} />
+      <Route path="/kombat-games-burgos" component={EventsPage} />
 
       <Route path="/" component={Home} />
       <Route path="/app" component={isLoading || !isAuthenticated ? Landing : Dashboard} />
