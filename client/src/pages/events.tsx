@@ -183,13 +183,13 @@ export default function EventsPage() {
                 </div>
                 <button
                   onClick={() => {
-                    const message = encodeURIComponent(`¡Hola! Quiero apoyar a Álex Calvo de Kaizen Academy en Kombat Games Burgos. ¿Cómo puedo conseguir entradas para el evento del 20 de septiembre?`);
-                    window.open(`https://wa.me/34662323282?text=${message}`, '_blank');
+                    const message = encodeURIComponent(`¡Hola Álex! Quiero apoyarte en Kombat Games Burgos el 20 de septiembre. ¿Cómo puedo conseguir entradas para ir a verte pelear?`);
+                    window.open(`https://wa.me/34657195161?text=${message}`, '_blank');
                   }}
                   className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors font-medium mt-4"
                   data-testid="button-support-alex"
                 >
-                  💪 Apoyar a Álex - Comprar Entrada
+                  💪 Contactar Álex - Comprar Entrada
                 </button>
               </div>
             </div>
