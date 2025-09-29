@@ -10,12 +10,27 @@ const insertContactSchema = z.object({
 });
 
 // Simple in-memory storage for demo (you'll need to connect to your database)
+// Helper function to parse request body
+async function parseBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+    req.on('end', () => {
+      try {
+        resolve(JSON.parse(body));
+      } catch (error) {
+        reject(error);
+      }
+    });
+  });
+}
+
 export default async function handler(req, res) {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // Set CORS headers for same-origin requests
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     res.status(200).end();
@@ -27,8 +42,11 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Parse request body
+    const body = await parseBody(req);
+    
     // Validate the request body
-    const contactData = insertContactSchema.parse(req.body);
+    const contactData = insertContactSchema.parse(body);
     
     // Here you would normally save to your database
     // For now, we'll just log and return success
