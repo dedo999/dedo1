@@ -92,13 +92,6 @@ export default function MobileNavbar() {
                 {item.label}
               </button>
             ))}
-            <Link 
-              href="/eventos"
-              className="text-gray-300 hover:text-kaizen-red transition-colors duration-200 font-medium bg-gradient-to-r from-red-600/20 to-yellow-500/20 px-3 py-1 rounded-lg border border-red-500/30"
-              data-testid="nav-link-eventos"
-            >
-              🥊 Eventos
-            </Link>
             <button
               onClick={openWhatsApp}
               className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium"
@@ -120,14 +113,6 @@ export default function MobileNavbar() {
                 {item.label}
               </button>
             ))}
-            <Link 
-              href="/eventos"
-              onClick={() => setIsOpen(false)}
-              className="block w-full text-left px-4 py-3 text-gray-300 hover:text-kaizen-red hover:bg-kaizen-dark/50 transition-colors duration-200 font-medium touch-manipulation bg-gradient-to-r from-red-600/20 to-yellow-500/20 border-l-4 border-red-500"
-              data-testid="mobile-nav-link-eventos"
-            >
-              🥊 Eventos MMA
-            </Link>
             <div className="px-4 py-3 border-t border-gray-700 mt-2 flex space-x-4">
               <button
                 onClick={openWhatsApp}
