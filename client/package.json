@@ -1,0 +1,11 @@
+{
+  "name": "kaizen-burgos-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "cd .. && npm run build:client",
+    "dev": "cd .. && npm run dev"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
